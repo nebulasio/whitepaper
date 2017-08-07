@@ -19,38 +19,7 @@
 \newcommand{\fs}{\CJKfamily{fang}}	%仿宋
 \newcommand{\li}{\CJKfamily{li}}		%隶书
 \newcommand{\you}{\CJKfamily{you}}	%幼圆
-
-% math and cite
-\newtheorem{thm}{Theorem}
-\newtheorem{defn}{Definition}
-\newcommand{\refsec}[1]{\S\ref{#1}}
-\usepackage{soul}
-\usepackage{amsmath}
-\usepackage{url}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{soul}
-\usepackage{fullpage}
-\usepackage[noend]{algorithmic}
-\usepackage{subfigure}
-\usepackage[american]{babel}
-%\usepackage{csquotes}
-\usepackage{biblatex}
-\renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
-  \ifboolexpr{
-    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
-    and
-    test \ifmorenames
-  }
-    {\ifnumgreater{\value{liststop}}{1}
-       {\finalandcomma}
-       {}%
-     \andothersdelim\bibstring[\emph]{andothers}}
-    {}}
-    \addbibresource{nr.bib}
-    
-    
+  
 
 \input{common.tex}
 \begin{document}
