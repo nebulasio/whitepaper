@@ -1,0 +1,2194 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{Anderson2016}{article}{}
+      \name{author}{5}{}{%
+        {{hash=69e1f63b826f8049a109ac5498e43716}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c062bb49df33d6bbcc0cbe4b0fabc8cd}{%
+           family={Holz},
+           familyi={H\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod}}}%
+        {{hash=750261be9e8164ad034c779b5a26a5e6}{%
+           family={Ponomarev},
+           familyi={P\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0ae2c6115458d9e2350e17bd72824c10}{%
+           family={Rimba},
+           familyi={R\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=abc750fbcc7dcb3bfa0e713bc89d28ff}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Ingo},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba830885ddf3e605edebfc21340f77f6}
+      \strng{fullhash}{581cbe4b152e0fcce9ffe5c8658cdf4d}
+      \strng{authornamehash}{ba830885ddf3e605edebfc21340f77f6}
+      \strng{authorfullhash}{581cbe4b152e0fcce9ffe5c8658cdf4d}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Half a decade after Bitcoin became the first widely used cryptocurrency, blockchains are receiving considerable interest from industry and the research community. Modern blockchains feature services such as name registration and smart contracts. Some employ new forms of consensus, such as proof-of-stake instead of proof-of-work. However, these blockchains are so far relatively poorly investigated, despite the fact that they move considerable assets. In this paper, we explore three representative, modern blockchains---Ethereum, Namecoin, and Peercoin. Our focus is on the features that set them apart from the pure currency use case of Bitcoin. We investigate the blockchains' activity in terms of transactions and usage patterns, identifying some curiosities in the process. For Ethereum, we are mostly interested in the smart contract functionality it offers. We also carry out a brief analysis of issues that are introduced by negligent design of smart contracts. In the case of Namecoin, our focus is how the name registration is used and has developed over time. For Peercoin, we are interested in the use of proof-of-stake, as this consensus algorithm is poorly understood yet used to move considerable value. Finally, we relate the above to the fundamental characteristics of the underlying peer-to-peer networks. We present a crawler for Ethereum and give statistics on the network size. For Peercoin and Namecoin, we identify the relatively small size of the networks and the weak bootstrapping process.}
+      \field{eprinttype}{arXiv}
+      \field{title}{{New kids on the block: an analysis of modern blockchains}}
+      \field{year}{2016}
+      \verb{eprint}
+      \verb 1606.06530
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Anderson et al/Unknown/Anderson et al. - 2016 - New kids on the block an analysis of modern blockchains.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1606.06530
+      \endverb
+    \endentry
+    \entry{Baumann2014}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8abb0af9064debe58cfdbb64002f7d81}{%
+           family={Baumann},
+           familyi={B\bibinitperiod},
+           given={Annika},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0b96100b771653a4d227c2ae3739ee40}{%
+           family={Fabian},
+           familyi={F\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=eaeb31d233cfd104fe043a6ccf9b465a}{%
+           family={Lischke},
+           familyi={L\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7761f15560f413f93fa81591ee9d88fa}
+      \strng{fullhash}{7761f15560f413f93fa81591ee9d88fa}
+      \strng{authornamehash}{7761f15560f413f93fa81591ee9d88fa}
+      \strng{authorfullhash}{7761f15560f413f93fa81591ee9d88fa}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This explorative paper focuses on descriptive statistics and network analysis of the Bitcoin transaction graph based on recent data using graph mining algorithms. The analysis is carried out on different aggregations and subgraphs of the network. One important result concerns the relationship of network usage and exchange rate, where a strong connection could be confirmed. Moreover, there are indicators that the Bitcoin system is a "small world" network and follows a scale-free degree distribution. Furthermore, an example of how important network entities could be deanonymized is presented. Our study can serve as a starting point in investigating anonymity and economic relationships in Bitcoin on a new structural level. Copyright {\&}copy; 2014 SCITEPRESS.}
+      \field{isbn}{978-989-758-023-9}
+      \field{issn}{9789897580239 (ISBN)}
+      \field{journaltitle}{WEBIST 2014 - Proceedings of the 10th International Conference on Web Information Systems and Technologies}
+      \field{title}{{Exploring the Bitcoin network}}
+      \field{volume}{1}
+      \field{year}{2014}
+      \field{pages}{369\bibrangedash 374}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.5220/0004937303690374
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Baumann, Fabian, Lischke/Unknown/Baumann, Fabian, Lischke - 2014 - Exploring the Bitcoin Network.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.engineeringvillage.com/blog/document.url?mid=cpx%7B%5C_%7D9ce5505146fd48dcbdM557010178163125%7B%5C&%7Ddatabase=cpx
+      \endverb
+    \endentry
+    \entry{Bech2008}{article}{}
+      \name{author}{2}{}{%
+        {{hash=933ea46f70fcb4ef169d37ad97e01a9b}{%
+           family={Bech},
+           familyi={B\bibinitperiod},
+           given={Morten\bibnamedelima L},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=c8875d828f277dc6baa5bb9982a5ef91}{%
+           family={Atalay},
+           familyi={A\bibinitperiod},
+           given={Enghin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{0960ea8c5515cf78ab8d4fcdb0cde60f}
+      \strng{fullhash}{0960ea8c5515cf78ab8d4fcdb0cde60f}
+      \strng{authornamehash}{0960ea8c5515cf78ab8d4fcdb0cde60f}
+      \strng{authorfullhash}{0960ea8c5515cf78ab8d4fcdb0cde60f}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{986}
+      \field{journaltitle}{Economic Policy Review}
+      \field{number}{2}
+      \field{title}{{The topology of the Federal Funds markets}}
+      \field{volume}{14}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Bech, Atalay/Economic Policy Review/Bech, Atalay - 2008 - The topology of the Federal Funds markets.pdf:pdf
+      \endverb
+      \keyw{Interbankenmarkt,contagion,geldmarkt-USA,liquiditeitsbeheer,netwerk-topologie,systeemrisico}
+    \endentry
+    \entry{Bhat2012}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1fbb2e89883223cb5531b47fb15e7fcd}{%
+           family={Bhat},
+           familyi={B\bibinitperiod},
+           given={Harish\bibnamedelima S},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=209ddd7059da20a8cc7a6509790573e2}{%
+           family={Sims},
+           familyi={S\bibinitperiod},
+           given={Bryan},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7857fdb46e87943b1eedb287661fe757}
+      \strng{fullhash}{7857fdb46e87943b1eedb287661fe757}
+      \strng{authornamehash}{7857fdb46e87943b1eedb287661fe757}
+      \strng{authorfullhash}{7857fdb46e87943b1eedb287661fe757}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PhD dissertation, University of California}
+      \field{title}{{InvestorRank and an Inverse Problem for PageRank}}
+      \field{year}{2012}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Bhat, Sims/PhD dissertation, University of California/Bhat, Sims - 2012 - InvestorRank and an Inverse Problem for PageRank.pdf:pdf
+      \endverb
+    \endentry
+    \entry{bonacich1972factoring}{article}{}
+      \name{author}{1}{}{%
+        {{hash=12121ca52ec8a4201d394b3b282a1502}{%
+           family={Bonacich},
+           familyi={B\bibinitperiod},
+           given={Phillip},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{12121ca52ec8a4201d394b3b282a1502}
+      \strng{fullhash}{12121ca52ec8a4201d394b3b282a1502}
+      \strng{authornamehash}{12121ca52ec8a4201d394b3b282a1502}
+      \strng{authorfullhash}{12121ca52ec8a4201d394b3b282a1502}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Mathematical Sociology}
+      \field{number}{1}
+      \field{title}{Factoring and weighting approaches to status scores and clique identification}
+      \field{volume}{2}
+      \field{year}{1972}
+      \field{pages}{113\bibrangedash 120}
+      \range{pages}{8}
+    \endentry
+    \entry{Borgatti2005}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a7557417941e44d2880ccfee2d35275e}{%
+           family={Borgatti},
+           familyi={B\bibinitperiod},
+           given={Stephen\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7557417941e44d2880ccfee2d35275e}
+      \strng{fullhash}{a7557417941e44d2880ccfee2d35275e}
+      \strng{authornamehash}{a7557417941e44d2880ccfee2d35275e}
+      \strng{authorfullhash}{a7557417941e44d2880ccfee2d35275e}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Centrality measures, or at least popular interpretations of these measures, make implicit assumptions about the manner in which traffic flows through a network. For example, some measures count only geodesic paths, apparently assuming that whatever flows through the network only moves along the shortest possible paths. This paper lays out a typology of network flows based on two dimensions of variation, namely the kinds of trajectories that traffic may follow (geodesics, paths, trails, or walks) and the method of spread (broadcast, serial replication, or transfer). Measures of centrality are then matched to the kinds of flows that they are appropriate for. Simulations are used to examine the relationship between type of flow and the differential importance of nodes with respect to key measurements such as speed of reception of traffic and frequency of receiving traffic. It is shown that the off-the-shelf formulas for centrality measures are fully applicable only for the specific flow processes they are designed for, and that when they are applied to other flow processes they get the "wrong" answer. It is noted that the most commonly used centrality measures are not appropriate for most of the flows we are routinely interested in. A key claim made in this paper is that centrality measures can be regarded as generating expected values for certain kinds of node outcomes (such as speed and frequency of reception) given implicit models of how traffic flows, and that this provides a new and useful way of thinking about centrality. ?? 2004 Elsevier B.V. All rights reserved.}
+      \field{isbn}{0378-8733}
+      \field{issn}{03788733}
+      \field{journaltitle}{Social Networks}
+      \field{number}{1}
+      \field{title}{{Centrality and network flow}}
+      \field{volume}{27}
+      \field{year}{2005}
+      \field{pages}{55\bibrangedash 71}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.socnet.2004.11.008
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Borgatti/Social Networks/Borgatti - 2005 - Centrality and network flow.pdf:pdf
+      \endverb
+      \keyw{Centrality,Network flow,Typology}
+    \endentry
+    \entry{Borgatti2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a7557417941e44d2880ccfee2d35275e}{%
+           family={Borgatti},
+           familyi={B\bibinitperiod},
+           given={Stephen\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=d0fa38dc0d826d8757bef6cce3d5c01a}{%
+           family={Everett},
+           familyi={E\bibinitperiod},
+           given={Martin\bibnamedelima G.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fbc4efc498195c109b7269e32a38cb0f}
+      \strng{fullhash}{fbc4efc498195c109b7269e32a38cb0f}
+      \strng{authornamehash}{fbc4efc498195c109b7269e32a38cb0f}
+      \strng{authorfullhash}{fbc4efc498195c109b7269e32a38cb0f}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The concept of centrality is often invoked in social network analysis, and diverse indices have been proposed to measure it. This paper develops a unified framework for the measurement of centrality. All measures of centrality assess a node's involvement in the walk structure of a network. Measures vary along four key dimensions: type of nodal involvement assessed, type of walk considered, property of walk assessed, and choice of summary measure. If we cross-classify measures by type of nodal involvement (radial versus medial) and property of walk assessed (volume versus length), we obtain a four-fold polychotomization with one cell empty which mirrors Freeman's 1979 categorization. At a more substantive level, measures of centrality summarize a node's involvement in or contribution to the cohesiveness of the network. Radial measures in particular are reductions of pair-wise proximities/cohesion to attributes of nodes or actors. The usefulness and interpretability of radial measures depend on the fit of the cohesion matrix to the one-dimensional model. In network terms, a network that is fit by a one-dimensional model has a core-periphery structure in which all nodes revolve more or less closely around a single core. This in turn implies that the network does not contain distinct cohesive subgroups. Thus, centrality is shown to be intimately connected with the cohesive subgroup structure of a network. ?? 2005 Elsevier B.V. All rights reserved.}
+      \field{isbn}{0378-8733}
+      \field{issn}{03788733}
+      \field{journaltitle}{Social Networks}
+      \field{number}{4}
+      \field{title}{{A Graph-theoretic perspective on centrality}}
+      \field{volume}{28}
+      \field{year}{2006}
+      \field{pages}{466\bibrangedash 484}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/j.socnet.2005.11.005
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Borgatti, Everett/Social Networks/Borgatti, Everett - 2006 - A Graph-theoretic perspective on centrality.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Boss2004a}{article}{}
+      \name{author}{3}{}{%
+        {{hash=3e53514b48fbd99dfe46f217358de69b}{%
+           family={Boss},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=297b682ac065db3048cb4c19bbb52034}{%
+           family={Summer},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4fa19d0ca5a4eb853a39db621ae6d005}{%
+           family={Thurner},
+           familyi={T\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{61ca51af39a84e63439a36a8db56aa5b}
+      \strng{fullhash}{61ca51af39a84e63439a36a8db56aa5b}
+      \strng{authornamehash}{61ca51af39a84e63439a36a8db56aa5b}
+      \strng{authorfullhash}{61ca51af39a84e63439a36a8db56aa5b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Starting from an empirical analysis of the network structure of the Austrian inter-bank market, we study the flow of funds through the banking network following exogenous shocks to the system. These shocks are implemented by stochastic changes in variables like interest rates, exchange rates, etc. We demonstrate that the system is relatively stable in the sense that defaults of individual banks are unlikely to spread over the entire network. We study the contagion impact of all individual banks, meaning the number of banks which are driven into insolvency as a result of a single bank's default. We show that the vertex betweeness of individual banks is linearly related to their contagion impact.}
+      \field{eprintclass}{arXiv:cond-mat}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{978-3-540-22116-6}
+      \field{issn}{03029743}
+      \field{journaltitle}{Lecture Notes in Computer Science 3038}
+      \field{title}{{Contagion Flow Through Banking Networks}}
+      \field{year}{2004}
+      \field{pages}{1070\bibrangedash 1077}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1016/j.jfi.2008.06.003
+      \endverb
+      \verb{eprint}
+      \verb 0403167v1
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Boss, Summer, Thurner/Lecture Notes in Computer Science 3038/Boss, Summer, Thurner - 2004 - Contagion Flow Through Banking Networks.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Boss2004}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3e53514b48fbd99dfe46f217358de69b}{%
+           family={Boss},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=33830d471d03db9119b67f73f00e0098}{%
+           family={Elsinger},
+           familyi={E\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+        {{hash=297b682ac065db3048cb4c19bbb52034}{%
+           family={Summer},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4fa19d0ca5a4eb853a39db621ae6d005}{%
+           family={Thurner},
+           familyi={T\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2d6f6a751266984812cccb0c593ab80}
+      \strng{fullhash}{a1eb5a7f3eccdecf9db98dcfd15b0b60}
+      \strng{authornamehash}{e2d6f6a751266984812cccb0c593ab80}
+      \strng{authorfullhash}{a1eb5a7f3eccdecf9db98dcfd15b0b60}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We provide an empirical analysis of the network structure of the Austrian interbank market based on a unique data set of the Oesterreichische Nationalbank (OeNB). We show that the contract size distribution follows a power law over more than 3 decades. By using a novel ''dissimilarity'' measure we find that the interbank network shows a community structure that exactly mirrors the regional and sectoral organization of the actual Austrian banking system. The degree distribution of the interbank network shows two different power law exponents which are one-to-one related to two sub-network structures, differing in the degree of hierarchical organization. The banking network moreover shares typical structural features known in numerous complex real world networks: a low clustering coefficient and a relatively short average shortest path length. These empirical findings are in marked contrast to interbank networks that have been analyzed in the theoretical economic and econo-physics literature.}
+      \field{eprintclass}{cond-mat}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1469-7688}
+      \field{issn}{1469-7688}
+      \field{journaltitle}{Quantitative Finance}
+      \field{number}{6}
+      \field{title}{{The Network Topology of the Interbank Market}}
+      \field{volume}{4}
+      \field{year}{2004}
+      \field{pages}{677\bibrangedash 684}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1080/14697680400020325
+      \endverb
+      \verb{eprint}
+      \verb 0309582
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Boss et al/Quantitative Finance/Boss et al. - 2004 - The Network Topology of the Interbank Market.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/cond-mat/0309582
+      \endverb
+    \endentry
+    \entry{Brin2010}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ade8269d287e9c1531e4a1cbad0b4b82}{%
+           family={Brin},
+           familyi={B\bibinitperiod},
+           given={Sergey},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5ca20489809aaab392f875d6bc785086}{%
+           family={Page},
+           familyi={P\bibinitperiod},
+           given={Lawrence},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{67f006a7ae882b83a187215c4e9bdf2f}
+      \strng{fullhash}{67f006a7ae882b83a187215c4e9bdf2f}
+      \strng{authornamehash}{67f006a7ae882b83a187215c4e9bdf2f}
+      \strng{authorfullhash}{67f006a7ae882b83a187215c4e9bdf2f}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we present Google, a prototype of a large-scale search engine which makes heavy use of the structure present in hypertext. Google is designed to crawl and index the Web efficiently and produce much more satisfying search results than existing systems. The prototype with a full text and hyperlink database of at least 24 million pages is available at http://google.stanford.edu/ To engineer a search engine is a challenging task. Search engines index tens to hundreds of millions of web pages involving a comparable number of distinct terms. They answer tens of millions of queries every day. Despite the importance of large-scale search engines on the web, very little academic research has been done on them. Furthermore, due to rapid advance in technology and web proliferation, creating a web search engine today is very different from 3 years ago. This paper provides an in-depth description of our large-scale web search engine - the first such detailed public description we know of to date. Apart from the problems of scaling traditional search techniques to data of this magnitude, there are new technical challenges involved with using the additional information present in hypertext to produce better search results. This paper addresses this question of how to build a practical large-scale system which can exploit the additional information present in hypertext. Also we look at the problem of how to effectively deal with uncontrolled hypertext collections, where anyone can publish anything they want. ?? 2012 Elsevier B.V. All rights reserved.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{9781424453658}
+      \field{issn}{13891286}
+      \field{journaltitle}{Computer Networks}
+      \field{number}{18}
+      \field{title}{{Reprint of: The anatomy of a large-scale hypertextual web search engine}}
+      \field{volume}{56}
+      \field{year}{2012}
+      \field{pages}{3825\bibrangedash 3833}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.comnet.2012.10.007
+      \endverb
+      \verb{eprint}
+      \verb 1111.6189v1
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Brin, Page/Search/Brin, Page - 2010 - The Anatomy of a Large-Scale Hypertextual Web Search Engine The Anatomy of a Search Engine(2).pdf:pdf
+      \endverb
+      \keyw{Google,Information retrieval,Pagerank,Search engines,World Wide Web}
+    \endentry
+    \entry{chang2017mathsf}{article}{}
+      \name{author}{5}{}{%
+        {{hash=8a1b572a0b24df56111c8cd0d44ebc21}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Lijun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=be6f1b6df7f1ddfafad18806238fa391}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=a9f510e463b86be84d18011b10dc4e40}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ecd90898faf1789923c68bd99736cb2e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wenjie},
+           giveni={W\bibinitperiod}}}%
+        {{hash=791355a01c4282c680ef45780a9ad8a9}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Shiyu},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{1087e87b4fa664a861098c5a757392ac}
+      \strng{fullhash}{0b43740d0678135bf7ec342d9f69955f}
+      \strng{authornamehash}{1087e87b4fa664a861098c5a757392ac}
+      \strng{authorfullhash}{0b43740d0678135bf7ec342d9f69955f}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Knowledge and Data Engineering}
+      \field{number}{2}
+      \field{title}{pSCAN: Fast and Exact Structural Graph Clustering}
+      \field{volume}{29}
+      \field{year}{2017}
+      \field{pages}{387\bibrangedash 401}
+      \range{pages}{15}
+    \endentry
+    \entry{Chang2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5b1c74b78a8dcbea18246930d17cdf25}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Tao\bibnamedelima Hung},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=d6d6095c27a547eed5056f1c6c0abcd2}{%
+           family={Svetinovic},
+           familyi={S\bibinitperiod},
+           given={Davor},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2d8778b39da2ddce3c619518377a277}
+      \strng{fullhash}{e2d8778b39da2ddce3c619518377a277}
+      \strng{authornamehash}{e2d8778b39da2ddce3c619518377a277}
+      \strng{authorfullhash}{e2d8778b39da2ddce3c619518377a277}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Financial transaction networks are some of the largest networks in existence. A relatively new type of financial networks is the digital (crypto) currency network, e.g., Bitcoin. Namecoin is an alternative crypto currency, based on Bitcoin, with additional features such as DNS. Namecoin network has more than 2 million nodes and almost 17 million edges. The analysis of such a crypto currency network can help us model or predict the future growth of the transaction networks. In order to analyze the transaction network graph over time, we analyzed the Namecoin blockchain data in 7 six months intervals. Our findings suggest different user behavior and developing pattern compared to Bitcoin.}
+      \field{isbn}{9781509055272}
+      \field{journaltitle}{Proceedings of the IEEE International Conference on Engineering of Complex Computer Systems, ICECCS}
+      \field{title}{{Data Analysis of Digital Currency Networks: Namecoin Case Study}}
+      \field{year}{2017}
+      \field{pages}{122\bibrangedash 125}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/ICECCS.2016.023
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Chang, Svetinovic/Unknown/Chang, Svetinovic - 2017 - Data Analysis of Digital Currency Networks Namecoin Case Study.pdf:pdf
+      \endverb
+      \keyw{Bitcoin,Data analytics,cryptocurrency}
+    \endentry
+    \entry{Chen2013}{article}{}
+      \name{author}{4}{}{%
+        {{hash=bf4d061fe1d03cc54795ea86fd64f1df}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Duan\bibnamedelima Bing},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=d1d2f58b0394059a37bd243774595c51}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=767fb4e8e5a99206987af76c3ee394d1}{%
+           family={Lü},
+           familyi={L\bibinitperiod},
+           given={Linyuan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=cb43f8d049da79757ef659dd18d8ef7a}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bd7f02782082a5bae62d5c747d4f91c}
+      \strng{fullhash}{c8563ecb696e4ed077c46096d8c160cd}
+      \strng{authornamehash}{9bd7f02782082a5bae62d5c747d4f91c}
+      \strng{authorfullhash}{c8563ecb696e4ed077c46096d8c160cd}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Identifying influential nodes in very large-scale directed networks is a big challenge relevant to disparate applications, such as accelerating information propagation, controlling rumors and diseases, designing search engines, and understanding hierarchical organization of social and biological networks. Known methods range from node centralities, such as degree, closeness and betweenness, to diffusion-based processes, like PageRank and LeaderRank. Some of these methods already take into account the influences of a node's neighbors but do not directly make use of the interactions among it's neighbors. Local clustering is known to have negative impacts on the information spreading. We further show empirically that it also plays a negative role in generating local connections. Inspired by these facts, we propose a local ranking algorithm named ClusterRank, which takes into account not only the number of neighbors and the neighbors' influences, but also the clustering coefficient. Subject to the susceptible-infected-recovered (SIR) spreading model with constant infectivity, experimental results on two directed networks, a social network extracted from delicious.com and a large-scale short-message communication network, demonstrate that the ClusterRank outperforms some benchmark algorithms such as PageRank and LeaderRank. Furthermore, ClusterRank can also be applied to undirected networks where the superiority of ClusterRank is significant compared with degree centrality and k-core decomposition. In addition, ClusterRank, only making use of local information, is much more efficient than global methods: It takes only 191 seconds for a network with about [Formula: see text] nodes, more than 15 times faster than PageRank.}
+      \field{isbn}{1932-6203}
+      \field{issn}{19326203}
+      \field{journaltitle}{PLoS ONE}
+      \field{number}{10}
+      \field{title}{{Identifying influential nodes in large-scale directed networks: The role of clustering}}
+      \field{volume}{8}
+      \field{year}{2013}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0077455
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Chen et al/PLoS ONE/Chen et al. - 2013 - Identifying influential nodes in large-scale directed networks The role of clustering.PDF:PDF
+      \endverb
+    \endentry
+    \entry{chen2007finding}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f8faae13c3bf91ebbb77c1865513fbcd}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+        {{hash=64a3c5da1dd1ba77abca68a22677bcb3}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Huafeng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=a8c7210da7eb159bf93039eb5d2f19a5}{%
+           family={Maslov},
+           familyi={M\bibinitperiod},
+           given={Sergei},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5fba943c2dc226131b5ff559b588fe63}{%
+           family={Redner},
+           familyi={R\bibinitperiod},
+           given={Sidney},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{59032c3de3c974f85a2410ad1a1aed8b}
+      \strng{fullhash}{74cdceb115c7270b638934a6253c0001}
+      \strng{authornamehash}{59032c3de3c974f85a2410ad1a1aed8b}
+      \strng{authorfullhash}{74cdceb115c7270b638934a6253c0001}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Informetrics}
+      \field{number}{1}
+      \field{title}{Finding scientific gems with Google’s PageRank algorithm}
+      \field{volume}{1}
+      \field{year}{2007}
+      \field{pages}{8\bibrangedash 15}
+      \range{pages}{8}
+    \endentry
+    \entry{doerr2012rumors}{article}{}
+      \name{author}{3}{}{%
+        {{hash=31e296f14b85dca631fe682b68c6c371}{%
+           family={Doerr},
+           familyi={D\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d441b4a38642c4e23b31e651d669e070}{%
+           family={Fouz},
+           familyi={F\bibinitperiod},
+           given={Mahmoud},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d8710c5484bb5515242aefdef21875b0}{%
+           family={Friedrich},
+           familyi={F\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{fc0802942da568352b628c7fd64de01b}
+      \strng{fullhash}{fc0802942da568352b628c7fd64de01b}
+      \strng{authornamehash}{fc0802942da568352b628c7fd64de01b}
+      \strng{authorfullhash}{fc0802942da568352b628c7fd64de01b}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{6}
+      \field{title}{Why rumors spread so quickly in social networks}
+      \field{volume}{55}
+      \field{year}{2012}
+      \field{pages}{70\bibrangedash 75}
+      \range{pages}{6}
+    \endentry
+    \entry{Fagiolo2009}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a3c219b63c2260bcbb366d2cda562a6b}{%
+           family={Fagiolo},
+           familyi={F\bibinitperiod},
+           given={Giorgio},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{a3c219b63c2260bcbb366d2cda562a6b}
+      \strng{fullhash}{a3c219b63c2260bcbb366d2cda562a6b}
+      \strng{authornamehash}{a3c219b63c2260bcbb366d2cda562a6b}
+      \strng{authorfullhash}{a3c219b63c2260bcbb366d2cda562a6b}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper begins to explore the determinants of the topological properties of the international - trade network (ITN). We fit bilateral-trade flows using a standard gravity equation to build a "residual" ITN where trade-link weights are depurated from geographical distance, size, border effects, trade agreements, and so on. We then compare the topological properties of the original and residual ITNs. We find that the residual ITN displays, unlike the original one, marked signatures of a complex system, and is characterized by a very different topological architecture. Whereas the original ITN is geographically clustered and organized around a few large-sized hubs, the residual ITN displays many small-sized but trade-oriented countries that, independently of their geographical position, either play the role of local hubs or attract large and rich countries in relatively complex trade-interaction patterns.}
+      \field{eprinttype}{arXiv}
+      \field{title}{{The International-Trade Network: Gravity Equations and Topological Properties}}
+      \field{year}{2009}
+      \verb{eprint}
+      \verb 0908.2086
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Fagiolo/Unknown/Fagiolo - 2009 - The International-Trade Network Gravity Equations and Topological Properties.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/0908.2086
+      \endverb
+      \keyw{gravity equation,international trade network,topological properties,weighted network analysis}
+    \endentry
+    \entry{Ferrin2015}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4fb04433f5365050c7f5d167d44606e0}{%
+           family={Ferrin},
+           familyi={F\bibinitperiod},
+           given={Danno},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{4fb04433f5365050c7f5d167d44606e0}
+      \strng{fullhash}{4fb04433f5365050c7f5d167d44606e0}
+      \strng{authornamehash}{4fb04433f5365050c7f5d167d44606e0}
+      \strng{authorfullhash}{4fb04433f5365050c7f5d167d44606e0}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{collection of common transaction patterns found$\backslash$non the bitcoin block chain is described. Real transactions are$\backslash$ngiven as an example along with generic parameters for these$\backslash$npatterns.}
+      \field{journaltitle}{Texas Bitcoin Conference}
+      \field{title}{{A Preliminary Field Guide for Bitcoin Transaction Patterns}}
+      \field{year}{2015}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Ferrin/Unknown/Ferrin - Unknown - A Preliminary Field Guide for Bitcoin Transaction Patterns.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://texasbitcoinconference.com
+      \endverb
+    \endentry
+    \entry{Fleder2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a278e596b201a4eef9b8294bf47999c3}{%
+           family={Fleder},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=092adfbc11dae3c4a7340e420070eeb8}{%
+           family={Kester},
+           familyi={K\bibinitperiod},
+           given={Michael\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=811690b7cfd2f118925bb59c0313cfb5}{%
+           family={Pillai},
+           familyi={P\bibinitperiod},
+           given={Sudeep},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{25e47ae412516921a2dd4b91c29e1b61}
+      \strng{fullhash}{25e47ae412516921a2dd4b91c29e1b61}
+      \strng{authornamehash}{25e47ae412516921a2dd4b91c29e1b61}
+      \strng{authorfullhash}{25e47ae412516921a2dd4b91c29e1b61}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Bitcoins have recently become an increasingly popular cryptocurrency through which users trade electronically and more anonymously than via traditional electronic transfers. Bitcoin's design keeps all transactions in a public ledger. The sender and receiver for each transaction are identified only by cryptographic public-key ids. This leads to a common misconception that it inherently provides anonymous use. While Bitcoin's presumed anonymity offers new avenues for commerce, several recent studies raise user-privacy concerns. We explore the level of anonymity in the Bitcoin system. Our approach is two-fold: (i) We annotate the public transaction graph by linking bitcoin public keys to "real" people - either definitively or statistically. (ii) We run the annotated graph through our graph-analysis framework to find and summarize activity of both known and unknown users.}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{{\ldots} -Transaction-Graph-Analysis. Pdf” {\ldots}}
+      \field{title}{{Bitcoin Transaction Graph Analysis}}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{eprint}
+      \verb 1502.01657
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Fleder, Kester, Pillai/{\ldots} -Transaction-Graph-Analysis. Pdf” {\ldots}/Fleder, Kester, Pillai - 2015 - Bitcoin Transaction Graph Analysis.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1502.0165%7B%5C%%7D5Cnhttp://people.csail.mit.edu/spillai/data/papers/bitcoin-project-paper.pdf%7B%5C%%7D5Cnhttp://arxiv.org/abs/1502.00165%7B%5C%%7D5Cnhttp://arxiv.org/abs/1502.01657
+      \endverb
+    \endentry
+    \entry{freeman1979set}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7a8ac7c840b4eacb6fc6101dd3d440d3}{%
+           family={Freeman},
+           familyi={F\bibinitperiod},
+           given={L},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a8ac7c840b4eacb6fc6101dd3d440d3}
+      \strng{fullhash}{7a8ac7c840b4eacb6fc6101dd3d440d3}
+      \strng{authornamehash}{7a8ac7c840b4eacb6fc6101dd3d440d3}
+      \strng{authorfullhash}{7a8ac7c840b4eacb6fc6101dd3d440d3}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soc. Networks}
+      \field{title}{A set of measures of centrality: I. Conceptual clarification}
+      \field{volume}{1}
+      \field{year}{1979}
+      \field{pages}{215\bibrangedash 239}
+      \range{pages}{25}
+    \endentry
+    \entry{freeman1977set}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7e3733b255a835ba5125d8512cbe4424}{%
+           family={Freeman},
+           familyi={F\bibinitperiod},
+           given={Linton\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{fullhash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{authornamehash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{authorfullhash}{7e3733b255a835ba5125d8512cbe4424}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sociometry}
+      \field{title}{A set of measures of centrality based on betweenness}
+      \field{year}{1977}
+      \field{pages}{35\bibrangedash 41}
+      \range{pages}{7}
+    \endentry
+    \entry{freeman1978centrality}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7e3733b255a835ba5125d8512cbe4424}{%
+           family={Freeman},
+           familyi={F\bibinitperiod},
+           given={Linton\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{fullhash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{authornamehash}{7e3733b255a835ba5125d8512cbe4424}
+      \strng{authorfullhash}{7e3733b255a835ba5125d8512cbe4424}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social networks}
+      \field{number}{3}
+      \field{title}{Centrality in social networks conceptual clarification}
+      \field{volume}{1}
+      \field{year}{1978}
+      \field{pages}{215\bibrangedash 239}
+      \range{pages}{25}
+    \endentry
+    \entry{freeman1991centrality}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7e3733b255a835ba5125d8512cbe4424}{%
+           family={Freeman},
+           familyi={F\bibinitperiod},
+           given={Linton\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=f9faa00f3ec6b43e38632de85055ddb1}{%
+           family={Borgatti},
+           familyi={B\bibinitperiod},
+           given={Stephen\bibnamedelima P},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=a0081053e33996222240849619791353}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={Douglas\bibnamedelima R},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b414ffbc87362674145ee71b983b5c5a}
+      \strng{fullhash}{b414ffbc87362674145ee71b983b5c5a}
+      \strng{authornamehash}{b414ffbc87362674145ee71b983b5c5a}
+      \strng{authorfullhash}{b414ffbc87362674145ee71b983b5c5a}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social networks}
+      \field{number}{2}
+      \field{title}{Centrality in valued graphs: A measure of betweenness based on network flow}
+      \field{volume}{13}
+      \field{year}{1991}
+      \field{pages}{141\bibrangedash 154}
+      \range{pages}{14}
+    \endentry
+    \entry{guimera2005worldwide}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d461fbb3855729ec0734c7d8faa8db7c}{%
+           family={Guimera},
+           familyi={G\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a80c2149f4f7ceacc084e25d08c9c681}{%
+           family={Mossa},
+           familyi={M\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dcc7a6e1ff56f1807ed61187c54333ec}{%
+           family={Turtschi},
+           familyi={T\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0d2aea3b214196394a0bd1a20ccff392}{%
+           family={Amaral},
+           familyi={A\bibinitperiod},
+           given={LA\bibnamedelima Nunes},
+           giveni={L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Acad Sciences}%
+      }
+      \strng{namehash}{9d5eb703a58e9a11955b139777556bc9}
+      \strng{fullhash}{e8cbbb35cc4a093086074a77e52c4f46}
+      \strng{authornamehash}{9d5eb703a58e9a11955b139777556bc9}
+      \strng{authorfullhash}{e8cbbb35cc4a093086074a77e52c4f46}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{22}
+      \field{title}{The worldwide air transportation network: Anomalous centrality, community structure, and cities' global roles}
+      \field{volume}{102}
+      \field{year}{2005}
+      \field{pages}{7794\bibrangedash 7799}
+      \range{pages}{6}
+    \endentry
+    \entry{Haslhofer}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8a021fcf63cebbb8e356765ea91fdd5b}{%
+           family={Haslhofer},
+           familyi={H\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ea971d0094a0d4c10b60e68f709a9081}{%
+           family={Karl},
+           familyi={K\bibinitperiod},
+           given={Roman},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ac648b9ed52b10440f71fb1d922fc93a}{%
+           family={Filtz},
+           familyi={F\bibinitperiod},
+           given={Erwin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{677e19c924edd76b034b43d4f4deb688}
+      \strng{fullhash}{677e19c924edd76b034b43d4f4deb688}
+      \strng{authornamehash}{677e19c924edd76b034b43d4f4deb688}
+      \strng{authorfullhash}{677e19c924edd76b034b43d4f4deb688}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Bitcoin is a rising digital currency and exemplifies the grow-ing need for systematically gathering and analyzing pub-lic transaction data sets such as the blockchain. However, the blockchain in its raw form is just a large ledger listing transfers of currency units between alphanumeric character strings, without revealing contextually relevant real-world information. In this demo, we present GraphSense, which is a solution that applies a graph-centric perspective on digi-tal currency transactions. It allows users to explore trans-actions and follow the money flow, facilitates analytics by semantically enriching the transaction graph, supports path and graph pattern search, and guides analysts to anomalous data points. To deal with the growing volume and veloc-ity of transaction data, we implemented our solution on a horizontally scalable data processing and analytics infras-tructure. Given the ongoing digital transformation in finan-cial services and technologies, we believe that our approach contributes to development of analytics solutions for digi-tal currency ecosystems, which is relevant in fields such as financial analytics, law enforcement, or scientific research.}
+      \field{title}{{O Bitcoin Where Art Thou? Insight into Large-Scale Transaction Graphs}}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Haslhofer, Karl, Filtz/Unknown/Haslhofer, Karl, Filtz - Unknown - O Bitcoin Where Art Thou Insight into Large-Scale Transaction Graphs.pdf:pdf
+      \endverb
+      \keyw{Anomaly Detection,Graph Processing,Keywords Bitcoin}
+    \endentry
+    \entry{ivan2010web}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8a394c6ff300a276897d6a30dea3bc07}{%
+           family={Iván},
+           familyi={I\bibinitperiod},
+           given={Gábor},
+           giveni={G\bibinitperiod}}}%
+        {{hash=67dc3b0793e72d919a95fd54512a7346}{%
+           family={Grolmusz},
+           familyi={G\bibinitperiod},
+           given={Vince},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{8ccdd5f1a96f9af7987cb1b07cf10358}
+      \strng{fullhash}{8ccdd5f1a96f9af7987cb1b07cf10358}
+      \strng{authornamehash}{8ccdd5f1a96f9af7987cb1b07cf10358}
+      \strng{authorfullhash}{8ccdd5f1a96f9af7987cb1b07cf10358}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bioinformatics}
+      \field{number}{3}
+      \field{title}{When the Web meets the cell: using personalized PageRank for analyzing protein interaction networks}
+      \field{volume}{27}
+      \field{year}{2010}
+      \field{pages}{405\bibrangedash 407}
+      \range{pages}{3}
+    \endentry
+    \entry{katz1953new}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3f646ed5f84578b4ce2090f0d57e4763}{%
+           family={Katz},
+           familyi={K\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3f646ed5f84578b4ce2090f0d57e4763}
+      \strng{fullhash}{3f646ed5f84578b4ce2090f0d57e4763}
+      \strng{authornamehash}{3f646ed5f84578b4ce2090f0d57e4763}
+      \strng{authorfullhash}{3f646ed5f84578b4ce2090f0d57e4763}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychometrika}
+      \field{number}{1}
+      \field{title}{A new status index derived from sociometric analysis}
+      \field{volume}{18}
+      \field{year}{1953}
+      \field{pages}{39\bibrangedash 43}
+      \range{pages}{5}
+    \endentry
+    \entry{Kim2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=523e1c2553651fef7c7d31f9fe21e453}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={SungJin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6be0bfd0c38b2836c48cb212e445020d}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={SangHo},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{48533fee7052e6fafc7463acf82217a0}
+      \strng{fullhash}{48533fee7052e6fafc7463acf82217a0}
+      \strng{authornamehash}{48533fee7052e6fafc7463acf82217a0}
+      \strng{authorfullhash}{48533fee7052e6fafc7463acf82217a0}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Google search site (http://www.google.com) exploits the link structure of the Web to measure the relative importance of Web pages. The ranking method implemented in Google is called PageRank [3]. The sum of all PageRank values should be one. However, we notice that the sum becomes less than one in some cases. We present an improved PageRank algorithm that computes the PageRank values of the Web pages correctly. Our algorithm works out well in any situations, and the sum of all PageRank values is always maintained to be one. We also present implementation issues of the improved algorithm. Experimental evaluation is carried out and the results are also discussed.}
+      \field{isbn}{978-3-540-43343-9}
+      \field{issn}{16113349}
+      \field{journaltitle}{Advances in Information Retrieval}
+      \field{title}{{An Improved Computation of the PageRank Algorithm}}
+      \field{volume}{2291}
+      \field{year}{2002}
+      \field{pages}{73\bibrangedash 85}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/3-540-45886-7_5
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Kim, Lee/Advances in Information Retrieval/Kim, Lee - 2000 - An Improved Computation of the PageRank Algorithm 1.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/3-540-45886-7%7B%5C_%7D5
+      \endverb
+    \endentry
+    \entry{Kitsak2010}{article}{}
+      \name{author}{7}{}{%
+        {{hash=02b08e4717a8be7591bc40923109c281}{%
+           family={Kitsak},
+           familyi={K\bibinitperiod},
+           given={Maksim},
+           giveni={M\bibinitperiod}}}%
+        {{hash=97fa9805e71c5c7354c7ca752b7ed1bd}{%
+           family={Gallos},
+           familyi={G\bibinitperiod},
+           given={Lazaros\bibnamedelima K.},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=742d135a5dd9af879149ba57bf45774c}{%
+           family={Havlin},
+           familyi={H\bibinitperiod},
+           given={Shlomo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=af8bbbcab4a27b8874daa2eb9353bd67}{%
+           family={Liljeros},
+           familyi={L\bibinitperiod},
+           given={Fredrik},
+           giveni={F\bibinitperiod}}}%
+        {{hash=77e27c6d5f387d00c215866de7c66687}{%
+           family={Muchnik},
+           familyi={M\bibinitperiod},
+           given={Lev},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5714ec16b6f6413538f150b4646c2579}{%
+           family={Stanley},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi Eugene},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=bb77926715485d7dfc2c54d1c65e039a}{%
+           family={Makse},
+           familyi={M\bibinitperiod},
+           given={Hernan\bibnamedelima A.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d362bb3ac43134c78c03ec9cbdde282}
+      \strng{fullhash}{42b90d1a5e4a269705299b3d4166896a}
+      \strng{authornamehash}{1d362bb3ac43134c78c03ec9cbdde282}
+      \strng{authorfullhash}{42b90d1a5e4a269705299b3d4166896a}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Networks portray a multitude of interactions through which people meet, ideas are spread, and infectious diseases propagate within a society. Identifying the most efficient "spreaders" in a network is an important step to optimize the use of available resources and ensure the more efficient spread of information. Here we show that, in contrast to common belief, the most influential spreaders in a social network do not correspond to the best connected people or to the most central people (high betweenness centrality). Instead, we find: (i) The most efficient spreaders are those located within the core of the network as identified by the k-shell decomposition analysis. (ii) When multiple spreaders are considered simultaneously, the distance between them becomes the crucial parameter that determines the extend of the spreading. Furthermore, we find that-- in the case of infections that do not confer immunity on recovered individuals-- the infection persists in the high k-shell layers of the network under conditions where hubs may not be able to preserve the infection. Our analysis provides a plausible route for an optimal design of efficient dissemination strategies.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1745-2473}
+      \field{issn}{1745-2473}
+      \field{title}{{Identification of influential spreaders in complex networks}}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.1038/nphys1746
+      \endverb
+      \verb{eprint}
+      \verb 1001.5285
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Kitsak et al/Unknown/Kitsak et al. - 2010 - Identification of influential spreaders in complex networks.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1001.5285%7B%5C%%7D0Ahttp://dx.doi.org/10.1038/nphys1746
+      \endverb
+    \endentry
+    \entry{kleinberg1999authoritative}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f112b97e31827df683319c6804eb25a9}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={Jon\bibnamedelima M},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{f112b97e31827df683319c6804eb25a9}
+      \strng{fullhash}{f112b97e31827df683319c6804eb25a9}
+      \strng{authornamehash}{f112b97e31827df683319c6804eb25a9}
+      \strng{authorfullhash}{f112b97e31827df683319c6804eb25a9}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the ACM (JACM)}
+      \field{number}{5}
+      \field{title}{Authoritative sources in a hyperlinked environment}
+      \field{volume}{46}
+      \field{year}{1999}
+      \field{pages}{604\bibrangedash 632}
+      \range{pages}{29}
+    \endentry
+    \entry{Krempel2002}{article}{}
+      \name{author}{1}{}{%
+        {{hash=652e6caf309db7b049eb0d947bd22885}{%
+           family={Krempel},
+           familyi={K\bibinitperiod},
+           given={Lothar},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{652e6caf309db7b049eb0d947bd22885}
+      \strng{fullhash}{652e6caf309db7b049eb0d947bd22885}
+      \strng{authornamehash}{652e6caf309db7b049eb0d947bd22885}
+      \strng{authorfullhash}{652e6caf309db7b049eb0d947bd22885}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{December}
+      \field{title}{{Exploring the Dynamics of International Trade by Combining the}}
+      \field{year}{2002}
+      \field{pages}{1\bibrangedash 22}
+      \range{pages}{22}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Krempel/Unknown/Krempel - 2002 - Exploring the Dynamics of International Trade by Combining the.pdf:pdf
+      \endverb
+    \endentry
+    \entry{langville2011google}{book}{}
+      \name{author}{2}{}{%
+        {{hash=7aa87964742e8d90766054a06e049766}{%
+           family={Langville},
+           familyi={L\bibinitperiod},
+           given={Amy\bibnamedelima N},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=1241c11a81184e1044d72a9485eb0181}{%
+           family={Meyer},
+           familyi={M\bibinitperiod},
+           given={Carl\bibnamedelima D},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{d44b32ff7a2e263ac5c8f2580c7c0721}
+      \strng{fullhash}{d44b32ff7a2e263ac5c8f2580c7c0721}
+      \strng{authornamehash}{d44b32ff7a2e263ac5c8f2580c7c0721}
+      \strng{authorfullhash}{d44b32ff7a2e263ac5c8f2580c7c0721}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Google's PageRank and beyond: The science of search engine rankings}
+      \field{year}{2011}
+    \endentry
+    \entry{Li2014}{article}{}
+      \name{author}{4}{}{%
+        {{hash=9885f16be76c4e68e9c2aaf363a53600}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Qian},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=cb43f8d049da79757ef659dd18d8ef7a}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+        {{hash=79e82cd14c7510044147f8f7557e4981}{%
+           family={L??},
+           familyi={L\bibinitperiod},
+           given={Linyuan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=7c4978e17747b1731c34765b56d2c53f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Duanbing},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ccc14e5f8134b4693620e899bbc01e0d}
+      \strng{fullhash}{fe9d2da8d281923c7ef21611f1c02a54}
+      \strng{authornamehash}{ccc14e5f8134b4693620e899bbc01e0d}
+      \strng{authorfullhash}{fe9d2da8d281923c7ef21611f1c02a54}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Identifying influential spreaders is crucial for understanding and controlling spreading processes on social networks. Via assigning degree-dependent weights onto links associated with the ground node, we proposed a variant to a recent ranking algorithm named LeaderRank (L?? et al., 2011). According to the simulations on the standard SIR model, the weighted LeaderRank performs better than LeaderRank in three aspects: (i) the ability to find out more influential spreaders; (ii) the higher tolerance to noisy data; and (iii) the higher robustness to intentional attacks. ?? 2014 Elsevier B.V. All rights reserved.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{0378-4371}
+      \field{issn}{03784371}
+      \field{journaltitle}{Physica A: Statistical Mechanics and its Applications}
+      \field{title}{{Identifying influential spreaders by weighted LeaderRank}}
+      \field{volume}{404}
+      \field{year}{2014}
+      \field{pages}{47\bibrangedash 55}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.physa.2014.02.041
+      \endverb
+      \verb{eprint}
+      \verb arXiv:1306.5042v1
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Li et al/Physica A Statistical Mechanics and its Applications/Li et al. - 2014 - Identifying influential spreaders by weighted LeaderRank.pdf:pdf
+      \endverb
+      \keyw{Influential spreader,LeaderRank,Random walk,Social networks}
+    \endentry
+    \entry{Lu2016}{article}{}
+      \name{author}{6}{}{%
+        {{hash=767fb4e8e5a99206987af76c3ee394d1}{%
+           family={Lü},
+           familyi={L\bibinitperiod},
+           given={Linyuan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=7c4978e17747b1731c34765b56d2c53f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Duanbing},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d7c6f955643ffe195138b01e24498770}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xiao\bibnamedelima Long},
+           giveni={X\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=19fb62a6d149099d8c153c71319324d0}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Qian\bibnamedelima Ming},
+           giveni={Q\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=f834d68c1d786b6732bc4975b69d7307}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yi\bibnamedelima Cheng},
+           giveni={Y\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=cb43f8d049da79757ef659dd18d8ef7a}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c4f912610aad88ddf707ffc887629d6}
+      \strng{fullhash}{8dc5d95eb158d9e855b3cd9ef4002b60}
+      \strng{authornamehash}{4c4f912610aad88ddf707ffc887629d6}
+      \strng{authorfullhash}{8dc5d95eb158d9e855b3cd9ef4002b60}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Real networks exhibit heterogeneous nature with nodes playing far different roles in structure and function. To identify vital nodes is thus very significant, allowing us to control the outbreak of epidemics, to conduct advertisements for e-commercial products, to predict popular scientific publications, and so on. The vital nodes identification attracts increasing attentions from both computer science and physical societies, with algorithms ranging from simply counting the immediate neighbors to complicated machine learning and message passing approaches. In this review, we clarify the concepts and metrics, classify the problems and methods, as well as review the important progresses and describe the state of the art. Furthermore, we provide extensive empirical analyses to compare well-known methods on disparate real networks, and highlight the future directions. In spite of the emphasis on physics-rooted approaches, the unification of the language and comparison with cross-domain methods would trigger interdisciplinary solutions in the near future.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{0370-1573}
+      \field{issn}{03701573}
+      \field{journaltitle}{Physics Reports}
+      \field{title}{{Vital nodes identification in complex networks}}
+      \field{volume}{650}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 63}
+      \range{pages}{63}
+      \verb{doi}
+      \verb 10.1016/j.physrep.2016.06.007
+      \endverb
+      \verb{eprint}
+      \verb 1607.01134
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/L{\"{u}} et al/Physics Reports/Lü et al. - 2016 - Vital nodes identification in complex networks.pdf:pdf
+      \endverb
+      \keyw{Centrality,Complex networks,Epidemic spreading,Message passing theory,Percolation,Vital nodes}
+    \endentry
+    \entry{Meiklejohn2013}{article}{}
+      \name{author}{7}{}{%
+        {{hash=b2dd6953fa6beeacfdd192e8898e9254}{%
+           family={Meiklejohn},
+           familyi={M\bibinitperiod},
+           given={Sarah},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1525ae935600570fc60f32e5006ec12f}{%
+           family={Pomarole},
+           familyi={P\bibinitperiod},
+           given={Marjori},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7feb7e3819b6e83e8f899611965ed1a0}{%
+           family={Jordan},
+           familyi={J\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod}}}%
+        {{hash=e994af962190d488ae5fec4d6529da12}{%
+           family={Levchenko},
+           familyi={L\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+        {{hash=5aa95937949aa05ba5443b2869aa21e6}{%
+           family={McCoy},
+           familyi={M\bibinitperiod},
+           given={Damon},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a9a53f9974e49ef27c6c328c25992792}{%
+           family={Voelker},
+           familyi={V\bibinitperiod},
+           given={Geoffrey\bibnamedelima M.},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=dee88ab507f218ded58a2f13c4801dfc}{%
+           family={Savage},
+           familyi={S\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{499fcf8fa646ec1493122d91323a1459}
+      \strng{fullhash}{b7dc3858bd432892d3fceffc0dca2140}
+      \strng{authornamehash}{499fcf8fa646ec1493122d91323a1459}
+      \strng{authorfullhash}{b7dc3858bd432892d3fceffc0dca2140}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Bitcoin is a purely online virtual currency, unbacked by either phys- ical commodities or sovereign obligation; instead, it relies on a combination of cryptographic protection and a peer-to-peer proto- col for witnessing settlements. Consequently, Bitcoin has the un- intuitive property that while the ownership of money is implicitly anonymous, its flow is globally visible. In this paper we explore this unique characteristic further, using heuristic clustering to group Bitcoin wallets based on evidence of shared authority, and then us- ing re-identification attacks (i.e., empirical purchasing of goods and services) to classify the operators of those clusters. From this anal- ysis, we characterize longitudinal changes in the Bitcoin market, the stresses these changes are placing on the system, and the chal- lenges for those seeking to use Bitcoin for criminal or fraudulent purposes at scale.}
+      \field{isbn}{9781450319539}
+      \field{issn}{15577317}
+      \field{journaltitle}{Proceedings of the Internet Measurement Conference - IMC '13}
+      \field{number}{6}
+      \field{title}{{A fistful of Bitcoins: Characterizing payments among men with no names}}
+      \field{year}{2013}
+      \field{pages}{127\bibrangedash 140}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/2504730.2504747
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Meiklejohn et al/Proceedings of the Internet Measurement Conference - IMC '13/Meiklejohn et al. - 2013 - A fistful of Bitcoins Characterizing payments among men with no names.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=2504730.2504747
+      \endverb
+      \keyw{anonymity,bitcoin,measurement}
+    \endentry
+    \entry{Morten2006}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c224d81b85438bd8e60bbaee7bdaba7a}{%
+           family={Morten},
+           familyi={M\bibinitperiod},
+           given={L},
+           giveni={L\bibinitperiod}}}%
+        {{hash=f1da1bc783cecb63860a3c5df48664bc}{%
+           family={Robert},
+           familyi={R\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+        {{hash=137b51986cd49bb6172ae725c858f065}{%
+           family={Walter},
+           familyi={W\bibinitperiod},
+           given={E},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{39dd1c1acb743b0a49dcac060170eceb}
+      \strng{fullhash}{39dd1c1acb743b0a49dcac060170eceb}
+      \strng{authornamehash}{39dd1c1acb743b0a49dcac060170eceb}
+      \strng{authorfullhash}{39dd1c1acb743b0a49dcac060170eceb}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{The topology of interbank payment flows}}
+      \field{year}{2006}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Morten, Robert, Walter/Unknown/Morten, Robert, Walter - 2006 - The topology of interbank payment flows.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Nakamoto2008}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1977190f018b398e43ede3de043de8ea}{%
+           family={Nakamoto},
+           familyi={N\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authornamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract. A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{978-972-757-716-3}
+      \field{issn}{09254560}
+      \field{journaltitle}{Www.Bitcoin.Org}
+      \field{title}{{Bitcoin: A Peer-to-Peer Electronic Cash System}}
+      \field{year}{2008}
+      \field{pages}{9}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s10838-008-9062-0
+      \endverb
+      \verb{eprint}
+      \verb 43543534534v343453
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Nakamoto/Www.Bitcoin.Org/Nakamoto - 2008 - Bitcoin A Peer-to-Peer Electronic Cash System.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://bitcoin.org/bitcoin.pdf
+      \endverb
+      \keyw{L13}
+    \endentry
+    \entry{nem}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://nem.io/NEM_techRef.pdf}}
+      \field{note}{Accessed: 2017-08-01}
+      \field{title}{{NEM Technical Reference}}
+    \endentry
+    \entry{newman2010networks}{book}{}
+      \name{author}{1}{}{%
+        {{hash=91c825ea422365e0f6cb2597658def75}{%
+           family={Newman},
+           familyi={N\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford university press}%
+      }
+      \strng{namehash}{91c825ea422365e0f6cb2597658def75}
+      \strng{fullhash}{91c825ea422365e0f6cb2597658def75}
+      \strng{authornamehash}{91c825ea422365e0f6cb2597658def75}
+      \strng{authorfullhash}{91c825ea422365e0f6cb2597658def75}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Networks: an introduction}
+      \field{year}{2010}
+    \endentry
+    \entry{newman2005measure}{article}{}
+      \name{author}{1}{}{%
+        {{hash=af84fa9f8d84f4aa9cd268c6d380f857}{%
+           family={Newman},
+           familyi={N\bibinitperiod},
+           given={Mark\bibnamedelima EJ},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{af84fa9f8d84f4aa9cd268c6d380f857}
+      \strng{fullhash}{af84fa9f8d84f4aa9cd268c6d380f857}
+      \strng{authornamehash}{af84fa9f8d84f4aa9cd268c6d380f857}
+      \strng{authorfullhash}{af84fa9f8d84f4aa9cd268c6d380f857}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social networks}
+      \field{number}{1}
+      \field{title}{A measure of betweenness centrality based on random walks}
+      \field{volume}{27}
+      \field{year}{2005}
+      \field{pages}{39\bibrangedash 54}
+      \range{pages}{16}
+    \endentry
+    \entry{NielKondor2014}{article}{}
+      \name{author}{5}{}{%
+        {{hash=c1312def512ef7991f08cdf4e78da55d}{%
+           family={{Niel Kondor}},
+           familyi={N\bibinitperiod},
+           given={Dá},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f505148f7986688b022509b8b2c0f4e0}{%
+           family={Rton},
+           familyi={R\bibinitperiod},
+           given={Má},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d3c9e323dc9e263b2e52fe3057008da2}{%
+           family={Sfai},
+           familyi={S\bibinitperiod},
+           given={Pó},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7ad10b222ea05ac1421b7fe6a040a5dc}{%
+           family={Csabai},
+           familyi={C\bibinitperiod},
+           given={Istvá\bibnamedelima N},
+           giveni={I\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=b495eb297cc390d9dd66be5d5bc10caf}{%
+           family={{Bor Vattay}},
+           familyi={B\bibinitperiod},
+           given={Gá},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a85672357c980774615aff5300531e8}
+      \strng{fullhash}{9ae0b239c9bea30fa32ae99074e7fce5}
+      \strng{authornamehash}{9a85672357c980774615aff5300531e8}
+      \strng{authorfullhash}{9ae0b239c9bea30fa32ae99074e7fce5}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The possibility to analyze everyday monetary transactions is limited by the scarcity of available data, as this kind of information is usually considered highly sensitive. Present econophysics models are usually employed on presumed random networks of interacting agents, and only some macroscopic properties (e.g. the resulting wealth distribution) are compared to real-world data. In this paper, we analyze Bitcoin, which is a novel digital currency system, where the complete list of transactions is publicly available. Using this dataset, we reconstruct the network of transactions and extract the time and amount of each payment. We analyze the structure of the transaction network by measuring network characteristics over time, such as the degree distribution, degree correlations and clustering. We find that linear preferential attachment drives the growth of the network. We also study the dynamics taking place on the transaction network, i.e. the flow of money. We measure temporal patterns and the wealth accumulation. Investigating the microscopic statistics of money movement, we find that sublinear preferential attachment governs the evolution of the wealth distribution. We report a scaling law between the degree and wealth associated to individual nodes.}
+      \field{journaltitle}{PLoS ONE}
+      \field{number}{2}
+      \field{title}{{Do the Rich Get Richer? An Empirical Analysis of the Bitcoin Transaction Network}}
+      \field{volume}{9}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0086197
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Niel Kondor et al/PLoS ONE/Niel Kondor et al. - 2014 - Do the Rich Get Richer An Empirical Analysis of the Bitcoin Transaction Network.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Nikolakopoulos2013}{article}{}
+      \name{author}{2}{}{%
+        {{hash=611b70798aefdb4bbf1cb851a4ae979a}{%
+           family={Nikolakopoulos},
+           familyi={N\bibinitperiod},
+           given={Athanasios\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=0117d9daa086adef749c1ca1be2f668d}{%
+           family={Garofalakis},
+           familyi={G\bibinitperiod},
+           given={John\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ef73b38970b1afde42caa2f05108ecd6}
+      \strng{fullhash}{ef73b38970b1afde42caa2f05108ecd6}
+      \strng{authornamehash}{ef73b38970b1afde42caa2f05108ecd6}
+      \strng{authorfullhash}{ef73b38970b1afde42caa2f05108ecd6}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781450318693}
+      \field{journaltitle}{Proceedings of the sixth ACM international conference on Web search and data mining - WSDM '13}
+      \field{number}{February 2013}
+      \field{title}{{NCDawareRank}}
+      \field{year}{2013}
+      \field{pages}{143}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1145/2433396.2433415
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Nikolakopoulos, Garofalakis/Proceedings of the sixth ACM international conference on Web search and data mining - WSDM '13/Nikolakopoulos, Garofalakis - 2013 - NCDawareRank.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?doid=2433396.2433415
+      \endverb
+    \endentry
+    \entry{noh2004random}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8c5fc5110bcfc8a416d0f0ec7350c870}{%
+           family={Noh},
+           familyi={N\bibinitperiod},
+           given={Jae\bibnamedelima Dong},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=556c67d6b802272d070dbbc78efdf5a6}{%
+           family={Rieger},
+           familyi={R\bibinitperiod},
+           given={Heiko},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{75482e10d2341bc354033bf27a98b033}
+      \strng{fullhash}{75482e10d2341bc354033bf27a98b033}
+      \strng{authornamehash}{75482e10d2341bc354033bf27a98b033}
+      \strng{authorfullhash}{75482e10d2341bc354033bf27a98b033}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical review letters}
+      \field{number}{11}
+      \field{title}{Random walks on complex networks}
+      \field{volume}{92}
+      \field{year}{2004}
+      \field{pages}{118701}
+      \range{pages}{1}
+    \endentry
+    \entry{Ober2013}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c518c45448fe868b4ed7ea468ed08045}{%
+           family={Ober},
+           familyi={O\bibinitperiod},
+           given={Micha},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b9e502f041dbf3b5d3c907a9d726cf59}{%
+           family={Katzenbeisser},
+           familyi={K\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3b18752317dc551378f46091218c4907}{%
+           family={Hamacher},
+           familyi={H\bibinitperiod},
+           given={Kay},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{08a6dea6e5a5d70eb1a26a594d530a80}
+      \strng{fullhash}{08a6dea6e5a5d70eb1a26a594d530a80}
+      \strng{authornamehash}{08a6dea6e5a5d70eb1a26a594d530a80}
+      \strng{authorfullhash}{08a6dea6e5a5d70eb1a26a594d530a80}
+      \field{sortinit}{O}
+      \field{sortinithash}{f5d80ef71b5b58852663ecfd775b175a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Bitcoin network of decentralized payment transactions has attracted a lot of attention from both Internet users and researchers in recent years. Bitcoin utilizes a peer-to-peer network to issue anonymous payment transactions between different users. In the currently used Bitcoin clients, the full transaction history is available at each node of the network to prevent double spending without the need for a central authority, forming a valuable source for empirical research on network structure, network dynamics, and the implied anonymity challenges, as well as guidance on the future evolution of complex payment systems. We found dynamical effects of which some increase anonymity while others decrease it. Most importantly, several parameters of the Bitcoin transaction graph seem to have become stationary over the last 12–18 months. We discuss the implications.}
+      \field{isbn}{1999-5903}
+      \field{issn}{1999-5903}
+      \field{journaltitle}{Future Internet}
+      \field{number}{2}
+      \field{title}{{Structure and Anonymity of the Bitcoin Transaction Graph}}
+      \field{volume}{5}
+      \field{year}{2013}
+      \field{pages}{237\bibrangedash 250}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.3390/fi5020237
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Ober, Katzenbeisser, Hamacher/Future Internet/Ober, Katzenbeisser, Hamacher - 2013 - Structure and Anonymity of the Bitcoin Transaction Graph.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.mdpi.com/1999-5903/5/2/237/
+      \endverb
+      \keyw{anonymity,bitcoin,graph structure,network dynamics,privacy}
+    \endentry
+    \entry{page1999pagerank}{report}{}
+      \name{author}{4}{}{%
+        {{hash=5ca20489809aaab392f875d6bc785086}{%
+           family={Page},
+           familyi={P\bibinitperiod},
+           given={Lawrence},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ade8269d287e9c1531e4a1cbad0b4b82}{%
+           family={Brin},
+           familyi={B\bibinitperiod},
+           given={Sergey},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2f555526320a1c4028ad0f6328953999}{%
+           family={Motwani},
+           familyi={M\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9270c737346819f33742a35de2661f82}{%
+           family={Winograd},
+           familyi={W\bibinitperiod},
+           given={Terry},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Stanford InfoLab}%
+      }
+      \strng{namehash}{07b677797f2f761de27121ff4ec8b078}
+      \strng{fullhash}{d9b2cbd8494ef6058fe2436ee7edd977}
+      \strng{authornamehash}{07b677797f2f761de27121ff4ec8b078}
+      \strng{authorfullhash}{d9b2cbd8494ef6058fe2436ee7edd977}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The PageRank citation ranking: Bringing order to the web.}
+      \field{type}{techreport}
+      \field{year}{1999}
+    \endentry
+    \entry{pham2016anomaly}{article}{}
+      \name{author}{2}{}{%
+        {{hash=af50cf11c5f7b34f1be35017cd831cbc}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Thai},
+           giveni={T\bibinitperiod}}}%
+        {{hash=147f0aff4266ea96474cd5422a0cd78c}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{72fe2551f3c71b9ee26ce7b88aa1dccf}
+      \strng{fullhash}{72fe2551f3c71b9ee26ce7b88aa1dccf}
+      \strng{authornamehash}{72fe2551f3c71b9ee26ce7b88aa1dccf}
+      \strng{authorfullhash}{72fe2551f3c71b9ee26ce7b88aa1dccf}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1611.03941}
+      \field{title}{Anomaly detection in bitcoin network using unsupervised learning methods}
+      \field{year}{2016}
+    \endentry
+    \entry{poelstra2015stake}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f3b667c3a2009a399853b17a348c79ae}{%
+           family={Poelstra},
+           familyi={P\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {No Publisher (accessed 22 March) https://download. wpsoftware. net/bitcoin/pos. pdf}%
+      }
+      \strng{namehash}{f3b667c3a2009a399853b17a348c79ae}
+      \strng{fullhash}{f3b667c3a2009a399853b17a348c79ae}
+      \strng{authornamehash}{f3b667c3a2009a399853b17a348c79ae}
+      \strng{authorfullhash}{f3b667c3a2009a399853b17a348c79ae}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On stake and consensus}
+      \field{year}{2015}
+    \endentry
+    \entry{propper2008towards}{article}{}
+      \name{author}{3}{}{%
+        {{hash=fd4ac0baac84e20b1827cd8221fa9406}{%
+           family={Pröpper},
+           familyi={P\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c487cccc23e3ebca4aa06e1fd0f17d95}{%
+           family={Lelyveld},
+           familyi={L\bibinitperiod},
+           given={Iman},
+           giveni={I\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=127fad8606aa3f39582894ea262b9ef2}{%
+           family={Heijmans},
+           familyi={H\bibinitperiod},
+           given={Ronald},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b478067afb5a2ea8be22249d1eb1f4d8}
+      \strng{fullhash}{b478067afb5a2ea8be22249d1eb1f4d8}
+      \strng{authornamehash}{b478067afb5a2ea8be22249d1eb1f4d8}
+      \strng{authorfullhash}{b478067afb5a2ea8be22249d1eb1f4d8}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Towards a network description of interbank payment flows}
+      \field{year}{2008}
+    \endentry
+    \entry{Radicchi2009}{article}{}
+      \name{author}{4}{}{%
+        {{hash=7bf86f8cac7f65e65f53c7cd54661e36}{%
+           family={Radicchi},
+           familyi={R\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3f057d4175c110c6302b495f38eebcb6}{%
+           family={Fortunato},
+           familyi={F\bibinitperiod},
+           given={Santo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9cdad27c4be449710f499bd7e79ef2ec}{%
+           family={Markines},
+           familyi={M\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8f9932ed1839be02bb53a62b258449a8}{%
+           family={Vespignani},
+           familyi={V\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6289e91443b0074791366995af1189cf}
+      \strng{fullhash}{e54f9d7dab3d832a1e9c7b8e6c5ff862}
+      \strng{authornamehash}{6289e91443b0074791366995af1189cf}
+      \strng{authorfullhash}{e54f9d7dab3d832a1e9c7b8e6c5ff862}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recently, the abundance of digital data enabled the implementation of graph based ranking algorithms that provide system level analysis for ranking publications and authors. Here we take advantage of the entire Physical Review publication archive (1893-2006) to construct authors' networks where weighted edges, as measured from opportunely normalized citation counts, define a proxy for the mechanism of scientific credit transfer. On this network we define a ranking method based on a diffusion algorithm that mimics the spreading of scientific credits on the network. We compare the results obtained with our algorithm with those obtained by local measures such as the citation count and provide a statistical analysis of the assignment of major career awards in the area of Physics. A web site where the algorithm is made available to perform customized rank analysis can be found at the address http://www.physauthorsrank.org}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1550-2376 (Electronic)$\backslash$r1539-3755 (Linking)}
+      \field{issn}{15393755}
+      \field{journaltitle}{Physical Review E - Statistical, Nonlinear, and Soft Matter Physics}
+      \field{number}{5}
+      \field{title}{{Diffusion of scientific credits and the ranking of scientists}}
+      \field{volume}{80}
+      \field{year}{2009}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1103/PhysRevE.80.056103
+      \endverb
+      \verb{eprint}
+      \verb 0907.1050
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Radicchi et al/Physical Review E - Statistical, Nonlinear, and Soft Matter Physics/Radicchi et al. - 2009 - Diffusion of scientific credits and the ranking of scientists.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Ron}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1b3893fdeb078dfbca468535cf59fe84}{%
+           family={Ron},
+           familyi={R\bibinitperiod},
+           given={Dorit},
+           giveni={D\bibinitperiod}}}%
+        {{hash=71b77dd8ab33fe646ef25cded49e9881}{%
+           family={Shamir},
+           familyi={S\bibinitperiod},
+           given={Adi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f8ee25fe1c02ed3dc44b29a5fce86f4}
+      \strng{fullhash}{9f8ee25fe1c02ed3dc44b29a5fce86f4}
+      \strng{authornamehash}{9f8ee25fe1c02ed3dc44b29a5fce86f4}
+      \strng{authorfullhash}{9f8ee25fe1c02ed3dc44b29a5fce86f4}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Bitcoin scheme is a rare example of a large scale global payment system in which all the transactions are publicly accessible (but in an anonymous way). We downloaded the full history of this scheme, and analyzed many statistical properties of its associated transaction graph. In this paper we answer for the first time a variety of interest-ing questions about the typical behavior of users, how they acquire and how they spend their bitcoins, the balance of bitcoins they keep in their accounts, and how they move bitcoins between their various accounts in order to better protect their privacy. In addition, we isolated all the large transactions in the system, and discovered that almost all of them are closely related to a single large transaction that took place in November 2010, even though the associated users apparently tried to hide this fact with many strange looking long chains and fork-merge structures in the transaction graph.}
+      \field{title}{{Quantitative Analysis of the Full Bitcoin Transaction Graph}}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Ron, Shamir/Unknown/Ron, Shamir - Unknown - Quantitative Analysis of the Full Bitcoin Transaction Graph.pdf:pdf
+      \endverb
+      \keyw{bitcoin,digital coins,electronic cash,payment systems,quantitative analysis,trans-action graphs}
+    \endentry
+    \entry{sabidussi1966centrality}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1ca6849a6cb71f0718f6e119f26b690a}{%
+           family={Sabidussi},
+           familyi={S\bibinitperiod},
+           given={Gert},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{1ca6849a6cb71f0718f6e119f26b690a}
+      \strng{fullhash}{1ca6849a6cb71f0718f6e119f26b690a}
+      \strng{authornamehash}{1ca6849a6cb71f0718f6e119f26b690a}
+      \strng{authorfullhash}{1ca6849a6cb71f0718f6e119f26b690a}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychometrika}
+      \field{number}{4}
+      \field{title}{The centrality index of a graph}
+      \field{volume}{31}
+      \field{year}{1966}
+      \field{pages}{581\bibrangedash 603}
+      \range{pages}{23}
+    \endentry
+    \entry{Science2001}{article}{}
+      \name{author}{2}{}{%
+        {{hash=42f224753ce5109244de6dc6787925cc}{%
+           family={Science},
+           familyi={S\bibinitperiod},
+           given={Computer},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cdf94c7cfeecf28ef0b3686b149cb8ab}{%
+           family={Technion},
+           familyi={T\bibinitperiod},
+           given={The},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9516087d89e8cfa215631e1010535670}
+      \strng{fullhash}{9516087d89e8cfa215631e1010535670}
+      \strng{authornamehash}{9516087d89e8cfa215631e1010535670}
+      \strng{authorfullhash}{9516087d89e8cfa215631e1010535670}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{The Stochastic Approach for Link-Structure Analysis ( SALSA ) and the TKC E ect}}
+      \field{year}{2001}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Science, Technion/Unknown/Science, Technion - 2001 - The Stochastic Approach for Link-Structure Analysis ( SALSA ) and the TKC E ect.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Serrano2007}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7fe9b838e7174fd8d47cf148573e9717}{%
+           family={Serrano},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi Ángeles},
+           giveni={M\bibinitperiod\bibinitdelim Á\bibinitperiod}}}%
+        {{hash=231da10d37ae0e48ed118009b17a01ee}{%
+           family={Boguñá},
+           familyi={B\bibinitperiod},
+           given={Marián},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8f9932ed1839be02bb53a62b258449a8}{%
+           family={Vespignani},
+           familyi={V\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f30d297aeb53067f14681267b7d572a}
+      \strng{fullhash}{3f30d297aeb53067f14681267b7d572a}
+      \strng{authornamehash}{3f30d297aeb53067f14681267b7d572a}
+      \strng{authorfullhash}{3f30d297aeb53067f14681267b7d572a}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The large-scale organization of the world economies is exhibiting increasingly levels of local heterogeneity and global interdependency. Understanding the relation between local and global features calls for analytical tools able to uncover the global emerging organization of the international trade network. Here we analyze the world network of bilateral trade imbalances and characterize its overall flux organization, unraveling local and global high-flux pathways that define the backbone of the trade system. We develop a general procedure capable to progressively filter out in a consistent and quantitative way the dominant trade channels. This procedure is completely general and can be applied to any weighted network to detect the underlying structure of transport flows. The trade fluxes properties of the world trade web determines a ranking of trade partnerships that highlights global interdependencies, providing information not accessible by simple local analysis. The present work provides new quantitative tools for a dynamical approach to the propagation of economic crises.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{1860-711X}
+      \field{issn}{1860711X}
+      \field{journaltitle}{Journal of Economic Interaction and Coordination}
+      \field{number}{2}
+      \field{title}{{Patterns of dominant flows in the world trade web}}
+      \field{volume}{2}
+      \field{year}{2007}
+      \field{pages}{111\bibrangedash 124}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/s11403-007-0026-y
+      \endverb
+      \verb{eprint}
+      \verb 0704.1225
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Serrano, Bogu{\~{n}}á, Vespignani/Journal of Economic Interaction and Coordination/Serrano, Boguñá, Vespignani - 2007 - Patterns of dominant flows in the world trade web.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Serrano2003}{article}{}
+      \name{author}{2}{}{%
+        {{hash=355ab3e9445aa535eaeec2887b377271}{%
+           family={Serrano},
+           familyi={S\bibinitperiod},
+           given={Ma\bibnamedelima Angeles},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=231da10d37ae0e48ed118009b17a01ee}{%
+           family={Boguñá},
+           familyi={B\bibinitperiod},
+           given={Marián},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8c2029e3848718ef7b32be788e6248dd}
+      \strng{fullhash}{8c2029e3848718ef7b32be788e6248dd}
+      \strng{authornamehash}{8c2029e3848718ef7b32be788e6248dd}
+      \strng{authorfullhash}{8c2029e3848718ef7b32be788e6248dd}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Economy, and consequently trade, is a fundamental part of human social organization which, until now, has not been studied within the network modeling framework. Here we present the first, to the best of our knowledge, empirical characterization of the world trade web, that is, the network built upon the trade relationships between different countries in the world. This network displays the typical properties of complex networks, namely, scale-free degree distribution, the small-world property, a high clustering coefficient, and, in addition, degree-degree correlation between different vertices. All these properties make the world trade web a complex network, which is far from being well described through a classical random network description.}
+      \field{eprintclass}{cond-mat}
+      \field{eprinttype}{arXiv}
+      \field{issn}{1063-651X}
+      \field{journaltitle}{Physical review. E, Statistical, nonlinear, and soft matter physics}
+      \field{number}{1 Pt 2}
+      \field{title}{{Topology of the world trade web.}}
+      \field{volume}{68}
+      \field{year}{2003}
+      \field{pages}{015101}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevE.68.015101
+      \endverb
+      \verb{eprint}
+      \verb 0301015
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Serrano, Bogu{\~{n}}á/Physical review. E, Statistical, nonlinear, and soft matter physics/Serrano, Boguñá - 2003 - Topology of the world trade web.pdf:pdf
+      \endverb
+    \endentry
+    \entry{shiokawa2015scan}{article}{}
+      \name{author}{3}{}{%
+        {{hash=cb246c4a09350748c84b3b1765f2c690}{%
+           family={Shiokawa},
+           familyi={S\bibinitperiod},
+           given={Hiroaki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c746b82c2fe33d1bf3485678e43ee7ec}{%
+           family={Fujiwara},
+           familyi={F\bibinitperiod},
+           given={Yasuhiro},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3d65baecb96372255c0bc26accb82916}{%
+           family={Onizuka},
+           familyi={O\bibinitperiod},
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {VLDB Endowment}%
+      }
+      \strng{namehash}{483e5003c23b6433a6664f891bfa1710}
+      \strng{fullhash}{483e5003c23b6433a6664f891bfa1710}
+      \strng{authornamehash}{483e5003c23b6433a6664f891bfa1710}
+      \strng{authorfullhash}{483e5003c23b6433a6664f891bfa1710}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the VLDB Endowment}
+      \field{number}{11}
+      \field{title}{SCAN++: efficient algorithm for finding clusters, hubs and outliers on large-scale graphs}
+      \field{volume}{8}
+      \field{year}{2015}
+      \field{pages}{1178\bibrangedash 1189}
+      \range{pages}{12}
+    \endentry
+    \entry{Tschorsch2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fbd922a6d865ddfc3e2b420bd945a4c8}{%
+           family={Tschorsch},
+           familyi={T\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=fbad8839c4fbcad80ef0899179d8f13b}{%
+           family={Scheuermann},
+           familyi={S\bibinitperiod},
+           given={Björn},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{fullhash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{authornamehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{authorfullhash}{ac5a8b4258376311917128aefcdf45f6}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Besides attracting a billion dollar economy, Bitcoin revolu-tionized the field of digital currencies and influenced many adjacent areas. This also induced significant scientific inter-est. In this survey, we unroll and structure the manyfold results and research directions. We start by introducing the Bitcoin protocol and its building blocks. From there we continue to explore the design space by discussing existing contributions and results. In the process, we deduce the fun-damental structures and insights at the core of the Bitcoin protocol and its applications. As we show and discuss, many key ideas are likewise applicable in various other fields, so that their impact reaches far beyond Bitcoin itself.}
+      \field{issn}{1553-877X}
+      \field{journaltitle}{IEEE COMMUNICATIONS SURVEYS {\&} TUTORIALS}
+      \field{number}{99}
+      \field{title}{{Bitcoin and Beyond : A Technical Survey on Decentralized Digital Currencies}}
+      \field{volume}{PP}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb doi: 10.1109/COMST.2016.2535718
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Tschorsch, Scheuermann/IEEE COMMUNICATIONS SURVEYS {\&} TUTORIALS/Tschorsch, Scheuermann - 2015 - Bitcoin and Beyond A Technical Survey on Decentralized Digital Currencies.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Ugander2011}{article}{}
+      \name{author}{5}{}{%
+        {{hash=02a2fc2adfe894eb90d24823c6df43f7}{%
+           family={Ugander},
+           familyi={U\bibinitperiod},
+           given={Johan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8b4f260513035df036170e50abb8a1a2}{%
+           family={Karrer},
+           familyi={K\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=921adb9dfe9f50c712f6be548f09df3e}{%
+           family={Backstrom},
+           familyi={B\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1908f27d74113b77bb19b7a74aaad35e}{%
+           family={Marlow},
+           familyi={M\bibinitperiod},
+           given={Cameron},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d705fe5a8f62a6e8259822d44bee0bee}{%
+           family={Alto},
+           familyi={A\bibinitperiod},
+           given={Palo},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{07036499c62746a6580bb7c3b99681c4}
+      \strng{fullhash}{64bb4aa29caf2ef961d4ef388adf121c}
+      \strng{authornamehash}{07036499c62746a6580bb7c3b99681c4}
+      \strng{authorfullhash}{64bb4aa29caf2ef961d4ef388adf121c}
+      \field{sortinit}{U}
+      \field{sortinithash}{1554584e7f69d2b4fe0a645e73d50194}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study the structure of the social graph of active Facebook users, the largest social network ever analyzed. We compute numerous features of the graph including the number of users and friendships, the degree distribution, path lengths, clustering, and mixing patterns. Our results center around three main observations. First, we characterize the global structure of the graph, determining that the social network is nearly fully connected, with 99.91{\%} of individuals belonging to a single large connected component, and we confirm the "six degrees of separation" phenomenon on a global scale. Second, by studying the average local clustering coefficient and degeneracy of graph neighborhoods, we show that while the Facebook graph as a whole is clearly sparse, the graph neighborhoods of users contain surprisingly dense structure. Third, we characterize the assortativity patterns present in the graph by studying the basic demographic and network properties of users. We observe clear degree assortativity and characterize the extent to which "your friends have more friends than you". Furthermore, we observe a strong effect of age on friendship preferences as well as a globally modular community structure driven by nationality, but we do not find any strong gender homophily. We compare our results with those from smaller social networks and find mostly, but not entirely, agreement on common structural network characteristics.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{9781467345323}
+      \field{issn}{07308078}
+      \field{journaltitle}{Arxiv preprint arXiv}
+      \field{number}{November 2011}
+      \field{title}{{The Anatomy of the Facebook Social Graph}}
+      \field{volume}{abs/1111.4}
+      \field{year}{2011}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1.1.31.1768
+      \endverb
+      \verb{eprint}
+      \verb 1111.4503
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Ugander et al/Arxiv preprint arXiv/Ugander et al. - 2011 - The Anatomy of the Facebook Social Graph.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1111.4503v1
+      \endverb
+    \endentry
+    \entry{walker2007ranking}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b7f85b7cb467cebb5eaae735569db6aa}{%
+           family={Walker},
+           familyi={W\bibinitperiod},
+           given={Dylan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=64a3c5da1dd1ba77abca68a22677bcb3}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Huafeng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ab87611dd44495ed173075bcdea00710}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Koon-Kiu},
+           giveni={K\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=a8c7210da7eb159bf93039eb5d2f19a5}{%
+           family={Maslov},
+           familyi={M\bibinitperiod},
+           given={Sergei},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{4d946b5696867cd0de4b9a4c28eb81c3}
+      \strng{fullhash}{7b59d01311f23bfdbb12ebce6f09e324}
+      \strng{authornamehash}{4d946b5696867cd0de4b9a4c28eb81c3}
+      \strng{authorfullhash}{7b59d01311f23bfdbb12ebce6f09e324}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistical Mechanics: Theory and Experiment}
+      \field{number}{06}
+      \field{title}{Ranking scientific publications using a model of network traffic}
+      \field{volume}{2007}
+      \field{year}{2007}
+      \field{pages}{P06010}
+      \range{pages}{-1}
+    \endentry
+    \entry{xu2007scan}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=2dda16c0a5d50fc830d0d4a3787937fa}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Xiaowei},
+           giveni={X\bibinitperiod}}}%
+        {{hash=36db5903c5c1c28a176f4a79bf7a0719}{%
+           family={Yuruk},
+           familyi={Y\bibinitperiod},
+           given={Nurcan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f8ed500b086db71f8ee642c56fd0ba74}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Zhidan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=29a125bf4973e0fe28f8fd04180800e3}{%
+           family={Schweiger},
+           familyi={S\bibinitperiod},
+           given={Thomas\bibnamedelima AJ},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{78f9fe8659dfe10b34080207b6d16b2c}
+      \strng{fullhash}{7375c070c3b7dd67d583e58ae14302d7}
+      \strng{authornamehash}{78f9fe8659dfe10b34080207b6d16b2c}
+      \strng{authorfullhash}{7375c070c3b7dd67d583e58ae14302d7}
+      \field{sortinit}{X}
+      \field{sortinithash}{755b54a59c4b54d471c87a4486a94349}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining}
+      \field{title}{Scan: a structural clustering algorithm for networks}
+      \field{year}{2007}
+      \field{pages}{824\bibrangedash 833}
+      \range{pages}{10}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
