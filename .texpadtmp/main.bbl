@@ -69,6 +69,47 @@
       \verb http://arxiv.org/abs/1606.06530
       \endverb
     \endentry
+    \entry{Baeza-Yates2006}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9b9994232d143cb98b683bb47b629e3b}{%
+           family={Baeza-Yates},
+           familyi={B\bibinithyphendelim Y\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod}}}%
+        {{hash=26cc9eb0d32f9b234201a77356620fab}{%
+           family={Boldi},
+           familyi={B\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ff48fc330411251b2eee56daa4376705}{%
+           family={Castillo},
+           familyi={C\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7e9a66d9a922242ab3101bccda904355}
+      \strng{fullhash}{7e9a66d9a922242ab3101bccda904355}
+      \strng{authornamehash}{7e9a66d9a922242ab3101bccda904355}
+      \strng{authorfullhash}{7e9a66d9a922242ab3101bccda904355}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper introduces a family of link-based ranking algorithms that$\backslash$npropagate page importance through links. In these algorithms there$\backslash$nis a damping function that decreases with distance, so a direct link$\backslash$nimplies more endorsement than a link through a long path. PageRank$\backslash$nis the most widely known ranking function of this family. The main$\backslash$nobjective of this paper is to determine whether this family of ranking$\backslash$ntechniques has some interest per se, and how different choices for$\backslash$nthe damping function impact on rank quality and on convergence speed.$\backslash$nEven though our results suggest that PageRank can be approximated$\backslash$nwith other simpler forms of rankings that may be computed more efficiently,$\backslash$nour focus is of more speculative nature, in that it aims at separating$\backslash$nthe kernel of PageRank, that is, link-based importance propagation,$\backslash$nfrom the way propagation decays over paths. We focus on three damping$\backslash$nfunctions, having linear, exponential, and hyperbolic decay on the$\backslash$nlengths of the paths. The exponential decay corresponds to PageRank,$\backslash$nand the other functions are new. Our presentation includes algorithms,$\backslash$nanalysis, comparisons and experiments that study their behavior under$\backslash$ndifferent parameters in real Web graph data. Among other results,$\backslash$nwe show how to calculate a linear approximation that induces a page$\backslash$nordering that is almost identical to PageRank's using a fixed small$\backslash$nnumber of iterations; comparisons were performed using Kendall's$\backslash$ntau on large domain datasets.}
+      \field{isbn}{1595933697}
+      \field{journaltitle}{Proceedings of the 29th annual international ACM SIGIR conference on Research and development in information retrieval}
+      \field{title}{{Generalizing pagerank: Damping functions for link-based ranking algorithms}}
+      \field{year}{2006}
+      \field{pages}{308\bibrangedash 315}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/1148170.1148225
+      \endverb
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Baeza-Yates, Boldi, Castillo/Proceedings of the 29th annual international ACM SIGIR conference on Research and development in information retrieval/Baeza-Yates, Boldi, Castillo - 2006 - Generalizing pagerank Damping functions for link-based ranking algorithms.pdf:pdf
+      \endverb
+      \keyw{link analysis,link-based ranking,web graphs}
+    \endentry
     \entry{Baumann2014}{article}{}
       \name{author}{3}{}{%
         {{hash=8abb0af9064debe58cfdbb64002f7d81}{%
@@ -173,6 +214,31 @@
       \verb{file}
       \verb :Users/SunJc/Documents/Mendeley Desktop/Bhat, Sims/PhD dissertation, University of California/Bhat, Sims - 2012 - InvestorRank and an Inverse Problem for PageRank.pdf:pdf
       \endverb
+    \endentry
+    \entry{bienia2009parsec}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=0dd1d4feb34d72de92fadd5e614a70c6}{%
+           family={Bienia},
+           familyi={B\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=81297ce1d44b1a2582d01bb25868c1ab}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{4a604dd0241ca265bc6e8ed3670b9584}
+      \strng{fullhash}{4a604dd0241ca265bc6e8ed3670b9584}
+      \strng{authornamehash}{4a604dd0241ca265bc6e8ed3670b9584}
+      \strng{authorfullhash}{4a604dd0241ca265bc6e8ed3670b9584}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 5th Annual Workshop on Modeling Benchmarking and Simulation}
+      \field{title}{Parsec 2.0: A new benchmark suite for chipmultiprocessors}
+      \field{year}{2009}
     \endentry
     \entry{bonacich1972factoring}{article}{}
       \name{author}{1}{}{%
@@ -840,6 +906,13 @@
       \field{year}{1991}
       \field{pages}{141\bibrangedash 154}
       \range{pages}{14}
+    \endentry
+    \entry{pth}{misc}{}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://www.gnu.org/software/pth/}}
+      \field{title}{{GNU Portable Threads.}}
     \endentry
     \entry{guimera2005worldwide}{article}{}
       \name{author}{4}{}{%
@@ -1696,28 +1769,6 @@
       \field{title}{Anomaly detection in bitcoin network using unsupervised learning methods}
       \field{year}{2016}
     \endentry
-    \entry{poelstra2015stake}{article}{}
-      \name{author}{1}{}{%
-        {{hash=f3b667c3a2009a399853b17a348c79ae}{%
-           family={Poelstra},
-           familyi={P\bibinitperiod},
-           given={A},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {No Publisher (accessed 22 March) https://download. wpsoftware. net/bitcoin/pos. pdf}%
-      }
-      \strng{namehash}{f3b667c3a2009a399853b17a348c79ae}
-      \strng{fullhash}{f3b667c3a2009a399853b17a348c79ae}
-      \strng{authornamehash}{f3b667c3a2009a399853b17a348c79ae}
-      \strng{authorfullhash}{f3b667c3a2009a399853b17a348c79ae}
-      \field{sortinit}{P}
-      \field{sortinithash}{24100cef455d7974167575052c29146e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{On stake and consensus}
-      \field{year}{2015}
-    \endentry
     \entry{propper2008towards}{article}{}
       \name{author}{3}{}{%
         {{hash=fd4ac0baac84e20b1827cd8221fa9406}{%
@@ -2147,6 +2198,32 @@
       \field{year}{2007}
       \field{pages}{P06010}
       \range{pages}{-1}
+    \endentry
+    \entry{Wood2014}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9f252fbc7b8ff3c128b3e8dd806afa9b}{%
+           family={Wood},
+           familyi={W\bibinitperiod},
+           given={Gavin},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f252fbc7b8ff3c128b3e8dd806afa9b}
+      \strng{fullhash}{9f252fbc7b8ff3c128b3e8dd806afa9b}
+      \strng{authornamehash}{9f252fbc7b8ff3c128b3e8dd806afa9b}
+      \strng{authorfullhash}{9f252fbc7b8ff3c128b3e8dd806afa9b}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The blockchain paradigm when coupled with cryptographically-secured transactions has demonstrated its utility through a number of projects, not least Bitcoin. Each such project can be seen as a simple application on a decentralised, but singleton, compute resource. We can call this paradigm a transactional singleton machine with shared-state. Ethereum implements this paradigm in a generalised manner. Furthermore it provides a plurality of such resources, each with a distinct state and operating code but able to interact through a message-passing framework with others. We discuss its design, implementation issues, the opportunities it provides and the future hurdles we envisage.}
+      \field{journaltitle}{Ethereum Project Yellow Paper}
+      \field{title}{{Ethereum: a secure decentralised generalised transaction ledger}}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 32}
+      \range{pages}{32}
+      \verb{file}
+      \verb :Users/SunJc/Documents/Mendeley Desktop/Wood/Ethereum Project Yellow Paper/Wood - 2014 - Ethereum a secure decentralised generalised transaction ledger.pdf:pdf
+      \endverb
     \endentry
     \entry{xu2007scan}{inproceedings}{}
       \name{author}{4}{}{%

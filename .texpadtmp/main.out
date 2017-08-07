@@ -8,7 +8,7 @@
 \BOOKMARK [1][-]{section.4}{区块和交易}{}% 8
 \BOOKMARK [1][-]{section.5}{Nebulas Rank算法}{}% 9
 \BOOKMARK [2][-]{subsection.5.1}{Introduction}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{Related\040Works\040}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{Related\040Works}{section.5}% 11
 \BOOKMARK [2][-]{subsection.5.3}{Transaction\040Graph}{section.5}% 12
 \BOOKMARK [3][-]{subsubsection.5.3.1}{Transactions}{subsection.5.3}% 13
 \BOOKMARK [3][-]{subsubsection.5.3.2}{Transactions\040Aggregation}{subsection.5.3}% 14
@@ -17,14 +17,15 @@
 \BOOKMARK [3][-]{subsubsection.5.3.5}{Exploiting\040Nodes'\040Property}{subsection.5.3}% 17
 \BOOKMARK [3][-]{subsubsection.5.3.6}{Mitigating\040Dormant\040Effect}{subsection.5.3}% 18
 \BOOKMARK [2][-]{subsection.5.4}{LeaderRank}{section.5}% 19
-\BOOKMARK [2][-]{subsection.5.5}{Experiments}{section.5}% 20
-\BOOKMARK [3][-]{subsubsection.5.5.1}{Ethereum\040Stats}{subsection.5.5}% 21
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Exploitability\040of\0401-hop\040Local\040Information}{subsection.5.5}% 22
-\BOOKMARK [3][-]{subsubsection.5.5.3}{Noise\040Resistance}{subsection.5.5}% 23
-\BOOKMARK [3][-]{subsubsection.5.5.4}{Sybil\040Attack\040Resistance}{subsection.5.5}% 24
-\BOOKMARK [2][-]{subsection.5.6}{Discussions\040And\040Conclusions}{section.5}% 25
-\BOOKMARK [1][-]{section.6}{PoR共识算法}{}% 26
-\BOOKMARK [1][-]{section.7}{DIP开发者激励协议}{}% 27
-\BOOKMARK [1][-]{section.8}{Nebulas\040Force\040}{}% 28
-\BOOKMARK [1][-]{section.9}{智能合约}{}% 29
-\BOOKMARK [1][-]{section.10}{星云链基础服务及开发工具}{}% 30
+\BOOKMARK [3][-]{subsubsection.5.4.1}{LeaderRank\040Weighting\040Scheme}{subsection.5.4}% 20
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Comparing\040with\040PageRank}{subsection.5.4}% 21
+\BOOKMARK [2][-]{subsection.5.5}{Experiments}{section.5}% 22
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Ethereum\040Stats}{subsection.5.5}% 23
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Exploitability\040of\0401-hop\040Local\040Information}{subsection.5.5}% 24
+\BOOKMARK [3][-]{subsubsection.5.5.3}{Noise\040Resistance}{subsection.5.5}% 25
+\BOOKMARK [3][-]{subsubsection.5.5.4}{Sybil\040Attack\040Resistance}{subsection.5.5}% 26
+\BOOKMARK [2][-]{subsection.5.6}{Discussions\040And\040Conclusions}{section.5}% 27
+\BOOKMARK [1][-]{section.6}{DIP开发者激励协议}{}% 28
+\BOOKMARK [1][-]{section.7}{Nebulas\040Force\040}{}% 29
+\BOOKMARK [1][-]{section.8}{智能合约}{}% 30
+\BOOKMARK [1][-]{section.9}{星云链基础服务及开发工具}{}% 31
