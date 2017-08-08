@@ -2271,6 +2271,7 @@
     <bcf:citekey order="125">buterin2013ethereum</bcf:citekey>
     <bcf:citekey order="126">king2012peercoin</bcf:citekey>
     <bcf:citekey order="127">nem</bcf:citekey>
+    <bcf:citekey order="128">minimal_slash_rules</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

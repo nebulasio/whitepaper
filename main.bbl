@@ -1460,6 +1460,14 @@
       \endverb
       \keyw{anonymity,bitcoin,measurement}
     \endentry
+    \entry{minimal_slash_rules}{misc}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://medium.com/@VitalikButerin/minimal-slashing-conditions-20f0b500fc6c}}
+      \field{note}{Accessed: 2017-08-01}
+      \field{title}{{Minimal Slashing Conditions}}
+    \endentry
     \entry{Morten2006}{article}{}
       \name{author}{3}{}{%
         {{hash=c224d81b85438bd8e60bbaee7bdaba7a}{%

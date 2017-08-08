@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  8 AUG 2017 21:41
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  8 AUG 2017 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2277,11 +2277,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [18
 
 ]
-
-LaTeX Warning: Reference `fig:fork' on page 19 undefined on input line 59.
-
 File: ./figs/fork.eps Graphic file (type eps)
-<./figs/fork.eps>
+ <./figs/fork.eps>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2316,6 +2313,13 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
 (Font)              using `TU/STSong(0)/m/n' instead on input line 53.
 
 [29] [30]
+Overfull \hbox (9.32475pt too wide) in paragraph at lines 54--54
+[]\TU/lmr/m/it/10 Minimal Slashing Conditions\TU/lmr/m/n/10 . []$[][][][][] [] 
+[] [] [][][][][][] [] [][][] [] [][][][][][][][][][][][][][][] [] [][][][][][][
+] [][] [][][][][][][][] [][]
+ []
+
+
 Overfull \hbox (12.62595pt too wide) in paragraph at lines 54--54
 \TU/lmr/m/n/10 (2008), p. 9. \TU/lmr/m/sc/10 issn\TU/lmr/m/n/10 : 09254560. \TU
 /lmr/m/sc/10 doi\TU/lmr/m/n/10 : []$[][] [] [][][][] [] [][][][][][] [][] [][][
@@ -2347,10 +2351,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 58225 strings out of 493005
- 1307301 string characters out of 6134596
- 2603078 words of memory out of 5000000
- 61430 multiletter control sequences out of 15000+600000
+ 58226 strings out of 493005
+ 1307380 string characters out of 6134596
+ 2603445 words of memory out of 5000000
+ 61431 multiletter control sequences out of 15000+600000
  12418 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  64i,10n,96p,10411b,4578s stack positions out of 5000i,500n,10000p,200000b,80000s
