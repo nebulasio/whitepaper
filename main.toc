@@ -1,0 +1,87 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {american}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}简介}{5}{section.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}区块链技术简介}{5}{subsection.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}商业和技术挑战}{5}{subsection.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}星云链解决的问题}{5}{subsection.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.4}星云链设计基本原则}{5}{subsection.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}星云链代币NAS}{6}{section.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}账号和地址}{7}{section.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}区块和交易}{8}{section.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Nebulas Rank算法}{9}{section.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Introduction}{9}{subsection.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Related Works}{11}{subsection.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3}Transaction Graph}{13}{subsection.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.1}Transactions}{13}{subsubsection.5.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.2}Transactions Aggregation}{13}{subsubsection.5.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.3}Temporality Embedding}{14}{subsubsection.5.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.4}Encouragement Function}{14}{subsubsection.5.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.5}Exploiting Nodes' Property}{14}{subsubsection.5.3.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.3.6}Mitigating Dormant Effect}{14}{subsubsection.5.3.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4}LeaderRank}{16}{subsection.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.4.1}LeaderRank Weighting Scheme}{16}{subsubsection.5.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.4.2}Comparing with PageRank}{17}{subsubsection.5.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5}Experiments}{18}{subsection.5.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.5.1}Ethereum Stats}{18}{subsubsection.5.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.5.2}Exploitability of 1-hop Local Information}{18}{subsubsection.5.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.5.3}Noise Resistance}{18}{subsubsection.5.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.5.4}Sybil Attack Resistance}{18}{subsubsection.5.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6}Discussions And Conclusions}{18}{subsection.5.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}PoR(Proof of Reputation)共识算法}{19}{section.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}常用共识算法的缺陷}{19}{subsection.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}PoR算法设计}{19}{subsection.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.1}新区块产生}{19}{subsubsection.6.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.2}验证者集合}{19}{subsubsection.6.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.3}共识过程}{20}{subsubsection.6.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.4}分叉选择（Fork Choice）}{20}{subsubsection.6.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.5}投票规则}{20}{subsubsection.6.2.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3}PoR经济分析}{21}{subsection.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.3.1}激励分析}{21}{subsubsection.6.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.3.2}作弊分析}{22}{subsubsection.6.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}DIP开发者激励协议}{25}{section.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Nebulas Force }{26}{section.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}智能合约}{27}{section.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10}星云链基础服务及开发工具}{28}{section.10}
