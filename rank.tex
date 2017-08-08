@@ -64,17 +64,7 @@ w_e = \sum_{i=1}^K a_i, s.t. a_i \in \{a|(s,t,\tau,a) \in T_{xs} \} \land a_1 \g
 By this mean, the link between two nodes is bi-directed and asymmetric, with top $K$ transactions along each direction aggregated to become the weight. This is different from NEM, which all transfers amounts between two nodes are aggregated into one unilateral edge's weight\cite{nem}. We presume NEM's solution is vulnerable to manipulations, since only a simple triangle loop will enhance edges' weight into infinity. Additionally, it is also not truthful to take the average or quartile of all relation transactions, since this forces accounts to transfer very cautiously. We will show the advantage of our aggregation method in \refsec{} \st{experiment confirming why doing so}
 
 \subsubsection{Temporality Embedding} \label{subsec:coinage}
-We noticed that the transactions happens with timestamps. So we try to embed this temporal information as a property of nodes. For each account, we calculate its coinage by the following pseudo-code.
-
-\st{formula} \st{Defined as $C_v$ normalized by max}
-\todo{coinage的公式和解释}
-
-\begin{figure}
-\includegraphics{coinage.pdf}
-\end{figure}
-
-
-The intuition of coinage is \st{insights}.
+We noticed that the transactions happens with timestamps. So we try to embed this temporal information as a property of nodes. For each account, we calculate its coinage according to its active coins that are received or cost recently.
 
 Besides, we conjecture that reducing each transaction's contribution according to its block height, like NEM does\cite{nem}, encourages users to postpone their transferring until the last day of period, which will cause unnecessary confusion. Instead, \textbf{Nebulas Rank} treats each transaction equally, which encourages every account to keep active all the time.
 

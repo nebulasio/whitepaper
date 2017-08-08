@@ -2174,6 +2174,7 @@
     <bcf:citekey order="28">Wood2014</bcf:citekey>
     <bcf:citekey order="29">Borgatti2005</bcf:citekey>
     <bcf:citekey order="30">freeman1977set</bcf:citekey>
+    <bcf:citekey order="31">freeman1977set</bcf:citekey>
     <bcf:citekey order="32">Chen2013</bcf:citekey>
     <bcf:citekey order="33">Li2014</bcf:citekey>
     <bcf:citekey order="34">Chen2013</bcf:citekey>
@@ -2194,8 +2195,11 @@
     <bcf:citekey order="49">kleinberg1999authoritative</bcf:citekey>
     <bcf:citekey order="50">Science2001</bcf:citekey>
     <bcf:citekey order="51">Borgatti2005</bcf:citekey>
+    <bcf:citekey order="52">Borgatti2005</bcf:citekey>
     <bcf:citekey order="53">Borgatti2006</bcf:citekey>
+    <bcf:citekey order="54">Borgatti2006</bcf:citekey>
     <bcf:citekey order="55">Lu2016</bcf:citekey>
+    <bcf:citekey order="56">Lu2016</bcf:citekey>
     <bcf:citekey order="57">Borgatti2005</bcf:citekey>
     <bcf:citekey order="58">Nakamoto2008</bcf:citekey>
     <bcf:citekey order="59">Ron</bcf:citekey>
@@ -2225,6 +2229,7 @@
     <bcf:citekey order="83">shiokawa2015scan</bcf:citekey>
     <bcf:citekey order="84">chang2017mathsf</bcf:citekey>
     <bcf:citekey order="85">Fleder2015</bcf:citekey>
+    <bcf:citekey order="86">Fleder2015</bcf:citekey>
     <bcf:citekey order="87">Brin2010</bcf:citekey>
     <bcf:citekey order="88">page1999pagerank</bcf:citekey>
     <bcf:citekey order="89">Fleder2015</bcf:citekey>
@@ -2233,12 +2238,15 @@
     <bcf:citekey order="92">Brin2010</bcf:citekey>
     <bcf:citekey order="93">page1999pagerank</bcf:citekey>
     <bcf:citekey order="94">Chen2013</bcf:citekey>
+    <bcf:citekey order="95">Chen2013</bcf:citekey>
     <bcf:citekey order="96">Li2014</bcf:citekey>
+    <bcf:citekey order="97">Li2014</bcf:citekey>
     <bcf:citekey order="98">Li2014</bcf:citekey>
     <bcf:citekey order="99">Chen2013</bcf:citekey>
     <bcf:citekey order="100">Li2014</bcf:citekey>
     <bcf:citekey order="101">Lu2016</bcf:citekey>
     <bcf:citekey order="102">Baeza-Yates2006</bcf:citekey>
+    <bcf:citekey order="103">Baeza-Yates2006</bcf:citekey>
     <bcf:citekey order="104">Borgatti2005</bcf:citekey>
     <bcf:citekey order="105">freeman1991centrality</bcf:citekey>
     <bcf:citekey order="106">newman2005measure</bcf:citekey>
@@ -2249,7 +2257,9 @@
     <bcf:citekey order="111">Brin2010</bcf:citekey>
     <bcf:citekey order="112">page1999pagerank</bcf:citekey>
     <bcf:citekey order="113">Li2014</bcf:citekey>
+    <bcf:citekey order="114">Li2014</bcf:citekey>
     <bcf:citekey order="115">Li2014</bcf:citekey>
+    <bcf:citekey order="116">Li2014</bcf:citekey>
     <bcf:citekey order="117">Li2014</bcf:citekey>
     <bcf:citekey order="118">Chen2013</bcf:citekey>
     <bcf:citekey order="119">Brin2010</bcf:citekey>

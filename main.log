@@ -1,10 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  8 AUG 2017 21:20
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.5.23)  8 AUG 2017 21:41
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/oops/workspace/topic/Bitcoin/whitepaper/main
-(/Users/oops/workspace/topic/Bitcoin/whitepaper/main.tex
+**main.tex
+(./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -2190,25 +2189,12 @@ Package biblatex Info: Automatic encoding selection.
 \openout6 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-
-/Users/oops/workspace/topic/Bitcoin/whitepaper/main.tex:29: Package biblatex Er
-ror: File 'main.bbl' not created by biblatex.
-
-See the biblatex package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.29 \begin{document}
-                     ^^M
-This file was apparently not created by biblatex. Rename it or
-move it to a location were TeX will not find it. If this error
-persists, consider redefining \blxauxsuffix.See the biblatex
-manual for details.
-
+Package biblatex Info: ... file 'main.bbl' found.
+(./main.bbl)
 Package biblatex Info: Reference section=0 on input line 29.
 Package biblatex Info: Reference segment=0 on input line 29.
 LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 34.
@@ -2222,15 +2208,7 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 )
 [1
 
-] (./abstract.tex
-
-LaTeX Warning: Citation 'pth' on page 2 undefined on input line 14.
-
-
-LaTeX Warning: Citation 'bienia2009parsec' on page 2 undefined on input line 14
-.
-
-) [2] (./main.toc
+] (./abstract.tex) [2] (./main.toc
 
 LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
 (Font)              using `TU/STSong(0)/m/n' instead on input line 5.
@@ -2266,531 +2244,94 @@ STSong(0)/m/n/9 的 钱 包 标 准 地 址 是 \TU/lmr/m/n/9 0x5d65d971895edc43
 
 ]
 
-LaTeX Warning: Citation 'Brin2010' on page 9 undefined on input line 5.
+LaTeX Warning: Reference `' on page 9 undefined on input line 12.
 
 
-LaTeX Warning: Citation 'page1999pagerank' on page 9 undefined on input line 5.
+LaTeX Warning: Reference `' on page 9 undefined on input line 12.
 
 
-
-LaTeX Warning: Citation 'langville2011google' on page 9 undefined on input line
- 5.
-
-
-LaTeX Warning: Citation 'doerr2012rumors' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'Kitsak2010' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'walker2007ranking' on page 9 undefined on input line 5
-.
-
-
-LaTeX Warning: Citation 'chen2007finding' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'Radicchi2009' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'guimera2005worldwide' on page 9 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation 'ivan2010web' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'Bhat2012' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'freeman1979set' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'bonacich1972factoring' on page 9 undefined on input li
-ne 5.
-
-
-LaTeX Warning: Citation 'katz1953new' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'kleinberg1999authoritative' on page 9 undefined on inp
-ut line 5.
-
-
-LaTeX Warning: Citation 'sabidussi1966centrality' on page 9 undefined on input 
-line 5.
-
-
-LaTeX Warning: Citation 'freeman1977set' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'freeman1978centrality' on page 9 undefined on input li
-ne 5.
-
-
-LaTeX Warning: Citation 'freeman1991centrality' on page 9 undefined on input li
-ne 5.
-
-
-LaTeX Warning: Citation 'noh2004random' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'newman2005measure' on page 9 undefined on input line 5
-.
-
-
-Overfull \hbox (55.85278pt too wide) in paragraph at lines 5--6
-\TU/lmr/m/n/9 acknowledged scientist by the citation network or co-author netwo
-rk[[]][[]][[]],
- []
-
-
-Overfull \hbox (30.88556pt too wide) in paragraph at lines 5--6
-\TU/lmr/m/n/9 ity[[]], Katz centrality[[]], PageRank[[]], HITS[[]],
- []
-
-
-Overfull \hbox (257.12431pt too wide) in paragraph at lines 5--6
-\TU/lmr/m/n/9 closeness centrality[[]], betweenness centrality[[]][[]][[]][[]][
-[]],
- []
-
-
-LaTeX Warning: Citation 'Ugander2011' on page 9 undefined on input line 10.
-
-
-LaTeX Warning: Citation 'page1999pagerank' on page 9 undefined on input line 10
-.
-
-
-LaTeX Warning: Citation 'Nakamoto2008' on page 9 undefined on input line 10.
-
-
-LaTeX Warning: Citation 'Wood2014' on page 9 undefined on input line 10.
+LaTeX Warning: Reference `' on page 9 undefined on input line 12.
 
 [9
 
-]
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 12.
-
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 12.
-
-
-LaTeX Warning: Reference `' on page 10 undefined on input line 12.
-
-
-LaTeX Warning: Citation 'Borgatti2005' on page 10 undefined on input line 14.
-
-
-LaTeX Warning: Citation 'freeman1977set' on page 10 undefined on input line 14.
-
-
-
-LaTeX Warning: Citation 'Chen2013' on page 10 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'Li2014' on page 10 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 10 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'Kim2002' on page 10 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'Li2014' on page 10 undefined on input line 25.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 10 undefined on input line 25.
-
-[10]
-
-LaTeX Warning: Citation 'newman2010networks' on page 11 undefined on input line
- 32.
-
-
-LaTeX Warning: Citation 'freeman1979set' on page 11 undefined on input line 32.
-
-
-
-LaTeX Warning: Citation 'bonacich1972factoring' on page 11 undefined on input l
-ine 32.
-
-
-LaTeX Warning: Citation 'katz1953new' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'sabidussi1966centrality' on page 11 undefined on input
- line 32.
-
-
-LaTeX Warning: Citation 'freeman1977set' on page 11 undefined on input line 32.
-
-
-
-LaTeX Warning: Citation 'freeman1978centrality' on page 11 undefined on input l
-ine 32.
-
-
-LaTeX Warning: Citation 'freeman1991centrality' on page 11 undefined on input l
-ine 32.
-
-
-LaTeX Warning: Citation 'noh2004random' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'newman2005measure' on page 11 undefined on input line 
-32.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'kleinberg1999authoritative' on page 11 undefined on in
-put line 32.
-
-
-LaTeX Warning: Citation 'Science2001' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'Borgatti2005' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'Borgatti2006' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'Lu2016' on page 11 undefined on input line 32.
-
-
-LaTeX Warning: Citation 'Borgatti2005' on page 11 undefined on input line 32.
-
-
-Overfull \hbox (8.89694pt too wide) in paragraph at lines 32--33
-\TU/lmr/m/n/9 gree centrality[[]], eigenvector centrality[[]], Katz centrality[
-[]],
- []
-
-
-Overfull \hbox (257.12431pt too wide) in paragraph at lines 32--33
-\TU/lmr/m/n/9 closeness centrality[[]], betweenness centrality[[]][[]][[]][[]][
-[]],
- []
-
-
-LaTeX Warning: Citation 'Nakamoto2008' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Ron' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Haslhofer' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'NielKondor2014' on page 11 undefined on input line 34.
-
-
-
-LaTeX Warning: Citation 'Baumann2014' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Meiklejohn2013' on page 11 undefined on input line 34.
-
-
-
-LaTeX Warning: Citation 'Ober2013' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'pham2016anomaly' on page 11 undefined on input line 34
-.
-
-
-LaTeX Warning: Citation 'Fleder2015' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Ferrin2015' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Chang2017' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Anderson2016' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Tschorsch2015' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'propper2008towards' on page 11 undefined on input line
- 34.
-
-
-LaTeX Warning: Citation 'Boss2004' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Serrano2007' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Bech2008' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Fagiolo2009' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Morten2006' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Boss2004a' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Krempel2002' on page 11 undefined on input line 34.
-
-
-LaTeX Warning: Citation 'Serrano2003' on page 11 undefined on input line 34.
-
-
-Overfull \hbox (132.17877pt too wide) in paragraph at lines 34--35
-\TU/lmr/m/n/9 use the transaction graph structure to discuss anonymity in Bitco
-in[[]][[]][[]][[]][[]].
- []
-
-
-Overfull \hbox (80.77971pt too wide) in paragraph at lines 34--35
-\TU/lmr/m/n/9 ties[[]][[]][[]][[]][[]][[]][[]][[]][[]].
- []
-
-[11]
-
-LaTeX Warning: Citation 'nem' on page 12 undefined on input line 36.
-
-
-LaTeX Warning: Citation 'Nikolakopoulos2013' on page 12 undefined on input line
- 36.
-
-
-LaTeX Warning: Citation 'xu2007scan' on page 12 undefined on input line 36.
-
-
-LaTeX Warning: Citation 'shiokawa2015scan' on page 12 undefined on input line 3
-6.
-
-
-LaTeX Warning: Citation 'chang2017mathsf' on page 12 undefined on input line 36
-.
-
-
-LaTeX Warning: Citation 'Fleder2015' on page 12 undefined on input line 36.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 12 undefined on input line 36.
-
-
-LaTeX Warning: Citation 'page1999pagerank' on page 12 undefined on input line 3
-6.
-
-
-LaTeX Warning: Citation 'Fleder2015' on page 12 undefined on input line 36.
-
-
-Overfull \hbox (29.91553pt too wide) in paragraph at lines 36--37
-\TU/lmr/m/n/9 algorithm, with clustering algorithm based on SCAN algorithm[[]][
-[]][[]].
- []
-
-
-LaTeX Warning: Citation 'Chen2013' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Li2014' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'page1999pagerank' on page 12 undefined on input line 3
-8.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Li2014' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Li2014' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Li2014' on page 12 undefined on input line 38.
-
-
-LaTeX Warning: Citation 'Lu2016' on page 12 undefined on input line 38.
-
-
-Overfull \hbox (85.3836pt too wide) in paragraph at lines 38--39
-[]\TU/lmr/m/n/9 The algorithm we choose is LeaderRank[[]][[]]. It is a simple v
-ariant of PageRank[[]][[]].
- []
-
-
-LaTeX Warning: Citation 'Baeza-Yates2006' on page 12 undefined on input line 40
-.
-
-
-LaTeX Warning: Citation 'Borgatti2005' on page 12 undefined on input line 40.
-
-
-LaTeX Warning: Citation 'freeman1991centrality' on page 12 undefined on input l
-ine 40.
-
-
-LaTeX Warning: Citation 'newman2005measure' on page 12 undefined on input line 
-40.
-
-
-Overfull \hbox (30.45073pt too wide) in paragraph at lines 40--41
-\TU/lmr/m/n/9 ness[[]] and random walk betweenness (aka. current flow betweenne
-ss)[[]].
- []
-
-[12]
-
-LaTeX Warning: Citation 'nem' on page 13 undefined on input line 64.
-
+] [10] [11] [12]
 
 LaTeX Warning: Reference `' on page 13 undefined on input line 64.
 
 [13]
-File: coinage.pdf Graphic file (type QTm)
- <use  "coinage.pdf" >
-Overfull \hbox (127.47478pt too wide) in paragraph at lines 73--74
-[][] 
- []
+
+LaTeX Warning: Reference `' on page 14 undefined on input line 71.
 
 
-LaTeX Warning: Float too large for page by 223.72168pt on input line 74.
+LaTeX Warning: Reference `' on page 14 undefined on input line 78.
 
 
-LaTeX Warning: Citation 'nem' on page 14 undefined on input line 79.
+LaTeX Warning: Reference `' on page 14 undefined on input line 95.
 
-
-LaTeX Warning: Reference `' on page 14 undefined on input line 81.
-
-
-LaTeX Warning: Reference `' on page 14 undefined on input line 88.
-
-[14] [15]
-
-LaTeX Warning: Reference `' on page 16 undefined on input line 105.
-
-
-LaTeX Warning: Citation 'Li2014' on page 16 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 16 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 16 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'page1999pagerank' on page 16 undefined on input line 1
-12.
-
-
-LaTeX Warning: Citation 'Li2014' on page 16 undefined on input line 131.
-
-[16]
-
-LaTeX Warning: Citation 'Li2014' on page 17 undefined on input line 137.
-
-
-LaTeX Warning: Citation 'Li2014' on page 17 undefined on input line 153.
-
-
-LaTeX Warning: Citation 'Chen2013' on page 17 undefined on input line 153.
-
-
-LaTeX Warning: Citation 'Brin2010' on page 17 undefined on input line 161.
-
-
-LaTeX Warning: Citation 'page1999pagerank' on page 17 undefined on input line 1
-61.
-
-
-LaTeX Warning: Citation 'Nikolakopoulos2013' on page 17 undefined on input line
- 163.
-
-
-LaTeX Warning: Citation 'Fleder2015' on page 17 undefined on input line 163.
-
-
-LaTeX Warning: Citation 'nem' on page 17 undefined on input line 163.
-
-[17]) [18] (./por.tex
-
-LaTeX Warning: Citation 'casper' on page 19 undefined on input line 7.
-
-
-LaTeX Warning: Citation 'buterin2013ethereum' on page 19 undefined on input lin
-e 7.
-
-
-LaTeX Warning: Citation 'king2012peercoin' on page 19 undefined on input line 9
-.
-
-
-LaTeX Warning: Citation 'nem' on page 19 undefined on input line 11.
-
+[14] [15] [16]) [17] (./por.tex
 File: ./figs/epoch.eps Graphic file (type eps)
-<./figs/epoch.eps>
+ <./figs/epoch.eps>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19
+[18
 
 ]
 
-LaTeX Warning: Reference `fig:fork' on page 20 undefined on input line 59.
+LaTeX Warning: Reference `fig:fork' on page 19 undefined on input line 59.
 
 File: ./figs/fork.eps Graphic file (type eps)
 <./figs/fork.eps>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20] [21]
+[19] [20]
 File: ./figs/overlap.eps Graphic file (type eps)
- <./figs/overlap.eps> [22]
+ <./figs/overlap.eps> [21]
 File: ./figs/revert1.eps Graphic file (type eps)
  <./figs/revert1.eps>
 File: ./figs/revert2.eps Graphic file (type eps)
  <./figs/revert2.eps>
-[23]
+[22]
 File: ./figs/revert3.eps Graphic file (type eps)
- <./figs/revert3.eps>) [24] (./dip.tex
+ <./figs/revert3.eps>) [23] (./dip.tex
 
 LaTeX Font Warning: Font shape `TU/lmr/b/it' in size <10> not available
 (Font)              Font shape `TU/lmr/b/sl' tried instead on input line 27.
 
-) (./force.tex [25
+) (./force.tex [24
 
-]) (./smartcontract.tex [26
+]) (./smartcontract.tex [25
 
-]) (./infra.tex [27
+]) (./infra.tex [26
 
-]) [28
+]) [27
+
+]
+[28
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 53.
+LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 53.
 
+[29] [30]
+Overfull \hbox (12.62595pt too wide) in paragraph at lines 54--54
+\TU/lmr/m/n/10 (2008), p. 9. \TU/lmr/m/sc/10 issn\TU/lmr/m/n/10 : 09254560. \TU
+/lmr/m/sc/10 doi\TU/lmr/m/n/10 : []$[][] [] [][][][] [] [][][][][][] [][] [][][
+] [][] [][][][] [][] []$[]. arXiv: []$[][][][][][][][][][][][][][][][][][]$[].
+ []
+
+[31]
+Overfull \hbox (3.93867pt too wide) in paragraph at lines 54--54
+[]\TU/lmr/m/n/10 Gavin Wood. “Ethereum: a secure decentralised generalised tran
+saction ledger.” In: \TU/lmr/m/it/10 Ethereum
+ []
+
+[32] [33]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
-(./main.aux)
+ (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 56.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 56.
 
@@ -2800,26 +2341,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 58055 strings out of 493005
- 1301898 string characters out of 6134596
- 2519767 words of memory out of 5000000
- 61267 multiletter control sequences out of 15000+600000
- 11332 words of font info for 66 fonts, out of 8000000 for 9000
+ 58225 strings out of 493005
+ 1307301 string characters out of 6134596
+ 2603078 words of memory out of 5000000
+ 61430 multiletter control sequences out of 15000+600000
+ 12418 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 64i,10n,96p,10454b,3620s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,10n,96p,10411b,4578s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (28 pages).
+Output written on main.pdf (33 pages).
