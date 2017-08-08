@@ -1,0 +1,48 @@
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+
+\usepgflibrary{arrows}
+\usepackage{flafter}
+
+
+\newcommand{\todo}[1]{{\color{blue}#1}}
+\newcommand{\cmnt}[1]{{\color{red}#1}}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+\newcommand{\por}{PoR}
+
+
+% math and cite
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newcommand{\refsec}[1]{\S\ref{#1}}
+\usepackage{soul}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{soul}
+\usepackage{fullpage}
+\usepackage[noend]{algorithmic}
+\usepackage{subfigure}
+\usepackage[american]{babel}
+%\usepackage{csquotes}
+\usepackage{biblatex}
+\renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
+  \ifboolexpr{
+    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
+    and
+    test \ifmorenames
+  }
+    {\ifnumgreater{\value{liststop}}{1}
+       {\finalandcomma}
+       {}%
+     \andothersdelim\bibstring[\emph]{andothers}}
+    {}}
+
+    \addbibresource{reference.bib}

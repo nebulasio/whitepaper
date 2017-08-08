@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage{charter}
+\usepackage{fullpage}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{ifthen}
+\usepackage{comment}
+
+\bibliographystyle{unsrt}
+\input{common.tex}
+\addbibresource{reference.bib}
+
+\begin{document}
+\title{Nebulas Whitepaper}
+\author{Nebulas Inc.}
+
+\maketitle
+
+\newpage
+\input{abstract.tex}
+\tableofcontents
+
+\input{introduction.tex}
+\input{nascoin.tex}
+\input{account.tex}
+\input{block.tex}
+\input{rank.tex}
+\input{por.tex}
+\input{dip.tex}
+\input{force.tex}
+\input{smartcontract.tex}
+\input{infra.tex}
+
+\newpage
+\printbibliography
+
+%\bibliography{reference}
+\end{document}
