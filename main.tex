@@ -27,8 +27,12 @@
 \input{common.tex}
 \addbibresource{reference.bib}
 
-\renewcommand{\baselinestretch}{1.5}
 \begin{document}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\baselinestretch}{1.5}
+
 \title{星云链技术白皮书}
 \author{Nebulas Inc.}
 
@@ -51,7 +55,10 @@
 \input{smartcontract.tex}
 \input{infra.tex}
 
+\input{nomencl.tex}
+
 \newpage
+\printnomenclature
 \printbibliography
 
 %\bibliography{reference}
