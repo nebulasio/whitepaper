@@ -4,12 +4,11 @@
 \subsection{常用共识算法的缺陷}
 \label{por:weakness}
 
-经典PoW(Proof of
-Work)共识算法为零和博弈，采用竞争性哈希计算来确定记账人，导致了整个生态每次出块时都有大量电能在竞争中被无端消耗，挖矿成本高。如果把公链参与者作为整体来看，PoW协议下生态维持平稳出块的成本将会持续升高。不断增加挖矿难度的Bitcoin早晚需要面临矿机收益入不敷出的情形，而Ethereum则早已在考虑使用新的PoS共识算法Casper~\cite{casper}来逐步取代现阶段的PoW共识\cite{buterin2013ethereum}。
+经典PoW (Proof of Work)共识算法为零和博弈，采用竞争性哈希计算来确定记账人，导致了整个生态每次出块时都有大量电能在竞争中被无端消耗，挖矿成本高。如果把公链参与者作为整体来看，PoW协议下生态维持平稳出块的成本将会持续升高。不断增加挖矿难度的Bitcoin早晚需要面临矿机收益入不敷出的情形，而Ethereum则早已在考虑使用新的PoS共识算法Casper~\cite{casper}来逐步取代现阶段的PoW共识~\cite{buterin2013ethereum}。
 
-PoS(Proof of Stake)共识算法试图采用资产的多寡来取代算力的作用，按照币龄或者押金数额来分配获得记账权的概率，现阶段Peercoin\cite{king2012peercoin}和Ethereum的Casper协议都采用了PoS共识算法。这种算法解决了PoW高能耗的弊端，但夸大了资本对记账权概率分配的影响，相较于PoW，在PoS下大资本更容易占据生态的话语权，形成大集团垄断，不利于公链生态的自由发展。
+PoS (Proof of Stake)共识算法试图采用资产的多寡来取代算力的作用，按照币龄或者押金数额来分配获得记账权的概率，现阶段Peercoin~\cite{king2012peercoin}和Ethereum的Casper协议都采用了PoS共识算法。这种算法解决了PoW高能耗的弊端，但夸大了资本对记账权概率分配的影响，相较于PoW，在PoS下大资本更容易占据生态的话语权，形成大集团垄断，不利于公链生态的自由发展。
 
-PoI(Proof of Importance)共识算法最早由Nem提出\cite{nem}，不同于PoS，PoI中引入了账户重要程度的概念，使用账户重要性评分来分配记账权的概率。这种算法解决了PoW的高能耗弊端，减缓了PoS的资本垄断危机，但确暴露了nothing-at-stake的问题，作弊者制造新区块的成本很低，公链受到51\%攻击的风险较高。
+PoI (Proof of Importance)共识算法最早由Nem提出~\cite{nem}，不同于PoS，PoI中引入了账户重要程度的概念，使用账户重要性评分来分配记账权的概率。这种算法解决了PoW的高能耗弊端，减缓了PoS的资本垄断危机，但确暴露了nothing-at-stake的问题，作弊者制造新区块的成本很低，公链受到51\%攻击的风险较高。
 
 考虑到常用共识算法的缺陷，Nebulas提出了基于账户声望的PoR算法，从强调重要性的PoI共识算法出发，融合PoS中的经济惩罚，利用PoS强化了PoI的安全性，而PoI则反向遏制了PoS的垄断性，为生态自由发展助力。
 
@@ -19,14 +18,14 @@ PoI(Proof of Importance)共识算法最早由Nem提出\cite{nem}，不同于PoS�
 \subsubsection{新区块产生}
 \label{por:design:block}
 
-PoR选取生态中有声望的账户来参与产生新区块(block)，采用Nebulas Rank算法，排名Top N的账户被视为有影响力声望高的账户，这些账户自愿缴纳一定数量的Nas作为押金后则有资格成为新区块的验证者(validator),参与记账。
+PoR选取生态中有声望的账户来参与产生新区块 (block)，采用Nebulas Rank算法，排名Top N的账户被视为有影响力声望高的账户，这些账户自愿缴纳一定数量的Nas作为押金后则有资格成为新区块的验证者 (validator),参与记账。
 
-给定验证者集合(validators set)之后，PoR算法通过伪随机数来决定验证者集合中谁是新的区块的提议者(proposer)，即所有高声望的账户拥有相同的概率获得新区块的提议权，防止概率倾斜衍生垄断。
+给定验证者集合 (validators set)之后，PoR算法通过伪随机数来决定验证者集合中谁是新的区块的提议者 (proposer)，即所有高声望的账户拥有相同的概率获得新区块的提议权，防止概率倾斜衍生垄断。
 
 \subsubsection{验证者集合}
 \label{por:design:validators}
 
-PoR为应对验证者集合的动态变化，首先将验证者集合按照朝代(dynasty)做划分，一个朝代内验证者集合不会发生变化，然后将每100个区块定义为一个Epoch，在同一个Epoch中朝代不会发生变化。因此朝代的变更只会发生在Epoch交接时，此时将会考察上一个Epoch的第一个区块，如果此区块到达了finality状态，那么当前Epoch进入下一个朝代，否则延续上一个朝代不变，如图\ref{fig:epoch}所示。
+PoR为应对验证者集合的动态变化，首先将验证者集合按照朝代(dynasty)做划分，一个朝代内验证者集合不会发生变化，然后将每100个区块定义为一个Epoch，在同一个Epoch中朝代不会发生变化。因此朝代的变更只会发生在Epoch交接时，此时将会考察上一个Epoch的第一个区块，如果此区块到达了finality状态，那么当前Epoch进入下一个朝代D1，否则延续上一个朝代D0不变，如图\ref{fig:epoch}所示。
 
 \begin{figure}[h]
 \centering
@@ -35,20 +34,22 @@ PoR为应对验证者集合的动态变化，首先将验证者集合按照朝�
 \label{fig:epoch}
 \end{figure}
 
-在任意一个朝代，有高声望的账户可以申请加入或者退出D+2朝代的验证者集合，当朝代变更到D+2时，即可开始参与新区块的共识过程。
+在任意一个朝代，有高声望的账户只能申请加入或者退出D+2朝代的验证者集合，当朝代变更到D+2时，即可加入新区块的共识过程，参与记账。
 
 \subsubsection{共识过程}
 \label{por:design:consensus}
 
-新的区块被提出后，所有验证者将会参与一轮BFT(Byzantine Fault Tolerant)方式的投票，来确定此区块的合法性。在投票最开始，每一个参与此区块共识的验证者将会被收取2x（x为激励奖金比例）的罚金，然后进入两阶段的投票过程。
+新的区块被提出后，所有验证者将会参与一轮BFT (Byzantine Fault Tolerant)方式的投票，来确定此区块的合法性。在投票最开始，每一个参与此区块共识的验证者将会被收取$2x$ ($x$为激励奖金比例)的罚金，然后进入两阶段的投票过程。
 
-第一阶段，所有验证者需要对新区块投$Prepare$票，投完$Prepare$票的验证者将获得1.5x的奖励，如果在当前朝代中有超过2/3的押金总额的验证者对新区块投了$Prepare$票，那么该区块进入投票的第二阶段。
+\begin{itemize}
+\item \textbf{第一阶段}，所有验证者需要对新区块投$Prepare$票，投完$Prepare$票的验证者将获得$1.5x$的奖励，如果在当前朝代中有超过$2/3$的押金总额的验证者对新区块投了$Prepare$票，那么该区块进入投票的第二阶段。
 
-第二阶段，所有验证者需要对新区块投$Commit$票，投完$Commit$票的验证者，可以再获得1.5x的奖励，如果在当前朝代中有超过2/3的押金总额的验证者对新区块投了$Commit$票，那么该区块到达finality状态。
+\item \textbf{第二阶段}，所有验证者需要对新区块投$Commit$票，投完$Commit$票的验证者，可以再获得1.5x的奖励，如果在当前朝代中有超过2/3的押金总额的验证者对新区块投了$Commit$票，那么该区块到达finality状态。
+\end{itemize}
 
 为了加速整个生态向前延展，对于任意在高度H的区块b，如果当前最新区块高度大于等于H+100，那么区块b将在共识过程中被视为过期，在过期的区块上产生的任何共识活动都将会被忽略。
 
-\subsubsection{分叉选择（Fork Choice）}
+\subsubsection{分叉选择}
 \label{por:design:fork}
 
 PoR算法以每个高度上区块的得分来选择权威链，总是选择得分最高的区块加入权威链，在高度h的区块b的得分如下，
@@ -68,22 +69,22 @@ Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed depos
 \subsubsection{投票规则}
 \label{por:design:vote}
 
-为了避免共识过程被恶意破坏，导致共识过程没法完成，阻碍生态发展，PoR参考Casper的最小惩罚规则\cite{minimal_slash_rules}来约束验证者的共识活动。
+为了避免共识过程被恶意破坏，导致共识过程没法完成，阻碍生态发展，PoR参考Casper的最小惩罚规则~\cite{minimal_slash_rules}来约束验证者的共识活动。
 
 假设共识过程中的$Prepare$和$Commit$票结构如下，
-\begin{description}
-\item[a)] $Prepare(H, v, vs)$，其中$H$为当前区块hash，$v$表示当前区块高度，$vs$表示$v$的某个祖先区块高度
-\item[b)] $Commit(H, v)$，其中H为当前区块hash，$v$表示当前区块高度
-\end{description}
+\begin{itemize}
+\item $Prepare(H, v, vs)$，其中$H$为当前区块hash，$v$表示当前区块高度，$vs$表示$v$的某个祖先区块高度
+\item $Commit(H, v)$，其中H为当前区块hash，$v$表示当前区块高度
+\end{itemize}
 
 PoR算法为整个投票过程制定了如下4条基本规则，
 
-\begin{description}
-\item[1)] 单个区块的两阶段共识过程存在严格的先后顺序，只有在第一阶段$Prepare(H, v, vs)$票总权值达到$2/3$后，验证者们才可以投出第二阶段的$Commit(H, v)$票，
-\item[2)] 多区块间不强制一个区块共识结束后才能开始后一个区块的共识，允许交织共识(interwoven consensus)，但是不能完全没有秩序，只有高度vs完成了第一阶段过程，拥有$2/3$的$Prepare(H_anc, vs, vs’)$后，才可以基于vs对其后代区块投$Prepare(H, v, vs)$票，保证交织稳步向前
-\item[3)] 为了避免有节点利用交织共识恶意跨多区块投票，要求基于高度u投出了$Prepare(H, w, u)$票之后，对于高度在跨度u和w之间的所有区块，不能再投出$Commit(H, v)$票，保证共识过程的高效有序
-\item[4)] 为了制止节点用同一笔押金在多个分支上同时下注，导致Nothing at Stake的问题，要求在一个高度投出$Prepare(H1, v, vs1)$票之后，不能再投出不一样的$Prepare(H2, v, vs2)$票
-\end{description}
+\begin{itemize}
+\item 单个区块的两阶段共识过程存在严格的先后顺序，只有在第一阶段$Prepare(H, v, vs)$票总权值达到$2/3$后，验证者们才可以投出第二阶段的$Commit(H, v)$票，
+\item 多区块间不强制一个区块共识结束后才能开始后一个区块的共识，允许交织共识(interwoven consensus)，但是不能完全没有秩序，只有高度vs完成了第一阶段过程，拥有$2/3$的$Prepare(H_anc, vs, vs’)$后，才可以基于vs对其后代区块投$Prepare(H, v, vs)$票，保证交织稳步向前
+\item 为了避免有节点利用交织共识恶意跨多区块投票，要求基于高度u投出了$Prepare(H, w, u)$票之后，对于高度在跨度u和w之间的所有区块，不能再投出$Commit(H, v)$票，保证共识过程的高效有序
+\item 为了制止节点用同一笔押金在多个分支上同时下注，导致Nothing at Stake的问题，要求在一个高度投出$Prepare(H1, v, vs1)$票之后，不能再投出不一样的$Prepare(H2, v, vs2)$票
+\end{itemize}
 
 违反上述规则的验证者一旦被举报核实，将会被罚掉所有押金，举报者们将会共享罚金的4\%作为奖励，罚金的剩余部分将会被销毁。
 
@@ -139,7 +140,7 @@ PoR中的每个高度上的区块都有共识有效期，如果某个高度距�
 \label{fig:revert1}
 \end{figure}
 
-如果Attacker想要使B1\~B2失效，假设B1和B2都已到达finality，块中交易都已生效，为了让这些交易失效，这里考虑两种情况。第一种如图\ref{fig:revert2}中(a)所示，高度H+1和H+2在同一个Epoch中，朝代相同，那么Attacker首先需要贿赂D0中$1/3$的验证者使A1达到finality，此时这$1/3$的验证者将会被惩罚，押金被罚完。在A2的验证中整体押金总和只有A1中的$2/3$，此时Attacker想要让A2到达和B2同价值的committ票，需要贿赂剩下所有没有作弊的验证者，合起来至少需要损失总押金的$3/3$，即使如此也不能保证A1得分比B1高，攻击失败风险高。第二种情况如图\ref{fig:revert2}中(b)所示，高度H+1和H+2正好在不同的Epoch中，且朝代不相同，那么此时Attacker需要贿赂D0中的$1/3$来让A1到达finality，然后贿赂D1中的$1/3$来让A2达到finality，完成一次这样的攻击至少需要损失总押金的$2/3$。综上，想要发起短程攻击导致两个finality区块失效，至少需要花费总押金$2/3$的代价。
+如果Attacker想要使B1$~$B2失效，假设B1和B2都已到达finality，块中交易都已生效，为了让这些交易失效，这里考虑两种情况。第一种如图\ref{fig:revert2}中(a)所示，高度H+1和H+2在同一个Epoch中，朝代相同，那么Attacker首先需要贿赂D0中$1/3$的验证者使A1达到finality，此时这$1/3$的验证者将会被惩罚，押金被罚完。在A2的验证中整体押金总和只有A1中的$2/3$，此时Attacker想要让A2到达和B2同价值的committ票，需要贿赂剩下所有没有作弊的验证者，合起来至少需要损失总押金的$3/3$，即使如此也不能保证A1得分比B1高，攻击失败风险高。第二种情况如图\ref{fig:revert2}中(b)所示，高度H+1和H+2正好在不同的Epoch中，且朝代不相同，那么此时Attacker需要贿赂D0中的$1/3$来让A1到达finality，然后贿赂D1中的$1/3$来让A2达到finality，完成一次这样的攻击至少需要损失总押金的$2/3$。综上，想要发起短程攻击导致两个finality区块失效，至少需要花费总押金$2/3$的代价。
 
 \begin{figure}[h]
 \centering
