@@ -4,7 +4,8 @@
 \subsection{常用共识算法的缺陷}
 \label{por:weakness}
 
-经典PoW(Proof of Work)共识算法为零和博弈，采用竞争性哈希计算来确定记账人，导致了整个生态每次出块时都有大量电能在竞争中被无端消耗，挖矿成本高。如果把公链参与者作为整体来看，PoW协议下生态维持平稳出块的成本将会持续升高。不断增加挖矿难度的Bitcoin早晚需要面临矿机收益入不敷出的情形，而Ethereum则早已在考虑使用新的PoS共识算法Casper\cite{casper}来逐步取代现阶段的PoW共识\cite{buterin2013ethereum}。
+经典PoW(Proof of
+Work)共识算法为零和博弈，采用竞争性哈希计算来确定记账人，导致了整个生态每次出块时都有大量电能在竞争中被无端消耗，挖矿成本高。如果把公链参与者作为整体来看，PoW协议下生态维持平稳出块的成本将会持续升高。不断增加挖矿难度的Bitcoin早晚需要面临矿机收益入不敷出的情形，而Ethereum则早已在考虑使用新的PoS共识算法Casper~\cite{casper}来逐步取代现阶段的PoW共识\cite{buterin2013ethereum}。
 
 PoS(Proof of Stake)共识算法试图采用资产的多寡来取代算力的作用，按照币龄或者押金数额来分配获得记账权的概率，现阶段Peercoin\cite{king2012peercoin}和Ethereum的Casper协议都采用了PoS共识算法。这种算法解决了PoW高能耗的弊端，但夸大了资本对记账权概率分配的影响，相较于PoW，在PoS下大资本更容易占据生态的话语权，形成大集团垄断，不利于公链生态的自由发展。
 
