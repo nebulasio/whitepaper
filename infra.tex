@@ -25,7 +25,7 @@ NNS的申请规则如下：
 \subsection{搜索引擎}
 随着越来越多的智能合约被开发者部署，用户面对海量的智能合约，搜索的需求也变得突出起来。智能合约仅仅只有代码，并不包含任何功能描述，很难利用搜索引擎技术为智能合约建立索引。我们为智能合约建立规范，任何符合此规范的智能合约，都能被检索并被用户搜索到，鼓励开发者在创建智能合约时，提供合约元信息。
 
-\begin{verbatim}
+\begin{lstlisting}[frame=single]
 contract SearchableContract {
    string public language;
    string public author;
@@ -34,7 +34,7 @@ contract SearchableContract {
    string public description;
    string public tags;
 }
-\end{verbatim}
+\end{lstlisting}
 
 星云链开发组实现一个搜索服务，实时检索所有实现此规范的合约，做多语言的分词，建立全文索引。排序规则考虑了多个因素，例如匹配字段，文本相关度，合约的NR Rank值，合约的交易数量和频度，与合约发生交易的用户NR Rank值等等。最终提供一个友好的Web界面给用户使用，根据用户的反馈不断优化排序算法。所有搜索后台代码都将开源给社区。第三方开发者也可据此创建独立的搜索服务。
 

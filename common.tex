@@ -45,6 +45,25 @@
 \usepackage[american]{babel}
 %\usepackage{csquotes}
 \usepackage{biblatex}
+\usepackage{listings}
+
+
+\lstset{emph={long, contract, return, uint256, bool, function, if, true,
+    else, using, returns, constant, string, public, namespace, struct, for, int,char, typedef, void, double, float, static_cast, new},emphstyle=\color{blue}\sffamily, 					basicstyle=\ttfamily,
+  moredelim=[is][\color{red}]{^}{^}}
+
+%\lstset{language=C++,
+                %basicstyle=\ttfamily\footnotesize,
+                %keywordstyle=\color{blue}\ttfamily\footnotesize,
+                %stringstyle=\color{red}\ttfamily\footnotesize,
+                %commentstyle=\color{green}\ttfamily\footnotesize,
+                %morecomment=[l][\color{magenta}]{\#}
+%}
+%\lstset{%
+  %escapeinside={(*}{*)},%
+%}
+
+
 \renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
   \ifboolexpr{
     test {\ifnumequal{\value{listcount}}{\value{liststop}}}
@@ -58,3 +77,8 @@
     {}}
 
     \addbibresource{reference.bib}
+
+
+
+
+
