@@ -3,21 +3,19 @@
 
 在星云链中，我们提出面向智能合约开发者的DIP(Developer Incentive Protocol，开发者激励协议)，周期性对星云链生态中所有智能合约的价值做评估，通过星云币的奖励来感谢为生态助力的优秀开发者。
 
-DIP的设计借助周活跃用户价值总和的概念，每周进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{sec:nrrank}的Nebulas Rank分数，计算周活跃地址的NR之和作为合约C的贡献值SCDS(Smart Contract Devotion Score)。
+DIP的设计借助周活跃用户价值总和的概念，每周进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{sec:nrrank}的Nebulas Rank分数，计算周活跃地址的NR之和作为合约C的贡献值SCS(Smart Contract Score)。
 
 \begin{align}
-SCDS(C)=\sum_{addr \in WAA}NR(addr)
+SCS(C)=\sum_{addr \in WAA}NR(addr)
 \end{align}
 
-每周贡献值SCDS得到智能合约贡献度排名SCDR(Smart Contract Devotion Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dip}所示，但依旧保证Top 1的收益为Top N收益的一倍以示贡献度大小的区别，如公式\ref{formula:dip}所示。
+每周贡献值SCS得到智能合约贡献度排名SCR(Smart Contract Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dip}所示，但依旧保证Top 1的收益为Top N收益的一倍以示贡献度大小的区别，如公式\ref{formula:dip}所示。
 
-\begin{align}
-\label{formula:dip}
-Coin(C) =kln(N+1-SCDR(C))+b \\
-\mbox{s.t.}\quad
-kln(N) + b = 2b \\
-\sum_{1}^{N}(kln(x) + b) = M
-\end{align}
+\begin{alignat}{2}
+Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
+\mbox{s.t.}\quad & kln(N) + b = 2b \nonumber \\
+& \sum_{1}^{N}(kln(x) + b) = M \nonumber
+\end{alignat}
 
 \begin{figure}[h] 
 \centering
@@ -40,7 +38,7 @@ kln(N) + b = 2b \\
 
 \end{tikzpicture}
 \label{fig:dip}
-\caption{N=3000, M=3000}
+\caption{DIP奖励分配曲线}
 \end{figure}
 
 为了鼓励星云链生态智能合约的多样性，DIP规定每个智能合约同一个版本最多可以接受K次奖励，当使用星云原力对合约做版本更新后，新版本将可以再次接受最多K次奖励。
