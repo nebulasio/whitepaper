@@ -32,7 +32,7 @@ contract Token {
 
 合约部署时，balances变量用关键字shared标识，编译成字节码运行时，虚拟机会为该变量单独设计存储区域。不用关键字shared声明的变量，都不可以被其它合约直接访问。
 
-假如原代码的transfer函数需要修改一个bug，对_value做检查，部署新的智能合约代码：
+假如原代码的transfer函数需要修改一个bug，对\_value做检查，部署新的智能合约代码：
 
 \begin{verbatim}
 [baseContractAddress="0x5d65d971895edc438f465c17db6992698a52318d"]
