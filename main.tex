@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[11.5pt]{article}
 \usepackage{charter}
 \usepackage{fullpage}
 \usepackage[colorlinks=false]{hyperref}
@@ -6,7 +6,8 @@
 \usepackage{comment}
 \usepackage{xeCJK}
 
-\setCJKmainfont{STSong}				%宋体
+\setCJKmainfont[BoldFont = STSongti-SC-Bold]{STSongti-SC-Regular}
+\setCJKfamilyfont{hei}{SIL-Hei-Med-Jian}		%宋体
 \setCJKfamilyfont{song}{SimSun}		%宋体
 \setCJKfamilyfont{kai}{Kaiti}		%楷体
 \setCJKfamilyfont{fang}{song}	%仿宋
@@ -20,6 +21,7 @@
 \newcommand{\li}{\CJKfamily{li}}		%隶书
 \newcommand{\you}{\CJKfamily{you}}	%幼圆
 
+\setCJKsansfont[BoldFont = STHeitiSC-Medium]{STHeitiSC-Light}
 
 \bibliographystyle{unsrt}
 \input{common.tex}
