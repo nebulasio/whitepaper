@@ -56,8 +56,7 @@ PoR算法以每个高度上区块的得分来选择权威链，总是选择得�
 \begin{align}
 Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed deposit in b
 \end{align}
-
-即为该区块及其所有后代区块收到的commit票对应的押金总和，如图\ref{fig:fork_choice}所示。
+\noindent 即为该区块及其所有后代区块收到的commit票对应的押金总和，如图\ref{fig:fork_choice}所示。
 
 \begin{figure}[h]
 \centering
