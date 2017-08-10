@@ -21,7 +21,7 @@
 		\item From：交易发起人地址
 		\item To：交易接收人(普通用户或智能合约)地址，对于创建智能合约，值为0地址
 		\item Value：转账金额
-		\item Data：交易的payload。如果交易为创建智能合约，则为智能合约字节码；如果交易为智能合约调用，包含调用函数名称和入参值；其余可以为任何值。
+		\item Data：交易的payload。如果交易为创建智能合约，则为智能合约字节码；如果交易为智能合约调用，包含调用函数名称和入参值
 		\item Signature：交易签名
 		\item Gas：燃料上限
 		\item GasPrice：燃料单价
@@ -30,9 +30,10 @@
 	\item Protocol Code：核心协议代码(一个区块中只能有0或1个)
 		\begin{itemize}
 		\item Hash：哈希值
-		\item Code：核心协议的字节码，目前考虑为JVM字节码。
+		\item Code：核心协议的字节码，目前考虑为JVM字节码
+		\item ValidStartBlock：协议生效起始区块号
 		\item Signature：签名(校验是否来自开发者社区保留账号的签名)
-		\item Version：标识核心协议版本号，每次升级都需要递增，防止恶意记账人回滚到老的Protocol Code。
+		\item Version：标识核心协议版本号，每次升级都需要递增，防止恶意记账人回滚到老的Protocol Code
 		\item Nonce：标识唯一性
 		\end{itemize}
 \end{itemize}

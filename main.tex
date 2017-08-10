@@ -5,6 +5,7 @@
 \usepackage{ifthen}
 \usepackage{comment}
 \usepackage{xeCJK}
+\usepackage[title,titletoc]{appendix}
 
 \setCJKmainfont[BoldFont = STSongti-SC-Bold]{STSongti-SC-Regular}
 \setCJKfamilyfont{hei}{SIL-Hei-Med-Jian}		%宋体
@@ -36,7 +37,9 @@
 \renewcommand{\baselinestretch}{1.5}
 \renewcommand{\appendixname}{附录}
 
-\title{星云链技术白皮书}
+\title{
+	Nebulas星云链技术白皮书 \\
+	\large 基于价值激励的去中心化应用平台}
 \author{Nebulas Inc.}
 
 \maketitle
@@ -55,12 +58,11 @@
 \input{search.tex}
 \input{tools.tex}
 \input{nascoin.tex}
-\input{conclusion.tex}
 \printbibliography
 
-\begin{appendix}
+\begin{appendices}
 \input{account.tex}
-\end{appendix}
+\end{appendices}
 
 %\bibliography{reference}
 \end{document}

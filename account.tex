@@ -1,6 +1,6 @@
-\section{账号和地址}
+\section{星云链账号地址设计}
 
-\subsection{地址校验码设计}
+\subsection{地址校验码}
 类似于比特币和以太坊，星云链的帐号也是由椭圆曲线算法作为其基础加密算法。
 用户的私钥是随机生成的256位二进制数，通过椭圆曲线乘法生成64字节的公钥。
 比特币和以太坊的地址都是由公钥通过确定性的哈希算法运算得到，不同的是：比特币地址有校验码设计，防止用户输错了几个字符而把比特币误发给其它用户，以太坊却没有校验码设计。
@@ -28,8 +28,8 @@
 
 扩展地址在标准地址的尾部追加了2字节的扩展验证，共54位字符。加入扩展信息，使得在星云链钱包应用中可以增加另一个要素验证。例如：
 \begin{enumerate}
-	\item Alice的钱包标准地址是0x5d65d971895edc438f465c17db6992698a52318d5c17db69，加入昵称“alice”后的扩展地址是0x5d65d971895edc438f465c17db6992698a52318d5c17db69aabb；
-	\item Alice告诉Bob扩展地址 0x5d65d971895edc438f465c17db6992698a52318d5c17db69aabb和昵称"alice"；
+	\item Alice的钱包标准地址是0x5d65d971895edc438f465c17db6992698a52318d5c17db69，加入昵称“alice”后的扩展地址是0x5d65d971895edc438f465c17db6992698a52318d5c17db69\textbf{aabb}；
+	\item Alice告诉Bob扩展地址 0x5d65d971895edc438f465c17db6992698a52318d5c17db69aabb和昵称\textbf{alice}；
 	\item Bob在Wallet应用中，输入 0x5d65d971895edc438f465c17db6992698a52318d5c17db69aabb和alice；
 	\item Wallet应用验证钱包地址的一致性，避免Bob错误的输成了其它人的帐号。
 \end{enumerate}
