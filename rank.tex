@@ -1,5 +1,5 @@
 \section{Nebulas Rank算法}
-
+\label{sec:nrrank}
 
 \subsection{问题引入} \label{sec:intro}
 复杂网络中的节点重要性排序有很多应用场景。一个典型的例子是PageRank\cite{Brin2010}\cite{page1999pagerank}，现在PageRank已成为Google和其他搜索引擎的核心算法\cite{langville2011google}。 此外，通过排序算法，人们还想找出传染病网络和信息网络中最有影响力的传播者\cite{doerr2012rumors}\cite{Kitsak2010}，引用网络和合著网络中的权威科学家\cite{walker2007ranking}\cite{chen2007finding}\cite{Radicchi2009}，交通网络中最重要的城市\cite{guimera2005worldwide}，新陈代谢网络中的最重要节点\cite{ivan2010web}，共同投资网络中的顶级VC公司\cite{Bhat2012}，等等。 当我们要为区块链世界设计\textbf{Nebulas Rank}算法时，网络科学领域的多年研究为我们提供了颇多度量选择，例如度中心性\cite{freeman1979set}，特征值中心性\cite{bonacich1972factoring}，Katz中心性\cite{katz1953new}， PageRank\cite{Brin2010}， HITS\cite{kleinberg1999authoritative}， 接近度中心性\cite{sabidussi1966centrality}，介数中心性\cite{freeman1977set}\cite{freeman1978centrality}\cite{freeman1991centrality}\cite{noh2004random}\cite{newman2005measure}，等等。 但是，在我们开始应用这些算法的时候，还需要回答以下两个问题：

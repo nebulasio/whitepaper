@@ -34,6 +34,7 @@
 \renewcommand{\nomname}{术语表}
 \renewcommand{\figurename}{图}
 \renewcommand{\baselinestretch}{1.5}
+\renewcommand{\appendixname}{附录}
 
 \title{星云链技术白皮书}
 \author{Nebulas Inc.}
@@ -46,22 +47,20 @@
 \printnomenclature
 
 \input{nomencl.tex}
-
 \input{introduction.tex}
-\input{nascoin.tex}
-\input{account.tex}
-\input{block.tex}
 \input{rank.tex}
-\newpage
-\input{pod.tex}
-\newpage
-\input{dip.tex}
 \input{force.tex}
-\input{smartcontract.tex}
-\input{infra.tex}
-
-\newpage
+\input{pod.tex}
+\input{dip.tex}
+\input{search.tex}
+\input{tools.tex}
+\input{nascoin.tex}
+\input{conclusion.tex}
 \printbibliography
+
+\begin{appendix}
+\input{account.tex}
+\end{appendix}
 
 %\bibliography{reference}
 \end{document}
