@@ -55,7 +55,7 @@ PoD为应对验证者集合的动态变化，首先将验证者集合按照朝�
 PoD算法以每个高度上区块的得分来选择权威链，总是选择得分最高的区块加入权威链，在高度h的区块b的得分如下，
 
 \begin{align}
-Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed deposit in b
+Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed~deposit~in~b
 \end{align}
 \noindent 即为该区块及其所有后代区块收到的commit票对应的押金总和，如图\ref{fig:fork_choice}所示。
 
