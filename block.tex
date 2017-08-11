@@ -38,6 +38,13 @@
 		\end{itemize}
 \end{itemize}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{./figs/block}
+\caption{区块结构}
+\label{fig:block}
+\end{figure}
+
 星云链客户端节点从当前最新区块的Protocol Code存储区可以取到编译后的虚拟机字节码(目前考虑为JVM)，如果当前最新区块没有Protocol Code数据，说明核心协议没有变更，就往前追溯到最近区块的Protocol Code。区块链的核心协议行为都由Protocol Code确定，包括验证算法、打包规则、NR算法、奖励机制等，几乎绝大部分的区块链行为都可以由Protocol Code定义。在创世区块中已经包含第一个版本的完整的核心协议Code。后续如果核心协议需要升级，由星云链团队开发，把代码在公开渠道让社区讨论和投票。投票可以通过智能合约或者论坛投票的形式进行，当绝大部分社区成员都同意协议升级，星云链开发组把最新代码打包成Protocol Code交易，发布到全网节点，记账节点只要把其包含进区块，就可以在下一个区块生效。这种方式的区块链协议升级，对客户端来说是透明的，无需软、硬分叉。
 
 为了保证核心协议代码是经过授权发布的，Protocol Code的发布者是星云链核心开发组保留地址，该地址在创世区块内部硬编码无法变更。所有记账节点都会验证Protocol Code签名，签名不通过的视为非法数据。后续可以把Protocol Code的签名校验改成M-of-N的多签名形式，这个本身也可以通过Protocol Code的升级实现。
