@@ -5,7 +5,7 @@
 当前区块链技术和生态已具有相当规模，但是人们对其认识还处于扁平化阶段，尚不存在一个合理的方式去评估链上实体（例如用户地址）的价值。因此，我们试图在区块链世界提出⼀个普适的价值尺度，通过对链上行为的挖掘利用，将每个实体（用户地址）的重要程度量化为\textbf{Nebulas Rank}的指标形式。\textbf{Nebulas Rank}旨在实现双重目标：
 \begin{itemize}
 	\item 作为原生的价值尺度，\textbf{Nebulas Rank}可以成为诸多基础场景的核心算法，如共识算法(见\refsec{})、开发者激励(见\refsec{})和区块链搜索引擎(见\refsec{})，等等；
-	\item \textbf{Nebulas Rank}可以启发人们对区块链的生态现状产生更深层次、差异化和结构化的认识，进而在商业和研究活动时有明确的方向；
+	\item \textbf{Nebulas Rank}可以启发人们对区块链的生态现状定义更多样化的价值尺度，同时产生更深层次、差异化和结构化的认识，进而在商业决策和研究活动中有明确的方向；
 \end{itemize}
 基于上述目标，我们为\textbf{Nebulas Rank}定义了三重价值尺度：
 \begin{itemize}
@@ -21,7 +21,7 @@
 	\item 可复现。由于共识算法和开发者激励等场景的需要，\textbf{Nebulas Rank}需要保证在所有客户端的计算结果完全一致。
 \end{itemize}
 
-接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为\cite{Tschorsch2015}。交易图保留了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。之后便可以用复杂网络的中心性测度来对重要网络节点进行排序，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank\cite{Chen2013}\cite{Li2014}，并取得比PageRank和NEM\cite{nem}的NCDAwareRank更好的排序效果。
+接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为\cite{Tschorsch2015}。交易图表现了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。同时，图的形式也能方便刻画合约之间的互操作性。得到图之后便可以用复杂网络的中心性测度来对重要网络节点进行排序，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank\cite{Chen2013}\cite{Li2014}，并取得比PageRank和NEM\cite{nem}的NCDAwareRank更好的排序效果。
 
 \subsection{交易图} \label{subsec:txg}
 本小节介绍如何从交易数据构造交易图。
@@ -50,56 +50,47 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	\item 为了获得更高『币龄』，用户需要让资金在自己的账户内『停留』一段时间，进而拖慢攻击者伪造交易的速度；
 \end{itemize}
 
-本小节的剩余内容展示交易数据和交易图的部分结果。我们收集了\todo{s(2017年5月x日)}到\todo{s(2017年5月x日)}的\todo{X（约x天））}个区块交易数据：
+本小节的剩余内容展示交易数据和交易图的部分结果。我们收集了\#3629091（约2017年5月1日）到\#3800775（2017年5月31日）共$171,684$个区块交易数据：
 \begin{itemize}
-	\item 个人用户之间的转账交易共有。。。条，参与交易的地址有。。。个，每次交易的平均金额为。。。。每次交易的金额分布如。。。所示，\todo{看出结果}，每两个地址的交易次数分布如。。。所示，有。。。的双方只进行了。。。次交易。
-	\item 构造的交易图有。。。个节点，平均每个节点有。。。个邻居，节点邻居数的分布如。。。所示。平均度（邻接边权值和）为。。。。入度（入边权值和）分布如。。。所示，\todo{看出结果}；出度（出边权值和）分布如。。。所示，\todo{看出结果}；出度与入度的相关系数为。。。（Pvalue），二者关系如。。。所示。节点的邻居节点的平均度为，。。。于节点本身的度，表明这段时间内，和某个账户有过交易的账户有更（不）频繁的交易。
-	\item 交易图有。。。个弱分支，其中最大弱分支有。。。个节点，占全体节点的。。。，次大弱分支有。。。个节点，仅占全体节点的。。。。，因此取最大弱联通分支有助于去除少数噪声节点。
-	\item 取最大弱连通分支后，交易图的直径为。。。\todo{结论}，可视化结果如。。。所示。
+	\item 个人用户之间的有效转账交易共有$2,567,832$条，参与交易的地址有$712,354$个，每次交易的平均金额为$\Xi 196.81$，每次交易的金额分布如\ref{fig:txad}所示，大多数交易的金额都在$\Xi 100$以下。每对地址的交易次数分布如\reffig{fig:txnd}所示，有$91\%$的双方只进行了一或两次交易，因此$K$取$2$是合适的。
+	\item 交易图有$453,285$个节点，$970,577$条边。有$1,169$个弱分支，其中最大弱分支有$449,746$个节点，占全体节点的$99.2\%$，次大弱分支有$133$个节点，仅占全体节点的$0.03\%$，因此取最大弱联通分支有助于去除少数噪声节点。
+	\item 合并交易、取最大弱连通分支后，可视化结果如\reffig{fig:wgc}所示。平均每个节点有$4.3$个邻居，节点邻居数的分布如\reffig{fig:nnd}所示。平均度（邻接边权值和）为$2070$。度（邻接边权值和）分布如\reffig{fig:nwd}所示，出度与入度的相关系数为$0.645$（$p$-value$<0.001$），二者关系如\reffig{fig:nio}所示。
 \end{itemize}
 
 \begin{figure}
-	
-	\caption{单次交易金额分布}\label{fig:txad}
+	\centering
+	\includegraphics[width=0.85\textwidth]{figs/txad.pdf}
+	\caption{单次交易金额分布 \\ \small{(横坐标为对数形式)}}\label{fig:txad}
 \end{figure}
 
 \begin{figure}
-	
-	\caption{每对用户交易次数分布}\label{fig:txnd}
+\centering
+	\includegraphics[width=0.85\textwidth]{figs/txnd.pdf}
+	\caption{每对用户交易次数统计 \\ \small{(横纵坐标均为对数形式)}}\label{fig:txnd}
 \end{figure}
 
 \begin{figure}
-	
-	\caption{节点邻居数分布}\label{fig:nnd}
+	\centering
+	\includegraphics[width=0.85\textwidth]{figs/nnd.pdf}
+	\caption{节点邻居数分布 \\ \small{(横纵坐标均为对数形式)}}\label{fig:nnd}
 \end{figure}
 
 \begin{figure}
-	
-	\caption{节点加权出度分布}\label{fig:nod}
+	\centering
+	\includegraphics[width=0.85\textwidth]{figs/nwd.pdf}
+	\caption{节点加权度分布 \\ \small{(横坐标为对数形式)} } \label{fig:nwd}
 \end{figure}
 
 \begin{figure}
-	
-	\caption{节点加权入度分布}\label{fig:nid}
-\end{figure}
-
-\begin{figure}
-	
+	\centering
+	\includegraphics[width=0.85\textwidth]{figs/nio.png}
 	\caption{节点加权出入度关系}\label{fig:nio}
 \end{figure}
+\centering
 
 \begin{figure}
-	
-	\caption{节点邻居的度和自身度的关系}\label{fig:nndd}
-\end{figure}
-
-\begin{figure}
-	
-	\caption{弱分支规模分布}\label{fig:ccn}
-\end{figure}
-
-\begin{figure}
-	
+	\centering
+	\includegraphics[width=0.85\textwidth]{figs/wgc.pdf}
 	\caption{交易图可视化结果}\label{fig:wgc}
 \end{figure}
 
@@ -121,7 +112,7 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 \forall v \in V,  B_v =  \sum_{(u,v) \in E} w_{(u,v)} + \lambda C
 \end{align}
 \begin{align}
-	C = \frac{\sum_{e \in E} w_e}{M}
+	C = median\{w_e| e \in E\}
 \end{align}
 
 LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫链的稳定状态。所不同的是，按照上述方式添加了Ground节点之后，不再需要考虑PageRank的damping factor\cite{Brin2010}\cite{page1999pagerank}。即按(\ref{formula:matrix})构造矩阵$H$后，进行如(\ref{formula:iteration})所示的迭代（初始值设置见(\ref{formula:init}))，直至收敛为止，最后去掉Ground节点的评分即为交易图各点重要程度得分。
@@ -139,7 +130,7 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 我们认为，LeaderRank可以较好地满足\refsec{subsec:value}定义的价值尺度和算法性质：
 \begin{itemize}
-	\item LeaderRank可以理解为在资金流动网络动态平衡状态下通过每点的流量，这契合了\textbf{Nebulas Rank}的『流动性』和『传播性』尺度；
+	\item LeaderRank可以理解为在资金流动网络动态平衡状态下通过每点的流量，这契合了\textbf{Nebulas Rank}的『流动性』、『传播性』和『互操作性』等尺度；
 	\item (\ref{formula:weight2})和(\ref{formula:b})所定义的加权机制可以解释为本身入边权值高的节点可以获得更高的排名。相对于PageRank和NCDawareRank\cite{Nikolakopoulos2013}等网页排序算法，这样的机制倾向于减少低收入节点的重要程度。在区块链交易图中，收款较少的节点更容易被伪造出来。因此LeaderRank的设计能够更好地满足『可信』的特性；
 	\item LeaderRank的计算可以用迭代方式完成，由于网络的稀疏性（见\refsec{subsec:txg}的结果），矩阵运算复杂度不高，能够满足『可计算』和『可复现』的性质。
 \end{itemize}
