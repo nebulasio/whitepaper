@@ -55,12 +55,13 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 \subsection{实验结果}
 \label{dip:economic}
 
-我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表\ref{dip:result_1}所示。
+我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表\ref{table:dip}所示。
 
 \begin{table}[h]
 \centering
-\label{dip:result_1}
-\caption{2017年5月第一周DIP排名结果Top 10} 
+\begin{threeparttable}[b]
+\label{table:dip}
+\caption{2017年5月第一周\tnote{1}DIP排名结果Top 10} 
 \begin{tabular}{ccc} \\ \toprule
     {Contract~Address} & {Score} & {Description} \\ \midrule
 0xa74476443119a942de498590fe1f2454d7d4ac0d & 264456363.0 & GolemToken \\
@@ -74,8 +75,12 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 0xaaaf91d9b90df800df4f55c205fd6989c977e73a & 42026627.0 & TokenCardContract \\
 0xaec2e87e0a235266d9c5adc9deb4b2e29b54d009 & 41427314.0 & singularDTVToken \\
 \bottomrule                                                     
-\end{tabular}
-\footnote{起始区块号3629091，结束区块号3665815，共36725个区块}
+\end{tabular}	
+\begin{tablenotes}
+  \small
+  \item[1] 区块范围[3629091, 3665815]
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
 可见，DIP排名靠前的合约较为知名，在计算周期内也更为活跃，符合我们激励生态建设者的初衷。
@@ -85,7 +90,7 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 
 智能合约只能被被动调用，不能主动和非合约账户建立交易，所以一个作弊者想要让他的智能合约排名上升，就必须要找到足够多的高NR排名账户来调用他的合约。
 
-伪造账户然后伪造合约调用将不太可行，假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formulas:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，所以无限制地增大S将无法完成作弊。
+伪造账户然后伪造合约调用将不太可行，假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formulas:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，所以伪造低NR的账户将无法完成作弊，而要伪造高NR的账户在\refsec{subsec:leaderrank}已有分析。
 
 作弊者没有办法自己伪造用户来完成作弊，就只能寻求与NR中Top X的账户的帮忙，而这必然需要付出一部分精力和财力，代价高昂。
 
