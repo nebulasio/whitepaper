@@ -28,6 +28,16 @@
 		\item GasPrice：燃料单价
 		\item Nonce：标识交易唯一性
 		\end{itemize}
+	\item Votes：Prepare和Commit票数统计(包含多个)，用在PoD(见\refsec{sec:pod})共识算法中
+		\begin{itemize}
+		\item From：投票人
+		\item Dynasty：投票所处朝代
+		\item VoteHash：投票区块哈希
+		\item Hv：投票区块所处高度
+		\item Hvs：投票区块的某祖先高度
+		\item VoteType：投票类型，Prepare或Commit
+		\item Signature：投票签名
+		\end{itemize}
 	\item Protocol Code：核心协议代码(一个区块中只能有0或1个)
 		\begin{itemize}
 		\item Hash：哈希值
@@ -41,7 +51,7 @@
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{./figs/block}
+\includegraphics[width=16cm]{./figs/block}
 \caption{区块结构}
 \label{fig:block}
 \end{figure}
