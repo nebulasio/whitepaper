@@ -12,6 +12,8 @@
 		\item ParentHash：父区块哈希值
 		\item Ts：时间戳
 		\item Miner：记账人地址
+		\item Dynasty：区块所处朝代
+		\item Epoch：区块所处时代
 		\item StateRoot：状态根哈希值
 		\item TxsRoot：交易根哈希值
 		\item ReceiptsRoot：交易收据根哈希值
@@ -31,7 +33,6 @@
 	\item Votes：Prepare和Commit票数统计(包含多个)，用在PoD(见\refsec{sec:pod})共识算法中
 		\begin{itemize}
 		\item From：投票人
-		\item Dynasty：投票所处朝代
 		\item VoteHash：投票区块哈希
 		\item Hv：投票区块所处高度
 		\item Hvs：投票区块的某祖先高度
@@ -51,7 +52,7 @@
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=16cm]{./figs/block}
+\includegraphics[width=14cm]{./figs/block}
 \caption{区块结构}
 \label{fig:block}
 \end{figure}
