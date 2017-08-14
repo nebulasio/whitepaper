@@ -9,14 +9,14 @@
 \label{dip:arith}
 我们认为，一个智能合约是否优秀取决于有多少用户愿意使用它，而且有更多的高价值账户使用的智能合约更加优秀，而作为账户普适价值尺度的NR正好可以应用在高价值账户的评估中。DIP的设计结合NR和常用的周活跃用户的概念，使用周活跃用户的价值尺度总和来衡量智能合约的价值尺度，然后使用该价值尺度来评估开发者的贡献度。
 
-DIP每周进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{subsec:leaderrank}的NR排名（取Top X，值为1-X），计算周活跃地址的NR之和作为合约C的贡献度SCS(Smart Contract Score)。
+DIP每周进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{subsec:leaderrank}的NR排名（取Top X，值为1-X），计算周活跃地址的NR之和作为合约C的贡献度SCS(Smart Contract Score)，如公式\ref{formula:dip:scs}。
 
 \begin{align}
 \label{formula:dip:scs}
-SCS(C)=\sum_{addr \in WAA}(max{X + 1 - NR(addr), 0})
+SCS(C)=\sum_{addr \in WAA}(max\{X + 1 - NR(addr), 0\})
 \end{align}
 
-按照每周贡献值SCS从高到低排序得到智能合约贡献度排名SCR(Smart Contract Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dip_dist}所示，但依旧保证Rank 1的收益为Rank N收益的一倍以示贡献度大小的区别，如公式\ref{formula:dip}所示。
+按照每周贡献值SCS从高到低排序得到智能合约贡献度排名SCR(Smart Contract Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dipdis}所示，但依旧保证Rank 1的收益为Rank N收益的一倍以示贡献度大小的区别，比例约束见公式\ref{formula:dip}。
 
 \begin{alignat}{2}
 Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
@@ -24,7 +24,7 @@ Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
 & \sum_{x=1}^{N}(kln(x) + b) = M \nonumber
 \end{alignat}
 
-\begin{figure}[h] 
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}
 \coordinate (OR) at (0.00, 0.00);
@@ -42,10 +42,9 @@ Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
 \node[left,black] at (0, 0.533210267) {\textbf{\textit{X/2}}};
 \node[left,black] at (0, 1.066420536) {\textbf{\textit{X}}};
 \draw[black, line width=1.00pt, domain=0:10.00,samples=3000] plot[smooth](\x, {.066598275 * ln(3001-\x * 300) + .533210267});
-
 \end{tikzpicture}
-\label{fig:dip_dist}
 \caption{DIP奖励分配曲线}
+\label{fig:dipdis}
 \end{figure}
 
 DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S秒出一个区块，那么每隔24*7*3600/S个区块，所有节点将会计算一次DIP的奖励，并且发给对应的智能合约的提币地址中。
@@ -55,14 +54,14 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 \subsection{实验结果}
 \label{dip:economic}
 
-我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表\ref{table:dip}所示。
+我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表1所示。
 
 \begin{table}[h]
+\label{table:dip}
 \centering
 \begin{threeparttable}[b]
-\label{table:dip}
 \caption{2017年5月第一周\tnote{1}DIP排名结果Top 10} 
-\begin{tabular}{ccc} \\ \toprule
+\begin{tabular}{ccc} \toprule
     {Contract~Address} & {Score} & {Description\tnote{2}} \\ \midrule
 0xa74476443119a942de498590fe1f2454d7d4ac0d & 264456363.0 & GolemToken \\
 0x49edf201c1e139282643d5e7c6fb0c7219ad1db7 & 207900181.0 & TokenCard-ICO \\
@@ -91,7 +90,7 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 
 智能合约只能被动调用，不能主动和非合约账户建立交易，所以一个作弊者想要让他的智能合约排名上升，就必须要找到足够多的高NR排名账户来调用他的合约。
 
-伪造账户然后伪造合约调用将不太可行，假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formulas:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，所以伪造低NR的账户将无法完成作弊，而要伪造高NR的账户在\refsec{subsec:leaderrank}已有分析。
+伪造账户然后伪造合约调用将不太可行，假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formula:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，所以伪造低NR的账户将无法完成作弊，而要伪造高NR的账户在\refsec{subsec:leaderrank}已有分析。
 
 作弊者没有办法自己伪造用户来完成作弊，就只能寻求与NR中Top X的账户的帮忙，而这必然需要付出一部分精力和财力，代价高昂。
 
