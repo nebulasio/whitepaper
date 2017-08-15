@@ -6,6 +6,7 @@
 \usepackage{nomencl}
 \usepackage{amsfonts, booktabs,siunitx}
 \usepackage{threeparttable}
+\usepackage{tabularx}
 \makenomenclature
 
 \usepgflibrary{arrows}
@@ -69,6 +70,15 @@
   %escapeinside={(*}{*)},%
 %}
 
+\SetKwProg{Contract}{contract}{ \{}{\}}
+\SetKwProg{Function}{function}{ \{}{\}}
+\SetKwProg{If}{if}{ \{}{\}}
+\SetKwProg{Else}{else}{ \{}{\}}
+\newcommand{\String}{\KwSty{string}}
+\newcommand{\Public}{\KwSty{public}}
+\newcommand{\Returns}{\KwSty{returns}}
+\newcommand{\Shared}{\KwSty{shared}}
+\newcommand{\Constant}{\KwSty{contant}}
 
 \renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
   \ifboolexpr{

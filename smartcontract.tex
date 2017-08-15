@@ -11,52 +11,68 @@
 
 以太坊上的智能合约可升级设计有一些解决方案，大体上分为两类：一类是对外公开代理合约 (Proxy Contract)，代理合约的代码非常简单，仅仅把请求转发给后面的真正的功能合约。当需要升级合约时，把代理合约的内部功能合约指针指向新的合约即可；第二类是把合约的代码和存储分离，存储合约负责提供方法，供外部合约读写内部状态，代码合约做真正的业务逻辑，升级时只需要部署新的代码合约，不丢失所有的状态。这两类方案都有其局限性，不能解决所有问题：合约的代码和存储分离在设计上增加了很多复杂度，有时候甚至不可行；代理合约虽然能够指向新合约，但是老合约的状态数据并不能迁移；有些合约在开始开发时，没有良好的设计，没有为以后的升级留下接口。
 
-我们设计一种简洁的智能合约升级方案：在语言层面上，我们支持一个合约的状态变量供另外一个合约直接读写（符合安全约束）。这是一个例子，假如有个Token合约，代码如下：\\
+我们设计一种简洁的智能合约升级方案：在语言层面上，我们支持一个合约的状态变量供另外一个合约直接读写（符合安全约束）。这是一个例子，假如有个Token合约，代码如表\ref{figure:nf:oldsc}所示。
 
-\begin{lstlisting}[frame=single]
-contract Token {
-  mapping (address => uint256) balances shared;
+	\begin{figure}[h]
+  	\centering
+  	\begin{minipage}{0.8\linewidth}
+    	\begin{algorithm}[H]
+			\Contract{Token} {
+				mapping (address => uint256) balances \Shared{}\;
 
-  function transfer(address _to, uint256 _value) returns (bool success) {
-     if (balances[msg.sender] >= _value) {
-       balances[msg.sender] -= _value;
-       balances[_to] += _value;
-       return true;
-     } else {
-       return false;
-     }
-   }
-   function balanceOf(address _owner) constant returns (uint256 balance) {
-       return balances[_owner];
-   }
-}
-\end{lstlisting}
+				\Function{transfer (address \_to, uint256 \_value) \Returns{} (bool success)} {
+					\If{(balances[msg.sender] >= \_value)} {
+				    		balances[msg.sender] -= \_value\;
+				        balances[\_to] += \_value\;
+				        return true\;
+			 	    }
+			 	    \Else{} {
+       					\Return false\;
+     				}
+			    }
+			    
+			    \Function{balanceOf(address \_owner) \Constant{} \Returns{} (uint256 balance)} {
+       				\Return balances[\_owner]\;
+   				}
+			}
+    	\end{algorithm}
+  	\end{minipage}
+  	\caption{原合约代码}
+  	\label{figure:nf:oldsc}
+	\end{figure}
 
 合约部署时，balances变量用关键字shared标识，编译成字节码运行时，虚拟机会为该变量单独设计存储区域。不用关键字shared声明的变量，都不可以被其它合约直接访问。
 
-假如原代码的transfer函数需要修改一个bug，对\_value做检查，部署新的智能合约代码：\\
+假如原代码的transfer函数需要修改一个bug，对\_value做检查，部署新的智能合约代码，如表\ref{figure:nf:newsc}所示。
 
-  
-\begin{lstlisting}[frame=single]
-[baseContractAddress="0x5d65d971895edc438f465c17db6992698a52318d"]
-//baseContractAddress是老合约的地址
-contract Token {
-  mapping (address => uint256) balances shared;
+	\begin{figure}[h]
+  	\centering
+  	\begin{minipage}{0.8\linewidth}
+    	\begin{algorithm}[H]
+			[oldContractAddress="0x5d65d971895edc438f465c17db6992698a52318d"] \\
+			\Contract{Token} {
+				mapping (address => uint256) balances \Shared{}\;
 
-  function transfer(address _to, uint256 _value) returns (bool success) {
-     if (balances[msg.sender] >= _value ^&& _value > 0^) {
-       balances[msg.sender] -= _value;
-       balances[_to] += _value;
-       return true;
-     } else {
-       return false;
-     }
-   }
-   function balanceOf(address _owner) constant returns (uint256 balance) {
-       return balances[_owner];
-   }
-}
-\end{lstlisting}
+				\Function{transfer (address \_to, uint256 \_value) \Returns{} (bool success)} {
+					\If{(balances[msg.sender] >= \_value \underline{\&\& \_value > 0})} {
+				    		balances[msg.sender] -= \_value\;
+				        balances[\_to] += \_value\;
+				        return true\;
+			 	    } 
+			 	    \Else{} {
+       					\Return false\;
+     				}			 	    
+			    }
+			    
+			    \Function{balanceOf(address \_owner) \Constant{} \Returns{} (uint256 balance)} {
+       				\Return balances[\_owner]\;
+   				}
+			}
+    	\end{algorithm}
+  	\end{minipage}
+  	\caption{新合约代码}
+  	\label{figure:nf:newsc}
+	\end{figure}
 
 新的合约部署以后，老的合约可以选择selfdestruct，不能再被访问，但是shared变量依然被永久保留。新的合约可以完全继承老合约的balances资产，全部的状态都不丢失，不需要做额外的迁移工作。但是在开发智能合约时，对关键的状态变量声明为shared是必须的，编译器会对变量的存储区域做特殊处理，保证其可以被其它授权的合约访问。
 

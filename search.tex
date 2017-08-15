@@ -8,23 +8,30 @@
 	\item 爬取智能合约相关网页资料，为其和区块链智能合约建立映射关系；
 	\item 鼓励开发者上传验证过的智能合约源代码，分析其代码功能和语义，为源代码建立索引，提供相似合约搜索；未提供源代码的智能合约，进行反编译得到其源代码；
 	\item 为智能合约建立规范，任何符合此规范的智能合约，都能被检索并被用户搜索到，鼓励开发者在创建智能合约时，提供合约信息描述。
-	\begin{lstlisting}[frame=single]
-contract SearchableContract {
-   string public language;
-   string public author;
-   string public name;
-   string public title;
-   string public description;
-   string public tags;
-}
-	\end{lstlisting}
+
+	\begin{figure}[ht]
+  	\centering
+  	\begin{minipage}{.4\linewidth}
+    	\begin{algorithm}[H]
+  	  		\Contract{SearchableContract} {
+ 	 			\String{} \Public{} language\;
+ 	 			\String{} \Public{} author\;
+		 	 	\String{} \Public{} name\;
+ 	 			\String{} \Public{} title\;
+		 	 	\String{} \Public{} description\;
+		 	 	\String{} \Public{} tags\;
+	  	  	}
+    	\end{algorithm}
+  	\end{minipage}
+	\end{figure}
+
 \end{itemize}
 
 \subsection{搜索基础架构}
 
 我们认为，搜索服务为了提供最佳的用户体验，中心化的架构更为适合。星云链开发组将实现一个搜索服务，实时检索所有智能合约，做多语言的分词，建立全文索引，最终提供一个友好的Web界面给用户使用。\textbf{NR排序算法的公正性和每个节点的可验证性保证了中心化搜索服务的公正性}，所有搜索后台代码都将开源给社区。第三方开发者也可据此创建独立的搜索服务。搜索服务架构如图\ref{fig:search-arch}所示。
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=16cm]{./figs/search-arch.pdf}
 \caption{搜索服务架构}
@@ -157,13 +164,19 @@ String Literals & string data constants used \\
 	\item \textbf{Library Calls：} 合约中如果发生调用其它库合约，所有库合约的地址也被记录下来，由雅克比相似度公式计算相似度。
 	\item \textbf{Type Signature：} 该特征由输入参数类型和返回参数类型组成，由雅克比相似度公式计算相似度。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address,uint256)。
 	
-	\begin{lstlisting}[frame=single]
-contract addressTest {
-   function getBalance(address addr) returns (uint) {
-   		return addr.balance;
-   }
-}
-	\end{lstlisting}
+	\begin{figure}[h]
+  	\centering
+  	\begin{minipage}{.6\linewidth}
+    	\begin{algorithm}[H]
+  	  		\Contract{addressTest} {
+  	  			\Function{getBalance(address addr) \Returns{} (uint)} {
+  	  				\Return addr.balance\;
+  	  			}
+	  	  	}
+    	\end{algorithm}
+  	\end{minipage}
+	\end{figure}
+
 	
 	\item \textbf{Local Types：} 该特征为函数体所有局部变量类型的集合，由雅克比相似度公式计算相似度。
 	\item \textbf{Numeric Literals：} 所有数值常量的集合作为Numeric Literals特征，由雅克比相似度公式计算相似度。
