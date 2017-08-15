@@ -140,7 +140,7 @@ String Literals & string data constants used \\
 	\end{equation}
 	
 	\item \textbf{Decorated Skeleton Tree：} 和Skeleton Tree相似，除了循环和分支节点以外，还保留了大部分运算符(例如+,-,<)。但是赋值运算符去除了，因为这些大都是噪音。
-	\item \textbf{K-Subgraphs of CFG：} 基于函数的CFG图的k-子图实现。k-sized子图按如下方法定义：给定CFG图和某节点，我们做广度优先遍历(BFS)或者深度优先遍历(DFS)，直至遍历节点数为k，形成的子图为k-子图。如果遍历结束后，节点数不足k，丢弃该子图。遍历CFG图的每个节点，我们可以得到所有的k-子图。对于每个k-子图，我们用$k^{2}$位整数表示，参考图\ref{fig:graph-ex}。所有的k-子图形成了一个整数集合。
+	\item \textbf{K-Subgraphs of CFG：} 基于函数的CFG图的k-子图实现。k-子图按如下方法定义：给定CFG图和某节点，我们做广度优先遍历(BFS)或者深度优先遍历(DFS)，直至遍历节点数为k，形成的子图为k-子图。如果遍历结束后，节点数不足k，丢弃该子图。遍历CFG图的每个节点，我们可以得到所有的k-子图。对于每个k-子图，我们用$k^{2}$位整数表示，参考图\ref{fig:graph-ex}。所有的k-子图形成了一个整数集合。
 	
 	\textbf{3 Graph CFG BFS:} k = 3, BFS遍历
 		\textbf{4 Graph CFG BFS:} k = 4, BFS遍历
@@ -188,4 +188,4 @@ String Literals & string data constants used \\
 	sim_{combined}(\vec{A},\vec{B})=\frac{\sum_{c=1}^{n_{cl}}sim_{c}(\vec{A_c},~\vec{B_c})\cdot w_{c}}{\sum_{c=1}^{n_{cl}}w_{c}}
 \end{equation}
 
-其中，$\vec{A}$和$\vec{B}$是特征向量；$n_{cl}$是特征族个数; $sim_{c}$是针对特征c的相似度计算函数；$\vec{A_c}$和$\vec{B_c}$是特征c的特征向量；$w_{c}$是特征c的权重。
+其中，$\vec{A}$和$\vec{B}$是特征向量；$n_{cl}$是特征族个数; $sim_{c}$是针对特征c的相似度计算函数；$\vec{A_c}$和$\vec{B_c}$是特征c的特征向量；$w_{c}$是特征c的权重。权重是可以在大量测试集上，通过机器学习算法训练得到的。
