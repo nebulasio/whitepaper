@@ -22,7 +22,7 @@ contract SearchableContract {
 
 \subsection{搜索基础架构}
 
-我们认为，搜索服务为了提供最佳的用户体验，中心化的架构更为适合。星云链开发组将实现一个搜索服务，实时检索所有智能合约，做多语言的分词，建立全文索引，最终提供一个友好的Web界面给用户使用。NR排序算法的公正性和每个节点的可验证性保证了中心化搜索服务的公正性，所有搜索后台代码都将开源给社区。第三方开发者也可据此创建独立的搜索服务。搜索服务架构如图\ref{fig:search-arch}所示。
+我们认为，搜索服务为了提供最佳的用户体验，中心化的架构更为适合。星云链开发组将实现一个搜索服务，实时检索所有智能合约，做多语言的分词，建立全文索引，最终提供一个友好的Web界面给用户使用。\textbf{NR排序算法的公正性和每个节点的可验证性保证了中心化搜索服务的公正性}，所有搜索后台代码都将开源给社区。第三方开发者也可据此创建独立的搜索服务。搜索服务架构如图\ref{fig:search-arch}所示。
 
 \begin{figure}[h]
 \centering
@@ -32,7 +32,7 @@ contract SearchableContract {
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Contract Extractor} 智能合约提取服务，从星云链中实时提取智能合约。
+	\item \textbf{Contract Extractor} 智能合约提取服务，从星云链中实时提取智能合约。NR值由每个节点独立计算并验证存储在区块数据结构中，智能合约的NR值也会被导入。
 	\item \textbf{Crawler} 面向主题的智能合约网络爬虫，从公开网址爬取智能合约相关资料，包括介绍、Dapp用户评论、新闻资讯等。
 	\item \textbf{Contract Analyzer} 智能合约分析器，包括合约反编译、源代码功能、语义分析，网页解析等。
 	\item \textbf{Indexer} 从Contract Analyzer中建立合适的索引，支持全量和增量索引。
@@ -154,8 +154,8 @@ String Literals & string data constants used \\
 	\end{figure}
 
 
-	\item \textbf{Library Calls：} 合约中如果发生调用其它库合约，所有库合约的地址也被记录下来，可由雅克比相似度公式计算相似度。
-	\item \textbf{Type Signature：} 该特征由输入参数类型和返回参数类型组成。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address,uint256)。
+	\item \textbf{Library Calls：} 合约中如果发生调用其它库合约，所有库合约的地址也被记录下来，由雅克比相似度公式计算相似度。
+	\item \textbf{Type Signature：} 该特征由输入参数类型和返回参数类型组成，由雅克比相似度公式计算相似度。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address,uint256)。
 	
 	\begin{lstlisting}[frame=single]
 contract addressTest {
@@ -165,9 +165,9 @@ contract addressTest {
 }
 	\end{lstlisting}
 	
-	\item \textbf{Local Types：} 该特征为函数体所有局部变量类型的集合。
-	\item \textbf{Numeric Literals：} 所有数值常量的集合作为Numeric Literals特征。
-	\item \textbf{String Literals：} 所有字符串常量的集合作为String Literals特征。
+	\item \textbf{Local Types：} 该特征为函数体所有局部变量类型的集合，由雅克比相似度公式计算相似度。
+	\item \textbf{Numeric Literals：} 所有数值常量的集合作为Numeric Literals特征，由雅克比相似度公式计算相似度。
+	\item \textbf{String Literals：} 所有字符串常量的集合作为String Literals特征，由雅克比相似度公式计算相似度。
 \end{itemize}
 
 特征族可扩展，可以方便的把各种新的特征加入进来。基于每个特征都有一个相似度计算，我们把所有特征的相似度做加权和，得到最终的代码相似度：
