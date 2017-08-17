@@ -7,21 +7,21 @@
 \begin{itemize}
 	\item 爬取智能合约相关网页资料，为其和区块链智能合约建立映射关系；
 	\item 鼓励开发者上传验证过的智能合约源代码，分析其代码功能和语义，为源代码建立索引，提供相似合约搜索；未提供源代码的智能合约，进行反编译得到其源代码；
-	\item 为智能合约建立规范，任何符合此规范的智能合约，都能被检索并被用户搜索到，鼓励开发者在创建智能合约时，提供合约信息描述。
+	\item 为智能合约建立规范，任何符合此规范的智能合约，都能被检索并被用户搜索到，鼓励开发者在创建智能合约时，提供合约信息描述。 \\
 
 	\begin{figure}[ht]
   	\centering
   	\begin{minipage}{.4\linewidth}
-    	\begin{algorithm}[H]
-  	  		\Contract{SearchableContract} {
- 	 			\String{} \Public{} language\;
- 	 			\String{} \Public{} author\;
-		 	 	\String{} \Public{} name\;
- 	 			\String{} \Public{} title\;
-		 	 	\String{} \Public{} description\;
-		 	 	\String{} \Public{} tags\;
-	  	  	}
-    	\end{algorithm}
+	\begin{lstlisting}[frame=single]
+contract SearchableContract {
+   string public language;
+   string public author;
+   string public name;
+   string public title;
+   string public description;
+   string public tags;
+}
+	\end{lstlisting}
   	\end{minipage}
 	\end{figure}
 
@@ -162,18 +162,18 @@ String Literals & string data constants used \\
 
 
 	\item \textbf{Library Calls：} 合约中如果发生调用其它库合约，所有库合约的地址也被记录下来，由雅克比相似度公式计算相似度。
-	\item \textbf{Type Signature：} 该特征由输入参数类型和返回参数类型组成，由雅克比相似度公式计算相似度。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address,uint256)。
+	\item \textbf{Type Signature：} 该特征由输入参数类型和返回参数类型组成，由雅克比相似度公式计算相似度。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address,uint256)。 \\
 	
 	\begin{figure}[h]
   	\centering
-  	\begin{minipage}{.6\linewidth}
-    	\begin{algorithm}[H]
-  	  		\Contract{addressTest} {
-  	  			\Function{getBalance(address addr) \Returns{} (uint)} {
-  	  				\Return addr.balance\;
-  	  			}
-	  	  	}
-    	\end{algorithm}
+  	\begin{minipage}{.7\linewidth}
+	\begin{lstlisting}[frame=single]
+contract addressTest {
+  function getBalance(address addr) returns (uint) {
+  	return addr.balance;
+  }
+}
+	\end{lstlisting}
   	\end{minipage}
 	\end{figure}
 

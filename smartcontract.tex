@@ -15,27 +15,25 @@
 
 	\begin{figure}[h]
   	\centering
-  	\begin{minipage}{0.8\linewidth}
-    	\begin{algorithm}[H]
-			\Contract{Token} {
-				mapping (address => uint256) balances \Shared{}\;
+  	\begin{minipage}{\linewidth}
+	\begin{lstlisting}[frame=single]
+contract Token {
+  mapping (address => uint256) balances shared;
 
-				\Function{transfer (address \_to, uint256 \_value) \Returns{} (bool success)} {
-					\If{(balances[msg.sender] >= \_value)} {
-				    		balances[msg.sender] -= \_value\;
-				        balances[\_to] += \_value\;
-				        return true\;
-			 	    }
-			 	    \Else{} {
-       					\Return false\;
-     				}
-			    }
-			    
-			    \Function{balanceOf(address \_owner) \Constant{} \Returns{} (uint256 balance)} {
-       				\Return balances[\_owner]\;
-   				}
-			}
-    	\end{algorithm}
+  function transfer(address _to, uint256 _value) returns (bool success) {
+     if (balances[msg.sender] >= _value) {
+       balances[msg.sender] -= _value;
+       balances[_to] += _value;
+       return true;
+     } else {
+       return false;
+     }
+   }
+   function balanceOf(address _owner) constant returns (uint256 balance) {
+       return balances[_owner];
+   }
+}
+	\end{lstlisting}
   	\end{minipage}
   	\caption{原合约代码}
   	\label{figure:nf:oldsc}
@@ -47,28 +45,27 @@
 
 	\begin{figure}[h]
   	\centering
-  	\begin{minipage}{0.8\linewidth}
-    	\begin{algorithm}[H]
-			[oldContractAddress="0x5d65d971895edc438f465c17db6992698a52318d"] \\
-			\Contract{Token} {
-				mapping (address => uint256) balances \Shared{}\;
+  	\begin{minipage}{\linewidth}
+	\begin{lstlisting}[frame=single]
+[baseContractAddress="0x5d65d971895edc438f465c17db6992698a52318d"]
+//baseContractAddress是老合约的地址
+contract Token {
+  mapping (address => uint256) balances shared;
 
-				\Function{transfer (address \_to, uint256 \_value) \Returns{} (bool success)} {
-					\If{(balances[msg.sender] >= \_value \underline{\&\& \_value > 0})} {
-				    		balances[msg.sender] -= \_value\;
-				        balances[\_to] += \_value\;
-				        return true\;
-			 	    } 
-			 	    \Else{} {
-       					\Return false\;
-     				}			 	    
-			    }
-			    
-			    \Function{balanceOf(address \_owner) \Constant{} \Returns{} (uint256 balance)} {
-       				\Return balances[\_owner]\;
-   				}
-			}
-    	\end{algorithm}
+  function transfer(address _to, uint256 _value) returns (bool success) {
+     if (balances[msg.sender] >= _value ^&& _value > 0^) {
+       balances[msg.sender] -= _value;
+       balances[_to] += _value;
+       return true;
+     } else {
+       return false;
+     }
+   }
+   function balanceOf(address _owner) constant returns (uint256 balance) {
+       return balances[_owner];
+   }
+}
+	\end{lstlisting}
   	\end{minipage}
   	\caption{新合约代码}
   	\label{figure:nf:newsc}
