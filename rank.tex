@@ -129,7 +129,7 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 首先对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为『资金交换』类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够具有较少的交易金额却获得了较高的权值，这可以大致印证\textbf{Nebulas Rank}的可信性。
 
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.55\textwidth]{figs/nrio.png}
 	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
@@ -161,7 +161,7 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 18 & 0xce350d8fe075a2aac8a02b36862579840ea44984 & 0.000043     & Unknown    & 16007.99538        & 16007.997059999998 \\
 19 & 0x20f83c25fdcef947d131e30a6e47f8d7f9fa3152 & 0.000043     & Unknown    & 10000.998739999999 & 10001.000001000002 \\
 20 & 0x517c265f45eac01389dbb3045206c1d07c7a178c & 0.000042     & Unknown    & 21301.392683999693 & 21475.266362999693 \\
-\midrule
+\bottomrule  
 \end{tabular}
 \centering
 \caption{\textbf{Nebulas Rank}排名前$20$地址}
@@ -169,7 +169,6 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 
 最后，我们仿真一类特定的攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。测试选择的交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示\todo{看图说话}
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
@@ -178,8 +177,8 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 \begin{figure}[h]
 	\centering
-	\subfigure{	\includegraphics[width=0.48\textwidth]{figs/deposit.pdf} \caption*{X=$5000$, Y对排名的影响}}
-\subfigure{	\includegraphics[width=0.48\textwidth]{figs/times.pdf} \caption*{Y=$\Xi5000$, X对排名的影响}}
+	\subfigure[X=$5000$, Y对排名的影响]{\includegraphics[width=0.48\textwidth]{figs/deposit.pdf}}
+	\subfigure[Y=$\Xi5000$, X对排名的影响]{ \includegraphics[width=0.48\textwidth]{figs/times.pdf} }
 	\caption{抗操纵测试结果}\label{fig:antiManipulation}
 	\caption*{\footnotesize{NR：交易图如\refsec{subsec:txg}所述，排序算法按照\refsec{subsec:leaderrank}所述；\\PR$^*$：交易图如\refsec{subsec:txg}所述，PageRank排序算法；\\ NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排序算法；\\ NCD$^{\#}$：交易图如\cite{nem}所述，NCDawareRank排序算法；\\ PR$^{\#}$：交易图如\cite{nem}所述，PageRank排序算法 \\ PageRank的damping factor为0.15；NCDawareRank使用pscan\cite{chang2017mathsf}社群划分算法，$\eta=0.75$, $\mu=0.1$}}
 \end{figure}
