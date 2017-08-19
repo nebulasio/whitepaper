@@ -1,10 +1,33 @@
 \subsection{NVM 星云链虚拟机}
 \label{sec:nvm}
 
-星云链将引入LLVM做为NVM的核心组件。TODO
+我们将引入LLVM~\cite{llvm}做为NVM的核心组件，LLVM早期是Low Level Virtual Machine的缩写，作为一个底层虚拟机使用，但是现在，LLVM已经直接成为一个名词，是一系列高度模块化的编译器和工具链技术的集合。
 
-\includegraphics[width=14cm]{./figs/nvm}
+LLVM编译框架分为三层，第一层支持多种语言作为输入(例如C/C++，go和python等)，第二层是一个共享式的优化器(对LLVM IR做优化处理)，第三层是许多不同的目标平台(例如 Intel, ARM和PowerPC)。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./figs/llvm}
+\label{fig:llvm}
+\caption{星云链虚拟机}
+\end{figure}
+
+我们依托LLVM构建NVM，如图\ref{fig:nvm}所示，首先，我们提供区块链底层API库；然后，利用LLVM链接我们提供的底层库，完成核心协议和智能合约代码的编译、优化以及跨平台适配；最后，我们修改LLVM的ExecutionEngine来提供一个安全的沙箱环境。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./figs/nvm}
 \label{fig:nvm}
+\caption{星云链虚拟机}
+\end{figure}
 
-\includegraphics[width=14cm]{./figs/nvm-process}
+NVM中即蕴含了我们的星云原力，新代码发布时，NVM中LLVM编译器模块完成新代码的编译得到NVM IR(Intermedia Representation)，然后发布到链上，链上确认后新代码将由LLVM先做中间语言优化，然后进入沙箱取代旧代码执行，过程如图\ref{fig:nvm-process}所示。 \\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./figs/nvm-process}
 \label{fig:nvm-process}
+\caption{星云链虚拟机运行机制}
+\end{figure}
+
+NVM除了产生星云原力外，还赋予了我们为上层应用构建更加丰富的前端的能力，如以太坊智能合约所使用的Solidity，语义更加灵活的Javascript，甚至可以为不同的领域的智能合约提供定制的高层语言，更加高层的语言更容易做形式化验证，而且不容易出现低级编程错误，有利于星云链开发者开发出更加健壮的智能合约。
