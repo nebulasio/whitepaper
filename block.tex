@@ -12,8 +12,10 @@
 		\item ParentHash：父区块哈希值
 		\item Ts：时间戳
 		\item Miner：记账人地址
-		\item Dynasty：区块所处朝代
-		\item Epoch：区块所处时代
+		\item Dynasty：区块所处共识朝代
+		\item Epoch：区块所处共识时代
+		\item RankVer：区块所处NR周期
+		\item RankRoot：区块所处NR周期的排名哈希值
 		\item StateRoot：状态根哈希值
 		\item TxsRoot：交易根哈希值
 		\item ReceiptsRoot：交易收据根哈希值
@@ -48,17 +50,16 @@
 		\item Version：标识核心协议版本号，每次升级都需要递增，防止恶意记账人回滚到老的Protocol Code
 		\item Nonce：标识唯一性
 		\end{itemize}
-	\item Nebulas Rank Value：星云指数(计算周期为一周一次，大部分区块没有)
+	\item Nebulas Rank：星云指数(计算周期为一周一次，大部分区块没有)
 		\begin{itemize}
-		\item Account：账号或智能合约地址
-		\item NRIndex：NR值
-		\item NRRank：NR排序
+		\item Address：账号地址标记
+		\item Score：NR值
 		\end{itemize}
 \end{itemize}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=14cm]{./figs/block}
+\includegraphics[width=13cm]{./figs/block}
 \caption{区块结构}
 \label{fig:block}
 \end{figure}
@@ -66,7 +67,7 @@
 
 类似于其他加密数字货币系统，用户和区块链上的互动都是通过特定的交易进行的。用户创建一笔交易，用自己的私钥签名后，发到区块链的任何一个节点中，通过P2P网络广播到全网节点。在固定的出块时间间隔内，由PoD共识算法(见\refsec{sec:pod})指定的记账节点累计这段时间内的所有交易，打包成标准格式的区块，同步到全网所有节点。经各节点独立验证后，加入本地账本，成为全球总账本的一部分。
 
-以太坊中，交易分为两种类型：普通账户交易，智能合约交易。我们在星云链的区块中，增加新的数据类型：核心协议代码和星云指数。核心协议代码作为区块链数据的一部分存储在链上，星云链基础协议的升级，是通过链上数据的追加而实现的。星云指数存储根据NR排序算法计算出的账户NR Rank值。
+以太坊中，交易分为两种类型：普通账户交易，智能合约交易。我们在星云链的区块中，增加新的数据类型：核心协议代码和星云指数。核心协议代码作为区块链数据的一部分存储在链上，星云链基础协议的升级，是通过链上数据的追加而实现的。星云指数根据NR排序算法，计算出每个周期各个账户的NR值存到链上，方便NR值的实时调用和历史排名查询。
 
 \paragraph{核心协议的升级}
 
