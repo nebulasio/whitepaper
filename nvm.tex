@@ -17,8 +17,8 @@ LLVM编译框架分为三层，第一层支持多种语言作为输入(例如C/C
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{./figs/nvm}
-\label{fig:nvm}
 \caption{星云链虚拟机}
+\label{fig:nvm}
 \end{figure}
 
 NVM中即蕴含了我们的星云原力，新代码发布时，NVM中LLVM编译器模块完成新代码的编译得到NVM IR(Intermedia Representation)，然后发布到链上，链上确认后新代码将由LLVM先做中间语言优化，然后进入沙箱取代旧代码执行，过程如图\ref{fig:nvm-process}所示。 \\
@@ -26,8 +26,8 @@ NVM中即蕴含了我们的星云原力，新代码发布时，NVM中LLVM编译�
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{./figs/nvm-process}
-\label{fig:nvm-process}
 \caption{星云链虚拟机运行机制}
+\label{fig:nvm-process}
 \end{figure}
 
 NVM除了产生星云原力外，还赋予了我们为上层应用构建更加丰富的前端的能力，如以太坊智能合约所使用的Solidity，语义更加灵活的Javascript，甚至可以为不同的领域的智能合约提供定制的高层语言，更加高层的语言更容易做形式化验证，而且不容易出现低级编程错误，有利于星云链开发者开发出更加健壮的智能合约。
