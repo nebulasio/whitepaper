@@ -44,7 +44,7 @@
 	\item Protocol Code：核心协议代码(一个区块中只能有0或1个)
 		\begin{itemize}
 		\item Hash：哈希值
-		\item Code：核心协议的字节码，目前考虑为JVM字节码
+		\item Code：核心协议的字节码
 		\item ValidStartBlock：协议生效起始区块号
 		\item Signature：签名(校验是否来自开发者社区保留账号的签名)
 		\item Version：标识核心协议版本号，每次升级都需要递增，防止恶意记账人回滚到老的Protocol Code
@@ -71,7 +71,7 @@
 
 \paragraph{核心协议的升级}
 
-星云链客户端节点从当前最新区块的Protocol Code存储区可以取到编译后的虚拟机字节码(目前考虑为JVM)，如果当前最新区块没有Protocol Code数据，说明核心协议没有变更，就往前追溯到最近区块的Protocol Code。区块链的核心协议行为都由Protocol Code确定，包括验证算法、打包规则、NR算法、奖励机制等，几乎绝大部分的区块链行为都可以由Protocol Code定义。
+星云链客户端节点从当前最新区块的Protocol Code存储区可以取到编译后的虚拟机字节码(LLVM IR)，如果当前最新区块没有Protocol Code数据，说明核心协议没有变更，就往前追溯到最近区块的Protocol Code。区块链的核心协议行为都由Protocol Code确定，包括验证算法、打包规则、NR算法、奖励机制等，几乎绝大部分的区块链行为都可以由Protocol Code定义。
 
 如果核心协议需要升级，由星云链团队开发，把代码在公开渠道让社区讨论和投票。投票可以通过智能合约或者论坛投票的形式进行，当绝大部分社区成员都同意协议升级，星云链开发组把最新代码打包成Protocol Code交易，发布到全网节点，记账节点只要把其包含进区块，就可以在指定区块高度开始生效。这种方式的区块链协议升级，对客户端来说是透明的，无需软、硬分叉。
 
