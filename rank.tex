@@ -39,14 +39,13 @@ T_{xs} = \{(s，t，\tau， a)| \tau = \#CurrentBlock-T \dots \#CurrentBlock \la
 w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \land a_1 \geq a_2 \dots
 \end{align}
 
-接着，对每个节点，根据其在过去$T$个区块的转入转出记录，计算它的『币龄』，记作$C_v$；根据转入转出的金额总量，根据\reffig{fig:encouragement}所示的『鼓励函数』计算出每个节点鼓励值$E_v$\footnote{鼓励函数可以表示为两个正态分布的线性加和形式，在转出金额为零时以及转出金额少于转入金额的某点取得最大值}。最后使用目标节点的$C_v$和$E_V$对边权进行衰减。
-
 \begin{figure}[h]
 \centering
 	\includegraphics[width=0.55\textwidth]{figs/encouragement.png}
 	\caption{鼓励函数}\label{fig:encouragement}
 \end{figure}
 
+接着，对每个节点，根据其在过去$T$个区块的转入转出记录，计算它的『币龄』，记作$C_v$；根据转入转出的金额总量，根据\reffig{fig:encouragement}所示的『鼓励函数』计算出每个节点鼓励值$E_v$\footnote{鼓励函数可以表示为两个正态分布的线性加和形式，在转出金额为零时以及转出金额少于转入金额的某点取得最大值}。最后使用目标节点的$C_v$和$E_V$对边权进行衰减。
 
 最后，取整个交易图的最大弱连通分支，将分支之外的节点删除。
 
@@ -59,7 +58,6 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	\includegraphics[width=0.85\textwidth]{figs/wgc1.png}
 	\caption{交易图（部分节点）可视化 \\ \footnotesize{（节点大小与节点出入度正相关）} }\label{fig:wgc}
 \end{figure}
-
 
 \subsection{排序算法} \label{subsec:leaderrank}
 本小节介绍如何在构造的交易图中进行节点重要性排序。
@@ -127,20 +125,15 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 接下来，基于2017年5月份Ethereum的交易图（见\refsec{subsec:txg}），我们展示一系列结论。
 
-首先对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为『资金交换』类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
+首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}， 交易所账户以及部分交易吞吐量较大地址的排名靠前。
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.40\textwidth]{figs/MAY_lr.png}
-	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
-	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式}}
-\end{figure}
+\newpage
 
-接着，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}， 交易所账户以及部分交易吞吐量较大地址的排名靠前。
-
-\begin{table}
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{llllll  }\toprule
+\begin{table}[!htbp]
+\centering
+\caption{\textbf{Nebulas Rank}排名前$10$名及部分其他地址}
+\label{table:nr}
+\begin{tabular}{llllll}\toprule
 排名 & 地址                                                                                    & Nebulas Rank & 备注          & 转出金额(Ether) & 转入金额(Ether) \\
 1  & \begin{tabular}[c]{@{}l@{}}0x267be1c1d684f78cb4f\\ 6a176c4911b741e4ffdc0\end{tabular} & 0.449275     & Kraken\_4   & 3214232.06  & 350008.00   \\
 2  & \begin{tabular}[c]{@{}l@{}}0xd4c5867cec094721aab\\ c3c4d0fd2f2ac7878c79a\end{tabular} & 0.093798     &             & 58000.00    & 100947.00   \\
@@ -157,22 +150,30 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 64 & \begin{tabular}[c]{@{}l@{}}0x70faa28a6b8d6829a4b\\ 1e649d26ec9a2a39ba413\end{tabular} & 0.000590     & Shapeshift  & 52501.81    & 651933.49   \\
 \bottomrule
 \end{tabular}
-}
-\centering
-\caption{\textbf{Nebulas Rank}排名前$10$名及部分其他地址}\label{table:nr}
 \end{table}
 
+接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为『资金交换』类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
 
-最后，我们仿真一类特定的攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。测试选择的交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：随着攻击者投入本金提高，使用任何算法的情况下，其收益都会越来越高，但是使用\refsec{subsec:txg}所述的方式构造交易图方式可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又一定程度抵抗攻击。
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.40\textwidth]{figs/MAY_lr.png}
+	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
+	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式}}
+\end{figure}
 
-\begin{figure}[h]
+
+最后，我们仿真一类特定的攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。
+
+\begin{figure}[!htbp]
 	\centering
 	%\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
   \input{figs/attack.tex}
 	\caption{将交易所纳入环形交易的攻击示意图}\label{fig:loop}
 \end{figure}
 
-\begin{figure}[h]
+测试选择的交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：随着攻击者投入本金提高，使用任何算法的情况下，其收益都会越来越高，但是使用\refsec{subsec:txg}所述的方式构造交易图方式可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又一定程度抵抗攻击。
+
+\begin{figure}[!htbp]
 	\centering
 	%\subfigure[]{}
 	\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
