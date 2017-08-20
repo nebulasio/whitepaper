@@ -33,20 +33,20 @@ contract SearchableContract {
 
 \begin{figure}
 \centering
-\includegraphics[width=16cm]{./figs/search-arch.pdf}
+\includegraphics[width=16cm]{./figs/search-arch}
 \caption{搜索服务架构}
 \label{fig:search-arch}
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Contract Extractor} 智能合约提取服务，从星云链中实时提取智能合约。NR值由每个节点独立计算并验证存储在区块数据结构中，智能合约的NR值也会被导入。
 	\item \textbf{Crawler} 面向主题的智能合约网络爬虫，从公开网址爬取智能合约相关资料，包括介绍、Dapp用户评论、新闻资讯等。
+	\item \textbf{Contract Extractor} 智能合约提取服务，从星云链中实时提取智能合约。NR值由每个节点独立计算并验证存储在区块数据结构中，智能合约的NR值也会被导入。
 	\item \textbf{Contract Analyzer} 智能合约分析器，包括合约反编译、源代码功能、语义分析，网页解析等。
 	\item \textbf{Indexer} 从Contract Analyzer中建立合适的索引，支持全量和增量索引。
 	\item \textbf{ElasticSearch Cluster} ES服务器集群。星云链团队考虑使用开源搜索引擎ElasticSearch作为其全文索引支持。
-	\item \textbf{Rank Model Trainer} 排序模型训练。考虑到交易Graph，排序规则考虑了多个因素：匹配字段，文本相关度，合约的NR Rank值，合约的交易数量、频度和深度，与合约发生交易的用户NR Rank值，合约安全性等等。我们根据用户的实际使用情况，用机器学习算法(GBDT、人工神经网络都是候选)训练排序打分模型，根据用户的反馈不断优化。训练后的模型被搜索服务的Scorer使用。
+	\item \textbf{Ranking Model Trainer} 排序模型训练。考虑到交易Graph，排序规则考虑了多个因素：匹配字段，文本相关度，合约的NR Rank值，合约的交易数量、频度和深度，与合约发生交易的用户NR Rank值，合约安全性等等。我们根据用户的实际使用情况，用机器学习算法(GBDT、人工神经网络都是候选)训练排序打分模型，根据用户的反馈不断优化。训练后的模型被搜索服务的Scorer使用。
 	\item \textbf{Word Breaker} 多语言分词器，用作关键字搜索。
-	\item \textbf{Scorer} 分为两个level：Level-1从ElasticSearch中召回候选结果集，目标是尽可能把潜在的候选结果，在ElasticSearch集群中通过快速有效的排序打分召回，Level-1召回的结果数量有限，控制在几千以内；Level-2使用Offline Rank Model，计算每个Level-1结果候选集的得分，重新排序，这个结果较为精确，可以直接给用户使用。
+	\item \textbf{Scorer} 分为两个level：Level-1 Standard Scorer从ElasticSearch中召回候选结果集，目标是尽可能把潜在的候选结果，在ElasticSearch集群中通过快速有效的排序打分召回，Level-1召回的结果数量有限，控制在几千以内；Level-2 Ranking Model Scorer使用 Offline Rank Model，计算每个Level-1结果候选集的得分，重新排序，这个结果较为精确，可以直接给用户使用。
 	\item \textbf{Searcher} 负责和ElasticSearch集群通信，以及对搜索结果包装返回给搜索前端。
 \end{itemize}
 
