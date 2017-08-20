@@ -8,8 +8,8 @@ LLVM早期是Low Level Virtual Machine的缩写，作为一个底层虚拟机使
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{./figs/llvm}
-\label{fig:llvm}
 \caption{LLVM}
+\label{fig:llvm}
 \end{figure}
 
 我们依托LLVM构建NVM，如图\ref{fig:nvm}所示。首先，我们提供区块链底层API库；然后，利用LLVM链接器链接我们提供的底层库，LLVM JIT完成核心协议和智能合约代码的编译、优化以及跨平台适配，生成机器代码；最后，让这些机器代码通过LLVM的ExecutionEngine运行在NVM提供的安全的沙箱环境中。

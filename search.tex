@@ -44,12 +44,12 @@ contract SearchableContract {
 	\item \textbf{Analyzer} 包括Text Analyzer, Tx Analyzer, Contract Analyzer，分别为文本信息、区块交易信息和智能合约分析器，其中智能合约分析器包括合约反编译、源代码功能、语义分析，网页解析等。
 	\item \textbf{Nebulas Rank Calculator} 星云指数计算服务，离线计算每个非合约账户和合约账户的星云指数。
 	\item \textbf{Ranking Model Trainer} 排序模型训练。考虑到交易Graph，排序规则考虑了多个因素：匹配字段，文本相关度，合约的NR Rank值，合约的交易数量、频度和深度，与合约发生交易的用户NR Rank值，合约安全性等等。我们根据用户的实际使用情况，用机器学习算法(GBDT、人工神经网络都是候选)训练排序打分模型，根据用户的反馈不断优化。训练后的模型被搜索服务的Scorer使用。
-	\item \textbf{ElasticSearch Cluster} ES服务器集群。星云链团队考虑使用开源搜索引擎ElasticSearch作为其全文索引支持。
 	\item \textbf{Query Analyzer} 关键词分析服务，包括多语言分词器Word Breaker，拼写检查器Spell Checker等。
-	\item \textbf{Indexer} 从Contract Analyzer中建立合适的索引，支持全量和增量索引。
+	\item \textbf{Indexer} 从Analyzer中建立合适的索引，支持全量和增量索引。
 	\item \textbf{Scorer} 分为两个level：Level-1 Standard Scorer从ElasticSearch中召回候选结果集，目标是尽可能把潜在的候选结果，在ElasticSearch集群中通过快速有效的排序打分召回，Level-1召回的结果数量有限，控制在几千以内；Level-2 Ranking Model Scorer使用 Offline Rank Model，计算每个Level-1结果候选集的得分，重新排序，这个结果较为精确，可以直接给用户使用。
 	\item \textbf{Searcher} 负责和ElasticSearch集群通信，以及对搜索结果包装返回给搜索前端。
 	\item \textbf{API} 对外提供完善的搜索API服务。
+	\item \textbf{ElasticSearch Cluster} ES服务器集群。星云链团队考虑使用开源搜索引擎ElasticSearch作为其全文索引支持。
 \end{itemize}
 
 \subsection{趋势榜单}
