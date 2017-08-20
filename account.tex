@@ -10,7 +10,7 @@
 \begin{verbatim}
   Data = sha3_256(Public Key)[-20:]
   CheckSum = sha3_256(Data)[0:4]
-  Address = "0x" + Hex(Data) + Hex(CheckSum)
+  Address = "0x" + Hex(Data + CheckSum)
 \end{verbatim}
 
 公钥的SHA3-256摘要的后20位字节作为地址的主要组成部分，对其再做一次SHA3-256摘要，取前4位字节做校验码，其相当于在以太坊的地址尾部加上4字节的校验码。
@@ -29,7 +29,7 @@
 \begin{verbatim}
   Data = sha3_256(Public Key)[-20:]
   CheckSum = sha3_256(Data)[0:4]
-  Address = "0x" + Hex(Data) + Hex(CheckSum)
+  Address = "0x" + Hex(Data + CheckSum)
 
   ExtData = Utf8Bytes({Nickname or any string})
   ExtHash = sha3_256(Data + ExtData)[0:2]
