@@ -31,23 +31,25 @@ contract SearchableContract {
 
 我们认为，搜索服务为了提供最佳的用户体验，中心化的架构更为适合。星云链开发组将实现一个搜索服务，实时检索所有智能合约，做多语言的分词，建立全文索引，最终提供一个友好的Web界面给用户使用。\textbf{NR排序算法的公正性和每个节点的可验证性保证了中心化搜索服务的公正性}，所有搜索后台代码都将开源给社区。第三方开发者也可据此创建独立的搜索服务。搜索服务架构如图\ref{fig:search-arch}所示。
 
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=16cm]{./figs/search-arch}
+\includegraphics[width=16cm]{./figs/search-arch-new}
 \caption{搜索服务架构}
 \label{fig:search-arch}
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Crawler} 面向主题的智能合约网络爬虫，从公开网址爬取智能合约相关资料，包括介绍、Dapp用户评论、新闻资讯等。
-	\item \textbf{Contract Extractor} 智能合约提取服务，从星云链中实时提取智能合约。NR值由每个节点独立计算并验证存储在区块数据结构中，智能合约的NR值也会被导入。
-	\item \textbf{Contract Analyzer} 智能合约分析器，包括合约反编译、源代码功能、语义分析，网页解析等。
-	\item \textbf{Indexer} 从Contract Analyzer中建立合适的索引，支持全量和增量索引。
-	\item \textbf{ElasticSearch Cluster} ES服务器集群。星云链团队考虑使用开源搜索引擎ElasticSearch作为其全文索引支持。
+	\item \textbf{Crawler} 区块链搜索引擎爬虫数据源分为两种，一种从区块链上收集区块信息和智能合约代码等信息，一种从公开网址上爬取智能合约相关资料，包括介绍、Dapp用户评论、新闻资讯等。
+	\item \textbf{Extractor} 包括Text Extractor, Block Extractor和Code Extractor，分别提供文本信息、区块信息和智能合约代码提取服务。
+	\item \textbf{Analyzer} 包括Text Analyzer, Tx Analyzer, Contract Analyzer，分别为文本信息、区块交易信息和智能合约分析器，其中智能合约分析器包括合约反编译、源代码功能、语义分析，网页解析等。
+	\item \textbf{Nebulas Rank Calculator} 星云指数计算服务，离线计算每个非合约账户和合约账户的星云指数。
 	\item \textbf{Ranking Model Trainer} 排序模型训练。考虑到交易Graph，排序规则考虑了多个因素：匹配字段，文本相关度，合约的NR Rank值，合约的交易数量、频度和深度，与合约发生交易的用户NR Rank值，合约安全性等等。我们根据用户的实际使用情况，用机器学习算法(GBDT、人工神经网络都是候选)训练排序打分模型，根据用户的反馈不断优化。训练后的模型被搜索服务的Scorer使用。
-	\item \textbf{Word Breaker} 多语言分词器，用作关键字搜索。
+	\item \textbf{ElasticSearch Cluster} ES服务器集群。星云链团队考虑使用开源搜索引擎ElasticSearch作为其全文索引支持。
+	\item \textbf{Query Analyzer} 关键词分析服务，包括多语言分词器Word Breaker，拼写检查器Spell Checker等。
+	\item \textbf{Indexer} 从Contract Analyzer中建立合适的索引，支持全量和增量索引。
 	\item \textbf{Scorer} 分为两个level：Level-1 Standard Scorer从ElasticSearch中召回候选结果集，目标是尽可能把潜在的候选结果，在ElasticSearch集群中通过快速有效的排序打分召回，Level-1召回的结果数量有限，控制在几千以内；Level-2 Ranking Model Scorer使用 Offline Rank Model，计算每个Level-1结果候选集的得分，重新排序，这个结果较为精确，可以直接给用户使用。
 	\item \textbf{Searcher} 负责和ElasticSearch集群通信，以及对搜索结果包装返回给搜索前端。
+	\item \textbf{API} 对外提供完善的搜索API服务。
 \end{itemize}
 
 \subsection{趋势榜单}
