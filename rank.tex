@@ -14,7 +14,7 @@
 	\item 互操作性是\textbf{Nebulas Rank}的第三个考量维度。在互联⽹的早期，我们只有简单的⽹站，孤⽴的信息。现在，⽹络上的各种平台信息开始相互调⽤，数据孤岛逐渐被打破。这⼀趋势可以被理解为识别更⾼维度信息的过程。我们认为区块链世界也会遵循同样的发展规律，但其过程速度会更快。⽤户的资产、智能合约和DApp之间的信息会越来越丰富，⾼维信息间的互操作会越来越频繁，因此更好的互操作性将会变得越来越重要。
 \end{itemize}
 
-我们选择使用链上的交易记录作为\textbf{Nebulas Rank}算法的数据来源。因为相比于现实世界，区块链世界的『行踪』更为清晰和可信：链上的交易数据忠实地记录了用户之间的每笔转账、以及每次对『智能合约』的调用情况。然而根据交易数据设计算法并非易事。因为相比于现实世界，区块链世界的交易具有天然的匿名性，同时数据量规模更为庞大。因此我们试图为\textbf{Nebulas Rank}刻画如下的性质：
+我们选择使用链上的交易记录作为\textbf{Nebulas Rank}算法的数据来源。因为相比于现实世界，区块链世界的“行踪“更为清晰和可信：链上的交易数据忠实地记录了用户之间的每笔转账、以及每次对“智能合约“的调用情况。然而根据交易数据设计算法并非易事。因为相比于现实世界，区块链世界的交易具有天然的匿名性，同时数据量规模更为庞大。因此我们试图为\textbf{Nebulas Rank}刻画如下的性质：
 \begin{itemize}
 	\item 可信。实体如果要提高自己的价值，必须付出一定的成本，这样可以确保算法的结果能够甄选出真正具有较高价值的用户。一方面，在共识算法和开发者激励等场景下，可信的结果鼓励用户诚实地贡献以实现正向反馈，另一方面，可信的结果提供了有意义的用户分层结果，能提供更好的决策基础。
 	\item 可计算。作为基础字段，\textbf{Nebulas Rank}的结果应该以最快最直接的方式提供，因此其实现需要较低的计算复杂度；
@@ -45,11 +45,11 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	\caption{鼓励函数}\label{fig:encouragement}
 \end{figure}
 
-接着，对每个节点，根据其在过去$T$个区块的转入转出记录，计算它的『币龄』，记作$C_v$；根据转入转出的金额总量，根据\reffig{fig:encouragement}所示的『鼓励函数』计算出每个节点鼓励值$E_v$\footnote{鼓励函数可以表示为两个正态分布的线性加和形式，在转出金额为零时以及转出金额少于转入金额的某点取得最大值}。最后使用目标节点的$C_v$和$E_V$对边权进行衰减。
+接着，对每个节点，根据其在过去$T$个区块的转入转出记录，计算它的“币龄“，记作$C_v$；根据转入转出的金额总量，根据\reffig{fig:encouragement}所示的“鼓励函数“计算出每个节点鼓励值$E_v$\footnote{鼓励函数可以表示为两个正态分布的线性加和形式，在转出金额为零时以及转出金额少于转入金额的某点取得最大值}。最后使用目标节点的$C_v$和$E_V$对边权进行衰减。
 
 最后，取整个交易图的最大弱连通分支，将分支之外的节点删除。
 
-上述构造交易图的方式有助于实现\refsec{subsec:value}定义的『可信』性质，具体效果见\refsec{subsec:robust}的讨论。
+上述构造交易图的方式有助于实现\refsec{subsec:value}定义的“可信“性质，具体效果见\refsec{subsec:robust}的讨论。
 
 我们收集了Ethereum主链从\#3629091（约2017年5月1日）到\#3800775（约2017年5月31日）共$171,684$条区块交易数据，按照本小节介绍的方式构造了交易图（$T=171,684$ ， $K=2$），可视化结果如\reffig{fig:wgc}所示。
 
@@ -80,7 +80,7 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	C = median\{w_e| e \in E\}
 \end{align}
 
-$\alpha, \beta, \mu, \lambda$为参数。上述赋权方式可以理解为，入度更大的节点接收了更多来自Ground节点的入边权值，『净流入』，即入度减出度，更大的节点向Ground节点输出了更强的链接。
+$\alpha, \beta, \mu, \lambda$为参数。上述赋权方式可以理解为，入度更大的节点接收了更多来自Ground节点的入边权值，“净流入“，即入度减出度，更大的节点向Ground节点输出了更强的链接。
 
 LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫链的稳定状态。所不同的是，添加了Ground节点之后，不再需要考虑PageRank的damping factor\cite{Brin2010}\cite{page1999pagerank}。即按(\ref{formula:matrix})构造矩阵$H$后，进行如(\ref{formula:iteration})所示的迭代（初始值设置见(\ref{formula:init}))，直至收敛为止，最后去掉Ground节点的评分即为交易图各点重要程度得分。
 
@@ -97,13 +97,13 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 
 我们认为，LeaderRank可以较好地满足\refsec{subsec:value}定义的价值尺度和算法性质：
 \begin{itemize}
-	\item LeaderRank可以理解为在资金流动网络动态平衡状态下通过每点的流量，这契合了\textbf{Nebulas Rank}的『流动性』、『传播性』和『互操作性』等尺度；
-	\item (\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制可以加大攻击难度（见\refsec{subsec:robust}的讨论），更好地满足『可信』性质；
-	\item LeaderRank的计算可以用迭代方式完成，由于网络的稀疏性（见\refsec{subsec:txg}的结果），矩阵运算复杂度不高，能够满足『可计算』和『可复现』的性质。
+	\item LeaderRank可以理解为在资金流动网络动态平衡状态下通过每点的流量，这契合了\textbf{Nebulas Rank}的“流动性“、“传播性“和“互操作性“等尺度；
+	\item (\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制可以加大攻击难度（见\refsec{subsec:robust}的讨论），更好地满足“可信“性质；
+	\item LeaderRank的计算可以用迭代方式完成，由于网络的稀疏性（见\refsec{subsec:txg}的结果），矩阵运算复杂度不高，能够满足“可计算“和“可复现“的性质。
 \end{itemize}
 
 
-\subsection{抵抗操纵}\label{subsec:robust}
+\\label{subsec:robust}
 
 可信性，即抵抗操纵的能力，是\textbf{Nebulas Rank}最重要同时也是最具挑战的目标。部分恶意操纵的手段有以下几种：
 \begin{itemize}
@@ -117,10 +117,10 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 \begin{itemize}
 	\item 由于设置了$T$个区块的滑动时间窗，攻击者无法在短期内迅速提高自己的排名；
 	\item 因为边权由最高的几次交易金额决定，在一个环状拓扑内的多次转账不能无限提高各边权值，同时，从\refsec{subsec:txg}采集的数据看，有$91\%$的双方只进行了一或两次交易，因此$K$取$2$可以最大限度保留边的强度信息，同时抵抗环形转账攻击；
-	\item 为了获得更高『币龄』，用户需要让资金在自己的账户内『停留』一段时间，进而拖慢攻击者的交易速度；
-	\item 为了获得最大的『鼓励值』，如\reffig{fig:encouragement}所示，账户需要在当前周期内储蓄全部收入，或者只转出少于收入一半的金额，因此伪造资金流动时，攻击者的本金会因各个账户的储蓄效应而迅速衰减；
+	\item 为了获得更高“币龄“，用户需要让资金在自己的账户内“停留“一段时间，进而拖慢攻击者的交易速度；
+	\item 为了获得最大的“鼓励值“，如\reffig{fig:encouragement}所示，账户需要在当前周期内储蓄全部收入，或者只转出少于收入一半的金额，因此伪造资金流动时，攻击者的本金会因各个账户的储蓄效应而迅速衰减；
 	\item 由于取了最大弱联通分支，伪造的独立分支会被视为噪声而过滤清除。从\refsec{subsec:txg}采集的数据看，交易图有$453,285$个节点，$970,577$条边，有$1,169$个弱分支，其中最大弱分支有$449,746$个节点，占全体节点的$99.2\%$，次大弱分支有$133$个节点，仅占全体节点的$0.03\%$，因此取最大联通分支可以最大限度保留网络正常成分并且过滤噪声数据；
-	\item 相对于PageRank和NCDawareRank\cite{Nikolakopoulos2013}等网页排序算法,(\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制对低入度的节点评分偏向『保守』，即低入度的节点获得来自Ground节点的链接更弱。在区块链交易图中，低收入节点更容易被伪造，而频繁向其他任意地址转账并不能提高收入，因此使用\textbf{Nebulas Rank}的方法可以提升操纵难度；
+	\item 相对于PageRank和NCDawareRank\cite{Nikolakopoulos2013}等网页排序算法,(\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制对低入度的节点评分偏向“保守“，即低入度的节点获得来自Ground节点的链接更弱。在区块链交易图中，低收入节点更容易被伪造，而频繁向其他任意地址转账并不能提高收入，因此使用\textbf{Nebulas Rank}的方法可以提升操纵难度；
 \end{itemize}
 
 接下来，基于2017年5月份Ethereum的交易图（见\refsec{subsec:txg}），我们展示一系列结论。
@@ -152,7 +152,7 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 \end{tabular}
 \end{table}
 
-接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为『资金交换』类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
+接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为“资金交换“类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
 
 \begin{figure}[!htbp]
 	\centering
@@ -186,9 +186,9 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 \end{figure}
 
 \subsection{相关工作} \label{subsec:related}
-中心性，作为最核心的节点排序指标，是过去几十年网络科学领域研究最多的一个概念\cite{newman2010networks}。丰富的文献引入了大量中心性测度，包括度中心性\cite{freeman1979set}， 特征值中心性\cite{bonacich1972factoring}， Katz中心性\cite{katz1953new}， 接近度中心性\cite{sabidussi1966centrality}， 介数中心性\cite{freeman1977set}\cite{freeman1978centrality}\cite{freeman1991centrality}\cite{noh2004random}\cite{newman2005measure}， PageRank\cite{Brin2010}， HITS\cite{kleinberg1999authoritative}， SALSA\cite{Science2001}， 等等。此外还有许多工作试图用统一的框架来对中心性测度作出清晰的分类和综述\cite{Borgatti2005}\cite{Borgatti2006}\cite{Lu2016}。在设计\textbf{Nebulas Rank}时，需要首先考察交易图的性质，然后再选用合适的中心性。\textcite{Borgatti2005}工作中提到的资金交换网络和区块链交易图最为相近，但是提到的相关算法，如流中心性\cite{freeman1991centrality} 和随机游走中心性(又称电流中心性)\cite{newman2005measure}，复杂度过高，在区块链交易图的规模上不符合\textbf{Nebulas Rank}的『可计算』性质。
+中心性，作为最核心的节点排序指标，是过去几十年网络科学领域研究最多的一个概念\cite{newman2010networks}。丰富的文献引入了大量中心性测度，包括度中心性\cite{freeman1979set}， 特征值中心性\cite{bonacich1972factoring}， Katz中心性\cite{katz1953new}， 接近度中心性\cite{sabidussi1966centrality}， 介数中心性\cite{freeman1977set}\cite{freeman1978centrality}\cite{freeman1991centrality}\cite{noh2004random}\cite{newman2005measure}， PageRank\cite{Brin2010}， HITS\cite{kleinberg1999authoritative}， SALSA\cite{Science2001}， 等等。此外还有许多工作试图用统一的框架来对中心性测度作出清晰的分类和综述\cite{Borgatti2005}\cite{Borgatti2006}\cite{Lu2016}。在设计\textbf{Nebulas Rank}时，需要首先考察交易图的性质，然后再选用合适的中心性。\textcite{Borgatti2005}工作中提到的资金交换网络和区块链交易图最为相近，但是提到的相关算法，如流中心性\cite{freeman1991centrality} 和随机游走中心性(又称电流中心性)\cite{newman2005measure}，复杂度过高，在区块链交易图的规模上不符合\textbf{Nebulas Rank}的“可计算“性质。
 
-自从比特币\cite{Nakamoto2008}系统在2009年发布以来，研究者们对比特币交易图做了一些试验性和统计上的分析\cite{Ron}\cite{Haslhofer}\cite{NielKondor2014}\cite{Baumann2014}， 同时试图使用交易图的结构来讨论比特币的匿名性问题\cite{Meiklejohn2013}\cite{Ober2013}\cite{pham2016anomaly}\cite{Fleder2015}\cite{Ferrin2015}。 在其他加密货币出现并流行之后，交易图分析拓展到了其他的区块链系统\cite{Chang2017}\cite{Anderson2016}。 \textbf{Nebulas Rank}采用的交易图概念和这些研究中的大致相同，即\textcite{Tschorsch2015}所总结的『实体图』。即每个用户实体被映射为一个节点。而每条有向边则代表两个用户之间的交易强度。事实上，早在如比特币一样的区块链系统发明之前，学者们就尝试对银行和国际交易的金融网络进行研究\cite{propper2008towards}\cite{Boss2004}\cite{Serrano2007}\cite{Bech2008}\cite{Fagiolo2009}\cite{Morten2006}\cite{Boss2004a}\cite{Krempel2002}\cite{Serrano2003}。 和区块链交易图相比，这些早期研究的网络还包含了额外的借贷活动。并且这些网络的规模非常小。总之，现有研究几乎没有专门针对大规模区块链交易图提出排序方法。
+自从比特币\cite{Nakamoto2008}系统在2009年发布以来，研究者们对比特币交易图做了一些试验性和统计上的分析\cite{Ron}\cite{Haslhofer}\cite{NielKondor2014}\cite{Baumann2014}， 同时试图使用交易图的结构来讨论比特币的匿名性问题\cite{Meiklejohn2013}\cite{Ober2013}\cite{pham2016anomaly}\cite{Fleder2015}\cite{Ferrin2015}。 在其他加密货币出现并流行之后，交易图分析拓展到了其他的区块链系统\cite{Chang2017}\cite{Anderson2016}。 \textbf{Nebulas Rank}采用的交易图概念和这些研究中的大致相同，即\textcite{Tschorsch2015}所总结的“实体图“。即每个用户实体被映射为一个节点。而每条有向边则代表两个用户之间的交易强度。事实上，早在如比特币一样的区块链系统发明之前，学者们就尝试对银行和国际交易的金融网络进行研究\cite{propper2008towards}\cite{Boss2004}\cite{Serrano2007}\cite{Bech2008}\cite{Fagiolo2009}\cite{Morten2006}\cite{Boss2004a}\cite{Krempel2002}\cite{Serrano2003}。 和区块链交易图相比，这些早期研究的网络还包含了额外的借贷活动。并且这些网络的规模非常小。总之，现有研究几乎没有专门针对大规模区块链交易图提出排序方法。
 
 和\textbf{Nebulas Rank}最相关的工作是 NEM\cite{nem}的Proof-of-Importance机制，它采用了 NCDawareRank\cite{Nikolakopoulos2013}作为排序算法。 NCDawareRank\cite{Nikolakopoulos2013}利用了网络拓扑的社群效应。Proof-of-Importance使用SCAN\cite{xu2007scan}\cite{shiokawa2015scan}\cite{chang2017mathsf}作为社群聚类算法。虽然社区结构在交易网络的确存在并且可以帮助应对欺诈节点，却无法保证同一个实体对应节点一定可以映射到相同社群，因此利用社区划分的结果会提供一定的可操纵空间。此外\textcite{Fleder2015}使用PageRank来帮助发现感兴趣的比特币地址并分析它们的活动，但他们的工作仍然将人工主观分析作为主要方法，PageRank只起到辅助作用，这也和\textbf{Nebulas Rank}的目标不符。我们采用的算法时LeaderRank\cite{Chen2013}\cite{Li2014}。 它是PageRank的一种拓展形式。在PageRank中，每个节点都有相同的随机跳转概率，LeaderRank是对跳转概率一种简单但有效的改进，通过在网络中添加Ground节点和加权的双向链接，可以使得不同节点具有不同的随机跳入和跳出概率。\textbf{Nebulas Rank}的加权机制部分参考了\textcite{Li2014}的设计，使得入度更大的点更有可能被随机跳转到达。通过添加LeaderRank算法中的Ground节点，可以取得更符合区块链场景的排序结果。
 
