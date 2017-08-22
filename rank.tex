@@ -21,7 +21,7 @@
 	\item 可复现。由于共识算法和开发者激励等场景的需要，\textbf{Nebulas Rank}需要保证在所有客户端的计算结果完全一致。
 \end{itemize}
 
-接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为\cite{Tschorsch2015}。交易图表现了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。同时，图的形式也能方便刻画合约之间的互操作性。得到图之后便可以用复杂网络的中心性测度来对重要网络节点进行排名，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank\cite{Chen2013}\cite{Li2014}，并取得比PageRank和NEM\cite{nem}的NCDAwareRank更好的排名效果。
+接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为\cite{Tschorsch2015}。交易图表现了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。同时，图的形式也能方便刻画合约之间的互操作性。得到图之后便可以用复杂网络的中心性测度来对重要网络节点进行排名，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank\cite{Chen2013}\cite{Li2014}，并取得比Google的PageRank和NEM\cite{nem}的NCDAwareRank更好的排名效果。
 
 \subsection{交易图} \label{subsec:txg}
 本小节介绍如何从交易数据构造交易图。
