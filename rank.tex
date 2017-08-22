@@ -83,7 +83,7 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 
 $\alpha, \beta, \mu, \lambda$为参数。上述赋权方式可以理解为，入度更大的节点接收了更多来自Ground节点的入边权值，“净流入”，即入度减出度，更大的节点向Ground节点输出了更强的链接。
 
-LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫链的稳定状态。所不同的是，添加了Ground节点之后，不再需要考虑PageRank的damping factor\cite{Brin2010}\cite{page1999pagerank}。即按(\ref{formula:matrix})构造矩阵$H$后，进行如(\ref{formula:iteration})所示的迭代（初始值设置见(\ref{formula:init}))，直至收敛为止，最后去掉Ground节点的评分即为交易图各点重要程度得分。
+LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫链的稳定状态。所不同的是，添加了Ground节点之后，不再需要考虑PageRank的damping factor\cite{Brin2010}\cite{page1999pagerank}，并且所有节点天然地就具有少许出入度。按(\ref{formula:matrix})构造矩阵$H$后，进行如(\ref{formula:iteration})所示的迭代（初始值设置见(\ref{formula:init}))，直至收敛为止，最后去掉Ground节点的评分即为交易图各点重要程度得分。
 
 \begin{align} \label{formula:iteration}
 	P^{t+1} = H \times R^{t}； P^1=[\frac{1}{N}， \frac{1}{N}， \dots， \frac{1}{N}， 0]^T
