@@ -120,18 +120,17 @@ Truthfulness, i.e. the ability of resisting manipulation, is the most and challe
 	\item Comparing with webpage ranking algorithm such as PageRank and NCDawareRank\cite{Nikolakopoulos2013}, the mechanism defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) is more "conservative" to nodes with low income. That is, nodes with low in-degree gets weaker links from the ground node. In the blockchain transaction graph, nodes with low income are more likely to be created, and transferring to other random nodes cannot raise in-degree, either. So \textbf{Nebulas Rank} can increase the difficulty of manipulation.
 \end{itemize}
 
-接下来，基于2017年5月份Ethereum的交易图（见\refsec{subsec:txg}），我们展示一系列结论。
+Next, based on the transaction graph of Ethereum in May, 2017, we show some results.
 
-首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}，可以看出，交易所账户以及部分交易吞吐量较大地址的排名较为靠前。
+First, we list out some address by \textbf{Nebulas Rank}, as is shown in table \ref{table:nr} \footnote{Source of domain: Etherscan\cite{etherscan}}. It can be observed that the Exchange addresses and some accounts with high transaction throughput are ranked as top nodes.
 
 \newpage
-
 \begin{table}[!htbp]
 \centering
-\caption{\textbf{Nebulas Rank}排名前$10$名及部分其他地址}
+\caption{\textbf{Top 10} addresses of \textbf{Nebulas Rank} and some other addresses}
 \label{table:nr}
 \begin{tabular}{llllll}\toprule
-排名 & 地址                                                                                    & Nebulas Rank & 备注          & 转出金额(Ether) & 转入金额(Ether) \\
+\begin{tabular}[c]{@{}l@{}}Rank\\ (Order)\end{tabular} & Address                                                                                    & Nebulas Rank & Domain          & Out Amount(Ether) & In Amount(Ether) \\
 1  & \begin{tabular}[c]{@{}l@{}}0x267be1c1d684f78cb4f\\ 6a176c4911b741e4ffdc0\end{tabular} & 0.449275     & Kraken\_4   & 3214232.06  & 350008.00   \\
 2  & \begin{tabular}[c]{@{}l@{}}0xd4c5867cec094721aab\\ c3c4d0fd2f2ac7878c79a\end{tabular} & 0.093798     &             & 58000.00    & 100947.00   \\
 3  & \begin{tabular}[c]{@{}l@{}}0x027beefcbad782faf69f\\ ad12dee97ed894c68549\end{tabular} & 0.049277     & QuadrigaCX  & 207440.11   & 65606.40    \\
@@ -150,47 +149,46 @@ Truthfulness, i.e. the ability of resisting manipulation, is the most and challe
 \end{table}
 \newpage
 
-接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为“资金交换”类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易吞吐金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排名算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
-
+Then, we observe the relationship between transaction amount and \textbf{Nebulas Rank}. Since blockchain transferring can be understood as network flow of "money exchange", according to \textcite{Borgatti2005}'s work, the degree of nodes, i.e. sum of adjacent edges' weight, is a proper centrality measurement for such network flow. From the perspective of each node, the degree, i.e. transaction throughput amount (amount transferred in plus amount transferred out), represents local information of one hop, which reflects the historical money flow over corresponding addresses. So it could be a baseline for ranking algorithms. The comparison between transaction amount and \textbf{Nebulas Rank} is shown at \reffig{fig:nrio}: no node can acquire high rank with low transaction amount; nodes with high transaction amount still need to satisfy some property to get high rank, which roughly confirms the truthfulness of \textbf{Nebulas Rank}.
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.40\textwidth]{figs/MAY_lr.png}
-	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
-	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式 \\ 图中斜线代表交易金额和rank值成正比例的情况 \\ 好的算法应该使得数据点尽可能少地落在斜线的右下方，以免低交易吞吐金额的节点取得好的重要性排名。}}
+	\caption{Nebulas Rank v.s. Transaction Amount \small{X-axis represents Rank Value, Y-axis represents Transaction Amount, both of which are of logarithmic form.  The diagonal line represents the case that transaction amount and rank value is directly proportional}}\label{fig:nrio}
 \end{figure}
 
-
-在之前的部分，通过简单的分析可以推断，本小节开始所述的前三种攻击方式各自都可以被特定的处理手段有效过滤掉。因此最后，我们只需仿真最后一类攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。此类攻击利用了某些交易所可以低成本建立转账链接的性质，虽然合法地址也可能和交易所频繁交易，但此类攻击的行为并未促进资产的有效流动，因此应该与合法行为在一定程度上区分开。
-
+According the beginning of this subsection, it can be deducted that the first three types of manipulation can be filtered effectively by specific methods. Therefore finally, we just need to simulated the last type and observe the resistance effect. The attacker choose one authoritative Exchange node, and then create loop transfers for $X$ times. Every loop transfer contains 2 phases: first the attacker transfers $Y$ Ether to the Exchange through some newly created temporary address; then the attacker retrieve its money back from the Exchange through another address. The attacking topology and process is demonstrated as \reffig{fig:loop} shows. This type of attack exploits the fact that an Exchange service is willing to establish links with any nodes with very low cost. Although normal nodes can also transfer with Exchange nodes frequently, but such attacking activities do not improve effective money liquidity and should be distinguished from normal activities.
 \begin{figure}[!ht]
 	\centering
 	%\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
   \input{figs/attack.tex}
-	\caption{将交易所纳入环形交易的攻击示意图}\label{fig:loop}
-	\caption*{\footnotesize{图中给出了第1次和第h次环形转账的示意，选择的权威交易所节点为Shapeshift；\\ 边的标签代表时序； \\Sybil及其附属节点和Shapeshift节点之间每条边所代表的转账金额为$Y$Ether； \\ 攻击者共进行$X$次环形转账。}}
+	\caption{Demonstrating Loop Attack Utilizing Exchange Address \small{The first and $h$-st loop attacks is shown in the figure. The selected authoritative Exchange node is Shapeshift; Edge label indicates temporal sequence; The transfer amount between nodes controlled by attacker and Shapeshift node is $Y$Ether; There are $X$ loop transfers during the manipulation.}}\label{fig:loop}
 \end{figure}
 
-测试选择的权威交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：1）\reffig{subfig:deposit}展示的结果表明，随着攻击者投入本金提高，使用任何算法都无法阻止攻击者排名变得越来越好。而使用\refsec{subsec:txg}所述的方式构造交易图可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又可以在一定程度上更好地抵抗操纵；2）\reffig{subfig:times}展示的结果表明，随着攻击者攻击次数的增加，\refsec{subsec:txg}所述的交易图构造方式可以使得攻击者排名下降，原因是我们的交易图加权方法考虑了币龄和鼓励函数等因素，同时\textbf{Nebulas Rank}可以强化这些因素的影响以抵抗操纵。
-
+We choose Shapeshift(0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413) as the authoritative Exchange address. The results is at \reffig{fig:antiManipulation}: 1) As is shown in \reffig{subfig:deposit}, with the attacker investing more capital, no algorithm is able to prevent the attacker's rank from being better, while the transaction graph defined in \refsec{subsec:txg} reduces the attacking effect. And \textbf{Nebulas Rank} can only prefer nodes with high transaction throughput, but also resists manipulation to some extent; 2) As is shown in \reffig{subfig:times}, with the attacker making more loop transfers, the transaction graph defined at \refsec{subsec:txg} can let the attacker's rank be worse. The reason is that such transaction graph considers factors like coinage and encouragement value. Meanwhile, \textbf{Nebulas Rank} could strengthen these factors, bringing more resistance against manipulation.
 
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}{\linewidth}
 		\centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
-		\caption{攻击次数固定为5000次, 攻击投入本金对排名的影响 \\ \footnotesize{(横纵坐标均为对数形式)}}
+		\caption{The effect of attacker's capital size to attacker's rank, with the number of loop transfers is fixed as 5000. \small{(All axises are of logarithmic form)}}
 		\label{subfig:deposit}
 	\end{subfigure}
 	
 	\begin{subfigure}{\linewidth}
 	    \centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf} 
-		\caption{攻击投入本金固定为$\Xi5000$, 攻击次数对排名的影响  \\ \footnotesize{(横坐标为对数形式)}}\label{subfig:times}
+		\caption{The effect of number of loop transfers to the attacker's rank, with attacker's capital fixed as $\Xi5000$ \small{(All axises are of logarithmic form)}}\label{subfig:times}
 	\end{subfigure}
 
-	\caption{抗操纵测试结果} \label{fig:antiManipulation}
-	\caption*{\footnotesize{攻击方式如\reffig{fig:loop}所示，横轴为攻击成本，纵轴为攻击者主节点的排名（排名越靠后纵坐标越高，算法抵抗操纵能力越好） \\
-	NR：交易图如\refsec{subsec:txg}所述，排名算法按照\refsec{subsec:leaderrank}所述；\\PR$^*$：交易图如\refsec{subsec:txg}所述，PageRank排名算法；\\ NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排名算法；\\ NCD$^{\#}$：交易图如\cite{nem}所述，NCDawareRank排名算法；\\ PR$^{\#}$：交易图如\cite{nem}所述，PageRank排名算法 \\ PageRank的damping factor为0.15；NCDawareRank使用pscan\cite{chang2017mathsf}社群划分算法，$\eta=0.75$, $\mu=0.1$}}
+	\caption{Resistance against manipulation} \label{fig:antiManipulation}
+	\caption*{\footnotesize{The attacking method is shown as \reffig{fig:loop}; x-axis represents attacker's capital; y-axis represents attacker's ranking order (larger ranking order means the attacker fails to get better score)  \\
+	NR：The transaction graph is defined at \refsec{subsec:txg}, ranking algorithm is described at \refsec{subsec:leaderrank}; \\
+	%PR$^*$: The transaction graph is defined at \refsec{subsec:txg}, PageRank algorithm;\\ 
+	NCD$^*$: The transaction graph is defined at \refsec{subsec:txg}, NCDawareRank algorithm; \\
+	NEM：The transaction graph is introduced by \cite{nem}, NCDawareRank\\ 
+	PR$^{\#}$: The transaction graph is introduced by \cite{nem}，PageRank algorithm\\ 
+	The damping factor of PageRank is 0.15; The clustering algorithm used by NCDawareRank is pscan\cite{chang2017mathsf}, $\eta=0.75$, $\mu=0.1$}}
 \end{figure}
 
 \subsection{Related Works} \label{subsec:related}
