@@ -56,8 +56,8 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.85\textwidth]{figs/wgc1.png}
-	\caption{交易图（部分节点）可视化}\label{fig:wgc}
-	\caption*{\footnotesize{节点对应地址的交易规模（资金流入流出）越大，其节点的出入度越大，图示直径越大； \\ 可以看出很多已知交易所地址和大量其他地址有转账交互，但也有部分参与大规模交易的地址身份未知，其角色还有待挖掘。} }
+  \caption{交易图（部分节点）可视化。\small{节点对应地址的交易规模（资金流入流出）越大，其节点的出入度越大，图示直径越大；
+      可以看出很多已知交易所地址和大量其他地址有转账交互，但也有部分参与大规模交易的地址身份未知，其角色还有待挖掘。}}\label{fig:wgc}
 \end{figure}
 
 \subsection{排名算法} \label{subsec:leaderrank}
@@ -159,8 +159,10 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.40\textwidth]{figs/MAY_lr.png}
-	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
-	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式 \\ 图中斜线代表交易金额和rank值成正比例的情况 \\ 好的算法应该使得数据点尽可能少地落在斜线的右下方，以免低交易吞吐金额的节点取得好的重要性排名。}}
+  \caption{Nebulas Rank v.s.
+    交易金额。\small{横坐标为Rank值，纵坐标为交易金额，均为对数形式
+      。图中斜线代表交易金额和rank值成正比例的情况。
+      好的算法应该使得数据点尽可能少地落在斜线的右下方，以免低交易吞吐金额的节点取得好的重要性排名。}}\label{fig:nrio}
 \end{figure}
 
 
@@ -170,8 +172,7 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 	\centering
 	%\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
   \input{figs/attack.tex}
-	\caption{将交易所纳入环形交易的攻击示意图}\label{fig:loop}
-	\caption*{\footnotesize{图中给出了第1次和第h次环形转账的示意，选择的权威交易所节点为Shapeshift；\\ 边的标签代表时序； \\Sybil及其附属节点和Shapeshift节点之间每条边所代表的转账金额为$Y$Ether； \\ 攻击者共进行$X$次环形转账。}}
+  \caption{将交易所纳入环形交易的攻击示意图。\small{图中给出了第1次和第h次环形转账的示意，选择的权威交易所节点为Shapeshift；边的标签代表时序； Sybil及其附属节点和Shapeshift节点之间每条边所代表的转账金额为$Y$Ether；攻击者共进行$X$次环形转账。}}\label{fig:loop}
 \end{figure}
 
 测试选择的权威交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：1）\reffig{subfig:deposit}展示的结果表明，随着攻击者投入本金提高，使用任何算法都无法阻止攻击者排名变得越来越好。而使用\refsec{subsec:txg}所述的方式构造交易图可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又可以在一定程度上更好地抵抗操纵；2）\reffig{subfig:times}展示的结果表明，随着攻击者攻击次数的增加，\refsec{subsec:txg}所述的交易图构造方式可以使得攻击者排名下降，原因是我们的交易图加权方法考虑了币龄和鼓励函数等因素，同时\textbf{Nebulas Rank}可以强化这些因素的影响以抵抗操纵。
@@ -185,10 +186,10 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 		\caption{攻击次数固定为5000次, 攻击投入本金对排名的影响 \\ \footnotesize{(横纵坐标均为对数形式)}}
 		\label{subfig:deposit}
 	\end{subfigure}
-	
+
 	\begin{subfigure}{\linewidth}
 	    \centering
-		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf} 
+		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf}
 		\caption{攻击投入本金固定为$\Xi5000$, 攻击次数对排名的影响  \\ \footnotesize{(横坐标为对数形式)}}\label{subfig:times}
 	\end{subfigure}
 
