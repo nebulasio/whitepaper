@@ -101,29 +101,28 @@ We suppose that LeaderRank can satisfy the value measurements and algorithm prop
 \end{itemize}
 
 
-\\label{subsec:robust}
+\subsection{Manipulation Resistance}\label{subsec:robust}
+Truthfulness, i.e. the ability of resisting manipulation, is the most and challenging goal of \textbf{Nebulas Rank}. Some manipulation methods are as follows:
+\begin{enumerate}
+	\item Loop transfer. The attacker attacker transfers along a loop topology, which allows the same money flow over same edges repeatedly. By this mean, the attacker hopes to raise the weight of related edges;
+	\item Transfer to random addresses, so that the out-degree of sybil node increases;
+	\item Form an independent network component with addresses controlled by the attacker. So the attacker can pretend to be a central node;
+	\item Interact with authoritative Exchange service addresses frequently, i.e. transfer the same money in and out an authoritative Exchange service address repeatedly, so that the attacker can acquire better structural position in the network.
+\end{enumerate}
 
-可信性，即抵抗操纵的能力，是\textbf{Nebulas Rank}最重要同时也是最具挑战的目标。部分恶意操纵的手段有以下几种：
+\textbf{Nebulas Rank} mitigates manipulation through the following mechanism:
 \begin{itemize}
-	\item 环形转账，攻击者沿环形拓扑，让同一笔资金不断流过对应的边，以提高边权；
-	\item 频繁同权威交易所账户交易，多次在交易所账户中取入取出同一笔资金，获得较好的网络结构位置；
-	\item 向其他任意账户转钱，提高出度，并且提高资金流出的传播性；
-	\item 控制多个账户形成独立分支，伪造中心节点；
-\end{itemize}
-
-\textbf{Nebulas Rank}通过以下几个机制，可以弱化操纵效果：
-\begin{itemize}
-	\item 由于设置了$T$个区块的滑动时间窗，攻击者无法在短期内迅速提高自己的排名；
-	\item 因为边权由最高的几次交易金额决定，在一个环状拓扑内的多次转账不能无限提高各边权值，同时，从\refsec{subsec:txg}采集的数据看，有$91\%$的双方只进行了一或两次交易，因此$K$取$2$可以最大限度保留边的强度信息，同时抵抗环形转账攻击；
-	\item 为了获得更高『币龄』，用户需要让资金在自己的账户内『停留』一段时间，进而拖慢攻击者的交易速度；
-	\item 为了获得最大的『鼓励值』，如\reffig{fig:encouragement}所示，账户需要在当前周期内储蓄全部收入，或者只转出少于收入一半的金额，因此伪造资金流动时，攻击者的本金会因各个账户的储蓄效应而迅速衰减；
-	\item 由于取了最大弱联通分支，伪造的独立分支会被视为噪声而过滤清除。从\refsec{subsec:txg}采集的数据看，交易图有$453,285$个节点，$970,577$条边，有$1,169$个弱分支，其中最大弱分支有$449,746$个节点，占全体节点的$99.2\%$，次大弱分支有$133$个节点，仅占全体节点的$0.03\%$，因此取最大联通分支可以最大限度保留网络正常成分并且过滤噪声数据；
-	\item 相对于PageRank和NCDawareRank\cite{Nikolakopoulos2013}等网页排序算法,(\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制对低入度的节点评分偏向『保守』，即低入度的节点获得来自Ground节点的链接更弱。在区块链交易图中，低收入节点更容易被伪造，而频繁向其他任意地址转账并不能提高收入，因此使用\textbf{Nebulas Rank}的方法可以提升操纵难度；
+	\item Due to sliding windows of $T$ blocks, the attacker cannot increase its rank in short term;
+	\item Since the edge weight is decided by the highest amount of related transactions, transferring along a loop topology cannot increase the edge weight unlimitedly. Meanwhile, from the sampled data described in \refsec{subsec:txg}, $91\%$ of edges corresponds with less than 2 transactions respectively. Thus $K=2$ is a reasonable choice to remain the intensity information on edges while being resistance to loop transfer;
+	\item In order to have higher "coinage", the users needs to let money stay in their address for a while, which slows down the attacking speed;
+	\item In order to get the maximum "encouragement value", as is shown in \reffig{fig:encouragement}, the account need to keep all income or transfer out only a small ratio of it. So when forging money flow, the attackers' deposit should decrease rapidly;
+	\item Because only the giant component is selected, other independent components including the forged one will be filtered out as noise. From the sampled data described in \refsec{subsec:txg}, there are $453,285$ nodes and $970,577$ edges, with $1,169$ components. In the biggest component, there are $449,746$ nodes, about $99.2\%$ of all. In the second biggest component, there are just $133$ nodes, about $0.03\%$ of all. Thus taking the giant component can remain normal part of network as much as possible while filtering noise part out;
+	\item Comparing with webpage ranking algorithm such as PageRank and NCDawareRank\cite{Nikolakopoulos2013}, the mechanism defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) is more "conservative" to nodes with low income. That is, nodes with low in-degree gets weaker links from the ground node. In the blockchain transaction graph, nodes with low income are more likely to be created, and transferring to other random nodes cannot raise in-degree, either. So \textbf{Nebulas Rank} can increase the difficulty of manipulation.
 \end{itemize}
 
 接下来，基于2017年5月份Ethereum的交易图（见\refsec{subsec:txg}），我们展示一系列结论。
 
-首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}， 交易所账户以及部分交易吞吐量较大地址的排名靠前。
+首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}，可以看出，交易所账户以及部分交易吞吐量较大地址的排名较为靠前。
 
 \newpage
 
@@ -149,38 +148,49 @@ We suppose that LeaderRank can satisfy the value measurements and algorithm prop
 \bottomrule
 \end{tabular}
 \end{table}
+\newpage
 
-接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为『资金交换』类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排序算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
+接着，对比交易金额和\textbf{Nebulas Rank}的关系。由于区块链交易可以理解为“资金交换”类型的网络流，根据\textcite{Borgatti2005}的研究工作，节点的度，即邻接边权值之和，是适用于此类网络的一个合适的中心性测度。以每个节点为中心思考，度，即交易吞吐金额（转入转出金额的和），是节点一跳局部信息的体现，直接反映了对应地址的历史资金流量，因此应该作为衡量排名算法的基准。交易金额与\textbf{Nebulas Rank}的关系如\reffig{fig:nrio}所示：没有节点能够以较低的交易金额获取靠前排名，而交易金额较大的节点也要满足一定条件才能取得高的排名，这可以大致印证\textbf{Nebulas Rank}的可信性。
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.40\textwidth]{figs/MAY_lr.png}
 	\caption{Nebulas Rank v.s. 交易金额}\label{fig:nrio}
-	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式}}
+	\caption*{\footnotesize{横坐标为Rank值，纵坐标为交易金额，均为对数形式 \\ 图中斜线代表交易金额和rank值成正比例的情况 \\ 好的算法应该使得数据点尽可能少地落在斜线的右下方，以免低交易吞吐金额的节点取得好的重要性排名。}}
 \end{figure}
 
 
-最后，我们仿真一类特定的攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。
+在之前的部分，通过简单的分析可以推断，本小节开始所述的前三种攻击方式各自都可以被特定的处理手段有效过滤掉。因此最后，我们只需仿真最后一类攻击，攻击者选定某权威交易所节点，在排名计算周期内创造$X$次环形交易，每次交易时，攻击者先经由某新建地址向交易所节点转入$Y$Ether，之后经另一新建节点从交易所节点取出$Y$Ether，攻击方式示意图如\reffig{fig:loop}所示。此类攻击利用了某些交易所可以低成本建立转账链接的性质，虽然合法地址也可能和交易所频繁交易，但此类攻击的行为并未促进资产的有效流动，因此应该与合法行为在一定程度上区分开。
 
-\begin{figure}[!htbp]
+\begin{figure}[!ht]
 	\centering
 	%\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
   \input{figs/attack.tex}
 	\caption{将交易所纳入环形交易的攻击示意图}\label{fig:loop}
+	\caption*{\footnotesize{图中给出了第1次和第h次环形转账的示意，选择的权威交易所节点为Shapeshift；\\ 边的标签代表时序； \\Sybil及其附属节点和Shapeshift节点之间每条边所代表的转账金额为$Y$Ether； \\ 攻击者共进行$X$次环形转账。}}
 \end{figure}
 
-测试选择的交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：随着攻击者投入本金提高，使用任何算法的情况下，其收益都会越来越高，但是使用\refsec{subsec:txg}所述的方式构造交易图方式可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又一定程度抵抗攻击。
+测试选择的权威交易所为Shapeshift (0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413），结果如\reffig{fig:antiManipulation}所示：1）\reffig{subfig:deposit}展示的结果表明，随着攻击者投入本金提高，使用任何算法都无法阻止攻击者排名变得越来越好。而使用\refsec{subsec:txg}所述的方式构造交易图可以使得攻击效果显著减弱，并且\textbf{Nebulas Rank}可以既充分重视高交易量地址，又可以在一定程度上更好地抵抗操纵；2）\reffig{subfig:times}展示的结果表明，随着攻击者攻击次数的增加，\refsec{subsec:txg}所述的交易图构造方式可以使得攻击者排名下降，原因是我们的交易图加权方法考虑了币龄和鼓励函数等因素，同时\textbf{Nebulas Rank}可以强化这些因素的影响以抵抗操纵。
 
-\begin{figure}[!htbp]
+
+\begin{figure}[!ht]
 	\centering
-	%\subfigure[]{}
-	\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
-	%\label{subfig:deposit}}
-	%\subfigure[攻击投入本金$\Xi5000$, 攻击次数对排名的影响]{ \includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf} \label{subfig:times}}
-	\caption{抗操纵测试结果 }
-	\label{fig:antiManipulation}
-	\caption*{\footnotesize{攻击次数固定为5000次, 攻击投入本金对排名的影响 \\ 横轴为攻击成本，纵轴为效果排名（越靠前坐标值越小），均为对数坐标 \\
-	NR：交易图如\refsec{subsec:txg}所述，排序算法按照\refsec{subsec:leaderrank}所述；\\PR$^*$：交易图如\refsec{subsec:txg}所述，PageRank排序算法；\\ NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排序算法；\\ NCD$^{\#}$：交易图如\cite{nem}所述，NCDawareRank排序算法；\\ PR$^{\#}$：交易图如\cite{nem}所述，PageRank排序算法 \\ PageRank的damping factor为0.15；NCDawareRank使用pscan\cite{chang2017mathsf}社群划分算法，$\eta=0.75$, $\mu=0.1$}}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
+		\caption{攻击次数固定为5000次, 攻击投入本金对排名的影响 \\ \footnotesize{(横纵坐标均为对数形式)}}
+		\label{subfig:deposit}
+	\end{subfigure}
+	
+	\begin{subfigure}{\linewidth}
+	    \centering
+		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf} 
+		\caption{攻击投入本金固定为$\Xi5000$, 攻击次数对排名的影响  \\ \footnotesize{(横坐标为对数形式)}}\label{subfig:times}
+	\end{subfigure}
+
+	\caption{抗操纵测试结果} \label{fig:antiManipulation}
+	\caption*{\footnotesize{攻击方式如\reffig{fig:loop}所示，横轴为攻击成本，纵轴为攻击者主节点的排名（排名越靠后纵坐标越高，算法抵抗操纵能力越好） \\
+	NR：交易图如\refsec{subsec:txg}所述，排名算法按照\refsec{subsec:leaderrank}所述；\\PR$^*$：交易图如\refsec{subsec:txg}所述，PageRank排名算法；\\ NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排名算法；\\ NCD$^{\#}$：交易图如\cite{nem}所述，NCDawareRank排名算法；\\ PR$^{\#}$：交易图如\cite{nem}所述，PageRank排名算法 \\ PageRank的damping factor为0.15；NCDawareRank使用pscan\cite{chang2017mathsf}社群划分算法，$\eta=0.75$, $\mu=0.1$}}
 \end{figure}
 
 \subsection{Related Works} \label{subsec:related}
