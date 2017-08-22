@@ -19,7 +19,7 @@ JIT直接执行。如图\ref{fig:llvm}所示
 \label{fig:llvm}
 \end{figure}
 
-我们依托LLVM构建NVM，如图\ref{fig:nvm}所示。首先，我们提供区块链底层API库；然后，我们为不同语言（如Solidity，Javascript
+我们依托LLVM构建NVM，如图\ref{fig:nvm}所示。首先，我们提供区块链底层API库；然后，我们为不同语言（如Solidity，JavaScript
 ，C/C++，Go等）构建生成LLVM
 IR的编译器前端；最后，利用LLVM提供的工具链，生成LLVM Byte Code。最终，LLVM Byte
 Code通过LLVM的JIT引擎运行在NVM提供的安全的沙箱环境中。
