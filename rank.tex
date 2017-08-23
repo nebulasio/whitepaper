@@ -21,7 +21,7 @@
 	\item 可复现。由于共识算法和开发者激励等场景的需要，\textbf{Nebulas Rank}需要保证在所有客户端的计算结果完全一致。
 \end{itemize}
 
-接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为\cite{Tschorsch2015}。交易图表现了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。同时，图的形式也能方便刻画合约之间的互操作性。得到图之后便可以用复杂网络的中心性测度来对重要网络节点进行排名，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank\cite{Chen2013}\cite{Li2014}，并取得比Google的PageRank和NEM\cite{nem}的NCDAwareRank更好的排名效果。
+接下来我们设计\textbf{Nebulas Rank}的基本框架。首先，我们用图的形式表现交易记录。在交易图的基本定义中，每个节点代表一个实体，每条边代表实体之间的转账行为~\cite{Tschorsch2015}。交易图表现了转账行为导致资产流动的性质，有助于表示上述价值尺度中流动性和传播性的概念。同时，图的形式也能方便刻画合约之间的互操作性。得到图之后便可以用复杂网络的中心性测度来对重要网络节点进行排名，对\textbf{Nebulas Rank}的情景，我们采用LeaderRank~\cite{Chen2013}\cite{Li2014}，并取得比Google的PageRank和NEM~\cite{nem}的NCDAwareRank更好的排名效果。
 
 \subsection{交易图} \label{subsec:txg}
 本小节介绍如何从交易数据构造交易图。
@@ -63,7 +63,7 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 \subsection{排名算法} \label{subsec:leaderrank}
 本小节介绍如何在构造的交易图中进行节点重要性排名。
 
-我们采用LeaderRank\cite{Chen2013}\cite{Li2014}作为核心算法。首先在交易图中添加Ground节点，记为$\mathcal{G}$，编号$N+1$。然后我们建立Ground节点和其他每个节点的双向链接，并按照接下来的方式赋予链接权值：
+我们采用LeaderRank~\cite{Chen2013}\cite{Li2014}作为核心算法。首先在交易图中添加Ground节点，记为$\mathcal{G}$，编号$N+1$。然后我们建立Ground节点和其他每个节点的双向链接，并按照接下来的方式赋予链接权值：
 \begin{align}\label{formula:weight1}
 	\forall v \in V, w_{(v, \mathcal{G})} = \alpha A_v
 \end{align}
@@ -121,12 +121,12 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 	\item 为了获得更高“币龄”，用户需要让资金在自己的账户内“停留”一段时间，进而拖慢攻击者的交易速度；
 	\item 为了获得最大的“鼓励值”，如\reffig{fig:encouragement}所示，账户需要在当前周期内储蓄全部收入，或者只转出少于收入一半的金额，因此伪造资金流动时，攻击者的本金会因各个账户的储蓄效应而迅速衰减；
 	\item 由于取了最大弱联通分支，伪造的独立分支会被视为噪声而过滤清除。从\refsec{subsec:txg}采集的数据看，交易图有$453,285$个节点，$970,577$条边，有$1,169$个弱分支，其中最大弱分支有$449,746$个节点，占全体节点的$99.2\%$，次大弱分支有$133$个节点，仅占全体节点的$0.03\%$，因此取最大弱联通分支可以最大限度保留网络正常成分并且过滤噪声数据；
-	\item 相对于PageRank和NCDawareRank\cite{Nikolakopoulos2013}等网页排名算法,(\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制对低入度的节点评分偏向“保守”，即低入度的节点获得来自Ground节点的链接更弱。在区块链交易图中，低收入节点更容易被伪造，而频繁向其他任意地址转账也并不能提高收入，因此使用\textbf{Nebulas Rank}的方法可以提升操纵难度；
+	\item 相对于PageRank和NCDawareRank~\cite{Nikolakopoulos2013}等网页排名算法，(\ref{formula:weight2})和(\ref{formula:b})所定义的赋权机制对低入度的节点评分偏向“保守”，即低入度的节点获得来自Ground节点的链接更弱。在区块链交易图中，低收入节点更容易被伪造，而频繁向其他任意地址转账也并不能提高收入，因此使用\textbf{Nebulas Rank}的方法可以提升操纵难度；
 \end{itemize}
 
 接下来，基于2017年5月份Ethereum的交易图（见\refsec{subsec:txg}），我们展示一系列结论。
 
-首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan\cite{etherscan}}，可以看出，交易所账户以及部分交易吞吐量较大地址的排名较为靠前。
+首先，我们列出\textbf{Nebulas Rank}排名部分地址，如表\ref{table:nr}所示\footnote{备注来源: Etherscan~\cite{etherscan}}，可以看出，交易所账户以及部分交易吞吐量较大地址的排名较为靠前。
 
 \newpage
 
@@ -187,28 +187,28 @@ LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫�
 	\begin{subfigure}{\linewidth}
 		\centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
-		\caption{攻击次数固定为5000次, 攻击投入本金对排名的影响 \\ \footnotesize{(横纵坐标均为对数形式)}}
+		\caption{攻击次数固定为5000次，攻击投入本金对排名的影响 \\ \footnotesize{(横纵坐标均为对数形式)}}
 		\label{subfig:deposit}
 	\end{subfigure}
 
 	\begin{subfigure}{\linewidth}
 	    \centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf}
-		\caption{攻击投入本金固定为$\Xi1000$, 攻击次数对排名的影响  \\ \footnotesize{(横纵坐标均为对数形式)}}\label{subfig:times}
+		\caption{攻击投入本金固定为$\Xi1000$，攻击次数对排名的影响  \\ \footnotesize{(横纵坐标均为对数形式)}}\label{subfig:times}
 	\end{subfigure}
 
 	\caption{抗操纵测试结果。攻击方式如\reffig{fig:loop}所示，横轴为攻击成本，纵轴为攻击者主节点的排名（排名越靠后纵坐标越高，算法抵抗操纵能力越好）。NR：交易图如\refsec{subsec:txg}所述，排名算法按照\refsec{subsec:leaderrank}所述；
 	%\\PR$^*$：交易图如\refsec{subsec:txg}所述，PageRank排名算法；
-	NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排名算法；NEM：交易图如\cite{nem}所述，NCDawareRank排名算法； PR$^{\#}$：交易图如\cite{nem}所述，PageRank排名算法。PageRank的damping factor为0.15；NCDawareRank使用pscan\cite{chang2017mathsf}社群划分算法，$\eta=0.75$, $\mu=0.1$}
+	NCD$^*$：交易图如\refsec{subsec:txg}所述，NCDawareRank排名算法；NEM：交易图如~\cite{nem}所述，NCDawareRank排名算法； PR$^{\#}$：交易图如~\cite{nem}所述，PageRank排名算法。PageRank的damping factor为0.15；NCDawareRank使用pscan~\cite{chang2017mathsf}社群划分算法，$\eta=0.75$， $\mu=0.1$}
 	\label{fig:antiManipulation}
 \end{figure}
 
 \newpage 
 
 \subsection{相关工作} \label{subsec:related}
-中心性，作为最核心的节点排名指标，是过去几十年网络科学领域研究最多的一个概念\cite{newman2010networks}。丰富的文献引入了大量中心性测度，包括度中心性\cite{freeman1979set}， 特征值中心性\cite{bonacich1972factoring}， Katz中心性\cite{katz1953new}， 接近度中心性\cite{sabidussi1966centrality}， 介数中心性\cite{freeman1977set}\cite{freeman1978centrality}\cite{freeman1991centrality}\cite{noh2004random}\cite{newman2005measure}， PageRank\cite{Brin2010}， HITS\cite{kleinberg1999authoritative}， SALSA\cite{Science2001}， 等等。此外还有许多工作试图用统一的框架来对中心性测度作出清晰的分类和综述\cite{Borgatti2005}\cite{Borgatti2006}\cite{Lu2016}。在设计\textbf{Nebulas Rank}时，需要首先考察交易图的性质，然后再选用合适的中心性。\textcite{Borgatti2005}工作中提到的资金交换网络和区块链交易图最为相近，但是提到的相关算法，如流介数中心性\cite{freeman1991centrality} 和随机游走介数中心性(又称电流中心性)\cite{newman2005measure}，复杂度过高，在区块链交易图的规模上不符合\textbf{Nebulas Rank}的“可计算”性质。
+中心性，作为最核心的节点排名指标，是过去几十年网络科学领域研究最多的一个概念~\cite{newman2010networks}。丰富的文献引入了大量中心性测度，包括度中心性~\cite{freeman1979set}，特征值中心性~\cite{bonacich1972factoring}，Katz中心性~\cite{katz1953new}， 接近度中心性~\cite{sabidussi1966centrality}， 介数中心性~\cite{freeman1977set}\cite{freeman1978centrality}\cite{freeman1991centrality}\cite{noh2004random}\cite{newman2005measure}， PageRank~\cite{Brin2010}， HITS~\cite{kleinberg1999authoritative}， SALSA~\cite{Science2001}， 等等。此外还有许多工作试图用统一的框架来对中心性测度作出清晰的分类和综述~\cite{Borgatti2005}\cite{Borgatti2006}\cite{Lu2016}。在设计\textbf{Nebulas Rank}时，需要首先考察交易图的性质，然后再选用合适的中心性。\textcite{Borgatti2005}工作中提到的资金交换网络和区块链交易图最为相近，但是提到的相关算法，如流介数中心性~\cite{freeman1991centrality} 和随机游走介数中心性(又称电流中心性)~\cite{newman2005measure}，复杂度过高，在区块链交易图的规模上不符合\textbf{Nebulas Rank}的“可计算”性质。
 
-自从比特币\cite{Nakamoto2008}系统在2009年发布以来，研究者们对比特币交易图做了一些试验性和统计上的分析\cite{Ron}\cite{Haslhofer}\cite{NielKondor2014}\cite{Baumann2014}， 同时试图使用交易图的结构来讨论比特币的匿名性问题\cite{Meiklejohn2013}\cite{Ober2013}\cite{pham2016anomaly}\cite{Fleder2015}\cite{Ferrin2015}。 在其他加密货币出现并流行之后，交易图分析拓展到了其他的区块链系统\cite{Chang2017}\cite{Anderson2016}。 \textbf{Nebulas Rank}采用的交易图概念和这些研究中的大致相同，即\textcite{Tschorsch2015}所总结的“实体图”。即每个用户实体被映射为一个节点。而每条有向边则代表两个用户之间的交易强度。事实上，早在如比特币一样的区块链系统发明之前，学者们就尝试对银行和国际交易的金融网络进行研究\cite{propper2008towards}\cite{Boss2004}\cite{Serrano2007}\cite{Bech2008}\cite{Fagiolo2009}\cite{Morten2006}\cite{Boss2004a}\cite{Krempel2002}\cite{Serrano2003}。 和区块链交易图相比，这些早期研究的网络还包含了额外的借贷活动。并且这些网络的规模非常小。总之，现有研究几乎没有专门针对大规模区块链交易图提出排名方法。
+自从比特币~\cite{Nakamoto2008}系统在2009年发布以来，研究者们对比特币交易图做了一些试验性和统计上的分析~\cite{Ron}\cite{Haslhofer}\cite{NielKondor2014}\cite{Baumann2014}， 同时试图使用交易图的结构来讨论比特币的匿名性问题~\cite{Meiklejohn2013}\cite{Ober2013}\cite{pham2016anomaly}\cite{Fleder2015}\cite{Ferrin2015}。 在其他加密货币出现并流行之后，交易图分析拓展到了其他的区块链系统~\cite{Chang2017}\cite{Anderson2016}。 \textbf{Nebulas Rank}采用的交易图概念和这些研究中的大致相同，即~\textcite{Tschorsch2015}所总结的“实体图”。即每个用户实体被映射为一个节点。而每条有向边则代表两个用户之间的交易强度。事实上，早在如比特币一样的区块链系统发明之前，学者们就尝试对银行和国际交易的金融网络进行研究~\cite{propper2008towards}\cite{Boss2004}\cite{Serrano2007}\cite{Bech2008}\cite{Fagiolo2009}\cite{Morten2006}\cite{Boss2004a}\cite{Krempel2002}\cite{Serrano2003}。 和区块链交易图相比，这些早期研究的网络还包含了额外的借贷活动。并且这些网络的规模非常小。总之，现有研究几乎没有专门针对大规模区块链交易图提出排名方法。
 
-和\textbf{Nebulas Rank}最相关的工作是 NEM\cite{nem}的Proof-of-Importance机制，它采用了 NCDawareRank\cite{Nikolakopoulos2013}作为排名算法。 NCDawareRank\cite{Nikolakopoulos2013}利用了网络拓扑的社群效应。Proof-of-Importance使用SCAN\cite{xu2007scan}\cite{shiokawa2015scan}\cite{chang2017mathsf}作为社群聚类算法。虽然社区结构在交易网络的确存在并且可以帮助应对欺诈节点，却无法保证同一个实体对应节点一定可以映射到相同社群，因此利用社区划分的结果会提供一定的可操纵空间。此外\textcite{Fleder2015}使用PageRank来帮助发现感兴趣的比特币地址并分析它们的活动，但他们的工作仍然将人工主观分析作为主要方法，PageRank只起到辅助作用，这也和\textbf{Nebulas Rank}的目标不符。我们采用的算法是LeaderRank\cite{Chen2013}\cite{Li2014}。 它是PageRank的一种拓展形式。在PageRank中，每个节点都有相同的随机跳转概率，LeaderRank是对跳转概率一种简单但有效的改进，通过在网络中添加Ground节点和加权的双向链接，可以使得不同节点具有不同的随机跳入和跳出概率。\textbf{Nebulas Rank}的加权机制部分参考了\textcite{Li2014}的设计，使得入度更大的点更有可能被随机跳转到达。通过添加LeaderRank算法中的Ground节点，可以取得更符合区块链场景的排名结果。
+和\textbf{Nebulas Rank}最相关的工作是 NEM~\cite{nem}的Proof-of-Importance机制，它采用了 NCDawareRank~\cite{Nikolakopoulos2013}作为排名算法。 NCDawareRank~\cite{Nikolakopoulos2013}利用了网络拓扑的社群效应。Proof-of-Importance使用SCAN~\cite{xu2007scan}\cite{shiokawa2015scan}\cite{chang2017mathsf}作为社群聚类算法。虽然社区结构在交易网络的确存在并且可以帮助应对欺诈节点，却无法保证同一个实体对应节点一定可以映射到相同社群，因此利用社区划分的结果会提供一定的可操纵空间。此外~\textcite{Fleder2015}使用PageRank来帮助发现感兴趣的比特币地址并分析它们的活动，但他们的工作仍然将人工主观分析作为主要方法，PageRank只起到辅助作用，这也和\textbf{Nebulas Rank}的目标不符。我们采用的算法是LeaderRank~\cite{Chen2013}\cite{Li2014}。 它是PageRank的一种拓展形式。在PageRank中，每个节点都有相同的随机跳转概率，LeaderRank是对跳转概率一种简单但有效的改进，通过在网络中添加Ground节点和加权的双向链接，可以使得不同节点具有不同的随机跳入和跳出概率。\textbf{Nebulas Rank}的加权机制部分参考了~\textcite{Li2014}的设计，使得入度更大的点更有可能被随机跳转到达。通过添加LeaderRank算法中的Ground节点，可以取得更符合区块链场景的排名结果。
 
