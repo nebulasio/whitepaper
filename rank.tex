@@ -26,18 +26,25 @@
 \subsection{交易图} \label{subsec:txg}
 本小节介绍如何从交易数据构造交易图。
 
-首先，取近期$T$（一般$T$取一个月时间内的区块数）个区块内个人用户对个人用户的有效转账记录，记为$T_{xs}$：
+首先, 对于任何一个时刻$t_0$，我们记录时间 $[t_0\ −\ T,\ t_0]$ 内(一般情况下,$T$ 是值为一个月的常量)，所有区块包含的个人用户之间的有效交易记录。其中,每笔交易记录可以表示成一个4-元组$(s,r,a,t)$，其中 $s$ 是转出地址，$r$ 是转入地址，$a$ 是交易金额，$t$ 是这笔交易的区块时间。并且，我们定义任何一个交易是有效的，当且仅当$a > 0$。因而，$[t_0\ −\ T, t_0]$ 内所有的有效交易记录可以表示成一个4-元组的集合
+
 \begin{align}
-T_{xs} = \{(s，t，\tau， a)| \tau = \#CurrentBlock-T \dots \#CurrentBlock \land a > 0 \}
+\theta(t_0) = \{(s, r, a, t)\ |\ t_0 - T \le t \le t_0\ \&\&\ a > 0 \}
 \end{align}
-，$s$、$t$和$a$分别是转出地址、转入地址和转账金额。
 
-然后基于$T_{xs}$，构造有向加权简单图$G=(V， E， W)$，其中，节点集合、边集合和边权分别表示为$V$， $E$和$W$。另外，记$N = |V|$，$M = |E|$。 简便起见，所有节点都以一个$1$到$N$之间的整数代表。
+基于$\theta(t_0)$，我们可以构造有向加权简单图 $G = (V,\ E,\ W)$，其中，$V$，$E$，和$W$ 分别表示节点集合、有向边集合和边权系数。$V$ 中的每个节点都代表一个账户的地址，$E$ 中的每条有向边代表两个用户之间的交易关系。我们定义下公式合并对应交易的最高$K$ 个金额作为权值$w_e$ :
 
-每个节点都代表一个账户的地址，每条边代表两个用户之间的转账强度。规定所有边有向，并按如下公式合并对应交易的最高$K$个金额作为权值$w_e$：
 \begin{align}\label{formula:edgeweight}
-w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \land a_1 \geq a_2 \dots
+w_e = \sum_{i=1}^K a_k,\ s.t.\ a_k \in A
 \end{align}
+
+其中$A$ 是一个由所有在 $\theta(t_0)$ 出现的交易金额 $a$ 组成的有序集合，$i.e.$
+
+\begin{align}
+A = \{a_i\ |\ a_i \in \theta(t_0) \&\& (a_i \ge a_j, \forall i \le j) \}
+\end{align}
+
+另外，记 $N = |V|$，$M = |E|$，其中 $|.|$ 表示集合的范数。因而，总共有$N$ 个地址和$M$ 条有效交易。在下文中，为了表述便利，所有节点都以一个$1$到$N$ 之间的整数来表示。
 
 \begin{figure}[h]
 \centering
@@ -55,7 +62,7 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.75\textwidth]{figs/wgc1.png}
+	\includegraphics[width=0.6\textwidth]{figs/wgc1.png}
   \caption{交易图（部分节点）可视化。\small{节点对应地址的交易规模（资金流入流出）越大，其节点的出入度越大，图示直径越大；
       可以看出很多已知交易所地址和大量其他地址有转账交互，但也有部分参与大规模交易的地址身份未知，其角色还有待挖掘。}}\label{fig:wgc}
 \end{figure}
