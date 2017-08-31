@@ -1,40 +1,39 @@
 \section{Nebulas Rank}
 \label{sec:rank}
 
-\subsection{Nebulas Rank Overview} \label{subsec:value}
-Currently the Blockchain technology and community have grown into a large scale ecosystem. However, people's perception of Blockchain world is still relatively flat; there is no reasonable way to evaluate the entity, such as user's address, on the blockchain yet. Therefore, we try to come up with a universal value measurement. By mining activities occurs on chain, the value of every entity (address) is able to be quantified as \textbf{Nebulas Rank}. \textbf{Nebulas Rank} is aimed at two goals:
-\begin{itemize}
-	\item As a native value measurement, \textbf{Nebulas Rank} could become core algorithms for many fundamental scenarios, such as consensus (see \refsec{}), DIP (see \refsec{}) and Blockchain search engine (see \refsec{}), etc.
-	\item \textbf{Nebulas Rank} could inspire various value measurements, as well as deeper insights into the blockchain ecosystem.
+\subsection{Overview of Nebulas Rank} \label{subsec:value}
+Currently the Blockchain technology and community have grown into a large scale ecosystem. However, people's perception of Blockchain world is still relatively flat; there is no reasonable way to evaluate the value of an entity (such as user address) on the blockchain yet. Therefore, we try to come up with a universal measure of value. By exploring and utilizing activities on chain, we create \textbf{Nebulas Rank} through which the value of each entity (user address) is able to be quantified. \textbf{Nebulas Rank} is designed to:\begin{itemize}
+	\item serve as a native measure of value and a core algorithm for many fundamental scenarios, such as consensus algorithm (see \refsec{}), DIP (see \refsec{}) and Blockchain search engine (see \refsec{}), etc;
+	\item inspire diversified measures of value and deeper insights into the blockchain ecosystem, so as to better guide business decisions and research activities.
 \end{itemize}
-Based on the goals above, we define the value measurement of \textbf{Nebulas Rank} to be three-fold:
+Based on the goals above, we define the measure of value of \textbf{Nebulas Rank} from three dimensions:
 \begin{itemize}
-	\item Liquidity, the frequency and scale of transactions, is the first dimension that \textbf{Nebulas Rank} considers. Essentially, by means of capital liquidity, financial activity can promote efficient configuration of social resources and promote economy development. Blockchain established a value network. Thus more transactions and larger transaction scale produce better liquidity, and better liquidity further increases more transactions and larger transaction scale, forming a complete mechanism of positive feedback.
-	\item Propagation, the scope and depth of liquidity, is the second dimension that \textbf{Nebulas Rank} considers. In social network, the propagation property, i.e. speed, scope and depth of information propagation, is key measurement indicating network quality and users growth. We see same pattern in the Blockchain world. Better propagation means wider and deeper assets liquidity, which improves the quality of assets in the Blockchain world, and increases the scale of assets.
-	\item Interoperability is the third dimension that \textbf{Nebulas Rank} considers. During the early stage of Internet, there were just simple websites and isolated information. Nowadays, all kinds of Internet platforms begin to interact with each other and the small information islands begin to disappear. This tendency could be understood as a process of recognizing information from higher dimensional perspective. We believe that Blockchain world also follows the same roadmap, whose development will be faster. There will be more information of users' assets, smart contract and DApp. And also, there will be more frequent interactions among them. Thus better interoperability will become more important.
-\end{itemize}
-
-We choose transaction records on chain as source data for \textbf{Nebulas Rank}. Because comparing with real world, the "trajectory" in Blockchain world is more clear and trustworthy: the transaction data on chain loyally records every transferring among addresses and invoking of "smart contracts". But it is not trivial to design rank algorithm for Blockchain transaction data, since comparing with real world, the transactions in Blockchain world are naturally anonymous and bears larger data scale. So we depict three properties for \textbf{Nebulas Rank}:
-\begin{itemize}
-	\item Truthful. An entity must pay reasonable effort to improve its rank, which assures that the algorithm can identify trusted valuable users. On one hand, in scenarios like consensus and DIP, truthful ranking encourages users to contribute truthfully in order to realize positive feedback. On the other hand, truthful result provides meaningful hierarchy representation of all users, which will be more helpful for decision makers;
-	\item Computable. As a fundamental field, \textbf{Nebulas Rank} of every user should be accessible instantly and thus requires low computational complexity;  
-	\item Reproducible. Due to consensus and DIP, the running result of \textbf{Nebulas Rank} algorithm needs to be identical by any client.
+	\item Liquidity, the frequency and scale of transactions, is the first dimension that \textbf{Nebulas Rank} measures. Finance essentially is the social activities which optimize social resources via capital liquidity and promote economic development. Blockchain establishes a network of value. More transactions and larger transaction scale produce better liquidity, and better liquidity further increases transactions and transaction scale, forming a complete mechanism of positive feedback.
+	\item Propagation, the scope and depth of asset liquidity, is the second dimension that \textbf{Nebulas Rank} measures. In social network, the propagation property, i.e. speed, scope and depth of information transmission, is a key index indicating network quality and user growth. We see the same pattern in the Blockchain world. Powerful propagation means wider and deeper asset liquidity, which improves the quality and scale of assets in the Blockchain world.
+	\item Interoperability is the third dimension that \textbf{Nebulas Rank} measures. During the early stage of Internet, there were just simple websites and isolated information. Now information on different platforms can be forwarded on the network, and isolated data silos are gradually being broken. This tendency could be understood as a process of recognizing information from higher dimensional perspective. We believe that Blockchain world also follows a similar pattern, whose development will be faster. There will be more information of users' assets, smart contracts and DApp. And also, there will be more frequent interactions among them. Therefore, better interoperability will become more important.
 \end{itemize}
 
-Next we design basic framework of \textbf{Nebulas Rank}. First, transaction records are represented in the form of graph. By the definition of transaction graph (entity graph), every node is mapped to one entity, and each edge represents the transferring between two entities\cite{Tschorsch2015}. Transaction graph embeds the fact that money transferring among users leads to assets flowing, which helps to represent the concepts of liquidity and propagation defined before. Meanwhile, the form of graph is convenient to formulate the interoperability among contracts. With the derived transaction graph, we rank nodes by their network centrality. In the scenario of \textbf{Nebulas Rank}, LeaderRank\cite{Chen2013}\cite{Li2014} is a more reasonable measurement and outperforms PageRank and NEM\cite{nem}.。
+We choose transaction records on chain as source data for \textbf{Nebulas Rank}. That is because the "trajectory" in Blockchain world is more clear and trustworthy than that in the real world. Transaction data such as transfers and callings of "smart contracts" are all recorded on chain. But it is not trivial to design rank algorithm for Blockchain transaction data, since the transactions in Blockchain world are naturally anonymous and bear larger data scale than that in the real world. Three major properties for \textbf{Nebulas Rank} are described below:
+\begin{itemize}
+	\item Truthful. An entity must pay reasonable costs to improve its ranking, which assures that the algorithm can identify trusted valuable users. On one hand, in scenarios like consensus algorithm and DIP, truthful ranking encourages users to contribute truthfully in order to realize positive feedback. On the other hand, truthful result provides meaningful hierarchy representation of all users, which will be more helpful for decision makers;
+	\item Computable. As a fundamental field, the result of \textbf{Nebulas Rank} should be accessible instantly and thus requires low computational complexity;
+	\item Reproducible. As required by scenarios such as consensus algorithm and DIP, the computing result of \textbf{Nebulas Rank} should be identical at any client.
+\end{itemize}
+
+Next we design the basic framework of \textbf{Nebulas Rank}. First, transaction records are represented in the form of graph. In the transaction graph (entity graph), every node is mapped to one entity, and each edge represents the transfer between two entities\cite{Tschorsch2015}. Transaction graph embodies the fact that money transfer among users leads to assets flowing, which helps to represent the concepts of liquidity and propagation defined before. Meanwhile, the form of graph can clearly display the interoperability among contracts. With the derived transaction graph, we rank nodes by their network centrality. In the scenario of \textbf{Nebulas Rank}, LeaderRank\cite{Chen2013}\cite{Li2014} is a more reasonable measurement and outperforms PageRank of Google and NCDAwareRank of NEM\cite{nem}.
 
 \subsection{Transaction Graph} \label{subsec:txg}
 This subsection introduces how to derive transaction graph from transaction history.
 
-First, we take effective transferring among  individual addresses during the past $T$ (generally $T$ is the number of blocks in a month) blocks, denoted by $T_{xs}$:
+First, we take effective transfer among  individual addresses during the past $T$ (generally $T$ is the number of blocks in a month) blocks, denoted by $T_{xs}$:
 \begin{align}
 T_{xs} = \{(s，t，\tau， a)| \tau = \#CurrentBlock-T \dots \#CurrentBlock \land a > 0 \}
 \end{align}
-, where $s$, $t$ and $a$ are source address, target address and transfer amount.
+, where $s$, $t$ and $a$ are respectively source address, target address and transfer amount.
 
-Then based on $T_{xs}$, a directed weighted simple graph is constructed, denoted as $G=(V， E， W)$, where node set, edge set and edge weights are denoted by $V$, $E$ and $W$ respectively. Additionally, let $N = |V|$，$M = |E|$. For simplicity, every node is represented by an integer between $1$ and $N$.
+Then based on $T_{xs}$, construct a directed weighted simple graph, denoted as $G=(V， E， W)$, where node set, edge set and edge weights are denoted by $V$, $E$ and $W$ respectively. Additionally, let $N = |V|$，$M = |E|$. For simplicity, every node is represented by an integer between $1$ and $N$.
 
-Every node represents an individual account's address, and each edge represents the intensity between two addresses. Edges are directed and are assigned with weight $w_e$ aggregating top $K$ amounts of all related transactions:
+Every node represents an individual account's address, and each edge represents the transfer intensity between two addresses. Edges are directed and are assigned with weight $w_e$ aggregating top $K$ amounts of all related transactions:
 \begin{align}\label{formula:edgeweight}
 w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \land a_1 \geq a_2 \dots
 \end{align}
@@ -45,24 +44,24 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	\caption{Encouragement Function}\label{fig:encouragement}
 \end{figure}
 
-Then for each node, according to its in-transfers and out-transfers during the past $T$ blocks, we compute its "coinage", denoted by $C_v$; also, based on an "encouragement function" shown in \reffig{fig:encouragement}, we compute its encouraged value, denoted by $E_v$.\footnote{Encouragement function can be represented as a linear combination of two normal distributions, which outputs peak value when the money transferred out is zero or of some ratio of the amount transferred in.} And then the edges' weight is reduced by their target node's $C_v$ and $E_v$.
+Then, compute the "coinage" of each node according to its in-transfers and out-transfers during the past $T$ blocks and denote it by $C_v$; based on the total transfer amount and using the "encouragement function" shown in \reffig{fig:encouragement}, compute the encouraged value and denote it by $E_v$;\footnote{Encouragement function can be represented as a linear combination of two normal distributions, which outputs peak value when the money transferred out is zero or of some ratio of the amount transferred in.}use  $C_v$ and $E_v$ of the target nodes to reduce the edges' weight.
 
-Finally, we take the largest weakly connected component of the whole graph, only remaining nodes belonging to this component.
+Finally, take the largest weakly connected component of the whole graph, only remaining nodes belonging to this component.
 
 The graph derivation described above contributes to the "truthful" property defined at \refsec{subsec:value}, the evidence of which is shown in \refsec{subsec:robust}.
 
-We collect data on Ethereum Main Net Blockchain. It starts at \#3629091(roughly on May 1st, 2017) and ends at\#3800775(roughly on May 31st, 2017), containing $171,684$ transactions in total. Let $T=171,684$, $K=2$, we construct the transaction graph according to the method introduced by this subsection, and its visualization is shown as \reffig{fig:wgc}. Some nodes are labeled by tags in Etherscan\cite{etherscan}, and all nodes are resized by their degree. It could be observed that some famous exchanges usually interacts with more accounts than others. Besides, the identities of some addresses who contributes a lot transactions still remains unknown. 
+Using the method described herein, the transaction graph, wherein $T=171,684$ and $K=2$, is created on the basis of transaction data in the main chain of Ethereum, from block \#3629091(roughly on May 1st, 2017) to block\#3800775(roughly on May 31st, 2017). Its visualization is shown as \reffig{fig:wgc}. , and all nodes are resized by their degree. It could be observed that some famous exchanges usually interacts with more accounts than others. Besides, the identities of some addresses who contribute a lot transactions still remains unknown. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.85\textwidth]{figs/wgc1.png}
-	\caption{Transaction Graph (Partly) Visulazation }\label{fig:wgc}
+	\caption{Transaction Graph (Partly) Visulazation. \small{Large transaction scale (capital transfer) in the address means high in-and-out degree in the node, represented by large diameter in the figure. Some nodes are labeled by tags in Etherscan\cite{etherscan}}  }\label{fig:wgc}
 \end{figure}
 
 \subsection{Ranking Algorithm} \label{subsec:leaderrank}
 This subsection introduces how to rank nodes by their importance in the derived transaction graph.
 
-We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main method. First, a ground node is added into the transaction graph, denoted by $\mathcal{G}$ and numbered as $N+1$. Then we establish double link between the ground node and every other node, weighting by the following formula:
+We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main algorithm. First, a ground node is added into the transaction graph, denoted by $\mathcal{G}$ and numbered as $N+1$. Then we establish double link between the ground node and every other node, weighting by the following formula:
 \begin{align}\label{formula:weight1}
 	\forall v \in V, w_{(v, \mathcal{G})} = \alpha A_v
 \end{align}
@@ -82,7 +81,7 @@ We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main method. First, a gro
 
 $\alpha, \beta, \mu, \lambda$ are parameters. The weighting scheme can be understood as that, nodes with more in-degree receive more in-link from the ground node; nodes with more absolute income, i.e. in-degree minus out-degree, outputs stronger link into the ground node. 
 
-The running process of LeaderRank is similar with PageRank, which could be understood as computing the convergence state of a Markov process. What is different is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
+The computing process of LeaderRank is similar with that of PageRank, which could be understood as computing the convergence state of a Markov process. What is different is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
 \begin{align} \label{formula:iteration}
 	P^{t+1} = H \times R^{t}； P^1=[\frac{1}{N}， \frac{1}{N}， \dots， \frac{1}{N}， 0]^T
 \end{align}
@@ -93,33 +92,33 @@ The running process of LeaderRank is similar with PageRank, which could be under
 \forall v \in V， P^*_v \leftarrow P^*_v + \frac{P^*_{\mathcal{G}}}{N}
 \end{align}
 
-We suppose that LeaderRank can satisfy the value measurements and algorithm property defined in \refsec{subsec:value}.
+We suppose that LeaderRank can satisfy the measure of value and algorithm property defined in \refsec{subsec:value}.
 \begin{itemize}
-	\item The result of LeaderRank can be understood as the flux on each node in the dynamic equilibrium of money exchange network, which matches \textbf{Nebulas Rank}'s value measurement of "liquidity", "propagation" and "interoperability";
+	\item The result of LeaderRank can be understood as the flux on each node in the dynamic equilibrium of money exchange network, which matches \textbf{Nebulas Rank}'s measure of value: "liquidity", "propagation" and "interoperability";
 	\item The weighing scheme defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) makes it more difficult to attack (see discussion in \refsec{subsec:robust}), which satisfies "truthful" property;
 	\item LeaderRank can be computed by power iteration. Since the network is very sparse, the complexity of matrix computation should not be high, which satisfies the properties of "computable" and "reproducible".
 \end{itemize}
 
 
 \subsection{Manipulation Resistance}\label{subsec:robust}
-Truthfulness, i.e. the ability of resisting manipulation, is the most and challenging goal of \textbf{Nebulas Rank}. Some manipulation methods are as follows:
+Truthfulness, i.e. the ability of resisting manipulation, is the most significant and challenging goal of \textbf{Nebulas Rank}. Some manipulation methods are as follows:
 \begin{enumerate}
-	\item Loop transfer. The attacker attacker transfers along a loop topology, which allows the same money flow over same edges repeatedly. By this mean, the attacker hopes to raise the weight of related edges;
-	\item Transfer to random addresses, so that the out-degree of sybil node increases;
+	\item Loop transfer. The attacker transfers along a loop topology, which allows the same money flow over same edges repeatedly. By this means, the attacker hopes to raise the weight of related edges;
+	\item Transfer to random addresses, so that the out-degree of sybil node is increased, and the propagation of fund is increased as well;
 	\item Form an independent network component with addresses controlled by the attacker. So the attacker can pretend to be a central node;
 	\item Interact with authoritative Exchange service addresses frequently, i.e. transfer the same money in and out an authoritative Exchange service address repeatedly, so that the attacker can acquire better structural position in the network.
 \end{enumerate}
 
 \textbf{Nebulas Rank} mitigates manipulation through the following mechanism:
 \begin{itemize}
-	\item Due to sliding windows of $T$ blocks, the attacker cannot increase its rank in short term;
-	\item Since the edge weight is decided by the highest amount of related transactions, transferring along a loop topology cannot increase the edge weight unlimitedly. Meanwhile, from the sampled data described in \refsec{subsec:txg}, $91\%$ of edges corresponds with less than 2 transactions respectively. Thus $K=2$ is a reasonable choice to remain the intensity information on edges while being resistance to loop transfer;
-	\item In order to have higher "coinage", the users needs to let money stay in their address for a while, which slows down the attacking speed;
-	\item In order to get the maximum "encouragement value", as is shown in \reffig{fig:encouragement}, the account need to keep all income or transfer out only a small ratio of it. So when forging money flow, the attackers' deposit should decrease rapidly;
-	\item Because only the giant component is selected, other independent components including the forged one will be filtered out as noise. From the sampled data described in \refsec{subsec:txg}, there are $453,285$ nodes and $970,577$ edges, with $1,169$ components. In the biggest component, there are $449,746$ nodes, about $99.2\%$ of all. In the second biggest component, there are just $133$ nodes, about $0.03\%$ of all. Thus taking the giant component can remain normal part of network as much as possible while filtering noise part out;
-	\item Comparing with webpage ranking algorithm such as PageRank and NCDawareRank\cite{Nikolakopoulos2013}, the mechanism defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) is more "conservative" to nodes with low income. That is, nodes with low in-degree gets weaker links from the ground node. In the blockchain transaction graph, nodes with low income are more likely to be created, and transferring to other random nodes cannot raise in-degree, either. So \textbf{Nebulas Rank} can increase the difficulty of manipulation.
+	\item Owing to sliding windows of $T$ blocks, the attacker cannot increase its rank in short term;
+	\item Since the edge weight is decided by the related transactions with highest amount , transferring along a loop topology cannot increase edges' weight unlimitedly. Meanwhile, according to the sampled data in \refsec{subsec:txg}, $91\%$ of edges correspond to less than 2 transactions respectively. Thus $K=2$ is a reasonable choice to remain the intensity information on edges while being resistance to loop transfer;
+	\item In order to have higher "coinage", the user needs to let money stay in their address for a while, which slows down the attacking speed;
+	\item In order to get the maximum "encouragement value", as is shown in \reffig{fig:encouragement}, the account needs to keep all income or transfer out only a small ratio of it. So when forging money flow, the attacker will get a rapid decrease in its deposit;
+	\item Because only the giant component is selected, other independent components including the forged one will be filtered out as noise. According to the sampled data in \refsec{subsec:txg}, there are $453,285$ nodes and $970,577$ edges, with $1,169$ components. In the biggest component, there are $449,746$ nodes, accounting for $99.2\%$ of the total number. In the second biggest component, there are just $133$ nodes, only accounting for $0.03\%$. Thus taking the giant component can remain normal part of network as much as possible while filtering noise part out;
+	\item Compared with webpage ranking algorithms such as PageRank and NCDawareRank\cite{Nikolakopoulos2013}, the mechanism defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) is more "conservative" on the nodes with low income, i.e. nodes with low in-degree get weaker links from the Ground node. In the blockchain transaction graph, nodes with low income are more likely to be generated, and transferring to other random nodes cannot raise in-degree. So \textbf{Nebulas Rank} can increase the difficulty of manipulation.
 \end{itemize}
-
+>>
 Next, based on the transaction graph of Ethereum in May, 2017, we show some results.
 
 First, we list out some address by \textbf{Nebulas Rank}, as is shown in table \ref{table:nr} \footnote{Source of domain: Etherscan\cite{etherscan}}. It can be observed that the Exchange addresses and some accounts with high transaction throughput are ranked as top nodes.

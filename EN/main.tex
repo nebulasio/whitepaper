@@ -1,17 +1,48 @@
-\documentclass[10pt]{article}
+\documentclass[11.5pt]{article}
 \usepackage{charter}
 \usepackage{fullpage}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{ifthen}
 \usepackage{comment}
+\usepackage{xeCJK}
+\usepackage[title,titletoc]{appendix}
+
+\setCJKmainfont[BoldFont = STSongti-SC-Bold]{STSongti-SC-Regular}
+\setCJKfamilyfont{hei}{SIL-Hei-Med-Jian}		%宋体
+\setCJKfamilyfont{song}{SimSun}		%宋体
+\setCJKfamilyfont{kai}{Kaiti}		%楷体
+\setCJKfamilyfont{fang}{song}	%仿宋
+\setCJKfamilyfont{li}{song}			%隶书
+\setCJKfamilyfont{you}{Yuanti}		%幼圆
+
+\newcommand{\song}{\CJKfamily{song}}	%宋体
+\newcommand{\hei}{\CJKfamily{hei}}	%黑体
+\newcommand{\kai}{\CJKfamily{kai}}	%楷体
+\newcommand{\fs}{\CJKfamily{fang}}	%仿宋
+\newcommand{\li}{\CJKfamily{li}}		%隶书
+\newcommand{\you}{\CJKfamily{you}}	%幼圆
+
+\setCJKsansfont[BoldFont = STHeitiSC-Medium]{STHeitiSC-Light}
 
 \bibliographystyle{unsrt}
 \input{common.tex}
 \addbibresource{reference.bib}
 
 \begin{document}
-\title{Nebulas Technecial Whitepaper}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\nomname}{术语表（按首字母排序）}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\appendixname}{附录}
+
+\title{
+	Nebulas 星云链技术白皮书 \\
+	\large 基于价值尺度的区块链操作系统及搜索引擎}
 \author{Nebulas Team}
+\date{2017年8月\\v1.0}
 
 \maketitle
 
@@ -19,19 +50,33 @@
 \input{abstract.tex}
 \tableofcontents
 
-\input{introduction.tex}
-\input{nascoin.tex}
-\input{account.tex}
-\input{block.tex}
-\input{rank.tex}
-\input{por.tex}
-\input{dip.tex}
-\input{force.tex}
-\input{smartcontract.tex}
-\input{infra.tex}
+\printnomenclature
 
+\input{nomencl.tex}
 \newpage
+\input{introduction.tex}
+\newpage
+\input{rank.tex}
+\newpage
+\input{force.tex}
+\newpage
+\input{dip.tex}
+\newpage
+\input{pod.tex}
+\newpage
+\input{search.tex}
+\newpage
+\input{tools.tex}
+\newpage
+\input{nascoin.tex}
+\newpage
+\input{conclusion.tex}
 \printbibliography
+
+\begin{appendices}
+\input{account.tex}
+\input{sim_search.tex}
+\end{appendices}
 
 %\bibliography{reference}
 \end{document}

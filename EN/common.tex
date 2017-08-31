@@ -3,8 +3,24 @@
 \usepackage{tikz}
 \usepackage{tikzscale}
 \usepackage{pgfplots}
+\usepackage{nomencl}
+\usepackage{amsfonts, booktabs,siunitx}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\makenomenclature
 
 \usepgflibrary{arrows}
+\usetikzlibrary{snakes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes,arrows,chains}
+\usepgfplotslibrary{patchplots,colormaps}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning, fit}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{intersections}
+\usepackage[]{algorithm2e}
+
 \usepackage{flafter}
 
 
@@ -13,9 +29,7 @@
 
 \newcommand{\sectionbreak}{\clearpage}
 
-\newcommand{\por}{PoD}
-
-
+\usepackage{indentfirst}
 
 % math and cite
 \newcolumntype{C}[1]{>{\centering}m{#1}}
@@ -33,12 +47,13 @@
 \usepackage{soul}
 \usepackage{fullpage}
 \usepackage[noend]{algorithmic}
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage[american]{babel}
 %\usepackage{csquotes}
 \usepackage{biblatex}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{subcaption}
 
 
 \lstset{emph={long, contract, return, uint256, bool, function, if, true,
@@ -81,4 +96,8 @@
     {}}
 
     \addbibresource{reference.bib}
+
+
+
+
 

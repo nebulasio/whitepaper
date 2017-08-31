@@ -1,0 +1,53 @@
+\begin{tikzpicture}
+  \pgfmathsetmacro{\YMD}{3}
+  \pgfmathsetmacro{\XMD}{2}
+\tikzset{
+  hnode/.style={draw, circle, on grid, align=center, minimum height=2ex},
+  base/.style={draw, circle, on grid, align=center, minimum height=4ex},
+  sybil/.style={draw, circle, on grid, align=center, minimum height=4ex, fill=blue!20},
+  normal/.style={draw, circle, on grid, align=center, minimum height=1ex, fill=gray!20},
+  coord/.style={coordinate, on grid, node distance=6mm and 25mm},
+}
+%
+\tikzset{>=stealth',
+  every join/.style={->}, very thick}
+
+       \node [base, fill=green!=20] (ss) at (0, 0) {} node[right
+       = 1ex of ss] {Shapeshfit};
+
+       \node (dot) at ($(ss.north) + (0, \YMD)$) {...};
+
+       \node [sybil] (sy) at ($(dot.north) + (0, \YMD)$) {} node[right=1ex of
+       sy]{Sybil};
+
+       \node [hnode, fill=brown!50] (hh4) at($(dot.west) + (-\XMD, 0)$){};
+       \node [hnode, fill=brown!50] (hh1) at ($(hh4.west) + (-\XMD, 0)$){};
+
+       \node [hnode, fill=cyan!20] (h4) at ($(dot.east) + (\XMD, 0)$){};
+       \node [hnode, fill=cyan!20] (h1) at ($(h4.east) + (\XMD, 0)$){} node
+       [right = 1ex of h1]{owned by sybil attacker};
+
+       \node [coord] (c) at($(ss.south) + (0, -\YMD)$) {};
+
+       \node [normal] (n2) at ($(c.west) + (-\XMD, 0)$){};
+       \node [normal] (n1) at ($(n2.west) + (-\XMD, 0)$){};
+       \node [normal] (n3) at ($(c.east) + (\XMD, 0)$){};
+       \node [normal] (n4) at ($(n3.east) + (\XMD, 0)$){} node [right=1ex of
+       n4] {normal nodes};
+
+       \draw[->, color=red] (sy) -- (hh1) node [midway, left]{h+1};
+       \draw[->, color=red] (hh4) -- (sy) node [midway, right]{h+4};
+       \draw[->, color=olive] (h4) -- (sy) node [midway, left]{4};
+       \draw[->, color=olive] (sy) -- (h1) node [midway, right]{1};
+
+       \draw[->, color=red] (hh1) -- (ss) node [midway, left]{h+2};
+       \draw[->, color=red] (ss) -- (hh4) node [midway, right]{h+3};
+       \draw[->, color=olive] (ss) -- (h4) node [midway, left] {3};
+       \draw[->, color=olive] (h1) -- (ss) node [midway, right]{2};
+
+       \draw[->] (ss) -- (n1);
+       \draw[->] (n2) -- (ss);
+       \draw[->] (ss) -- (n3);
+       \draw[->] (n4) -- (ss);
+
+\end{tikzpicture}
