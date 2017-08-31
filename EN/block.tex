@@ -1,83 +1,100 @@
-\subsection{核心协议的升级设计}
+\subsection{Upgrade Design of the Core Protocol}
+% \subsection{核心协议的升级设计}
 
-我们首先给出星云链中的区块结构，然后讨论如何在该区块结构上实现核心协议的升级问题。
+We first give the block structure of the Nebulas, and then discuss how to upgrade the core protocol based on the block structure.
 
-\paragraph{区块结构}
+%我们首先给出星云链中的区块结构，然后讨论如何在该区块结构上实现核心协议的升级问题。
 
-星云链区块数据结构包含，但不限于以下信息：
+\subsubsection{Block Structure}
+
+The Nebulas block data structure contains, but is not limited to, the following information:
+
+% 星云链区块数据结构包含，但不限于以下信息：
 \begin{itemize}
-	\item Header：区块头
+	\item Header：Block Header
 		\begin{itemize}
-		\item Height：高度
-		\item ParentHash：父区块哈希值
-		\item Ts：时间戳
-		\item Miner：记账人地址
-		\item Dynasty：区块所处共识朝代
-		\item Epoch：区块所处共识时代
-		\item StateRoot：状态根哈希值
-		\item TxsRoot：交易根哈希值
-		\item ReceiptsRoot：交易收据根哈希值
-		\item TransNum：交易数
+		\item Height：block height
+		\item ParentHash：parent block hash
+		\item Ts：timestamp
+		\item Miner：miner address
+		\item Dynasty：the consensus dynasty of the block
+		\item Epoch：the consensus age of the block
+		\item StateRoot：state root hash
+		\item TxsRoot：transaction root hash
+		\item ReceiptsRoot：transaction receipt hash
+		\item TransNum：number of transactions
 		\end{itemize}
-	\item Transactions：交易数据(包含多个交易)
+	\item Transactions：transaction data (including multiple transactions)
 		\begin{itemize}
-		\item From：交易发起人地址
-		\item To：交易接收人(普通用户或智能合约)地址，对于创建智能合约，值为0地址
-		\item Value：转账金额
-		\item Data：交易的payload。如果交易为创建智能合约，则为智能合约字节码；如果交易为智能合约调用，包含调用函数名称和入参值
-		\item Signature：交易签名
-		\item Gas：燃料上限
-		\item GasPrice：燃料单价
-		\item Nonce：标识交易唯一性
+		\item From：transaction sender address
+		\item To：transaction receiver address, for creating a smart contract with a value 0x0
+		\item Value：transfer amount
+		\item Data：Transaction payload. It's the smart contract bytecode if the transaction is for creating a smart contract; It's the name of the calling function and the entry if the transaction is a smart contract call.
+		\item Signature：transaction signature
+		\item Gas：gas limit
+		\item GasPrice：gas unit price
+		\item Nonce：identifies transaction uniqueness
 		\end{itemize}
-	\item Votes：Prepare和Commit票数统计(包含多个)，用在PoD(见\refsec{sec:pod})共识算法中
+	\item Votes：Prepare and Commit Votes (including multiple), used in PoD (see \refsec{sec:pod}) consensus algorithm
 		\begin{itemize}
-		\item From：投票人
-		\item VoteHash：投票区块哈希
-		\item Hv：投票区块所处高度
-		\item Hvs：投票区块的某祖先高度
-		\item VoteType：投票类型，Prepare或Commit
-		\item Signature：投票签名
+		\item From：voter
+		\item VoteHash：vote hash
+		\item Hv：the height of the block voted for
+		\item Hvs：the height of an ancestral block of the block voted for
+		\item VoteType：voting type，Prepare or Commit
+		\item Signature：vote signature
 		\end{itemize}
-	\item Protocol Code：核心协议代码(一个区块中只能有0或1个)
+	\item Protocol Code：The protocol code (only 0 or 1 in a block)
 		\begin{itemize}
-		\item Hash：哈希值
-		\item Code：核心协议的字节码
-		\item ValidStartBlock：协议生效起始区块号
-		\item Signature：签名(校验是否来自开发者社区保留账号的签名)
-		\item Version：标识核心协议版本号，每次升级都需要递增，防止恶意记账人回滚到老的Protocol Code
-		\item Nonce：标识唯一性
+		\item Hash：hash
+		\item Code：the bytecode of the core protocol
+		\item ValidStartBlock：the start block number that protocol come into effect
+		\item Signature：signautre (sign by the developer community)
+		\item Version：Identifies the core protocol version number, and each upgrade needs to be incremented to prevent malicious accounts from rolling back to the old protocol code
+		\item Nonce：Identify the uniqueness
 		\end{itemize}
-	\item Nebulas Rank：星云指数(计算周期为一周一次，大部分区块没有)
+	\item Nebulas Rank：Nebula index (calculated once a week, most blocks haven't this section)
 		\begin{itemize}
-		\item RankVersion：NR版本
-		\item RankRoot：NR排名哈希值
-		\item RankRecords：NR排名记录
+		\item RankVersion：NR version
+		\item RankRoot：NR rank hash
+		\item RankRecords：NR rank record
 			\begin{itemize}
-				\item Address：账号地址标记
-				\item Score：NR值
+				\item Address：Account address tag
+				\item Score：NR value
 			\end{itemize}
 		\end{itemize}
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=13.8cm]{./figs/block}
-\caption{区块结构}
+\caption{Block Structure}
 \label{fig:block}
 \end{figure}
 
+Similar to other cryptocurrency systems, the interaction between the account and the blockchain is done through a particular transaction. The account creates a transaction, which is signed with a private key and sends it to any node in the blockchain and broadcasts it to full network node through the P2P network. During the fixed block time interval, the nodes specified by the PoD consensus algorithm (see \refsec{sec:pod}) collect all transactions in the time and pack them into blocks of standard format and broadcast them to the rest of the network. After verification by each node, the new block is appended into the local ledger and becomes a part of the global ledger.
 
-类似于其他加密数字货币系统，用户和区块链上的互动都是通过特定的交易进行的。用户创建一笔交易，用自己的私钥签名后，发到区块链的任何一个节点中，通过P2P网络广播到全网节点。在固定的出块时间间隔内，由PoD共识算法(见\refsec{sec:pod})指定的记账节点累计这段时间内的所有交易，打包成标准格式的区块，同步到全网所有节点。经各节点独立验证后，加入本地账本，成为全球总账本的一部分。
+%类似于其他加密数字货币系统，用户和区块链上的互动都是通过特定的交易进行的。用户创建一笔交易，用自己的私钥签名后，发到区块链的任何一个节点中，通过P2P网络广播到全网节点。在固定的出块时间间隔内，由PoD共识算法(见\refsec{sec:pod})指定的记账节点累计这段时间内的所有交易，打包成标准格式的区块，同步到全网所有节点。经各节点独立验证后，加入本地账本，成为全球总账本的一部分。
 
-以太坊中，交易分为两种类型：普通账户交易，智能合约交易。我们在星云链的区块中，增加新的数据类型：核心协议代码和星云指数。核心协议代码作为区块链数据的一部分存储在链上，星云链基础协议的升级，是通过链上数据的追加而实现的。星云指数根据NR排名算法，计算出每个周期各个账户的NR值存到链上，方便NR值的实时调用和历史排名查询。
+In Ethereum, transactions are divided into two types: ordinary account transaction and smart contract transaction. We add new transaction types to the blocks of Nebulas: core protocol code and the Nebulas Rank. The core protocol code, as a part of the blockchain data, is stored on the chain, and the upgrade of the basic protocol of Nebulas is carried out through supplementing additional data on chains. Based on the NR ranking algorithm, the NR value of each account is calculated in each cycle and saved in the corresponding chain to facilitate the real-time NR value calling and historical ranking query.
 
-\paragraph{核心协议的升级}
+%以太坊中，交易分为两种类型：普通账户交易，智能合约交易。我们在星云链的区块中，增加新的数据类型：核心协议代码和星云指数。核心协议代码作为区块链数据的一部分存储在链上，星云链基础协议的升级，是通过链上数据的追加而实现的。星云指数根据NR排名算法，计算出每个周期各个账户的NR值存到链上，方便NR值的实时调用和历史排名查询。
 
-星云链客户端节点从当前最新区块的Protocol Code存储区可以取到编译后的虚拟机字节码(NVM字节码)，如果当前最新区块没有Protocol Code数据，说明核心协议没有变更，就往前追溯到最近区块的Protocol Code。区块链的核心协议行为都由Protocol Code确定，包括验证算法、打包规则、NR算法、奖励机制等，几乎绝大部分的区块链行为都可以由Protocol Code定义。
+\subsubsection{Upgrade of the Core Protocol}
+%\paragraph{核心协议的升级}
 
-如果核心协议需要升级，由星云链团队开发，把代码在公开渠道让社区讨论和投票。投票可以通过智能合约或者论坛投票的形式进行，当绝大部分社区成员都同意协议升级，星云链开发组把最新代码打包成Protocol Code交易，发布到全网节点，记账节点只要把其包含进区块，就可以在指定区块高度开始生效。这种方式的区块链协议升级，对客户端来说是透明的，无需软、硬分叉。
+The Nebulas client node can obtain the compiled virtual machine bytecode (NVM bytecode) from the storage area of the Protocol Code in the latest block. If there are no data of the Protocol Code in the latest block, it indicates that the core protocol has no change, it has to trace back to the Protocol Code in the nearest block. Any actions of the core protocol of blockchains will be determined by the Protocol Code, including the authentication algorithm, the packing rules, the NR algorithm, the incentive mechanism, etc. Almost all actions of blockchains can be defined by the Protocol Code.
+%星云链客户端节点从当前最新区块的Protocol Code存储区可以取到编译后的虚拟机字节码(NVM字节码)，如果当前最新区块没有Protocol Code数据，说明核心协议没有变更，就往前追溯到最近区块的Protocol Code。区块链的核心协议行为都由Protocol Code确定，包括验证算法、打包规则、NR算法、奖励机制等，几乎绝大部分的区块链行为都可以由Protocol Code定义。
 
-为了保证核心协议代码是经过授权发布的，Protocol Code的发布者是星云链核心开发组保留地址，该地址在创世区块内部硬编码无法变更。所有记账节点都会验证Protocol Code签名，签名不通过的视为非法数据。
+If the core protocol needs to be upgraded, the Nebulas development team will be responsible for its development and the code will be released to open channels for discussion and voting in communities. Voting can be carried out in the form of the smart contract or voting in the forum. If the majority of community members agree to upgrade the protocol, the Nebulas development team will pack the latest code into Protocol Code transaction, and release it to all nodes of the whole network; only if the bookkeeping nodes include it in blocks, it will become valid at the specified block height. This type of blockchain protocol upgrade is transparent to clients without soft and hard fork.
 
-后续的改进措施是把Protocol Code的签名校验改成M-of-N的多签名形式，这个本身也可以通过Protocol Code的升级实现。
+%如果核心协议需要升级，由星云链团队开发，把代码在公开渠道让社区讨论和投票。投票可以通过智能合约或者论坛投票的形式进行，当绝大部分社区成员都同意协议升级，星云链开发组把最新代码打包成Protocol Code交易，发布到全网节点，记账节点只要把其包含进区块，就可以在指定区块高度开始生效。这种方式的区块链协议升级，对客户端来说是透明的，无需软、硬分叉。
+
+
+In order to ensure that the core protocol code is released after authorization, the publisher of the Protocol Code uses the address reserved by the core Nebulas development group, which cannot be changed with hard code within the genesis block. All bookkeeping nodes will verify the signature of Protocol Code, and if the signature fails to pass the verification, it will be deemed as the illegal data.
+
+%为了保证核心协议代码是经过授权发布的，Protocol Code的发布者是星云链核心开发组保留地址，该地址在创世区块内部硬编码无法变更。所有记账节点都会验证Protocol Code签名，签名不通过的视为非法数据。
+
+The subsequent improvement measure is to change the signature verification of the Protocol Code into the M-of-N multi-signature, which can also be implemented through the upgrade of the Protocol Code.
+
+%后续的改进措施是把Protocol Code的签名校验改成M-of-N的多签名形式，这个本身也可以通过Protocol Code的升级实现。

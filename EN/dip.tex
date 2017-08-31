@@ -1,22 +1,32 @@
-\section{DIP开发者激励协议}
+\section{Developer Incentive Protocol (DIP)}
 \label{sec:dip}
 
-\subsection{设计目标}
+\subsection{Design Goals}
 \label{dip:design}
-为了更好地建立区块链应用的生态环境，在星云链中，我们提出面向智能合约开发者的DIP(Developer Incentive Protocol，开发者激励协议)，通过星云币的奖励来感谢为生态助力的优秀智能合约开发者。
 
-\subsection{DIP奖励分配算法}
+In order to create a good community for Nebulas, we propose the Developer Incentive Protocol (DIP) for smart contract developers and express our appreciation to outstanding smart contract developers who contribute to Nebulas by rewarding them NAS. 
+
+%为了更好地建立区块链应用的生态环境，在星云链中，我们提出面向智能合约开发者的DIP(Developer Incentive Protocol，开发者激励协议)，通过星云币的奖励来感谢为生态助力的优秀智能合约开发者。
+
+\subsection{DIP Reward Distribution Algorithm}
 \label{dip:arith}
-我们认为，一个智能合约是否优秀取决于有多少用户愿意使用它，而且有更多的高价值账户使用的智能合约更加优秀，而作为账户普适价值尺度的NR正好可以应用在高价值账户的评估中。DIP的设计结合NR和常用的周活跃用户的概念，使用周活跃用户的价值尺度总和来衡量智能合约的价值尺度，然后使用该价值尺度来评估开发者的贡献度。
 
-DIP按周期进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{subsec:leaderrank}的NR排名（取Top X，值为1-X），计算周活跃地址的NR之和作为合约C的贡献度SCS(Smart Contract Score)，如公式\ref{formula:dip:scs}。
+We believe that an excellent smart contract depends on how many users are willing to use it. More high-value accounts, better smart contract. As the universal value criteria of accounts, NR can be used to assess high-value accounts. The design of DIP combines NR and the common WAU (weekly active users) concept, the total WAU value measure is used to evaluate the value measure of the smart contract, and assess the SCS (Smart Contract Score) of developers. 
+
+%我们认为，一个智能合约是否优秀取决于有多少用户愿意使用它，而且有更多的高价值账户使用的智能合约更加优秀，而作为账户普适价值尺度的NR正好可以应用在高价值账户的评估中。DIP的设计结合NR和常用的周活跃用户的概念，使用周活跃用户的价值尺度总和来衡量智能合约的价值尺度，然后使用该价值尺度来评估开发者的贡献度。
+
+DIP is carried out once a cycle, and its cycle is the same with that of the Nebulas Rank. For Smart Contract C, it is assumed that the active account address set of this week is WAA (Weekly Active Addresses). According to the NR ranking in \refsec{subsec:leaderrank} (Top X is taken with the value of 1-X), the sum of NRs of weekly active addresses is calculated as the SCS of Contract C, as shown in Equation \ref{formula:dip:scs}. 
+
+%DIP按周期进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{subsec:leaderrank}的NR排名（取Top X，值为1-X），计算周活跃地址的NR之和作为合约C的贡献度SCS(Smart Contract Score)，如公式\ref{formula:dip:scs}。
 
 \begin{align}
 \label{formula:dip:scs}
 SCS(C)=\sum_{addr \in WAA}(max\{X + 1 - NR(addr), 0\})
 \end{align}
 
-按照每周贡献值SCS从高到低排序得到智能合约贡献度排名SCR(Smart Contract Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dipdis}所示，但依旧保证Rank 1的收益为Rank N收益的一倍以示贡献度大小的区别，比例约束见公式\ref{formula:dip}。
+Based on weekly SCSs, they are sorted out from high to low for SCR (Smart Contract Rank). Top N smart contracts are taken, and the corresponding developers will share M NASs based on proportion. In order to avoid malicious ranking scam, the DIP distribution curve is designed to be even as shown in \reffig{fig:dipdis}, but it is still ensured that the revenue of Rank 1 is 2 times of that of Rank N to indicate the difference in SCS. The proportion constraints are as shown in Equation \ref{formula:dip}.
+
+%按照每周贡献值SCS从高到低排序得到智能合约贡献度排名SCR(Smart Contract Rank)，取Top N的智能合约，它们对应的开发者将按比例瓜分M个星云币作为奖励，为了避免恶意刷榜，DIP的分配曲线被设计得较为平均，如图\ref{fig:dipdis}所示，但依旧保证Rank 1的收益为Rank N收益的一倍以示贡献度大小的区别，比例约束见公式\ref{formula:dip}。
 
 \begin{alignat}{2}
 Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
@@ -43,23 +53,30 @@ Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
 \node[left,black] at (0, 1.066420536) {\textbf{\textit{X}}};
 \draw[black, line width=1.00pt, domain=0:10.00,samples=3000] plot[smooth](\x, {.066598275 * ln(3001-\x * 300) + .533210267});
 \end{tikzpicture}
-\caption{DIP奖励分配曲线}
+\caption{DIP Reward Distribution Curve}
 \label{fig:dipdis}
 \end{figure}
 
-DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S秒出一个区块，那么每隔24*7*3600/S个区块，所有节点将会计算一次DIP的奖励，并且发给对应的智能合约的提币地址中。
+DIP rewards will be calculated separately and distributed by each node. Assuming that one block in Nebulas is generated every S second (s),
+DIP rewards will be calculated once every 24*7*3600/S blocks for all nodes, and will be distributed to the corresponding smart contract cash-out addresses. 
 
-为了鼓励星云链生态智能合约的多样性，让更多新生开发者的优秀成果也能获得激励，DIP规定每个智能合约最多可以接受K次奖励。DIP将会根据排名每次选出还可以接受奖励的Top N智能合约给予激励，助推区块链应用生态发展。
+%DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S秒出一个区块，那么每隔24*7*3600/S个区块，所有节点将会计算一次DIP的奖励，并且发给对应的智能合约的提币地址中。
 
-\subsection{实验结果}
+In order to encourage the diversity of Nebulas ecological smart contracts and stimulate outstanding results of more new developers, DIP stipulates that each smart contract can be rewarded up to K time(s). DIP will select Top N smart contracts qualified for rewards according to ranking so as to promote the development of the ecology construction of blockchain applications.
+
+%为了鼓励星云链生态智能合约的多样性，让更多新生开发者的优秀成果也能获得激励，DIP规定每个智能合约最多可以接受K次奖励。DIP将会根据排名每次选出还可以接受奖励的Top N智能合约给予激励，助推区块链应用生态发展。
+
+\subsection{Experimental Results}
 \label{dip:economic}
 
-我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表\ref{table:dip}所示。
+We collected the transaction data occurred in May 2017 from Ethereum and calculated the DIP ranking of the first week, as shown in Table \ref{table:dip}.
+
+%我们收集了以太坊上从2017年5月份交易数据，计算了第一周的DIP排名，如表\ref{table:dip}所示。
 
 \begin{table}[h]
 \centering
 \begin{threeparttable}[b]
-\caption{2017年5月第一周\tnote{1}DIP排名结果Top 10}
+\caption{Top 10 of DIP Ranking Results of the First Week in May 2017\tnote{1}}
 \label{table:dip}
 \begin{tabular}{ccc} \toprule
     {Contract~Address} & {Score} & {Description\tnote{2}} \\ \midrule
@@ -77,20 +94,28 @@ DIP的奖励将会由各个节点单独计算发放，假设星云链平均每S�
 \end{tabular}	
 \begin{tablenotes}
   \small
-  \item[1] 区块范围[3629091, 3665815]
-  \item[2] 来自etherscan.io
+  \item[1] block range [3629091, 3665815]
+  \item[2] from etherscan.io
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-可见，DIP排名靠前的合约较为知名，在计算周期内也更为活跃，符合我们激励生态建设者的初衷。
+It can be seen that the top-ranked contracts are more famous and more active in the calculation cycle, which are in line with our original intention of motivating the eco-builders.
 
-\subsection{作弊分析}
+%可见，DIP排名靠前的合约较为知名，在计算周期内也更为活跃，符合我们激励生态建设者的初衷。
+
+\subsection{Cheating Analysis}
 \label{dip:sybil}
 
-智能合约只能被动调用，不能主动和非合约账户建立交易，所以一个作弊者想要让他的智能合约排名上升，就必须要找到足够多的高NR排名账户来调用他的合约。
+The smart contract can only be called passively, but cannot initiate a transaction with a non-contracted account. Therefore, if a cheater wants to increase his/her smart contract ranking, he/she has to find sufficient high-NR ranking accounts to call his/her contract.
 
-首先，作弊者想要零成本提升DIP排名将不可能实现。假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formula:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，新伪造出来的账户NR排名将会在Top X之外，即使调用合约C也对DIP的排名没有任何影响。
+%智能合约只能被动调用，不能主动和非合约账户建立交易，所以一个作弊者想要让他的智能合约排名上升，就必须要找到足够多的高NR排名账户来调用他的合约。
 
-其次，如果作弊者愿意为合约的DIP排名上升付出一定的成本，那么他有两种方式可以选择。第一种，自己花钱伪造高NR的账户来调用合约C，提升合约C的排名。而要伪造高NR的账户在\refsec{subsec:robust}已有分析，每提升一个账户都需要投入一大笔资金来伪造该账户特殊的拓扑结构，并且由于NR的周期性更新，长期维持高NR的成本将会巨大。第二种，作弊者找到大量高NR账户，说服或者贿赂他们来调用合约C，这种链下行为难以规模化，作弊者花了很大精力找到的高NR账户也只会占Top X中的一小部分，对真正优秀的合约影响不大。
+First of all, it will be impossible for cheaters to improve their DIP ranking at the cost of zero. Provided that a cheater wants to improve his/her ranking of Contract C and forges a great number of accounts for it. However, when SCS is calculated in Equation \ref{formula:dip:scs}, only Top X of SCS of calling in the NR ranking is greater than 0, while the NR ranking of his/her newly forged accounts will be outside Top X. Even if Contract C is called, it will impose no impact on the DIP ranking.
+
+%首先，作弊者想要零成本提升DIP排名将不可能实现。假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formula:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，新伪造出来的账户NR排名将会在Top X之外，即使调用合约C也对DIP的排名没有任何影响。
+
+Secondly, if a cheater is willing to pay a certain price for improving his/her DIP ranking of the contract, two options are available for him/her. The first one is to forge accounts with high NR and call Contract C at his/her cost so as to improve the ranking of Contract C. It has been analyzed for forging accounts with the high NR in \refsec{subsec:robust}. To improve the NR for each account, a vast sum of money is required to forge the special topology of such account. Besides, as NR is updated periodically, it will be very expensive to maintain high NR. The second one is to find a great number of accounts with high NR and persuade or bribe their owners to call Contract C. However, it is difficult for such off-chain actions to be scaled up, and these accounts with high NR found by the cheater at a great cost will account for only a small part of Top X, which will impose almost no impact on really outstanding contracts.
+
+%其次，如果作弊者愿意为合约的DIP排名上升付出一定的成本，那么他有两种方式可以选择。第一种，自己花钱伪造高NR的账户来调用合约C，提升合约C的排名。而要伪造高NR的账户在\refsec{subsec:robust}已有分析，每提升一个账户都需要投入一大笔资金来伪造该账户特殊的拓扑结构，并且由于NR的周期性更新，长期维持高NR的成本将会巨大。第二种，作弊者找到大量高NR账户，说服或者贿赂他们来调用合约C，这种链下行为难以规模化，作弊者花了很大精力找到的高NR账户也只会占Top X中的一小部分，对真正优秀的合约影响不大。
 
