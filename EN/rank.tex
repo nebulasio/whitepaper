@@ -170,23 +170,23 @@ We choose Shapeshift(0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413) as the authorit
 	\begin{subfigure}{\linewidth}
 		\centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackDeposit.pdf}
-		\caption{The effect of attacker's capital size to attacker's rank, with the number of loop transfers is fixed as 5000. \small{(All axises are of logarithmic form)}}
+		\caption{The effect of attacker's capital size on attacker's rank, with the number of loop transfers is fixed as $5,000$. \small{(All axises are in logarithmic form)}}
 		\label{subfig:deposit}
 	\end{subfigure}
 	
 	\begin{subfigure}{\linewidth}
 	    \centering
 		\includegraphics[width=0.7\textwidth]{figs/AttackTimes.pdf} 
-		\caption{The effect of number of loop transfers to the attacker's rank, with attacker's capital fixed as $\Xi5000$ \small{(All axises are of logarithmic form)}}\label{subfig:times}
+		\caption{The effect of number of loop transfers on the attacker's rank, with attacker's capital fixed as $\Xi5000$ \small{(All axises are in logarithmic form)}}\label{subfig:times}
 	\end{subfigure}
 
 	\caption{Resistance against manipulation} \label{fig:antiManipulation}
-	\caption*{\footnotesize{The attacking method is shown as \reffig{fig:loop}; x-axis represents attacker's capital; y-axis represents attacker's ranking order (larger ranking order means the attacker fails to get better score)  \\
-	NR：The transaction graph is defined at \refsec{subsec:txg}, ranking algorithm is described at \refsec{subsec:leaderrank}; \\
+	\caption*{\footnotesize{The attacking method is shown as \reffig{fig:loop}; x-axis represents attacker's capital; y-axis represents attacker's ranking order (larger ranking order means the attacker fails to get better score, indicating higher resistance ability of the algorithm)  \\
+	NR：The transaction graph is defined at \refsec{subsec:txg}, and ranking algorithm is described at \refsec{subsec:leaderrank}; \\
 	%PR$^*$: The transaction graph is defined at \refsec{subsec:txg}, PageRank algorithm;\\ 
-	NCD$^*$: The transaction graph is defined at \refsec{subsec:txg}, NCDawareRank algorithm; \\
-	NEM：The transaction graph is introduced by \cite{nem}, NCDawareRank\\ 
-	PR$^{\#}$: The transaction graph is introduced by \cite{nem}，PageRank algorithm\\ 
+	NCD$^*$: The transaction graph is defined at \refsec{subsec:txg}, with NCDawareRank algorithm; \\
+	NEM：The transaction graph is introduced by \cite{nem}, with NCDawareRank\\ 
+	PR$^{\#}$: The transaction graph is introduced by \cite{nem}，with PageRank algorithm\\ 
 	The damping factor of PageRank is 0.15; The clustering algorithm used by NCDawareRank is pscan\cite{chang2017mathsf}, $\eta=0.75$, $\mu=0.1$}}
 \end{figure}
 
