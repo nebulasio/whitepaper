@@ -1,6 +1,6 @@
 .texpadtmp
 .DS_Store
-main.pdf
+*.pdf
 *.run.xml
 *.aux
 *.bbl
