@@ -3,7 +3,7 @@
 
 \subsection{Overview of Nebulas Rank} \label{subsec:value}
 Currently the Blockchain technology and community have grown into a large scale ecosystem. However, people's perception of Blockchain world is still relatively flat; there is no reasonable way to evaluate the value of an entity (such as user address) on the blockchain yet. Therefore, we try to come up with a universal measure of value. By exploring and utilizing activities on chain, we create \textbf{Nebulas Rank} through which the value of each entity (user address) is able to be quantified. \textbf{Nebulas Rank} is designed to:\begin{itemize}
-	\item serve as a native measure of value and a core algorithm for many fundamental scenarios, such as consensus algorithm (see \refsec{}), DIP (see \refsec{}) and Blockchain search engine (see \refsec{}), etc;
+	\item serve as a native measure of value and a core algorithm for many fundamental scenarios, such as consensus algorithm (see \refsec{sec:pod}), DIP (see \refsec{sec:dip}) and Blockchain search engine (see \refsec{sec:search}), etc;
 	\item inspire diversified measures of value and deeper insights into the blockchain ecosystem, so as to better guide business decisions and research activities.
 \end{itemize}
 Based on the goals above, we define the measure of value of \textbf{Nebulas Rank} from three dimensions:
@@ -25,18 +25,22 @@ Next we design the basic framework of \textbf{Nebulas Rank}. First, transaction 
 \subsection{Transaction Graph} \label{subsec:txg}
 This subsection introduces how to derive transaction graph from transaction history.
 
-First, we take effective transfer among  individual addresses during the past $T$ (generally $T$ is the number of blocks in a month) blocks, denoted by $T_{xs}$:
+First, for any time $t_0$, we take all \textbf{effective} transactions among individual addresses during $[t_0- T, t_0]$ (generally $T$ is a constant of one month), where every transaction can be represented as a 4-tuple $(s,r,a,t)$, with $s$ as the source address, $r$ as the target address, $a$ as the transfer amount and $t$ as the block time. We define a transaction to be \textbf{effective} iff $a>0$ and $s \neq t$. Thus all \textbf{effective} transactions during $[t_0- T, t_0]$ can be represented by a set of 4-tuples:
+
 \begin{align}
-T_{xs} = \{(s，t，\tau， a)| \tau = \#CurrentBlock-T \dots \#CurrentBlock \land a > 0 \}
+\Theta(t_0) = \{(s, r, a, t)\ |\ t_0 - T \le t \le t_0\ \land \ a > 0 \land s \neq t \}	
 \end{align}
-, where $s$, $t$ and $a$ are respectively source address, target address and transfer amount.
 
-Then based on $T_{xs}$, construct a directed weighted simple graph, denoted as $G=(V， E， W)$, where node set, edge set and edge weights are denoted by $V$, $E$ and $W$ respectively. Additionally, let $N = |V|$，$M = |E|$. For simplicity, every node is represented by an integer between $1$ and $N$.
-
-Every node represents an individual account's address, and each edge represents the transfer intensity between two addresses. Edges are directed and are assigned with weight $w_e$ aggregating top $K$ amounts of all related transactions:
+Then based on $\Theta(t_0)$, construct a directed weighted simple graph $G=(V,E, W)$, where node set, edge set and edge weights are denoted by $V$, $E$ and $W$ respectively. Every node in $V$ represents an individual account's address, and each edge in $E$ represents the transfer intensity between two addresses. Edges are directed and are assigned with weight $w_e$ aggregating top $K$ amounts of all related transactions:
 \begin{align}\label{formula:edgeweight}
-w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \land a_1 \geq a_2 \dots
+w_e = \sum_{i=1}^K a_i,\ s.t.\ a_i \in A
 \end{align}
+$A$ is an ordered set consisting of amounts of all transactions in $\Theta(t_0)$:
+\begin{align}
+A = \{a_i\ |\ a_i \in \Theta(t_0) \land (a_i \ge a_j, \forall i \le j) \}
+\end{align}
+
+Additionally, let $N = |V|$，$M = |E|$, where $|.|$ is the cardinal number of a set. For simplicity, every node is represented by an integer between $1$ and $N$.
 
 \begin{figure}[h]
 \centering
@@ -44,13 +48,13 @@ w_e = \sum_{i=1}^K a_i， s.t. a_i \in \{a|(s，t，\tau，a) \in T_{xs} \} \lan
 	\caption{Encouragement Function}\label{fig:encouragement}
 \end{figure}
 
-Then, compute the "coinage" of each node according to its in-transfers and out-transfers during the past $T$ blocks and denote it by $C_v$; based on the total transfer amount and using the "encouragement function" shown in \reffig{fig:encouragement}, compute the encouraged value and denote it by $E_v$;\footnote{Encouragement function can be represented as a linear combination of two normal distributions, which outputs peak value when the money transferred out is zero or of some ratio of the amount transferred in.}use  $C_v$ and $E_v$ of the target nodes to reduce the edges' weight.
+Then, for each node, according to its in-transfers and out-transfers during $[t_0\ −\ T,\ t_0]$, compute the "coinage" and denote it by $C_v$; based on the total transfer amount and using the "encouragement function" shown in \reffig{fig:encouragement}, compute the encouragement value and denote it by $E_v$\footnote{Encouragement function can be represented as a linear combination of two normal distributions, which outputs peak value when the money transferred out is zero or of some ratio of the amount transferred in.}; use $C_v$ and $E_v$ of the target nodes to reduce the edges' weight.
 
-Finally, take the largest weakly connected component of the whole graph, only remaining nodes belonging to this component.
+Finally, take the largest weakly connected component of the whole graph, only remaining nodes belonging to this component. The deleted nodes are assigned with lowest importance score by default.
 
 The graph derivation described above contributes to the "truthful" property defined at \refsec{subsec:value}, the evidence of which is shown in \refsec{subsec:robust}.
 
-Using the method described herein, the transaction graph, wherein $T=171,684$ and $K=2$, is created on the basis of transaction data in the main chain of Ethereum, from block \#3629091(roughly on May 1st, 2017) to block\#3800775(roughly on May 31st, 2017). Its visualization is shown as \reffig{fig:wgc}. , and all nodes are resized by their degree. It could be observed that some famous exchanges usually interacts with more accounts than others. Besides, the identities of some addresses who contribute a lot transactions still remains unknown. 
+Using the method described herein, the transaction graph, wherein $T$ is 30 days and $K=2$, is created on the basis of transaction data in the main chain of Ethereum, from block \#3629091(roughly on May 1st, 2017) to block\#3800775(roughly on May 31st, 2017). Its visualization is shown as \reffig{fig:wgc}. , and all nodes are resized by their degree. It could be observed that some famous exchanges usually interacts with more accounts than others. Besides, the identities of some addresses who contribute a lot transactions still remains unknown. 
 
 \begin{figure}[h]
 	\centering
@@ -61,29 +65,20 @@ Using the method described herein, the transaction graph, wherein $T=171,684$ an
 \subsection{Ranking Algorithm} \label{subsec:leaderrank}
 This subsection introduces how to rank nodes by their importance in the derived transaction graph.
 
-We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main algorithm. First, a ground node is added into the transaction graph, denoted by $\mathcal{G}$ and numbered as $N+1$. Then we establish double link between the ground node and every other node, weighting by the following formula:
+We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main algorithm. First, add a ground node with index $0$ into the transaction graph. Then establish double link between the ground node $0$ and every other node $i$ ($1 \leq i \leq N$), weighting by the following formula:
 \begin{align}\label{formula:weight1}
-	\forall v \in V, w_{(v, \mathcal{G})} = \alpha A_v
+w_{i,0} = \alpha( max\{ \sum_{w_{j,i} \neq 0} w_{j,i} - \sum_{w_{i,j} \neq 0} w_{i,j} , 0\} + \lambda C ), \forall i \in [1,N]	
 \end{align}
-\begin{align}\label{formula:weight2}
-\forall v \in V,  w_{(\mathcal{G}， v)} = \beta B_v
+\begin{align}\label{formula:weight2} 
+w_{0,n}	= \beta ( \sum_{w_{n,m} \neq 0} w_{n,m} + \mu C), \forall i \in [1,N]
 \end{align}
-, where 
-\begin{align}
-	\forall v \in V, A_v = \{ \sum_{(u,v)\in E} w_{(u,v)} - \sum_{(v,u) \in E} w_{(v, u)}， 0 \} + \lambda C
-\end{align}
-\begin{align} \label{formula:b}
-\forall v \in V,  B_v =  \sum_{(u,v) \in E} w_{(u,v)} + \mu C
-\end{align}
-\begin{align}
-	C = median\{w_e| e \in E\}
-\end{align}
+$C$ is the median of set $\{w_{i,j} | w_{i,j} \neq 0, 0\leq i,j \leq N\}$, and $\alpha, \beta, \mu, \lambda$ are parameters. 
 
-$\alpha, \beta, \mu, \lambda$ are parameters. The weighting scheme can be understood as that, nodes with more in-degree receive more in-link from the ground node; nodes with more absolute income, i.e. in-degree minus out-degree, outputs stronger link into the ground node. 
+The weighting scheme can be understood as that, nodes with more in-degree receive more in-link from the ground node; nodes with more absolute income, i.e. in-degree minus out-degree, outputs stronger link into the ground node. 
 
 The computing process of LeaderRank is similar with that of PageRank, which could be understood as computing the convergence state of a Markov process. What is different is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
 \begin{align} \label{formula:iteration}
-	P^{t+1} = H \times R^{t}； P^1=[\frac{1}{N}， \frac{1}{N}， \dots， \frac{1}{N}， 0]^T
+	P^{t+1} = H \times P^{t}； P^1=[\frac{1}{N}， \frac{1}{N}， \dots， \frac{1}{N}， 0]^T
 \end{align}
 \begin{align} \label{formula:matrix}
 	h_{ij} = \frac{w_{(j，i)}}{\sum_k w_{(j，k)}}
@@ -95,7 +90,7 @@ The computing process of LeaderRank is similar with that of PageRank, which coul
 We suppose that LeaderRank can satisfy the measure of value and algorithm property defined in \refsec{subsec:value}.
 \begin{itemize}
 	\item The result of LeaderRank can be understood as the flux on each node in the dynamic equilibrium of money exchange network, which matches \textbf{Nebulas Rank}'s measure of value: "liquidity", "propagation" and "interoperability";
-	\item The weighing scheme defined by formula (\ref{formula:weight2}) and (\ref{formula:b}) makes it more difficult to attack (see discussion in \refsec{subsec:robust}), which satisfies "truthful" property;
+	\item The weighing scheme defined by formula (\ref{formula:weight2}) and (\ref{formula:weight1}) makes it more difficult to attack (see discussion in \refsec{subsec:robust}), which satisfies "truthful" property;
 	\item LeaderRank can be computed by power iteration. Since the network is very sparse, the complexity of matrix computation should not be high, which satisfies the properties of "computable" and "reproducible".
 \end{itemize}
 
