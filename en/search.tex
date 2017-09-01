@@ -47,15 +47,15 @@ We believe that the centralized architecture is more suitable for obtaining the 
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Crawler}  Crawler data sources of the Crawler blockchain search engine are classified into two types: one for collecting block information and code of smart contracts from blockchains, while the other for crawling data about smart contracts from public URLs including introductions, Dapp user comments and news.
+	\item \textbf{Crawler}  data sources of the Crawler in blockchain search engine are classified into two types: one for collecting block information and code of smart contracts from blockchains, while the other for crawling data about smart contracts from public URLs including introductions, Dapp user comments and news.
 	%\item \textbf{Crawler} 区块链搜索引擎爬虫数据源分为两种，一种从区块链上收集区块信息和智能合约代码等信息，一种从公开网址上爬取智能合约相关资料，包括介绍、Dapp用户评论、新闻资讯等。
 	\item \textbf{Extractor} consists of Text Extractor, Block Extractor and Code Extractor, which provide text information, block information and code extraction service for smart contracts, respectively.
 	%\item \textbf{Extractor} 包括Text Extractor, Block Extractor和Code Extractor，分别提供文本信息、区块信息和智能合约代码提取服务。
-	\item \textbf{Analyzer} consists of Text Analyzer, Tx Analyzer and Contract Analyzer, which are text information, block transaction information and smart contract analyzers, respectively. For the smart contract analyzer, it provides contract decompilation, source code extraction, semantic analysis and webpage parsing functions.
+	\item \textbf{Analyzer} consists of Text Analyzer, Tx Analyzer and Contract Analyzer, which are text information, block transaction information and smart contract analyzers, respectively. For the smart contract analyzer, it provides contract decompilation, source code extraction, semantic analysis and so on.
 	%\item \textbf{Analyzer} 包括Text Analyzer, Tx Analyzer, Contract Analyzer，分别为文本信息、区块交易信息和智能合约分析器，其中智能合约分析器包括合约反编译、源代码功能、语义分析，网页解析等。
-	\item \textbf{Nebulas Rank Calculator} refers to the Nebulas Rank calculator service, which is used to calculate the Nebulas Ranks of each non-contracted and contracted accounts offline.
+	\item \textbf{Nebulas Rank Calculator} refers to the Nebulas Rank calculator service, which is used to calculate the Nebulas Ranks of each non-contract and contract accounts offline.
 	%\item \textbf{Nebulas Rank Calculator} 星云指数计算服务，离线计算每个非合约账户和合约账户的星云指数。
-	\item \textbf{Ranking Model Trainer} refers to the ranking model trainer service. For transaction graph purposes, ranking rules take multiple factors into account: matching field, text relevance, NR Rank value of the contract, transaction quantity of the contract, frequency and depth, NR Rank of the user conducting a transaction with the contract, and contract security. Based on users' actual use conditions, the machine learning algorithm (GBDT and artificial neural network (ANN) are optional) is used to train the ranking and scoring model, which is also constantly improved according to user feedback. The trained model is used by Scorer of the searching service.
+	\item \textbf{Ranking Model Trainer} refers to the ranking model trainer service. Ranking rules take multiple factors into account: matching field, text relevance, NR Rank value of the contract, transaction quantity of the contract, frequency and depth, NR Rank of the user conducting a transaction with the contract, and contract security. Based on users' actual use conditions, the machine learning algorithm (GBDT and artificial neural network (ANN) are optional) is used to train the ranking and scoring model, which is also constantly improved according to user feedback. The trained model is used by Scorer of the searching service.
 	%\item \textbf{Ranking Model Trainer} 排序模型训练。考虑到交易Graph，排序规则考虑了多个因素：匹配字段，文本相关度，合约的NR Rank值，合约的交易数量、频度和深度，与合约发生交易的用户NR Rank值，合约安全性等等。我们根据用户的实际使用情况，用机器学习算法(GBDT、人工神经网络都是候选)训练排序打分模型，根据用户的反馈不断优化。训练后的模型被搜索服务的Scorer使用。
 	\item \textbf{Query Analyzer} refers to the keyword analysis service, which includes the multilingual word breaker (Word Breaker) and the spell checker (Spell Checker).
 	%\item \textbf{Query Analyzer} 关键词分析服务，包括多语言分词器Word Breaker，拼写检查器Spell Checker等。
@@ -73,15 +73,15 @@ We believe that the centralized architecture is more suitable for obtaining the 
 
 \subsection{Nebulas Trends}
 
-The Nebulas creates the tendency list in combination with Nebulas Rank to provide user visual blockchains with multi-dimensional values.
+The Nebulas creates the tendency list in combination with Nebulas Rank to provide user visual multi-dimensional values in blockchains.
 %星云链将结合星云指数构建趋势榜单，提供给用户可视化的区块链多维度价值。
 
 \begin{itemize}
-\item \textbf{Nebulas Rank list for non-contracted accounts.} It displays the daily NR list and the NR quick rise and drop lists. Also, this rank list visualizes the rank variation tendency of each account and the health change tendency of the entire network.
+\item \textbf{Nebulas Rank list for non-contract accounts.} It displays the daily NR list and the NR quick rise and drop lists. Also, this rank list visualizes the rank variation tendency of each account and the health change tendency of the entire network.
 %\item \textbf{非合约账户Nebulas Rank榜单}~~呈现每日NR榜单，以及NR快速提升和快速下降榜单，并且可视化呈现各个账户的R变化趋势，以及整个网络健康程度变化趋势。
-\item \textbf{Nebulas Rank list for contracted accounts.} Based on the NR values of non-contracted accounts, the Nebulas Rank list calculates the NR list of contracted accounts, the quick rise and drop lists, the variation tendency of each contract and the tendency chart for the quantity and use frequency of smart contracts on the entire network. In addition, we will present other smart contract lists such as the token contract list and the market contract estimation list to display a wider dimension of information.
+\item \textbf{Nebulas Rank list for contract accounts.} Based on the NR values of non-contract accounts, the Nebulas Rank list calculates the NR list of contract accounts, the quick rise and drop lists, the variation tendency of each contract and the tendency chart for the quantity and use frequency of smart contracts on the entire network. In addition, we will present other smart contract lists such as the token contract list and the market contract estimation list to display a wider dimension of information.
 %\item \textbf{合约账户Nebulas Rank榜单}~~根据非合约账户NR值，计算合约账户的NR榜单，以及快速提升和快速下降榜单，各个合约的变化趋势，以及整个网络智能合约数量和使用频次的趋势图。除此之外，我们还将呈现不同领域的智能合约榜单，比如Token合约榜单、预测市场合约榜单等等，以展示更多维度的信息。
-\item \textbf{Smart contract developer list.} According to the contracted account list, the list of smart contract developers calculates the contribution list of contracted developers and the contribution quick rise list to display outstanding contracted developers and their apps.
+\item \textbf{Smart contract developer list.} According to the contract account list, the list of smart contract developers calculates the contribution list of contract developers and the contribution quick rise list to display outstanding contracts developers and Dapps.
 %\item \textbf{智能合约开发者榜单}~~根据合约账户榜单，计算合约开发者的贡献度榜单，以及贡献度快速提升榜单，展示优秀合约开发者及其应用。
 \end{itemize}
 
@@ -101,7 +101,7 @@ By providing a keyword or describing the textual information about a smart contr
 	%\item 排序算法，给搜索结果排序
 \end{enumerate}
 
-Among these technologies, the ranking algorithm will be designed in combination with Nebulas Rank. Specifically, we use intra-user transfers in the blockchain world as an analogy to webpage reference relations in the Internet world to create the blockchain transaction graph. Then, calculate the NR rank of non-contracted users by using the NR ranking algorithm described in Section 2.3, calculate the ranks of those contracts by using the contract ranking algorithm described in Section 4.2, and lastly use the calculation result for search result sorting.
+Among these technologies, the ranking algorithm will be designed in combination with Nebulas Rank. Specifically, we use intra-user transfers in the blockchain world as an analogy to webpage reference relations in the Internet world to create the blockchain transaction graph. Then, calculate the NR rank of non-contract accounts by using the NR ranking algorithm described in Section 2.3, calculate the ranks of those contracts by using the contract ranking algorithm described in Section 4.2, and lastly use the calculation result for search result sorting.
 
 %其中排序算法将结合Nebulas Rank来设计，我们把区块链世界中用户之间的转账类比互联网世界的网页引用关系，构建出区块链交易图，然后利用\ref{subsec:leaderrank}中提出的NR排名算法，计算非合约用户的NR排名，然后结合\ref{dip:arith}中介绍的合约排名算法，计算合约的排名结果，最后应用于搜索结果排序。
 
@@ -112,10 +112,10 @@ For developers and certain users, they may want to search for smart contracts wi
 
 %开发者和某些用户，可能有根据合约代码片段，搜索具有相似功能的智能合约的需求。不同于普通的关键词搜索，代码相似度有其特殊性。我们需要有一定的算法，通过数值或者百分比的形式对代码相似度进行度量，从而提供相似智能合约搜索的功能。
 
-In today's academia, code similarity algorithms are mainly categorized into the string edit distance, token sequence similarity, abstract syntax tree similarity and program dependency graph similarity. These algorithms describe the similarity in terms of code text, structure and syntax from different dimensions. By combining these 4 major algorithms, we put forward 12 characteristics of the code similarity of Nebulas contracts, such as Skeleton Tree, Type Signature and Library Calls. For details, see Appendix \ref{appendix:sim_code}.
+In today's academia, code similarity algorithms are mainly categorized into the string edit distance, token sequence similarity, abstract syntax tree similarity and program dependency graph similarity. These algorithms describe the similarity in terms of code text, structure and syntax from different dimensions. By combining these 4 major algorithms, we put forward 12 features of the code similarity of Nebulas contracts, such as Skeleton Tree, Type Signature and Library Calls. For details, see Appendix \ref{appendix:sim_code}.
 
 %目前学术界对代码相似度算法主要有字符串编辑距离、Token序列相似度、抽象语法树相似度和程序依赖图相似度四个流派，他们分别从不同维度描述了代码文本、结构和语法上的相似度，我们结合主流4个流派的思路，提出了星云链合约代码相似度算法的12种特征，如Skeleton Tree、Type Signature和Libaray Calls等，详情见附录\ref{appendix:sim_code}。
 
-Similar to search results of keywords, search results of smart contracts also use the same contract ranking algorithm to produce final results.
+Similar to search results of keywords, search results of smart contracts also use the same contract ranking algorithm to sort final results.
 
 %相似智能合约搜索结果，和关键词搜索结果一样，使用同样的合约排名算法排序，给出最终结果。

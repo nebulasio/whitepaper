@@ -2,10 +2,10 @@
 
 \subsection{Address Checksum}
 
-Similar to Bitcoin and Ethereum, Nebulas also adopts elliptic curve algorithm as its basic encryption algorithm for Nebulas accounts. A user’s private key is a randomly generated 256-bit binary number, based on which a 64-byte public key can be generated via elliptic curve multiplication. Bitcoin and Ethereum addresses are computed by public key via the deterministic Hash algorithm, and the difference between them lies in: Bitcoin address has the check code design aiming to prevent a user from sending Bitcoins to a wrong user account accidentally due to entry of several incorrect characters; while Ethereum doesn’t have such check code design.
+Similar to Bitcoin and Ethereum, Nebulas also adopts elliptic curve algorithm as its basic encryption algorithm for Nebulas accounts. A user’s private key is a randomly generated 256-bit binary number, based on which a 64-byte public key can be generated via elliptic curve multiplication. Bitcoin and Ethereum addresses are computed by public key via the deterministic Hash algorithm, and the difference between them lies in: Bitcoin address has the checksum design aiming to prevent a user from sending Bitcoins to a wrong user account accidentally due to entry of several incorrect characters; while Ethereum doesn’t have such checksum design.
 
 %类似于比特币和以太坊，星云链的帐号也是由椭圆曲线算法作为其基础加密算法。用户的私钥是随机生成的256位二进制数，通过椭圆曲线乘法生成64字节的公钥。比特币和以太坊的地址都是由公钥通过确定性的哈希算法运算得到，不同的是：比特币地址有校验码设计，防止用户输错了几个字符而把比特币误发给其它用户，以太坊却没有校验码设计。
-We believe that check code design is reasonable from the perspective of users, so Nebulas address also includes check code, for which the specific calculation method is provided as follows:
+We believe that checksum design is reasonable from the perspective of users, so Nebulas address also includes checksum, for which the specific calculation method is provided as follows:
 
 %我们认为从用户的角度看，校验码的设计是合理的，因此星云链的地址也包含了校验码，具体计算方法如下：
 
@@ -15,7 +15,7 @@ Similar to Bitcoin and Ethereum, Nebulas also adopts elliptic curve algorithm as
   Address = "0x" + Hex(Data + CheckSum)
 \end{verbatim}
 
-The last 20 bytes of SHA3-256 digest of a public key serve as the major component of an address, for which another SHA3-256 digest should be conducted and the first 4 bytes should be used as a check code, which is equivalent to the practice of adding a 4-byte check code to the end of an Ethereum address. For example:
+The last 20 bytes of SHA3-256 digest of a public key serve as the major component of an address, for which another SHA3-256 digest should be conducted and the first 4 bytes should be used as a checksum, which is equivalent to the practice of adding a 4-byte checksum to the end of an Ethereum address. For example:
 
 %公钥的SHA3-256摘要的后20位字节作为地址的主要组成部分，对其再做一次SHA3-256摘要，取前4位字节做校验码，其相当于在以太坊的地址尾部加上4字节的校验码。
 
