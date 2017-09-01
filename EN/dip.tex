@@ -11,11 +11,11 @@ In order to create a good community for Nebulas, we propose the Developer Incent
 \subsection{DIP Reward Distribution Algorithm}
 \label{dip:arith}
 
-We believe that an excellent smart contract depends on how many users are willing to use it. More high-value accounts, better smart contract. As the universal value criteria of accounts, NR can be used to assess high-value accounts. The design of DIP combines NR and the common WAU (weekly active users) concept, the total WAU value measure is used to evaluate the value measure of the smart contract, and assess the SCS (Smart Contract Score) of developers. 
+We believe that an excellent smart contract depends on how many users are willing to use it. More high-value accounts, better smart contract. As a kind of universal value criteria of accounts, NR can be used to assess high-value accounts. The design of DIP combines NR and the common WAU (weekly active users) concept, the total WAU value measure is used to evaluate the value measure of the smart contract.
 
 %我们认为，一个智能合约是否优秀取决于有多少用户愿意使用它，而且有更多的高价值账户使用的智能合约更加优秀，而作为账户普适价值尺度的NR正好可以应用在高价值账户的评估中。DIP的设计结合NR和常用的周活跃用户的概念，使用周活跃用户的价值尺度总和来衡量智能合约的价值尺度，然后使用该价值尺度来评估开发者的贡献度。
 
-DIP is carried out once a cycle, and its cycle is the same with that of the Nebulas Rank. For Smart Contract C, it is assumed that the active account address set of this week is WAA (Weekly Active Addresses). According to the NR ranking in \refsec{subsec:leaderrank} (Top X is taken with the value of 1-X), the sum of NRs of weekly active addresses is calculated as the SCS of Contract C, as shown in Equation \ref{formula:dip:scs}. 
+DIP is carried out once a week. For Smart Contract C, it is assumed that the active account address set of this week is WAA (Weekly Active Addresses). According to the NR ranking in \refsec{subsec:leaderrank} (Top X is taken), the sum of NRs of weekly active addresses is calculated as the SCS (Smart Contract Score) of Contract C, as shown in Equation \ref{formula:dip:scs}. 
 
 %DIP按周期进行一次，和Nebulas Rank计算周期一致。对于智能合约C，假设本周活跃账户地址集合为WAA(Weekly Active Addresses)，其中根据\refsec{subsec:leaderrank}的NR排名（取Top X，值为1-X），计算周活跃地址的NR之和作为合约C的贡献度SCS(Smart Contract Score)，如公式\ref{formula:dip:scs}。
 
@@ -107,7 +107,7 @@ It can be seen that the top-ranked contracts are more famous and more active in 
 \subsection{Cheating Analysis}
 \label{dip:sybil}
 
-The smart contract can only be called passively, but cannot initiate a transaction with a non-contracted account. Therefore, if a cheater wants to increase his/her smart contract ranking, he/she has to find sufficient high-NR ranking accounts to call his/her contract.
+The smart contract can only be called passively. Therefore, if a cheater wants to increase his/her smart contract ranking, he/she has to find sufficient high-NR ranking accounts to call his/her contract.
 
 %智能合约只能被动调用，不能主动和非合约账户建立交易，所以一个作弊者想要让他的智能合约排名上升，就必须要找到足够多的高NR排名账户来调用他的合约。
 
@@ -115,7 +115,7 @@ First of all, it will be impossible for cheaters to improve their DIP ranking at
 
 %首先，作弊者想要零成本提升DIP排名将不可能实现。假设作弊者想要提高合约C的排名，并为此伪造了大量账户，但由于在公式\ref{formula:dip:scs}中计算SCS时，只有NR排名中Top X的调用贡献分大于0，新伪造出来的账户NR排名将会在Top X之外，即使调用合约C也对DIP的排名没有任何影响。
 
-Secondly, if a cheater is willing to pay a certain price for improving his/her DIP ranking of the contract, two options are available for him/her. The first one is to forge accounts with high NR and call Contract C at his/her cost so as to improve the ranking of Contract C. It has been analyzed for forging accounts with the high NR in \refsec{subsec:robust}. To improve the NR for each account, a vast sum of money is required to forge the special topology of such account. Besides, as NR is updated periodically, it will be very expensive to maintain high NR. The second one is to find a great number of accounts with high NR and persuade or bribe their owners to call Contract C. However, it is difficult for such off-chain actions to be scaled up, and these accounts with high NR found by the cheater at a great cost will account for only a small part of Top X, which will impose almost no impact on really outstanding contracts.
+Secondly, if a cheater is willing to pay a certain price for improving his/her DIP ranking of the contract, two options are available for him/her. The first one is to forge accounts with high NR and call Contract C at his/her cost so as to improve the ranking of Contract C. It has been analyzed for forging accounts with the high NR in \refsec{subsec:robust}. To improve the NR for each account, a vast sum of money is required to forge the special topology of such account. Besides, as NR is updated periodically, it will be very expensive to maintain high NR. The second one is to find a great number of accounts with high NR and persuade or bribe their owners to call Contract C. However, it is difficult for such off-chain actions to be scaled up. What's worse, these accounts with high NR found by the cheater at a great cost will account for only a small part of Top X, which will impose almost no impact on really outstanding contracts.
 
 %其次，如果作弊者愿意为合约的DIP排名上升付出一定的成本，那么他有两种方式可以选择。第一种，自己花钱伪造高NR的账户来调用合约C，提升合约C的排名。而要伪造高NR的账户在\refsec{subsec:robust}已有分析，每提升一个账户都需要投入一大笔资金来伪造该账户特殊的拓扑结构，并且由于NR的周期性更新，长期维持高NR的成本将会巨大。第二种，作弊者找到大量高NR账户，说服或者贿赂他们来调用合约C，这种链下行为难以规模化，作弊者花了很大精力找到的高NR账户也只会占Top X中的一小部分，对真正优秀的合约影响不大。
 
