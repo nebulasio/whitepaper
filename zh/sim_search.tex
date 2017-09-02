@@ -68,7 +68,7 @@ String Literals & string data constants used \\
 	\end{equation}
 	假设$D_{T}$是编辑距离的阈值，设定为0.5。我们进一步得到两棵树的近似编辑距离公式：
 	\begin{equation}
-	d_{t}(T_{1}, T{2})=\begin{cases}d_{r}(T_{1}, T{2}) & if~d_{r}(T_{1}, T{2})\geq D_{T}\\\frac{max\left(\begin{array}{c}ed(pre(T_{1}),~ed(pre(T_{2})),\\ ed(post(T_{1}),~ed(post(T_{2}))\end{array}\right)}{max(size(T_{1}), size(T_{2}))} & otherwise\end{cases}
+	d_{t}(T_{1}, T{2})=\begin{cases}d_{r}(T_{1}, T{2}) & if~d_{r}(T_{1}, T{2})\geq D_{T}\\\frac{max\left(\begin{array}{c}ed(pre(T_{1}),~pre(T_{2})),\\ ed(post(T_{1}),~post(T_{2}))\end{array}\right)}{max(size(T_{1}), size(T_{2}))} & otherwise\end{cases}
 	\end{equation}
 	
 	pre(T)代表树的先序遍历序列，post(T)代表树的后序遍历序列，$ed(S_{1}, S_{2})$代表序列$S_{1}$和$S_{2}$的编辑距离。Skeleton Tree的相似度可以由以下公式计算:
