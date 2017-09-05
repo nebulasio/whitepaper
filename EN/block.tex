@@ -33,12 +33,12 @@ The Nebulas block data structure contains, but is not limited to, the following:
 		\item Signature：transaction signature
 		\item Gas：gas limit
 		\item GasPrice：gas unit price
-		\item Nonce：the uniqueness
+		\item Nonce：the uniqueness of transactions
 		\end{itemize}
 	\item Votes：Prepare and Commit Votes (including multiple), used in PoD (see \refsec{sec:pod}) consensus algorithm
 		\begin{itemize}
 		\item From：voter
-		\item VoteHash：vote hash
+		\item VoteHash：hash of the block voted for
 		\item Hv：the height of the block voted for
 		\item Hvs：the height of an ancestral block of the block voted for
 		\item VoteType：voting type，Prepare or Commit
@@ -46,12 +46,12 @@ The Nebulas block data structure contains, but is not limited to, the following:
 		\end{itemize}
 	\item Protocol Code：The protocol code (only 0 or 1 in a block)
 		\begin{itemize}
-		\item Hash：hash
+		\item Hash：hash of the protocol code
 		\item Code：the bytecode of the core protocol
 		\item ValidStartBlock：the start block number that protocol come into effect
 		\item Signature：signautre (sign by the developer community)
 		\item Version：the core protocol version number, and each upgrade needs to be incremented to prevent malicious accounts from rolling back to the old protocol code
-		\item Nonce：the uniqueness
+		\item Nonce：the uniqueness of protocol code
 		\end{itemize}
 	\item Nebulas Rank：Nebula index (calculated once a week, most blocks haven't this section)
 		\begin{itemize}
