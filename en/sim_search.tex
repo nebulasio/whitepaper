@@ -63,7 +63,7 @@ String Literals & string data constants used \\
 
 \begin{itemize}
 	\item \textbf{Type–Operation Coupling} \\
-	This feature is a two-tuple set. Two tuples contain type of variable and operator of type of variable, namely the (type, operation) pair. Generally, primitive data type should be paired with arithmetic operator, logical operator and relational operator, such as ($int, \geq$); custom data type (such as struct) should be paired with member function, such as (Bar, .foo), indicating that field "foo" of data type "Bar" is accessed. Based on this method, all operations on variables in the code body of a function can be changed into two-tuples. After repetition removal, A two-tuple sequence is used to reflect the Type–Operation Coupling feature of this code segment. We believe that codes with similar functions should have similar variable operation sets. However, we are not concerned with the order of the two tuples, so this feature loses the logical structure information of code and thus can only represent feature of code partially.
+	This feature is a two-tuple set. Two tuples contain type of variable and operator of type of variable, namely the (type, operation) pair. Generally, primitive data type should be paired with arithmetic operator, logical operator and relational operator, such as ($int, \geq$); custom data type (such as struct) should be paired with member function, such as (Bar, .foo), indicating that field ``foo" of data type ``Bar" is accessed. Based on this method, all operations on variables in the code body of a function can be changed into two-tuples. After repetition removal, A two-tuple sequence is used to reflect the Type–Operation Coupling feature of this code segment. We believe that codes with similar functions should have similar variable operation sets. However, we are not concerned with the order of the two tuples, so this feature loses the logical structure information of code and thus can only represent feature of code partially.
 	
 	%该特征是一个二元组集合，二元组包含变量类型，以及变量类型的算符，即(type, operation)对。原生数据类型一般和算术运算符、逻辑运算符以及关系运算符配对，例如($int, \geq$)；自定义类型(例如struct)一般和成员函数配对，例如(Bar, .foo)表示数据类型Bar的字段foo被访问。按照这种方法，把一个函数的代码体内部所有变量操作都变成二元组，并且去重以后，就用一个二元组序列体现了这段代码的Type–Operation Coupling特征。我们认为相似功能的代码，也应该具有相似的变量操作集合。但是我们并不关心二元组的先后顺序，所以该特征丢失了代码的逻辑结构信息，只能部分代表代码的特征。
 	
@@ -129,7 +129,7 @@ String Literals & string data constants used \\
 	\begin{figure}[h]
 	\centering
 	\includegraphics[width=6cm]{./figs/graph-matrix.png}
-	\caption{4-graph example: Element of adjacency matrix is a binary string "0100 0011 0000 0000", for which the decimal number is 17152}
+	\caption{4-graph example: Element of adjacency matrix is a binary string ``0100 0011 0000 0000", for which the decimal number is 17152}
 	\label{fig:graph-ex}
 	\end{figure}
 
@@ -138,7 +138,7 @@ String Literals & string data constants used \\
 	%合约中如果发生调用其它库合约，所有库合约的地址也被记录下来，由雅克比相似度公式计算相似度。
 	
 	\item \textbf{Type Signature} \\
-	This feature is composed of input parameter type and return parameter type, and similarity between them can be calculated with Jacobian similarity formula. For example, for the following smart contract code, feature of Type Signature of function "getBalance" is vector (address, uint256). \\
+	This feature is composed of input parameter type and return parameter type, and similarity between them can be calculated with Jacobian similarity formula. For example, for the following smart contract code, feature of Type Signature of function ``getBalance" is vector (address, uint256). \\
 	%该特征由输入参数类型和返回参数类型组成，由雅克比相似度公式计算相似度。例如对于下面的智能合约代码，函数getBalance的Type Signature特征为向量(address, uint256)。
 	
 	\begin{figure}[h]
