@@ -1,4 +1,4 @@
-\section{PoD Consensus Algorithm}
+\section{Proof of Devotion (PoD) Consensus Algorithm}
 \label{sec:pod}
 
 \subsection{Design Goals}
@@ -99,7 +99,7 @@ The PoD algorithm selects the canonical chain according to the block score at ea
 \begin{align}
 Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed~deposits~in~b
 \end{align}
-\noindent 
+\noindent
 
 Namely the sum of deposits corresponding to $Commit$ tickets received by this block and all of its descendant blocks, as shown in \reffig{fig:fork_choice}.
 
@@ -124,14 +124,14 @@ Assume that $Prepare$ vote and $Commit$ vote in the consensus process have the f
 %假设共识过程中的$Prepare$和$Commit$票结构如下，
 
 \begin{itemize}
-\item $Prepare(H, v, vs)$, where $H$ is the hash value of the current block; $v$ represents the height of the current block; $vs$ represents the height of a certain ancestral block of $v$. 
+\item $Prepare(H, v, vs)$, where $H$ is the hash value of the current block; $v$ represents the height of the current block; $vs$ represents the height of a certain ancestral block of $v$.
 %\item $Prepare(H, v, vs)$，其中$H$为当前区块hash，$v$表示当前区块高度，$vs$表示$v$的某个祖先区块高度
 
 \item $Commit(H, v)$, where $H$ is the hash value of the current block; $v$ represents the height of the current block.
 %\item $Commit(H, v)$，其中H为当前区块hash，$v$表示当前区块高度
 \end{itemize}
 
-PoD algorithm defines the following 4 basic rules for the entire voting process: 
+PoD algorithm defines the following 4 basic rules for the entire voting process:
 %PoD算法为整个投票过程制定了如下4条基本规则，
 
 \begin{itemize}
@@ -171,11 +171,11 @@ If it is assumed that a merchant confirms transaction and makes delivery when th
 
 %假设商户merchant等到新区块到达finality状态就确认交易发货，那么fraud要在PoD共识算法下完成双重支付攻击实现零成本购物要付出的最小代价如下：
 
-Firstly, the fraud needs to increase his/her Nebulas Rank to Top N, become a validator by paying a certain amount of NAS as deposit and apply for participation in validation of blocks in the D+2 dynasty. 
+Firstly, the fraud needs to increase his/her Nebulas Rank to Top N, become a validator by paying a certain amount of NAS as deposit and apply for participation in validation of blocks in the D+2 dynasty.
 
 %首先，fraud需要提高自己的Nebulas Rank到Top N，然后缴一定数的NaS作为押金成为验证者，并申请参与D+2朝代区块的验证。
 
-Then, the fraud needs to be selected as the proposer of a new block by the pseudo-random algorithm. At this moment, the fraud proposes two new blocks at the same height, of which one block has a hash value of hash1 and contains a transferring transaction from the fraud to the merchant, while the other block has a hash value of hash2 and contains a transferring transaction from the fraud to himself/herself. 
+Then, the fraud needs to be selected as the proposer of a new block by the pseudo-random algorithm. At this moment, the fraud proposes two new blocks at the same height, of which one block has a hash value of hash1 and contains a transferring transaction from the fraud to the merchant, while the other block has a hash value of hash2 and contains a transferring transaction from the fraud to himself/herself.
 
 %然后，fraud需要被伪随机算法选中为新区块的提议者，此时fraud提出两个高度相同的新区块，一个哈希值为hash1包含fraud向merchant的转账交易，另一个哈希值为hash2包含fraud向fraud自己的转账交易。
 
@@ -223,12 +223,12 @@ If Attacker plans to revert B1, the minimum cost to be paid by Attacker is as de
 \label{fig:revert1}
 \end{figure}
 
-Assume that B1 and B2 have reached the status of finality and transactions in the blocks have come into effect. If Attacker wants to revert B1-B2, the following two circumstances are taken into consideration. 
+Assume that B1 and B2 have reached the status of finality and transactions in the blocks have come into effect. If Attacker wants to revert B1-B2, the following two circumstances are taken into consideration.
 
 \begin{itemize}
-\item The first circumstance is shown in Figure \ref{fig:revert2} (a): When Heights H+1 and H+2 are in the same Epoch and dynasty, Attacker needs to bribe $1/3$ of the validators in D0 in order to make A1 reach finality. Meanwhile, these $1/3$ of the validators will be punished and their deposits will be totally confiscated. During validation of A2, sum of deposits equals to $2/3$ of deposits in A1. At this moment, if Attacker wants to secure the same amount of commit votes as B2, he/she has to bribe all the remaining validators without cheating and lose at least $3/3$ of the total deposits. Even if Attacker succeeds in doing this, it is impossible to guarantee that score of A1 is higher than that of B1 and Attacker will face a high risk of failure of attack. 
+\item The first circumstance is shown in Figure \ref{fig:revert2} (a): When Heights H+1 and H+2 are in the same Epoch and dynasty, Attacker needs to bribe $1/3$ of the validators in D0 in order to make A1 reach finality. Meanwhile, these $1/3$ of the validators will be punished and their deposits will be totally confiscated. During validation of A2, sum of deposits equals to $2/3$ of deposits in A1. At this moment, if Attacker wants to secure the same amount of commit votes as B2, he/she has to bribe all the remaining validators without cheating and lose at least $3/3$ of the total deposits. Even if Attacker succeeds in doing this, it is impossible to guarantee that score of A1 is higher than that of B1 and Attacker will face a high risk of failure of attack.
 
-\item The second circumstance is shown in Figure \ref{fig:revert2} (b): When Heights H+1 and H+2 are in different Epochs and different dynasties, Attacker needs to bribe $1/3$ of the validators in D0 to make A1 reach finality and then bribe $1/3$ of the validators in D1 to make A2 reach finality, so Attacker will lose at least $2/3$ of the total deposits in order to complete such an attack. To sum up, to launch a short-range attack to cause invalidation of two blocks that have reached finality, Attacker needs to pay at least $2/3$ of the total deposits. 
+\item The second circumstance is shown in Figure \ref{fig:revert2} (b): When Heights H+1 and H+2 are in different Epochs and different dynasties, Attacker needs to bribe $1/3$ of the validators in D0 to make A1 reach finality and then bribe $1/3$ of the validators in D1 to make A2 reach finality, so Attacker will lose at least $2/3$ of the total deposits in order to complete such an attack. To sum up, to launch a short-range attack to cause invalidation of two blocks that have reached finality, Attacker needs to pay at least $2/3$ of the total deposits.
 \end{itemize}
 %如果Attacker想要使B1-B2失效，假设B1和B2都已到达finality，块中交易都已生效，为了让这些交易失效，这里考虑两种情况。第一种如图\ref{fig:revert2}中(a)所示，高度H+1和H+2在同一个Epoch中，朝代相同，那么Attacker首先需要贿赂D0中$1/3$的验证者使A1达到finality，此时这$1/3$的验证者将会被惩罚，押金被罚完。在A2的验证中整体押金总和只有A1中的$2/3$，此时Attacker想要让A2到达和B2同价值的committ票，需要贿赂剩下所有没有作弊的验证者，合起来至少需要损失总押金的$3/3$，即使如此也不能保证A1得分比B1高，攻击失败风险高。第二种情况如图\ref{fig:revert2}中(b)所示，高度H+1和H+2正好在不同的Epoch中，且朝代不相同，那么此时Attacker需要贿赂D0中的$1/3$来让A1到达finality，然后贿赂D1中的$1/3$来让A2达到finality，完成一次这样的攻击至少需要损失总押金的$2/3$。综上，想要发起短程攻击导致两个finality区块失效，至少需要花费总押金$2/3$的代价。
 
