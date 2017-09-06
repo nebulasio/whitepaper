@@ -34,11 +34,11 @@
 
 基于$\Theta(t_0)$，我们可以构造有向加权简单图 $G = (V, E, W)$，其中，$V$、$E$和$W$ 分别表示节点集合、有向边集合和边的权值集合。$V$ 中的每个节点都代表一个账户的地址，$E$ 中的每条有向边代表两个用户之间的交易关系。我们定义以下公式合并对应交易的最高$K$ 个金额作为权值$w_e$ :
 \begin{align}\label{formula:edgeweight}
-w_e = \sum_{i=1}^K a_i,\ s.t.\ a_i \in A
+w_e = \sum_{i=1}^K a_i,\ s.t.\ a_i \in A_e
 \end{align}
-其中$A$ 是一个由所有在 $\Theta(t_0)$ 出现的交易金额 $a$ 组成的有序集合：
+其中$A_e$ 是一个由所有在 $\Theta(t_0)$ 出现的相关交易金额 $a$ 组成的有序集合：
 \begin{align}
-A = \{a_i\ |\ a_i \in \Theta(t_0) \land (a_i \ge a_j, \forall i \leq j) \}
+A_e = \{a_i\ |\ e = (s,r) \land (s, r, a_i, t) \in \Theta(t_0) \land (a_i \ge a_j, \forall i \le j) \}
 \end{align}
 
 另外，记 $N = |V|$，$M = |E|$，其中 $|.|$ 表示集合的范数。因而，总共有$N$ 个地址和$M$ 条有效交易。在下文中，为了表述便利，所有节点都以一个$1$到$N$ 之间的整数来表示。
