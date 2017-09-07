@@ -1,15 +1,15 @@
 \abstract{
   %比特币和以太坊系统分别给区块链世界带来"去中心化现金"和"智能合约"技术。如今，区块链技术及产业已经取得了长足的发展和繁荣，各种应用场景、商业需求层出不穷。随之而来的，我们发现，已有的区块链技术已经不能满足日益增长的用户需求，总的来说，区块链技术面临着价值尺度缺失、自我进化及生态建设三方面的挑战。
-Bitcoin and Ethereum have successfully introduced ``decentralized virtual currency" and ``smart contract" to blockchains. The industry is evolving rapidly, with emerging application scenarios and business requirements. For current blockchain technologies, we find there are three challenges: measure of value, self-evolution capability, and healthy ecosystem development.
+Bitcoin and Ethereum have successfully introduced ``Peer-to-Peer Electronic Cash System" and ``Smart Contract" to blockchain. The industry is evolving rapidly, with emerging application scenarios and business requirements. For current blockchain technologies, we find there are three challenges: measure of value, self-evolution capability, and healthy ecosystem development.
 
   %本文介绍了星云链的技术架构设计，意图构建一个能够量化价值尺度、具备自进化能力，并能促进区块链生态建设的区块链系统，主要内容包括：
   Nebulas aims to address those challenges. This white paper explains the technical design ideologies and principles of the Nebulas framework. The framework includes:
 
 \begin{itemize}
-  \item \textbf{Nebulas Rank (NR)}~(\refsec{sec:rank}), which measures value by considering liquidity and propagation of the accounts. Nebulas Ranking tries to establish a credible, computable and reproducible measurement approach. With the value ranking system, we will see more and more outstanding applications surfacing on the Nebulas platform.
+  \item \textbf{Nebulas Rank (NR)}~(\refsec{sec:rank}), which measures value by considering liquidity and propagation of the address. Nebulas Ranking tries to establish a trustful, computable and deterministic measurement approach. With the value ranking system, we will see more and more outstanding applications surfacing on the Nebulas platform.
   %\textbf{定义价值尺度的星云指数Nebulas Rank(NR)}~(\refsec{sec:rank})，通过综合考虑链中各个账户的流动性及传播性，NR试图为每个账户建立一个可信、可计算及可复现的普适价值尺度刻画。可以预见，在NR之上，通过挖掘更大纵深的价值，星云链的平台上将会涌现更多、更丰富的应用。
 
-	\item \textbf{Nebulas Force (NF)}~(\refsec{sec:nebulasforce}), which supports upgrading core protocols and smart contracts on the chains. It provides self-evolution capabilities to Nebulas system and its applications. With Nebulas Force, developers can build rich applications in fast iterations, and the applications can dynamically adapt to community or market changes.
+	\item \textbf{Nebulas Force (NF)}~(\refsec{sec:nebulasforce}), which supports upgrading core protocols and smart contracts on the chains. It provides self-evolving capabilities to Nebulas system and its applications. With Nebulas Force, developers can build rich applications in fast iterations, and the applications can dynamically adapt to community or market changes.
 	%\textbf{支持核心协议和智能合约链上升级的星云原力Nebulas Force(NF)}~(\refsec{sec:nebulasforce})，帮助星云链自身及其上的应用实现自我进化，动态适应社区或市场变化，从而使得星云链及应用将会有更快的发展速度和更大的生存潜力。开发者亦能够通过星云链构建更丰富的应用，并进行快速迭代。
 
 	\item \textbf{Developer Incentive Protocol (DIP)}~(\refsec{sec:dip}), designed to build the blockchain ecosystem in a better way. The Nebulas token incentives will help top developers to create more values in Nebulas.
@@ -18,7 +18,7 @@ Bitcoin and Ethereum have successfully introduced ``decentralized virtual curren
   \item \textbf{Proof of Devotion (PoD) Consensus Algorithm}~(\refsec{sec:pod}). To build a healthy ecosystem, Nebulas proposes three key points for consensus algorithm: speediness, irreversibility and fairness. By adopting the advantages of PoS and PoI, and leveraging NR, PoD will take the lead in consensus algorithms.
   %\textbf{贡献度证明共识算法Proof of Devotion(PoD)}~(\refsec{sec:pod})，从星云链生态健康自由发展出发，星云链提出了共识算法的三个重要指标，即快速、不可逆和公平性，PoD通过融合PoS和PoI的优势，结合星云链中的价值尺度，在保证快速和不可逆的前提下，率先加入了公平性的考量。
 
-  \item \textbf{Decentralized Search Engine}~(\refsec{sec:search}). Nebulas constructs a search engine for decentralized applications based on Nebulas value ranking. Using this engine, users can easily find desired blockchain applications from the massive market.
+  \item \textbf{Search engine for decentralized applications}~(\refsec{sec:search}). Nebulas constructs a search engine for decentralized applications based on Nebulas value ranking. Using this engine, users can easily find desired decentralized applications from the massive market.
     %\textbf{去中心化应用的搜索引擎}~(\refsec{sec:search})，基于我们所定义的价值尺度，星云链构建了一个针对去中心化应用的搜索引擎，帮助用户在海量区块链应用中，找到符合用户期望及应用场景的应用。
 
 \end{itemize}
