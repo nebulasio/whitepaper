@@ -81,13 +81,13 @@ w_{0,n}	= \beta ( \sum_{w_{n,m} \neq 0} w_{n,m} + \mu C), \forall i \in [1,N]
 LeaderRank的计算过程和PageRank基本相同，可以理解为求马可夫链的稳定状态。所不同的是，添加了背景节点之后，不再需要考虑PageRank的damping factor\cite{Brin2010}\cite{page1999pagerank}，并且所有节点天然地就具有少许出入度。按(\ref{formula:matrix})构造矩阵$H$后，进行如(\ref{formula:iteration})所示的迭代（初始值设置见(\ref{formula:init}))，直至收敛为止，最后去掉背景节点的评分即为交易图各点重要程度得分$P^*$。
 
 \begin{align} \label{formula:iteration}
-	P^{t+1} = H \times P^{t}; P^1=[\frac{1}{N}， \frac{1}{N}， \dots， \frac{1}{N}， 0]^T
+	P^{t+1} = H \times P^{t}; P^1=[\frac{1}{N}, \frac{1}{N}, \dots, \frac{1}{N}, 0]^T
 \end{align}
 \begin{align} \label{formula:matrix}
-	h_{ij} = \frac{w_{(j，i)}}{\sum_k w_{(j，k)}}
+	h_{ij} = \frac{w_{(j,i)}}{\sum_k w_{(j, k)}}
 \end{align}
 \begin{align} \label{formula:init}
-\forall v \in V， P^*_v \leftarrow P^*_v + \frac{P^*_{\mathcal{G}}}{N}
+\forall v \in V, P^*_v \leftarrow P^*_v + \frac{P^*_{\mathcal{G}}}{N}
 \end{align}
 
 
