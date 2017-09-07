@@ -35,7 +35,7 @@ Then based on $\Theta(t_0)$, construct a directed weighted simple graph $G=(V,E,
 \begin{align}\label{formula:edgeweight}
 w_e = \sum_{i=1}^K a_i,\ s.t.\ a_i \in A_e
 \end{align}
-$A_e$ is an ordered set consisting of amounts of all related transactions in $\Theta(t_0)$:
+$A_e$ is an ordered set consisting of amounts of all transactions from $s$ to $r$ in $\Theta(t_0)$:
 \begin{align}
 A_e = \{a_i\ |\ e = (s,r) \land (s, r, a_i, t) \in \Theta(t_0) \land (a_i \ge a_j, \forall i \le j) \}
 \end{align}
