@@ -35,13 +35,13 @@
        \node [normal] (n4) at ($(n3.east) + (\XMD, 0)$){} node [right=1ex of
        n4] {normal nodes};
 
-       \draw[->, color=red] (sy) -- (hh1) node [midway, left]{h+1};
-       \draw[->, color=red] (hh4) -- (sy) node [midway, right]{h+4};
+       \draw[->, color=red] (sy) -- (hh1) node [midway, left]{4h+1};
+       \draw[->, color=red] (hh4) -- (sy) node [midway, right]{4h+4};
        \draw[->, color=olive] (h4) -- (sy) node [midway, left]{4};
        \draw[->, color=olive] (sy) -- (h1) node [midway, right]{1};
 
-       \draw[->, color=red] (hh1) -- (ss) node [midway, left]{h+2};
-       \draw[->, color=red] (ss) -- (hh4) node [midway, right]{h+3};
+       \draw[->, color=red] (hh1) -- (ss) node [midway, left]{4h+2};
+       \draw[->, color=red] (ss) -- (hh4) node [midway, right]{4h+3};
        \draw[->, color=olive] (ss) -- (h4) node [midway, left] {3};
        \draw[->, color=olive] (h1) -- (ss) node [midway, right]{2};
 
