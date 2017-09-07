@@ -50,7 +50,7 @@ Additionally, let $N = |V|$，$M = |E|$, where $|.|$ is the cardinal number of a
 
 Then, for each node, according to its in-transfers and out-transfers during $[t_0\ −\ T,\ t_0]$, compute the ``coinage" and denote it by $C_v$; based on the total transfer amount and using the ``encouragement function" shown in \reffig{fig:encouragement}, compute the encouragement value and denote it by $E_v$\footnote{Encouragement function can be represented as a linear combination of two normal distributions, which outputs peak value when the money transferred out is zero or of some ratio of the amount transferred in.}; use $C_v$ and $E_v$ of the target nodes to reduce the edges' weight.
 
-Finally, take the largest weakly connected component of the whole graph, only remaining nodes belonging to this component. The deleted nodes are assigned with lowest importance score by default.
+Finally, take the largest weakly connected component of the whole graph, only keep nodes belong to this component. The deleted nodes are assigned with lowest importance score by default.
 
 The graph derivation described above contributes to the ``truthful" property defined at \refsec{subsec:value}, the evidence of which is shown in \refsec{subsec:robust}.
 
@@ -59,24 +59,24 @@ Using the method described herein, the transaction graph, wherein $T$ is 30 days
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85\textwidth]{figs/wgc1.png}
-	\caption{Transaction Graph (Partly) Visulazation. \small{Large transaction scale (capital transfer) in the address means high in-and-out degree in the node, represented by large diameter in the figure. Some nodes are labeled by tags in Etherscan\cite{etherscan}}  }\label{fig:wgc}
+	\caption{Transaction Graph (Partial) Visulazation. \small{Large transaction scale (capital transfer) in the address means high in-and-out degree in the node, represented by large diameter in the figure. Some nodes are labeled by tags according to Etherscan\cite{etherscan}}  }\label{fig:wgc}
 \end{figure}
 
 \subsection{Ranking Algorithm} \label{subsec:leaderrank}
 This subsection introduces how to rank nodes by their importance in the derived transaction graph.
 
-We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main algorithm. First, add a ground node with index $0$ into the transaction graph. Then establish double link between the ground node $0$ and every other node $i$ ($1 \leq i \leq N$), weighting by the following formula:
+We adopt LeaderRank\cite{Chen2013}\cite{Li2014} as the main algorithm. First, add a ground node with index $0$ into the transaction graph. Then establish bi-directional link between the ground node $0$ and every other node $i$ ($1 \leq i \leq N$), weighting by the following formula:
 \begin{align}\label{formula:weight1}
 w_{i,0} = \alpha( max\{ \sum_{w_{j,i} \neq 0} w_{j,i} - \sum_{w_{i,j} \neq 0} w_{i,j} , 0\} + \lambda C ), \forall i \in [1,N]	
 \end{align}
 \begin{align}\label{formula:weight2} 
-w_{0,n}	= \beta ( \sum_{w_{n,m} \neq 0} w_{n,m} + \mu C), \forall i \in [1,N]
+w_{0,i}	= \beta ( \sum_{w_{i,m} \neq 0} w_{i,m} + \mu C), \forall i \in [1,N]
 \end{align}
 $C$ is the median of set $\{w_{i,j} | w_{i,j} \neq 0, 0\leq i,j \leq N\}$, and $\alpha, \beta, \mu, \lambda$ are parameters. 
 
-The weighting scheme can be understood as that, nodes with more in-degree receive more in-link from the ground node; nodes with more absolute income, i.e. in-degree minus out-degree, outputs stronger link into the ground node. 
+The weighting scheme can be explained that, nodes with more in-degree receive more in-link from the ground node; nodes with more absolute income, i.e. in-degree minus out-degree, outputs stronger link into the ground node. 
 
-The computing process of LeaderRank is similar with that of PageRank, which could be understood as computing the convergence state of a Markov process. What is different is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
+The computing process of LeaderRank is similar to PageRank, which could be understood as computing the convergence state of a Markov process. The only difference is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
 \begin{align} \label{formula:iteration}
 	P^{t+1} = H \times P^{t}; P^1=[0, \frac{1}{N}, \frac{1}{N}, \dots, \frac{1}{N}]^T
 \end{align}
@@ -91,7 +91,7 @@ We suppose that LeaderRank can satisfy the measure of value and algorithm proper
 \begin{itemize}
 	\item The result of LeaderRank can be understood as the flux on each node in the dynamic equilibrium of money exchange network, which matches \textbf{Nebulas Rank}'s measure of value: ``liquidity", ``propagation" and ``interoperability";
 	\item The weighing scheme defined by formula (\ref{formula:weight2}) and (\ref{formula:weight1}) makes it more difficult to attack (see discussion in \refsec{subsec:robust}), which satisfies ``truthful" property;
-	\item LeaderRank can be computed by power iteration. Since the network is very sparse, the complexity of matrix computation should not be high, which satisfies the properties of ``computable" and ``reproducible".
+	\item LeaderRank can be computed by power iteration. Since the network is very sparse, the complexity of matrix computation should not be high, which satisfies the properties of ``computable" and ``deterministic".
 \end{itemize}
 
 
@@ -155,7 +155,7 @@ According to the above simple analysis, it can be deduced that the first three t
 	\centering
 	%\includegraphics[width=0.35\textwidth]{figs/attack.pdf}
   \input{figs/attack.tex}
-	\caption{Schematic of Loop Attack Utilizing Exchange Address \small{The first and $h$-st loop attacks are shown in the figure. The selected authoritative Exchange node is Shapeshift; Edge label indicates temporal sequence; The transfer amount between nodes controlled by Sybil attacker and Shapeshift node is $Y$Ether; There are $X$ loop transfers during the manipulation.}}\label{fig:loop}
+	\caption{Schematic of Loop Attack Utilizing Exchange Address \small{The first and $h$-th loop attacks are shown in the figure. The selected authoritative Exchange node is Shapeshift; Edge label indicates temporal sequence; The transfer amount between nodes controlled by Sybil attacker and Shapeshift node is $Y$Ether; There are $X$ loop transfers during the manipulation.}}\label{fig:loop}
 \end{figure}
 
 We choose Shapeshift(0x70faa28a6b8d6829a4b1e649d26ec9a2a39ba413) as the authoritative Exchange address. The results is shown in \reffig{fig:antiManipulation}: 1) As is shown in \reffig{subfig:deposit}, with the attacker investing more capital, no algorithm is able to prevent the attacker's rank from being better, while the transaction graph defined in \refsec{subsec:txg} reduces the attacking effect. \textbf{Nebulas Rank} can not only prefer nodes with high transaction throughput, but also resist manipulation to some extent; 2) As is shown in \reffig{subfig:times}, with the attacker making more loop transfers, the transaction graph defined at \refsec{subsec:txg} can let the attacker's rank be worse. The reason is that such transaction graph considers factors like coinage and encouragement value. Meanwhile, \textbf{Nebulas Rank} could strengthen these factors, bringing more resistance against manipulation.
