@@ -78,7 +78,7 @@ The weighting scheme can be understood as that, nodes with more in-degree receiv
 
 The computing process of LeaderRank is similar with that of PageRank, which could be understood as computing the convergence state of a Markov process. What is different is that, after adding the ground node, it does not need to consider the damping factor of PageRank\cite{Brin2010}\cite{page1999pagerank} anymore. That is, after constructing matrix $H$ according to formula (\ref{formula:matrix}), the computing process is iterated until convergence, as formula (\ref{formula:iteration}) shows, with initial settings defined by formula (\ref{formula:init}). Finally the rank score of ground node is distributed evenly to every other node, which yields the final score for every node.
 \begin{align} \label{formula:iteration}
-	P^{t+1} = H \times P^{t}; P^1=[\frac{1}{N}, \frac{1}{N}, \dots, \frac{1}{N}, 0]^T
+	P^{t+1} = H \times P^{t}; P^1=[0, \frac{1}{N}, \frac{1}{N}, \dots, \frac{1}{N}]^T
 \end{align}
 \begin{align} \label{formula:matrix}
 	h_{ij} = \frac{w_{(j，i)}}{\sum_k w_{(j,k)}}
