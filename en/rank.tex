@@ -25,7 +25,7 @@ Next we design the basic framework of \textbf{Nebulas Rank}. First, transaction 
 \subsection{Transaction Graph} \label{subsec:txg}
 This subsection introduces how to derive transaction graph from transaction history.
 
-First, for any time $t_0$, we take all \textbf{effective} transactions among individual addresses during $[t_0- T, t_0]$ ($T$ is a constant, generally set to one month), where every transaction can be represented as a 4-tuple $(s,r,a,t)$, with $s$ as the source address, $r$ as the target address, $a$ as the transfer amount and $t$ as the block time. We define a transaction to be \textbf{effective} iff $a>0$ and $s \neq t$. Thus all \textbf{effective} transactions during $[t_0- T, t_0]$ can be represented by a set of 4-tuples:
+First, for any time $t_0$, we take all \textbf{effective} transactions among individual addresses during $[t_0- T, t_0]$ ($T$ is a constant, generally set to one month), where every transaction can be represented as a 4-tuple $(s,r,a,t)$, with $s$ as the source address, $r$ as the target address, $a$ as the transfer amount and $t$ as the block time. We define a transaction to be \textbf{effective} iff $a>0$ and $s \neq r$. Thus all \textbf{effective} transactions during $[t_0- T, t_0]$ can be represented by a set of 4-tuples:
 
 \begin{align}
 \Theta(t_0) = \{(s, r, a, t)\ |\ t_0 - T \le t \le t_0\ \land \ a > 0 \land s \neq t \}	
