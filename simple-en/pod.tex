@@ -4,32 +4,20 @@
 \subsection{Design Goals}
 \label{pod:goals}
 
-The consensus algorithm is one of the cornerstones of blockchains, and its rapidity and irreversibility are our focus. In addition, in order to build a good ecology of Nebulas, we believe that fairness is equally important. If the big capital can easily gain power to control the block consensus in Nebulas, the interests of many developers and users will be damaged. It is difficult for an ecology which cannot guarantee the interests of contributors to create in-depth value, as it goes against the design principles of Nebulas. Thus, the consensus algorithm should be designed to ensure the rapidity and irreversibility first, on which basis we will pursue fairness as much as possible, so as to guarantee the interests of contributors in Nebulas.
-
-%共识算法作为区块链的基石之一，快速和不可逆是我们重点关注的目标。除此之外，为了更好地建设公链生态，我们认为公平性同样重要，如果大资本可以轻松占据公链中区块共识的话语权，那么会有很多公链上的开发者和用户的利益无端受损，一个不能保障公链建设者利益的生态，很难沉淀出价值深度，和星云链设计原则相违背。所以我们在设计共识算法时，在优先保证快速和不可逆的情况下，将尽可能追求公平性，维护公链建设者的利益。
+The consensus algorithm is one of the cornerstones of blockchains, and its speediness and irreversibility are our focus. In addition, in order to build a good ecology of Nebulas, we believe that fairness is equally important. If the big capital can easily gain power to control the block consensus in Nebulas, the interests of many users who devote much to Nebulas will be damaged. It is difficult for an ecology which cannot guarantee the interests of contributors to create in-depth value, as it goes against the design principles of Nebulas. Thus, we set three key goals for PoD: speediness, irreversibility and fairness.
 
 \subsection{Defects of Commonly Used Consensus Algorithms}
 \label{pod:weakness}
 
 We have tried to find suitable commonly used consensus algorithms that match with our design goals, but these algorithms cannot completely meet our requirements.
 
-%我们试图在较为常用的共识算法中找到符合我们设计目标的选择，但是这些算法和我们的目标多少都有些差距。
+The PoW (Proof of Work) consensus algorithm is a zero-sum game. With the increase of nodes involved in mining, the probability of each node to obtain the bookkeeping right will be reduced, leading to a continuous rise in the cost. It can be seen that in view of the mining speed and the economic cost, the PoW is not beneficial to the long-term rapid development of the ecology of Nebulas, which is against our ``speediness" goals.
 
-The PoW (Proof of Work) consensus algorithm is a zero-sum game, which uses the competitive hash calculation to determine the bookkeeper, rendering a great amount of electric power in the whole ecology wasted in the competition when any blocks are fed out, and thus the mining cost is high and the speed is restricted. With the increase of nodes involved in mining, the probability of each node to obtain the bookkeeping right will be reduced, leading to a continuous rise in the cost of stable feed-out of blocks under the PoW protocol. The Bitcoin, which continues to increase the difficulty of mining, has to face the situation sooner or later where the mining machine cannot make ends meet, while Ethereum has long been considering the use of the new PoS consensus algorithm Casper \cite{casper} to gradually replace the current PoW consensus \cite{buterin2013ethereum}. It can be seen that in view of the mining speed and the economic cost, the PoW is not beneficial to the long-term rapid development of the ecology of Nebulas, which is against our ``rapid" goals.
+The PoS (Proof of Stake) consensus algorithm overcomes the shortcoming of the speediness of PoW, but visually enlarges the impact of the capital on the probability distribution of the bookkeeping right. Compared with PoW, the big capital under PoS is more likely to gain power to control the ecology and form large group monopoly, possibly damaging the interests of the ecology contributors of Nebulas, which is against our ``fairness" goal.
 
-%PoW (Proof of Work)工作量证明共识算法为零和博弈，采用竞争性哈希计算来确定记账人，导致了整个生态每次出块时都有大量电能在竞争中被无端消耗，挖矿成本高，而且速度受限。如果把公链参与者作为整体来看，随着参与挖矿的节点增加，每个节点获得记账权的概率将会减小，那么PoW协议下生态维持平稳出块的成本将会持续升高。不断增加挖矿难度的Bitcoin早晚需要面临矿机收益入不敷出的情形，而Ethereum则早已在考虑使用新的PoS共识算法Casper~\cite{casper}来逐步取代现阶段的PoW共识~\cite{buterin2013ethereum}。可见，从挖矿速度和经济成本角度，PoW都不利于公链生态的长期快速发展，和我们“快速”的目标不相符。
+The PoI (Proof of Importance) consensus algorithm uses nodes' importance scores to distribute the probability of the bookkeeping right. This algorithm overcomes the shortcoming of the speediness of PoW and relieves the capital monopoly crisis of PoS, but exposes the ``nothing-at-stake" problem. The cost for a cheater to reverse a block is significantly reduced, which goes against our ``irreversibility" goal.
 
-The PoS (Proof of Stake) consensus algorithm attempts to use the asset amount to replace the hash rate and distribute the probability of obtaining the bookkeeping right according to the coin age or deposit amount. Currently, both Peercoin \cite{king2012peercoin} and the Casper Protocol of Ethereum adopt the PoS consensus algorithm. This algorithm overcomes the shortcoming of the high power consumption of PoW but visually enlarges the impact of the capital on the probability distribution of the bookkeeping right. Compared with PoW, the big capital under PoS is more likely to gain power to control the ecology and form large group monopoly, possibly damaging the interests of the ecology contributors and impacting adversely on the value generation of Nebulas, all of which are against our ``fairness" goal.
-
-%PoS (Proof of Stake)股权证明共识算法试图采用资产的多寡来取代算力的作用，按照币龄或者押金数额来分配获得记账权的概率，现阶段Peercoin~\cite{king2012peercoin}和Ethereum的Casper协议都采用了PoS共识算法。这种算法解决了PoW高能耗的弊端，但很直观地放大了资本对记账权概率分配的影响，相较于PoW，在PoS下大资本更容易占据生态的话语权，形成大集团垄断，可能会对生态的建设者的利益造成损害，不利于公链生态的价值沉淀，同样和我们“公平性”的目标不相符。
-
-The PoI (Proof of Importance) consensus algorithm was first proposed by Nem \cite{nem}. Different from PoS, the concept of account importance is introduced to PoI, and the account importance score is used to distribute the probability of the bookkeeping right. This algorithm overcomes the shortcoming of the high power consumption of PoW and relieves the PoS capital monopoly crisis, but exposes the ``nothing-at-stake" problem. The cost for a cheater to reverse a block is significantly reduced, which goes against our ``irreversibility" goal.
-
-%PoI (Proof of Importance)重要度证明共识算法最早由Nem提出~\cite{nem}，不同于PoS，PoI中引入了账户重要程度的概念，使用账户重要性评分来分配记账权的概率。这种算法解决了PoW的高能耗弊端，减缓了PoS的资本垄断危机，但暴露了nothing-at-stake的问题，作弊者逆转一个区块的成本被大大降低，和我们“不可逆”的目标不相符。
-
-In short, in view of the discrepancy between commonly used consensus algorithms and our goals, we have proposed the PoD (Proof of Devotion) algorithm to integrate PoI, which evaluates the comprehensive account influence, with PoS, which involves strict economic penalties. PoS enhances the irreversibility of PoI, while PoI reversely contains the monopoly of PoS, which facilitates the free and rapid development of the ecology.
-
-%综上，鉴于常用共识算法和我们目标存在差距，我们提出了基于账户贡献度的PoD (Proof of Devotion)算法，将评估账户综合影响力的PoI和具有严格经济惩罚的PoS相融合，利用PoS强化PoI的不可逆性，使用PoI反向遏制了PoS的垄断性，以此为生态自由快速发展助力。
+In short, in view of the discrepancy between commonly used consensus algorithms and our goals, we propose the PoD (Proof of Devotion) algorithm to integrate PoI, which evaluates the comprehensive account influence, with PoS, which involves strict economic penalties. PoS enhances the irreversibility of PoI, while PoI reversely contains the monopoly of PoS, which facilitates the healthy and rapid development of the Nebulas.
 
 \subsection{Design of the PoD Algorithm}
 \label{pod:design}
