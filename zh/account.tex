@@ -1,47 +1,35 @@
 \section{星云链账号地址设计}
+星云链的账号地址被精心设计为以``n''开头的形式，以表示其是一个星云（Nebulas）的地址。
 
-\subsection{地址校验码}
+\subsection{用户账户地址}
 类似于比特币和以太坊，星云链的帐号也是由椭圆曲线算法作为其基础加密算法。
-用户的私钥是随机生成的256位二进制数，通过椭圆曲线乘法生成64字节的公钥。
-比特币和以太坊的地址都是由公钥通过确定性的哈希算法运算得到，不同的是：比特币地址有校验码设计，防止用户输错了几个字符而把比特币误发给其它用户，以太坊却没有校验码设计。
+用户的私钥是通过加密用户的口令得到的，进一步的，由该私钥生成相应的公钥。
 
-我们认为从用户的角度看，校验码的设计是合理的，因此星云链的地址也包含了校验码，具体计算方法如下：
 
-\begin{verbatim}
-  Data = sha3_256(Public Key)[-20:]
-  CheckSum = sha3_256(Data)[0:4]
-  Address = "0x" + Hex(Data + CheckSum)
-\end{verbatim}
+此外，为了防止用户输错了几个字符而把星云币误发给其它用户，星云链的地址包含了校验码。
 
-公钥的SHA3-256摘要的后20位字节作为地址的主要组成部分，对其再做一次SHA3-256摘要，取前4位字节做校验码，其相当于在以太坊的地址尾部加上4字节的校验码。
-
-例如：
-\begin{enumerate}
-  \item Alice的以太坊钱包标准地址是 0xdf4d22611412132d3e9bd322f82e2940674ec1bc ；
-  \item 最后星云链钱包地址是： 0xdf4d22611412132d3e9bd322f82e2940674ec1bc\textbf{03b20e40} 。
-\end{enumerate}
-
-以太坊地址包括0x前缀共42位字符，星云链地址增加了8位字符的校验码，共50位字符。
-
-\subsection{扩展地址验证}
-除了支持50字符的标准地址，为了用户转账的安全，我们还支持扩展地址。借鉴了传统银行转账的设计：转账时除了验证对方的银行卡账号，汇款人还必须输入对方的姓名，只有银行卡账号和姓名都匹配，转账才能正确进行。扩展地址的生成算法如下：
+星云链中的用户地址计算方式如下：
 
 \begin{verbatim}
-  Data = sha3_256(Public Key)[-20:]
-  CheckSum = sha3_256(Data)[0:4]
-  Address = "0x" + Hex(Data + CheckSum)
-
-  ExtData = Utf8Bytes({Nickname or any string})
-  ExtHash = sha3_256(Data + ExtData)[0:2]
-  ExtAddress = Address + Hex(ExtHash)
+content = ripemd160(sha3_256(public key))
+checksum = sha3_256(0x19<<(21*8) + 0x57<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x57<<(24*8) + content<<(4*8) + checksum)
 \end{verbatim}
+其中0x19为一个字节的填充，0x57是用户账户地址对应的类型。\texttt{content}的长度为20个字节，\texttt{checksum}的长度为4个字节，\texttt{address}的长度为35个字节。
 
-扩展地址在标准地址的尾部追加了2字节的扩展验证，共54位字符。加入扩展信息，使得在星云链钱包应用中可以增加另一个要素验证。例如：
-\begin{enumerate}
-	\item Alice的钱包标准地址是 0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40，加入昵称“alice”后的扩展地址是0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40\textbf{e345}；
-	\item Alice告诉Bob扩展地址 0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40e345 和昵称\textbf{alice}；
-	\item Bob在Wallet应用中，输入 0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40e345 和 alice；
-	\item Wallet应用验证钱包地址的一致性，避免Bob错误的输成了其它人的帐号。
-\end{enumerate}
+在使用base58编码之后，一个典型的地址如下：n1TV3sU6jyzR4rJ1D7jCAmtVGSntJagXZHC，即以字母n开头。
 
-标准地址和扩展地址均可以用于转账，我们的星云链钱包应用将会强制使用扩展地址，转账时需要提供对方的昵称，验证地址一致性，进一步加强安全校验。
+
+
+\subsection{智能合约地址}
+在星云链中，对智能合约地址的计算方式略微区别于普通的用户账户地址，对于智能合约的地址而言，不需要额外的口令，其计算方式如下：
+
+\begin{verbatim}
+content = ripemd160(sha3_256(public key))
+checksum = sha3_256(0x19<<(21*8) + 0x58<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x58<<(24*8) + content<<(4*8) + checksum)
+\end{verbatim}
+\noindent
+可以看到，这类似于普通用户帐户地址的计算方式，所不同的是，智能合约地址对应的类型为0x58。同样的，一个典型的智能合约地址如下：
+n1sLnoc7j57YfzAVP8tJ3yK5a2i56QrTDdK。
+
