@@ -15,7 +15,7 @@ content = ripemd160(sha3_256(public key))
 checksum = sha3_256(0x19<<(21*8) + 0x57<<(20*8) + content)[0:4]
 address = base58(0x19<<(25*8) + 0x57<<(24*8) + content<<(4*8) + checksum)
 \end{verbatim}
-其中0x19为一个字节的填充，0x57是用户账户地址对应的类型。\texttt{content}的长度为20个字节，\texttt{checksum}的长度为4个字节，\texttt{address}的长度为35个字节。
+其中0x19为一个字节的填充，0x57是用户账户地址对应的类型。\texttt{content}的长度为20个字节，\texttt{checksum}的长度为4个字节，\texttt{address}的长度为35个字符。
 
 在使用base58编码之后，一个典型的地址如下：n1TV3sU6jyzR4rJ1D7jCAmtVGSntJagXZHC，即以字母n开头。
 
@@ -25,7 +25,7 @@ address = base58(0x19<<(25*8) + 0x57<<(24*8) + content<<(4*8) + checksum)
 在星云链中，对智能合约地址的计算方式略微区别于普通的用户账户地址，对于智能合约的地址而言，不需要额外的口令，其计算方式如下：
 
 \begin{verbatim}
-content = ripemd160(sha3_256(public key))
+content = ripemd160(sha3_256(tx.from, tx.nonce))
 checksum = sha3_256(0x19<<(21*8) + 0x58<<(20*8) + content)[0:4]
 address = base58(0x19<<(25*8) + 0x58<<(24*8) + content<<(4*8) + checksum)
 \end{verbatim}
