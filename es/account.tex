@@ -1,0 +1,40 @@
+\section{Nebulas Account Address Design}
+
+We carefully design Nebulas account address to make it start with ``n'',
+which
+is short for ``Nebulas''.
+
+\subsection{Account Address}
+
+Similar to Bitcoin and Ethereum, Nebulas also adopts elliptic curve algorithm as its basic encryption algorithm for Nebulas accounts.
+The address is derived from public key, which is in turn derived from the private key that encrypted with user's passphrase.
+
+Also we have the checksum design aiming to prevent a user from sending NAS to a wrong user account accidentally due to entry of several incorrect characters.
+The specific calculation method is provided as follows:
+
+\begin{verbatim}
+content = ripemd160(sha3_256(public key))
+checksum = sha3_256(0x19<<(21*8) + 0x57<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x57<<(24*8) + content<<(4*8) + checksum)
+\end{verbatim}
+\noindent in which 0x19 is for padding, and 0x57 specifies the type of
+address. Notice that the length of \texttt{content} is 20 bytes, the length of
+\texttt{checksum} is 4 bytes, and the length of \texttt{address} is 26 bytes.
+
+A Nebulas address contains a total of 35 characters including the prefix
+``n'', which is encoded with base58. A typical address looks like this
+\texttt{n1TV3sU6jyzR4rJ1D7jCAmtVGSntJagXZHC}.
+
+
+\subsection{Smart Contract Address}
+Calculating contract address differs slightly from account, passphrase of
+contract sender is not required but address \& nonce.  Calculation formula is as follows:
+
+\begin{verbatim}
+content = ripemd160(sha3_256(tx.from, tx.nonce))
+checksum = sha3_256(0x19<<(21*8) + 0x58<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x58<<(24*8) + content<<(4*8) + checksum)
+\end{verbatim}
+\noindent
+in which 0x58 indicates the address type for smart contract. A typical smart
+contract address is like \texttt{n1sLnoc7j57YfzAVP8tJ3yK5a2i56QrTDdK}.

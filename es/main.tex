@@ -1,0 +1,68 @@
+\documentclass[11.5pt]{article}
+\usepackage{charter}
+\usepackage{fullpage}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{ifthen}
+\usepackage{comment}
+
+\usepackage[title,titletoc]{appendix}
+
+\bibliographystyle{unsrt}
+\input{common.tex}
+\addbibresource{reference.bib}
+
+\begin{document}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\abstractname}{Abstract}
+\renewcommand{\refname}{References}
+\renewcommand{\nomname}{Glossaries}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\appendixname}{Appendix}
+
+%\title{
+%	Nebulas 星云链技术白皮书 \\
+%	\large 基于价值尺度的区块链操作系统及搜索引擎}
+\title{
+	Nebulas Technical White Paper \\
+	\large The value-based blockchain operating system and search engine}
+\author{Nebulas Team}
+\date{April, 2018\\v1.0.2}
+
+\maketitle
+
+\newpage
+\input{abstract.tex}
+\tableofcontents
+
+\printnomenclature
+
+\input{nomencl.tex}
+\newpage
+\input{introduction.tex}
+\newpage
+\input{rank.tex}
+\newpage
+\input{force.tex}
+\newpage
+\input{dip.tex}
+\newpage
+\input{pod.tex}
+\newpage
+\input{search.tex}
+\newpage
+\input{tools.tex}
+\newpage
+\input{nascoin.tex}
+\newpage
+\input{conclusion.tex}
+\printbibliography
+
+\begin{appendices}
+\input{account.tex}
+\input{sim_search.tex}
+\end{appendices}
+
+%\bibliography{reference}
+\end{document}
