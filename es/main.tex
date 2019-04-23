@@ -12,57 +12,63 @@
 \addbibresource{reference.bib}
 
 \begin{document}
-\renewcommand{\contentsname}{Contents}
-\renewcommand{\abstractname}{Abstract}
-\renewcommand{\refname}{References}
-\renewcommand{\nomname}{Glossaries}
-\renewcommand{\figurename}{Fig.}
-\renewcommand{\tablename}{Table}
-\renewcommand{\baselinestretch}{1.5}
-\renewcommand{\appendixname}{Appendix}
 
-%\title{
-%	Nebulas 星云链技术白皮书 \\
-%	\large 基于价值尺度的区块链操作系统及搜索引擎}
+% ---------------------------------
+% Los siguientes comandos son un quickfix para la imposibilidad de compilar este documento usando Babel.
+\renewcommand\contentsname{Tabla de contenidos}
+\renewcommand\refname{Referencias}
+\renewcommand\appendixname{Anexo}
+\renewcommand\appendixpagename{Anexos}
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\nomname}{Glosario}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\dapp}{DApp\xspace}
+\newcommand{\pidc}{Protocolo de Incentivos para Desarrolladores\xspace}
+% ---------------------------------
+
 \title{
-	Nebulas Technical White Paper \\
-	\large The value-based blockchain operating system and search engine}
+	Libro Blanco Técnico de Nebulas \\
+	\large The value-based blockchain operating system and search engine\\
+	\small Título original: \textit{Nebulas Technical White Paper: The value-based blockchain operating system and search engine\\
+	    Traducción: abril de 2019\\
+    Versión: 1.0.0}}
 \author{Nebulas Team}
 \date{April, 2018\\v1.0.2}
-
 \maketitle
 
 \newpage
-\input{abstract.tex}
+\input{abstract.tex} %done
 \tableofcontents
 
 \printnomenclature
 
-\input{nomencl.tex}
+\input{nomencl.tex} %done
 \newpage
-\input{introduction.tex}
+\input{introduction.tex} %done
 \newpage
-\input{rank.tex}
+\input{rank.tex} %in process
 \newpage
-\input{force.tex}
+\input{force.tex} %pending
 \newpage
-\input{dip.tex}
+\input{dip.tex} %pending
 \newpage
-\input{pod.tex}
+\input{pod.tex} %pending
 \newpage
-\input{search.tex}
+\input{search.tex} %pending
 \newpage
-\input{tools.tex}
+\input{tools.tex} %pending
 \newpage
-\input{nascoin.tex}
+\input{nascoin.tex} %done
 \newpage
-\input{conclusion.tex}
+\input{conclusion.tex} %pending
 \printbibliography
 
 \begin{appendices}
-\input{account.tex}
-\input{sim_search.tex}
+\input{account.tex} %pending
+\input{sim_search.tex} %pending
 \end{appendices}
 
-%\bibliography{reference}
+%\bibliography{reference} %pending; PLEASE KEEP IT COMMENTED OUT
 \end{document}

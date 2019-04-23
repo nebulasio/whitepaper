@@ -5,14 +5,11 @@
 
 Due to the anonymity of blockchains, account addresses are long and meaningless strings, which are not user-friendly. For this reason, users are prone to misoperations like money loss caused by unintentional funding or the interaction with incorrect objects. In other words, by using domain names that are easy to remember, users can gain better experience. By using smart contracts, the Nebulas development team will implement a DNS-like domain system named Nebulas Name Service (NNS) on the chain while ensuring that it is unrestricted, free and open. Any third-party developers can implement their own domain name resolution services independently or based on NNS.
 
-%在区块链的世界中，应用都以账号为中心，由于区块链的匿名性，账号地址是非常长的无意义的字符串，并不是用户友好的。用户可能容易出错，意外地投入资金导致丢失，或者与错误对象互动。如果用户能够使用容易记忆的域名，将是巨大的优势。星云链团队将会在链上用智能合约实现一个类似DNS的域名系统，称为NNS(Nebulas Name Service)，保证其自由、免费、开放。任何第三方开发者可以独立地或者基于NNS实现自己的域名解析服务。
-
 For example, Alice applied for the domain name ``alice.nns" for her account address \\0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40. To transfer money to Alice, Bob simply needs to enter ``alice.nns" in payee information so that the money will be transferred to the correct payee address through the NNS service.
 
-%例如，alice为她的账号地址 0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40 申请了域名alice.nns，Bob如果想转账给alice，在收款人信息中只要填写alice.nns即可，钱包会通过NNS服务，把资金转账到正确的收款人地址。
 
 NNS application rules are as follows:
-%NNS的申请规则如下：
+
 \begin{itemize}
 
 	\item Top-level sub-domain names will be reserved and unavailable for application, such as *.nns, *.com, *.org and *.edu. Thus, users can only apply for second-level sub-domain names.
@@ -21,11 +18,6 @@ NNS application rules are as follows:
 	\item Users can give up the ownership of a domain name at any time. In this case, the bidding funds will be automatically refunded to the user's account and the domain name will be released as available again after domain data is cleared.
 	\item Users can transfer the ownership of a domain name with or without compensation. Nebulas does not intervene in any transactions of domain names.
 
-	%\item 一级子域名保留，不可申请，例如*.nns，*.com，*.org，*.edu等等，用户只能申请二级子域名。
-	%\item NNS服务开放后，用户可以查询域名是否已经被占用。如果未被占用，可以通过智能合约提出竞价。竞价是公开的，任何人都可以查询其他人的竞价并且随时更新自己的竞价。
-	%\item 竞价期结束以后，价高者得此域名，智能合约会锁定用户的竞价资金。域名有效期为一年。一年后用户自由决定是否续约，同意续约后，有效期再延长一年。如果不续约，竞价资金自动退回用户账户，域名数据清空，重新变为可用。
-	%\item 用户可以随时放弃域名所有权，竞价资金自动退回用户账户，域名数据清空，重新变为可用。
-	%\item 用户可以无偿或者有偿转让域名所有权，域名之间的交易，星云链不做任何干预。
 \end{itemize}
 
 
@@ -33,14 +25,8 @@ NNS application rules are as follows:
 
 Currently, all public blockchain networks are faced with system scalability challenges. For example, Bitcoin network is only able to process 7 transactions per second and Ethereum is able to process 15 transactions per second. By introducing PoS-like consensus algorithms, mining calculation can be avoided and the consensus speed can be improved dramatically. However, public blockchains are still greatly challenged by massive micro-payment scenarios in the real world. Put forward in February 2015, the lightning network \cite{poon2015bitcoin} was designed to set up a channel network for micro-payment between transaction parties, so that large amounts of payments between the parties can be confirmed off the blockchain directly, repeatedly, frequently and bi-directionally in the netting method. When a transaction needs to be settled, the final result will be submitted to the blockchains for confirmation. Theoretically, this can achieve millions of transfers per second. If no point-to-point payment channel is available between the parties, a payment path connecting both parties and consisting of multiple payment channels can also be used to achieve reliable fund transfer between the parties. The lightning network has gone through the PoC phase on both Bitcoin and Ethereum.
 
-%当前所有的公有链网络都面临系统的扩展性问题，例如比特币网络每秒只能处理7个交易，以太坊每秒处理15个交易。引入类PoS的共识算法，可以避免挖矿计算，大大加快共识速度，但是面对现实世界的海量微支付场景，公有链仍然面临极大的挑战。闪电网络~\cite{poon2015bitcoin}于2015年2月被提出，设计思路是为交易双方建立一个微支付通道网络，双方大量的支付都可以在链外直接多次、高频、双向地通过轧差方式实现瞬间确认。当交易结果需要结算时，再把最终结果提交到区块链确认，理论上可以实现每秒百万笔的转账。双方若无直接的点对点支付通道，只要网络中存在一条连通双方的、由多个支付通道构成的支付路径，也可以利用这条支付路径实现资金在双方之间的可靠转移。闪电网络在比特币和以太坊上都已经有概念性的验证。
-
 Nebulas implements the lightning network as the infrastructure of blockchains and offers flexible design. Any third-party developers can use the basic service of lightning network to develop applications for frequent transaction scenarios on Nebulas. In addition, Nebulas will launch the world's first wallet app that supports the lightning network.
-
-%星云链把闪电网络当做区块链的基础设施予以实现，并且提供足够的灵活性设计。任何第三方开发者，都可以在星云链上利用闪电网络的基础服务，做高频交易场景的应用开发。星云链也将发布世界首款支持闪电网络的钱包App。
 
 \subsection{Developer Tools}
 
 A complete set of developer tools are critical to blockchain app developers. So far, developer tool chains for pubic blockchains are incomplete, imposing great challenges to most developers. Nebulas development team will provide a rich set of developer tools, including independent development IDE for smart contracts, block browser, plugins for various popular IDEs (including Eclipse, JetBrains, Visual Studio, Sublime Text, VIM and Atom), debugger, simulator, formal verification tool for smart contracts, background SDKs for various advanced languages, and SDKs for mobile ends.
-
-%完善的开发者工具，对于区块链应用开发者来说是非常重要的。目前各种公有区块链的开发者工具链都不够完善，对于大多数开发者是很大的阻碍。星云链开发组将提供丰富的开发者工具，包括独立的智能合约开发IDE，区块浏览器，各种流行IDE的插件支持(包括Eclipse, JetBrains, Visual Studio, Sublime Text, VIM, Atom等)，调试器，模拟器，智能合约形式化验证工具，各种高级语言的后台SDK，移动端SDK等。
