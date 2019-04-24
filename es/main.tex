@@ -4,12 +4,11 @@
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{ifthen}
 \usepackage{comment}
-
 \usepackage[title,titletoc]{appendix}
 
 \bibliographystyle{unsrt}
 \input{common.tex}
-\addbibresource{reference.bib}
+%\addbibresource{reference.bib}
 
 \begin{document}
 
@@ -29,46 +28,49 @@
 % ---------------------------------
 
 \title{
-	Libro Blanco Técnico de Nebulas \\
-	\large The value-based blockchain operating system and search engine\\
-	\small Título original: \textit{Nebulas Technical White Paper: The value-based blockchain operating system and search engine\\
-	    Traducción: abril de 2019\\
-    Versión: 1.0.0}}
-\author{Nebulas Team}
-\date{April, 2018\\v1.0.2}
+	Libro blanco de Nebulas \\
+	\large El sistema operativo con motor de búsqueda en blockchain basado en \textit{rankings}\\
+	\small Título original: Nebulas Technical Whitepaper: The value-based blockchain operating system and search engine\\
+	\small Traducción: Abril de 2019\\v1.0.0}
+\author{Equipo Nebulas}
+\date{Abril de 2018\\v1.0.2}
+
 \maketitle
 
 \newpage
-\input{abstract.tex} %done
+\input{abstract.tex} %TRADUCIDO
 \tableofcontents
 
 \printnomenclature
 
-\input{nomencl.tex} %done
+\input{nomencl.tex} %TRADUCIDO
 \newpage
-\input{introduction.tex} %done
+\input{introduction.tex} %TRADUCIDO
 \newpage
-\input{rank.tex} %in process
+\input{rank.tex} %EN PROGRESO
 \newpage
-\input{force.tex} %pending
+\input{force.tex} %TRADUCIDO
+\input{nvm.tex} %PENDIENTE
+\input{block.tex} %PENDIENTE
+\input{smartcontract.tex} %PENDIENTE
 \newpage
-\input{dip.tex} %pending
+\input{dip.tex} %PENDIENTE
 \newpage
-\input{pod.tex} %pending
+\input{pod.tex} %PENDIENTE
 \newpage
-\input{search.tex} %pending
+\input{search.tex} %PENDIENTE
 \newpage
-\input{tools.tex} %pending
+\input{tools.tex} %TRADUCIDO
 \newpage
-\input{nascoin.tex} %done
+\input{nascoin.tex} %TRADUCIDO
 \newpage
-\input{conclusion.tex} %pending
-\printbibliography
+\input{conclusion.tex} %PENDIENTE
+\bibliography{reference} %PENDIENTE
+%\printbibliography
 
 \begin{appendices}
-\input{account.tex} %pending
-\input{sim_search.tex} %pending
+\input{account.tex} %PENDIENTE
+\input{sim_search.tex} %PENDIENTE
 \end{appendices}
 
-%\bibliography{reference} %pending; PLEASE KEEP IT COMMENTED OUT
 \end{document}

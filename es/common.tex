@@ -48,7 +48,7 @@
 %\usepackage{subfigure}
 \usepackage[american]{babel}
 %\usepackage{csquotes}
-\usepackage{biblatex}
+%\usepackage{biblatex}
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -80,22 +80,3 @@
 \newcommand{\Returns}{\KwSty{returns}}
 \newcommand{\Shared}{\KwSty{shared}}
 \newcommand{\Constant}{\KwSty{contant}}
-
-\renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
-  \ifboolexpr{
-    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
-    and
-    test \ifmorenames
-  }
-    {\ifnumgreater{\value{liststop}}{1}
-       {\finalandcomma}
-       {}%
-     \andothersdelim\bibstring[\emph]{andothers}}
-    {}}
-
-    \addbibresource{reference.bib}
-
-
-
-
-
