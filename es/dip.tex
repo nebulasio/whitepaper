@@ -4,14 +4,14 @@
 \subsection{Metas de diseño}
 \label{dip:design}
 
-In order to create a good community for Nebulas, we propose the Developer Incentive Protocol (DIP) for smart contract developers and express our appreciation to outstanding smart contract developers who contribute to Nebulas by rewarding them NAS.
+Con el fin de crear una comunidad atractiva en Nebulas proponemos la puesta en servicio del Protocolo de Incentivos para Desarrolladores (DIP) —destinado a programadores de contratos inteligentes en Nebulas— que recompensa con NAS a los más destacados.
 
-\subsection{DIP Reward Distribution Algorithm}
+\subsection{Algoritmo de distribución de recompensas}
 \label{dip:arith}
 
-We believe that an excellent smart contract depends on how many users are willing to use it. More high-value accounts, better smart contract. As a kind of universal value criteria of accounts, NR can be used to assess high-value accounts. The design of DIP combines NR and the common WAU (weekly active users) concept, the total WAU value measure is used to evaluate the value measure of the smart contract.
+Creemos que un buen contrato inteligente depende de la cantidad de usuarios que están dispuestos a usarlo. A mayor cantidad de cuentas con buena valuación, mejor será el contrato inteligente. Se utiliza Nebulas Rank a modo de criterio de valuación universal de dichas cuentas. El diseño de DIP combina NR y el concepto común de WAA (\textit{Weekly Active Addresses}, o Direcciones Activas Semanalmente), y el valor WAA total obtenido se utiliza para la valuación del contrato inteligente.
 
-DIP is carried out once a week. For Smart Contract C, it is assumed that the active account address set of this week is WAA (Weekly Active Addresses). According to the NR ranking in \refsec{subsec:leaderrank} (Top X is taken), the sum of NRs of weekly active addresses is calculated as the SCS (Smart Contract Score) of Contract C, as shown in Equation \ref{formula:dip:scs}.
+El cómputo del DIP se realiza semanalmente. Para un contrato inteligente \textit{C}, asumimos que el conjunto de direcciones de cuenta activas de esa semana es WAA. Según la valuación NR en \refsec{subsec:leaderrank} (se toma el Top X), la suma de los valores NR de las direcciones activas esa semana se calcula como el SCS (\textit{Smart Contract Score}, o Puntaje de Contrato Inteligente) del Contrato C, tal como se muestra en la ecuación \ref{formula:dip:scs}.
 
 \begin{align}
 \label{formula:dip:scs}
