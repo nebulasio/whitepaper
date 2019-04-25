@@ -1,62 +1,62 @@
-\subsection{Upgrade Design of the Protocol Code}
+\subsection{Actualización del diseño del código de protocolo}
 
-We first give the block structure of the Nebulas, and then discuss how to upgrade the protocol code based on the block structure.
+Primero definimos la estructura de bloques de Nebulas, y luego discutimos cómo actualizar el código de protocolo basándonos en él.
 
-\subsubsection{Block Structure}
+\subsubsection{Estructura de bloques}
 
-The Nebulas block data structure contains, but is not limited to, the following:
+La estructura de bloques de datos de Nebulas contiene, pero no se limita a, lo siguiente:\footnote{N. del T.: se preservan los nombres en inglés para la mejor comprensión de los documentos técnicos.}
 
 \begin{itemize}
-	\item Header: Block Header
+	\item Header: encabezado de bloque
 		\begin{itemize}
-		\item Height:block height
-		\item ParentHash:parent block hash
-		\item Ts:timestamp
-		\item Miner:miner address
-		\item Dynasty:the consensus dynasty of the block
-		\item Epoch:the consensus age of the block
-		\item StateRoot:state root hash
-		\item TxsRoot:transaction root hash
-		\item ReceiptsRoot:transaction receipt hash
-		\item TransNum:number of transactions
+		\item Height: altura del bloque
+		\item ParentHash: hash del bloque padre
+		\item Ts: timestamp
+		\item Miner: dirección del minero
+		\item Dynasty: \textit{dinastía} del consenso del bloque
+		\item Epoch: la \textit{época} del consenso del bloque
+		\item StateRoot: hash del estado raíz
+		\item TxsRoot: hash de la transacción raíz
+		\item ReceiptsRoot: hash del recibo de la transacción
+		\item TransNum: número de transacciones
 		\end{itemize}
-	\item Transactions:transaction data (including multiple transactions)
+	\item Transactions: datos de la transacción (incluye transacciones múltiples)
 		\begin{itemize}
-		\item From:transaction sender address
-		\item To:transaction receiver address, for creating a smart contract with a value 0x0
-		\item Value:transfer amount
-		\item Data:Transaction payload. It's the smart contract bytecode if the transaction is for creating a smart contract; It's the name of the calling function and the entry if the transaction is a smart contract call.
-		\item Signature:transaction signature
-		\item Gas:gas limit
-		\item GasPrice:gas unit price
-		\item Nonce:the uniqueness of transactions
+		\item From: dirección del emisor de la transacción
+		\item To: dirección del receptor de la transacción, para crear contratos inteligentes se debe usar 0x0
+		\item Value: cantidad a transferir
+		\item Data: carga útil de la transacción. Si la transacción es para crear un contrato inteligente, contiene su bytecode; si la transacción es una llamada a contrato inteligente, contiene el nombre de la función a llamar.
+		\item Signature: firma de la transacción
+		\item Gas: límite de gas
+		\item GasPrice: precio de la unidad de gas
+		\item Nonce: identificador único de la transacción
 		\end{itemize}
-	\item Votes:Prepare and Commit Votes (including multiple), used in PoD (see \refsec{sec:pod}) consensus algorithm
+	\item Votes: preparación y confirmación de votos (incluyendo múltiples), para su uso por el algoritmo de consenso PoD (see \refsec{sec:pod})
 		\begin{itemize}
-		\item From:voter
-		\item VoteHash:hash of the block voted for
-		\item Hv:the height of the block voted for
-		\item Hvs:the height of an ancestral block of the block voted for
-		\item VoteType:voting type,Prepare or Commit
-		\item Signature:vote signature
+		\item From: votante
+		\item VoteHash: hash del bloque votado
+		\item Hv: altura del bloque votado
+		\item Hvs: altura del bloque padre del votado
+		\item VoteType: tipo de voto, Prepare (preparar) o Commit (confirmar)
+		\item Signature: firma del voto
 		\end{itemize}
-	\item Protocol Code:The protocol code (only 0 or 1 in a block)
+	\item Protocol Code: el código del protocolo (dentro de un bloque, tipo binario)
 		\begin{itemize}
-		\item Hash:hash of the protocol code
-		\item Code:the bytecode of the protocol code
-		\item ValidStartBlock:the start block number that protocol come into effect
-		\item Signature:signautre (sign by the developer community)
-		\item Version:the protocol code version number, and each upgrade needs to be incremented to prevent malicious accounts from rolling back to the old protocol code
-		\item Nonce:the uniqueness of protocol code
+		\item Hash: hash del código de protocolo
+		\item Code: bytecode del código de protocolo
+		\item ValidStartBlock: el número del bloque inicial para el cual el protocolo entrará en efecto
+		\item Signature: firma (de la comunidad)
+		\item Version: número de versión del código del protocolo; cada actualización necesita incrementar este número para prevenir que alguna cuenta maliciosa pueda ejecutar un protocolo obsoleto
+		\item Nonce: identificador único del código de protocolo
 		\end{itemize}
-	\item Nebulas Rank:Nebula index (calculated once a week, most blocks haven't this section)
+	\item Nebulas Rank: índice Nebulas (calculado de forma semanal, la mayoría de los bloques no incluyen esta sección)
 		\begin{itemize}
-		\item RankVersion:NR version
-		\item RankRoot:NR rank hash
-		\item RankRecords:NR rank record
+		\item RankVersion: versión NR
+		\item RankRoot: hash de la valuación NR
+		\item RankRecords: registro de la valuación NR
 			\begin{itemize}
-				\item Address:Account address tag
-				\item Score:NR value
+				\item Address: etiqueta de la dirección de cuenta
+				\item Score: valuación NR
 			\end{itemize}
 		\end{itemize}
 \end{itemize}
@@ -64,20 +64,22 @@ The Nebulas block data structure contains, but is not limited to, the following:
 \begin{figure}[!h]
 \centering
 \includegraphics[width=13.8cm]{./figs/block}
-\caption{Block Structure}
+\caption{Estructura del bloque}
 \label{fig:block}
 \end{figure}
 
-Similar to other cryptocurrency systems, the interaction between the account and the blockchain is done through a particular transaction. The account creates a transaction, which is signed with a private key, and sends it to any node in the blockchain and broadcasts it to full network node through the P2P network. During the fixed block time interval, the nodes specified by the PoD consensus algorithm (see \refsec{sec:pod}) collect all transactions in the time and pack them into blocks of standard format and broadcast them to the rest of the network. After verification by each node, the new block is appended into the local ledger and becomes a part of the global ledger.
+De forma similar a otros sistemas de criptodivisa, la interacción entre la cuenta y el blockchain se realiza a través de una transacción en particular. La cuenta crea una transacción, que se firma con una clave privada, la envía a cualquier nodo del blockchain y la transmite al nodo de red completo a través de la red P2P. Durante el intervalo fijo del tiempo de bloque, los nodos especificados por el algoritmo de consenso PoD (ver \refsec{sec:pod}) recogen todas las transacciones en ese lapso, las empaquetan en bloques de formato estándar y las transmiten al resto de la red. Una vez verificado por cada nodo, el nuevo bloque se añade al blockchain local y luego pasa a formar parte del blockchain global.
 
-In Ethereum, transactions are divided into two types: ordinary account transaction and smart contract transaction. We add new transaction types to the blocks of Nebulas: protocol code and the Nebulas Rank. The protocol code, as a part of the blockchain data, is stored on the chain, and the upgrade of the basic protocol of Nebulas is carried out through supplementing additional data on chains. Based on the NR ranking algorithm, the NR value of each account is calculated in each cycle and saved in the corresponding chain to facilitate the real-time NR value calling and historical ranking query.
+En Ethereum, las transacciones están divididas en dos tipos: transacciones de cuentas ordinarias y transacciones de contratos inteligentes. En nuestro caso, añadimos dos tipos de transacción nuevos a nuestros bloques: código de protocolo y Nebulas Rank. El código de protocolo, como parte de los datos en el blockchain, se almacenan allí, y la actualización del protocolo básico de Nebulas se lleva a cabo mediante la inserción de datos adicionales en el blockchain. Basado en el algoritmo de valuación NR, el valor NR de cada cuenta se calcula una vez por ciclo y se almacena en el blockchain correspondiente para facilitar la llamada a valores NR en tiempo real, y para realizar consultas históricas.
 
-\subsubsection{Upgrade of the Protocol Code}
+\subsubsection{Actualización del código del protocolo}
 
-The Nebulas client node can obtain the compiled virtual machine bytecode (NVM bytecode) from the storage area of the Protocol Code in the latest block. If there are no data of the Protocol Code in the latest block, it indicates that the protocol code has no change and has to trace back to the Protocol Code in the nearest block. Any actions of the protocol code of blockchains will be determined by the Protocol Code, including the authentication algorithm, the packing rules, the NR algorithm, the incentive mechanism, etc. Almost all actions of blockchains can be defined by the Protocol Code.
+El nodo cliente de Nebulas puede obtener el bytecode compilado de la máquina virtual (NVM bytecode) desde el área de almacenamiento del código de protocolo en el último bloque creado. Si no hay datos del mismo en ese último bloque, significa que el código de protocolo no tiene ninguna actualización, y se debe buscar la versión actual en el bloque más cercano.
 
-If the protocol code needs to be upgraded, the Nebulas development team will be responsible for its development and the code will be released to open channels for discussion and voting in communities. Voting can be carried out in the form of the smart contract or voting in the forum. If the majority of community members agree to upgrade the protocol, the Nebulas development team will pack the latest code into Protocol Code transaction, and release it to all nodes of the whole network; only if the bookkeeping nodes include it in blocks, it will become valid at the specified block height. This type of blockchain protocol upgrade is transparent to clients without soft and hard fork.
+Cualquier acción sobre los blockchains será determinada por el código de protocolo, incluyendo el algoritmo de autenticación, las reglas de empaquetado, el algoritmo NR, el mecanismo de incentivos, etc. Casi todas las acciones de los blockchains pueden ser definidas por el código de protocolo.
 
-In order to ensure that the protocol code is released after authorization, the publisher of the Protocol Code uses the address reserved by the core Nebulas, cannot be changed with hard code within the genesis block. All bookkeeping nodes will verify the signature of Protocol Code. If the signature fails to pass the verification, it will be deemed as the illegal data.
+Si el código del protocolo necesita ser actualizado, el equipo de desarrollo de Nebulas será responsable de su desarrollo y el código será liberado para abrir canales de discusión y votación en las comunidades. La votación se puede llevar a cabo en forma de contrato inteligente o de votación en el foro. Si la mayoría de los miembros de la comunidad están de acuerdo en actualizar el protocolo, el equipo de desarrollo de Nebulas empaquetará el último código en la transacción de código de protocolo, y lo liberará a todos los nodos de la red; una vez que los nodos de contabilidad lo incluyan en bloques, será válido a la altura del bloque especificado. Este tipo de actualización del protocolo en el blockchain es transparente para los clientes sin necesidad de recurrir a \textit{forks}.
 
-The subsequent improvement measure is to change the signature verification of the Protocol Code into the M-of-N multi-signature, which can also be implemented through the upgrade of the Protocol Code.
+Para asegurarse que el código de protocolo se libere después de la autorización, el responsable de su publicación debe utilizar la dirección reservada para el núcleo de Nebulas, que no es modificable en el bloque génesis. Todos los nodos de contabilidad verificarán la firma del código de protocolo. Si la firma no supera la verificación, se considerará que se trata de datos ilegítimos.
+
+La medida de mejora subsiguiente es cambiar la verificación de la firma del código de protocolo por el sistema multifirma M-de-N, que se puede implementar mediante la misma actualización del código de protocolo.

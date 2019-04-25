@@ -11,14 +11,14 @@ Con el fin de crear una comunidad atractiva en Nebulas proponemos la puesta en s
 
 Creemos que un buen contrato inteligente depende de la cantidad de usuarios que están dispuestos a usarlo. A mayor cantidad de cuentas con buena valuación, mejor será el contrato inteligente. Se utiliza Nebulas Rank a modo de criterio de valuación universal de dichas cuentas. El diseño de DIP combina NR y el concepto común de WAA (\textit{Weekly Active Addresses}, o Direcciones Activas Semanalmente), y el valor WAA total obtenido se utiliza para la valuación del contrato inteligente.
 
-El cómputo del DIP se realiza semanalmente. Para un contrato inteligente \textit{C}, asumimos que el conjunto de direcciones de cuenta activas de esa semana es WAA. Según la valuación NR en \refsec{subsec:leaderrank} (se toma el Top X), la suma de los valores NR de las direcciones activas esa semana se calcula como el SCS (\textit{Smart Contract Score}, o Puntaje de Contrato Inteligente) del Contrato C, tal como se muestra en la ecuación \ref{formula:dip:scs}.
+El cómputo del DIP se realiza semanalmente. Para un contrato inteligente \textit{C}, asumimos que el conjunto de direcciones de cuenta activas de esa semana es WAA (\textit{Weekly Active Acounts}). Según la valuación NR en \refsec{subsec:leaderrank} (se toman las diez principales), la suma de los valores NR de las direcciones activas esa semana se calcula como el SCS (\textit{Smart Contracts Score}, o Puntaje de Contratos Inteligentes) del Contrato C, tal como se muestra en la ecuación \ref{formula:dip:scs}.
 
 \begin{align}
 \label{formula:dip:scs}
 SCS(C)=\sum_{addr \in WAA}(max\{X + 1 - NR(addr), 0\})
 \end{align}
 
-Based on weekly SCSs, they are sorted out from high to low for SCR (Smart Contract Rank). Top N smart contracts are taken, and the corresponding developers will share M NASs based on proportion. In order to avoid malicious ranking scam, the DIP distribution curve is designed to be even as shown in \reffig{fig:dipdis}, but it is still ensured that the revenue of Rank 1 is 2 times of that of Rank N to indicate the difference in SCS. The proportion constraints are as shown in Equation \ref{formula:dip}.
+Con base en el cómputo semanal de SCS (Puntaje de Contratos Inteligentes), las recompensas se clasifican de mayor a menor de acuerdo a su SCR (\textit{Smart Contract Rank}, Valuación de Contratos Inteligentes). Se toman los mejores $N$ contratos inteligentes, de las cuales sus desarrolladores compartirán $M$ NAS en concepto de recompensas, y en forma proporcional al SCR. Con el fin de evitar manipulaciones en la clasificación, la curva de distribución DIP está diseñada para ser uniforme como se muestra en \reffig{fig:dipdis}, pero aún así se asegura que los ingresos de la valuación 1 sean 2 veces mayores que los de la valuación $N$ para indicar la diferencia en SCS. Las restricciones de proporción se muestran en la ecuación \ref{formula:dip}.
 
 \begin{alignat}{2}
 Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
@@ -45,27 +45,26 @@ Coin(C) = & \quad kln(N+1-SCR(C))+b \label{formula:dip} \\
 \node[left,black] at (0, 1.066420536) {\textbf{\textit{X}}};
 \draw[black, line width=1.00pt, domain=0:10.00,samples=3000] plot[smooth](\x, {.066598275 * ln(3001-\x * 300) + .533210267});
 \end{tikzpicture}
-\caption{DIP Reward Distribution Curve}
+\caption{Curva de distribución de recompensas DIP}
 \label{fig:dipdis}
 \end{figure}
 
-DIP rewards will be calculated separately and distributed by each node. Assuming that one block in Nebulas is generated every S second (s),
-DIP rewards will be calculated once every 24*7*3600/S blocks for all nodes, and will be distributed to the corresponding smart contract cash-out addresses.
+Las recompensas DIP se calcularán separadamente y serán distribuidas por cada nodo. Asumiendo que un bloque dado se genera cada S segundos (s), las recompensas DIP se calcularán una vez cada 24*7*3600/S bloques para todos los nodos, y serán distribuidas a las direcciones de retiros de los contratos inteligentes.
 
-In order to encourage the diversity of Nebulas ecological smart contracts and stimulate outstanding results of more new developers, DIP stipulates that each smart contract can be rewarded up to K time(s). DIP will select Top N smart contracts qualified for rewards according to ranking so as to promote the development of the ecology construction of blockchain applications.
+Con el fin de fomentar la diversidad de los contratos inteligentes de Nebulas y estimular buenos resultados por parte de más desarrolladores, DIP estipula que cada contrato inteligente puede ser recompensado hasta K tiempo(s). DIP seleccionará los mejores $N$ contratos inteligentes cualificados para recibir recompensas de acuerdo a su valuación, con el fin de promover el desarrollo de la construcción de aplicaciones blockchain en el ecosistema.
 
-\subsection{Experimental Results}
+\subsection{Resultados experimentales}
 \label{dip:economic}
 
-We collected the transaction data occurred in May 2017 from Ethereum and calculated the DIP ranking of the first week, as shown in Table \ref{table:dip}.
+Recopilamos los datos de las transacciones realizadas en mayo de 2017 en la red Ethereum y calculamos la clasificación DIP de la primera semana, como se muestra en la tabla \ref{table:dip}.
 
 \begin{table}[h]
 \centering
 \begin{threeparttable}[b]
-\caption{Top 10 of DIP Ranking Results of the First Week in May 2017\tnote{1}}
+\caption{Los mejores 10 resultados de la valuación DIP de la primera semana de mayo de 2017\tnote{1}}
 \label{table:dip}
 \begin{tabular}{ccc} \toprule
-    {Contract~Address} & {Score} & {Description\tnote{2}} \\ \midrule
+    {Dirección del contrato} & {Puntuación} & {Descripción\tnote{2}} \\ \midrule
 0xa74476443119a942de498590fe1f2454d7d4ac0d & 264456363.0 & GolemToken \\
 0x49edf201c1e139282643d5e7c6fb0c7219ad1db7 & 207900181.0 & TokenCard-ICO \\
 0x48c80f1f4d53d5951e5d5438b54cba84f29f32a5 & 129625776.0 & REP-Augur-OLD \\
@@ -80,19 +79,19 @@ We collected the transaction data occurred in May 2017 from Ethereum and calcula
 \end{tabular}
 \begin{tablenotes}
   \small
-  \item[1] block range [3629091, 3665815]
-  \item[2] from etherscan.io
+  \item[1] rango de los bloques: [3629091, 3665815]
+  \item[2] datos tomados de etherscan.io
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-It can be seen that the top-ranked contracts are more famous and more active in the calculation cycle, which are in line with our original intention of motivating the eco-builders.
+Se puede ver que los contratos de mayor rango son más visibles y activos en el ciclo de cálculo, lo que está en línea con nuestra intención original de motivar a los constructores del ecosistema.
 
-\subsection{Cheating Analysis}
+\subsection{Análisis de fraudes}
 \label{dip:sybil}
 
-The smart contract can only be called passively. Therefore, if a cheater wants to increase his/her smart contract ranking, he/she has to find sufficient high-NR ranking accounts to call his/her contract.
+Los contratos inteligentes sólo se pueden llamar de forma pasiva. En consecuencia, si un estafador desea incrementar la valuación de su contrato inteligente, tendrá que encontrar cuentas con una valuación NR lo suficientemente altas que realicen llamadas a su contrato.
 
-First of all, it will be impossible for cheaters to improve their DIP ranking at the cost of zero. Provided that a cheater wants to improve his/her ranking of Contract C and forges a great number of accounts for it. However, when SCS is calculated in Equation \ref{formula:dip:scs}, only Top X of SCS of calling in the NR ranking is greater than 0, while the NR ranking of his/her newly forged accounts will be outside Top X. Even if Contract C is called, it will impose no impact on the DIP ranking.
+En primer lugar, será imposible para los estafadores mejorar su clasificación DIP de forma gratuita. Se asume que ellos buscarán mejorar su posición en el Contrato C mediante la creación de un gran número de cuentas para ello. Sin embargo, cuando el SCS se calcula en la ecuación \ref{formula:dip:scs}, sólo los $N$ mejores SCS en el ranking NR obtendrán una valuación mayor a 0, mientras que el ranking NR de las nuevas cuentas estará fuera de esa clasificación. Incluso si realiza llamadas al Contrato C desde las cuentas, no habrá ningún impacto en la valuación DIP.
 
-Secondly, if a cheater is willing to pay a certain price for improving his/her DIP ranking of the contract, two options are available for him/her. The first one is to forge accounts with high NR and call Contract C at his/her cost so as to improve the ranking of Contract C. It has been analyzed for forging accounts with the high NR in \refsec{subsec:robust}. To improve the NR for each account, a vast sum of money is required to forge the special topology of such account. Besides, as NR is updated periodically, it will be very expensive to maintain high NR. The second one is to find a great number of accounts with high NR and persuade or bribe their owners to call Contract C. However, it is difficult for such off-chain actions to be scaled up. What's worse, these accounts with high NR found by the cheater at a great cost will account for only a small part of Top X, which will impose almost no impact on really outstanding contracts.
+En segundo lugar, si el estafador está dispuesto a pagar una cierta suma para mejorar la valuación DIP de su contrato, tiene sólo dos alternativas su alcance. La primera de ellas es crear cuentas con una valuación NR alta y realizar llamadas al Contrato C por su cuenta. Este escenario ha sido analizado para la creación de cuentas con alta valuación NR en \refsec{subsec:robust}. Para mejorar la valuación NR en cada una de sus cuentas —mediante la alteración de su topología— necesitará una gran cantidad de dinero. Más allá de eso, debido a que NR se actualiza periódicamente, le resultará muy costoso mantener alta su valuación NR. La segunda alternativa es encontrar un gran número de cuentas cuya valuación NR sea alta, y persuadir o sobornar a sus propietarios para que realicen llamadas al Contrato C. Esta acción, sin embargo, es muy difícil de llevar a cabo a gran escala. Lo que es peor, aquellas cuentas con alto valor NR representarán únicamente un pequeño porcentaje de las mejores $N$, lo que representará, globalmente, un impacto casi nulo en contratos legítimamente sobresalientes.
