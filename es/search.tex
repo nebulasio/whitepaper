@@ -3,14 +3,16 @@
 
 \subsection{Introducción}
 
-As an increasing number of smart contracts are deployed by developers, searching needs for massive smart contracts soar. Given that smart contracts are simply code and include no functional descriptions, indexing smart contracts with search engine technologies imposes a high difficulty. To index smart contracts properly, we use the following methods:
+A medida que los desarrolladores implementan una cantidad cada vez más creciente de contratos inteligentes, se acrecienta la necesidad de contar con una herramienta nativa de búsqueda de contratos inteligentes. Dado que éstos son básicamente código y que no incluyen ninguna descripción de su funcionalidad, su indexación por medio de las tecnologías de motores de búsqueda existentes impone una enorme dificultad.
+
+Con el fin de indexar correctamente los contratos inteligentes, hacemos uso de los siguientes métodos:
 
 \begin{itemize}
-	\item Crawl webpage data relevant to smart contracts to set up mappings between the data and blockchain smart contracts.
+	\item Rastreo de datos en páginas web relevantes a los contratos inteligentes con el fin de establecer mapeos entre los datos y los contratos inteligentes del blockchain.
 
-	\item Encourage developers to upload verified source code of smart contracts, analyze the functions and semantics of the code, create indexes for the source code, and provide the searching function for similar contracts. For smart contracts without source code, decompile them for their source code.
+	\item Alentar a los desarrolladores a cargar contratos inteligentes cuyo código fuente ha sido verificado exhaustivamente; analizar las funciones y la semántica del código, crear índices para el mismo, y brindar funciones de búsqueda para contratos similares. Descompilar aquellos contratos inteligentes que no cuentan con código fuente.
 
-	\item Establish standards for smart contracts so that any contracts matching those standards can be retrieved and found by users. Also, encourage developers to provide informational descriptions of contracts during smart contract creation. \\
+	\item Establecer estándares para los contratos inteligentes, de modo que cualquier contrato que coincida con ellos pueda ser hallado por los usuarios. Además, alentar a los desarrolladores a brindar descripciones informativas de los contratos durante su creación. \\
 
 	\begin{figure}[ht]
   	\centering
@@ -30,75 +32,81 @@ contract SearchableContract {
 
 \end{itemize}
 
-\subsection{Infrastructure}
+\subsection{Infrastructura}
 
-In current stage, We think that the centralized search engine is more suitable for obtaining the best user experience and presenting the value of Nebulas Rank. The Nebulas development team is dedicated to developing a searching service, retrieving all smart contracts in real time, performing multilingual word breaking and creating full-text indexes to provide users with a user-friendly web interface. The impartiality of the NR ranking algorithm and the verifiability of each node ensure the impartiality of the centralized searching service, while the complete code of the searching backend is available to the community. Also, third-party developers can create their own searching services on this basis. \reffig{fig:search-arch} shows the architecture of the searching service.
+En esta etapa creemos que los motores de búsqueda centralizados son los más adecuados para obtener la mejor experiencia de usuario y para presentar las valuaciones de Nebulas Rank. Nuestro equipo de desarrollo está dedicado a desarrollar un servicio de búsqueda capaz de obtener todos los contratos inteligentes en tiempo real, realizar un análisis multilingüe de sus palabras y crear índices de texto completo con el fin de brindarles a los usuarios una interfaz web amigable.
+
+La veracidad del algoritmo de valuación NR y la verificabilidad de cada nodo aseguran la imparcialidad de un servicio de búsqueda centralizado, siempre que el código completo del \textit{backend} de búsqueda esté disponible a la comunidad. Además, cualquier desarrollador podrá crear su propio servicio de búsqueda sobre esta base.
+
+La \reffig{fig:search-arch} muestra la arquitectura del servicio de búsqueda.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=16cm]{./figs/search-arch-new}
-\caption{Architecture of the searching service}
+\caption{Arquitectura del servicio de búsqueda}
 \label{fig:search-arch}
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Crawler}  data sources of the Crawler in blockchain search engine are classified into two types: one for collecting block information and code of smart contracts from blockchains, while the other for crawling data about smart contracts from public URLs including introductions, Dapp user comments and news.
+	\item \textbf{Crawler} los orígenes de los datos del \textit{crawler} del motor de búsqueda blockchain se clasifican en dos tipos: a) búsqueda de información sobre los bloques y el código de los contratos inteligentes en los blockchains; b) búsqueda de información sobre contratos inteligentes desde URL públicas incluyendo introducciones, comentarios de los usuarios acerca de las Dapps, y noticias relacionadas.
 
-	\item \textbf{Extractor} consists of Text Extractor, Block Extractor and Code Extractor, which provide text information, block information and code extraction service for smart contracts, respectively.
+	\item \textbf{Extractor} consiste del Extractor de Texto, del Extractor de Bloques y del Extractor de Código, los cuales proveen servicios de extracción de textos, bloques y código de contratos inteligentes, respectivamente.
 
-	\item \textbf{Analyzer} consists of Text Analyzer, Tx Analyzer and Contract Analyzer, which are text information, block transaction information and smart contract analyzers, respectively. For the smart contract analyzer, it provides contract decompilation, source code extraction, semantic analysis and so on.
+	\item \textbf{Analyzer} consiste del Analizador de Textos, del Analizador de Transacciones y del Analizador de Contratos, que brindan información sobre textos, información de transacciones en bloques, y análisis de contratos inteligentes, respectivamente. Este último permite descompilar contratos, extraer sus códigos fuente, realizar análisis semánticos, y más.
 
-	\item \textbf{Nebulas Rank Calculator} refers to the Nebulas Rank calculator service, which is used to calculate the Nebulas Ranks of each non-contract and contract accounts offline.
+	\item \textbf{Nebulas Rank Calculator} se refiere al servicio de cálculo de Nebulas Rank, que se utiliza para computar la valuación NR de cada cuenta, sea de usuarios o contratos.
 
-	\item \textbf{Ranking Model Trainer} refers to the ranking model trainer service. Ranking rules take multiple factors into account: matching field, text relevance, NR Rank value of the contract, transaction quantity of the contract, frequency and depth, NR Rank of the user conducting a transaction with the contract, and contract security. Based on users' actual use conditions, the machine learning algorithm (GBDT and artificial neural network (ANN) are optional) is used to train the ranking and scoring model, which is also constantly improved according to user feedback. The trained model is used by Scorer of the searching service.
+	\item \textbf{Ranking Model Trainer} hace referencia al servicio de entrenamiento del modelo de valuación. Las reglas de valuación toman en cuenta múltiples factores: coincidencia de campos, relevancia de textos, valuación NR del contrato, cantidad de transacciones efectuadas por el mismo, frecuencia y profundidad, valuación NR del usuario que efectúa una transacción con el contrato, y la seguridad de éste. Basándose en las condiciones de uso reales del usuario, el algoritmo de aprendizaje (el GBDT y las redes neuronales artificiales, o ANN, son opcionales) se utiliza para entrenar el modelo de valuación y puntuación, que además están en constante mejora de acuerdo al \textit{feedback} del usuario. El modelo entrenado se utiliza luego para el \textit{Scorer} del servicio de búsquedas.
 
-	\item \textbf{Query Analyzer} refers to the keyword analysis service, which includes the multilingual word breaker (Word Breaker) and the spell checker (Spell Checker).
+	\item \textbf{Query Analyzer} se refiere al servicio de análisis de palabras clave, que incluye el sistema multilingüe \textit{Word Breaker} y el corrector ortográfico (\textit{Spell Checker}).
 
-	\item \textbf{Indexer} creates proper indexes from Analyzer and supports both full and incremental indexing.
+	\item \textbf{Indexer} se encarga de crear índices apropiados para el Analyzer y da soporte a índices completos e incrementales.
 
-	\item \textbf{Scorer} is classified into two levels: Level-1 Standard Scorer recalls candidate result sets from ElasticSearch, which is done to recall as many candidate results as possible through the efficient and effective ranking in the ElasticSearch cluster. Level-1 can recall several thousands of results. Level-2 Ranking Model Scorer uses the offline rank model to calculate and reorder the rank of each Level-1 candidate result set. For this level, the calculated results feature a sounding accuracy and can be used directly by users.
+	\item \textbf{Scorer} se clasifica en dos niveles:
+	\begin{itemize}
+		\item \textbf{Nivel 1} \textbf{Standard Scorer} recupera los conjuntos de resultados del candidato de ElasticSearch, lo cual se hace para recuperar tantos resultados de candidatos como sea posible a través de la clasificación eficiente y efectiva en el cluster de ElasticSearch. Este nivel puede recuperar varios miles de resultados.
+		\item \textbf{Nivel 2} \textbf{Ranking Model Scorer} utiliza el modelo de valuación \textit{offline} para calcular y reorganizar la valuación de cada candidato del conjunto de resultados del \textit{nivel 1}. En este nivel, los resultados calculados tienen una precisión abrumadora y pueden ser utilizados directamente por los usuarios.
+	\end{itemize}
+	\item \textbf{Searcher} es el responsable de comunicarse con el cluster ElasticSearch y empacar y devolver el resultado de la búsqueda al \textit{frontend}.
 
-	\item \textbf{Searcher} is responsible for communicating with the ElasticSearch cluster and packing and returning the search result to the searching frontend.
+	\item \textbf{API} le proporciona a las aplicaciones externas servicios de búsqueda completos de API.
 
-	\item \textbf{API} provides external applications with comprehensive searching API services.
-
-	\item \textbf{ElasticSearch Cluster} ES refers to the server cluster. The Nebulas development team plans to use the open-source search engine ElasticSearch to support full-text indexing.
+	\item \textbf{ElasticSearch Cluster} Se refiere al cluster de servidores. El equipo de desarrollo de Nebulas planea utilizar el motor de búsqueda de código abierto ElasticSearch para dar soporte a la indización de texto completo.
 
 \end{itemize}
 
-\subsection{Nebulas Trends}
+\subsection{\textit{Nebulas Trends}}
 
-The Nebulas creates the tendency list in combination with Nebulas Rank to provide user visual multi-dimensional values in blockchains.
+Este sistema genera, en combinación con Nebulas Rank, la lista de tendencias para brindar valores visuales multidimensionales de usuario en los blockchains.
 
 \begin{itemize}
-\item \textbf{Nebulas Rank list for non-contract accounts.} It displays the daily NR list and the NR quick rise and drop lists. Also, this rank list visualizes the rank variation tendency of each account and the health change tendency of the entire network.
+\item \textbf{Lista Nebulas Rank para direcciones de usuarios.} Muestra la lista NR diaria y las listas NR de cambios rápidos en valuaciones ascendentes y descendentes. Además, con esta lista es posible visualizar la tendencia en la variación de la valuación de cada cuenta y la tendencia en los cambios de salud de la red completa.
 
-\item \textbf{Nebulas Rank list for contract accounts.} Based on the NR values of non-contract accounts, the Nebulas Rank list calculates the NR list of contract accounts, the quick rise and drop lists, the variation tendency of each contract and the tendency chart for the quantity and use frequency of smart contracts on the entire network. In addition, we will present other smart contract lists such as the token contract list and the market contract estimation list to display a wider dimension of information.
+\item \textbf{Lista Nebulas Rank para cuentas de contratos inteligentes.} Basándose en los valores NR de las cuentas de usuarios, se calcula la lista NR de las cuentas de los contratos inteligentes, la lista de cambios rápidos en valuaciones ascendentes y descendentes, la tendencia en la variación de cada contrato y el gráfico de tendencias para la cantidad y la frecuencia de uso de los contratos inteligentes en toda la red. Además, se añadirán las listas de contratos de tokens y la lista de estimación de contratos de mercado para mostrar una dimensión más amplia de la información.
 
-\item \textbf{Smart contract developer list.} According to the contract account list, the list of smart contract developers calculates the contribution list of contract developers and the contribution quick rise list to display outstanding contracts developers and Dapps.
+\item \textbf{Lista de desarrolladores de contratos inteligentes.} De acuerdo a lo descripta en el punto anterior, la lista de desarrolladores de contratos inteligentes enumera las contribuciones de éstos y los casos de rápido ascenso en el \textit{ranking} con el fin de mostrar tanto las {\dapp}s sobresalientes como sus desarrolladores.
 
 \end{itemize}
 
-\subsection{Keyword Query}
+\subsection{Consulta de palabras clave}
 
-By providing a keyword or describing the textual information about a smart contract such as its title, author or function, users can find the matching contract from massive smart contracts. Currently, mature and sophisticated algorithms and technologies are available for text searching. By using the natural language processing and inverted index technologies, we can retrieve and sort efficiently in the index database for massive smart contracts. This involves the following key technologies:
+Mediante una palabra clave o una descripción textual —tal como su título, su función o su autor— los usuarios podrán encontrar, entre cualquier cantidad de contratos inteligentes, aquellos que coinciden con esos criterios. En este momento se encuentran disponibles varios algoritmos sofisticados y maduros para su búsqueda mediante texto. Al utilizar procesamiento de lenguaje natural y tecnologías de índice inverso, es posible ordenar y recuperar de forma eficiente la información almacenada en bases de datos cargadas masivamente de contratos inteligentes. Para ello, se hace uso de la siguiente tecnología:
 
 \begin{enumerate}
-	\item Topic-oriented distributed crawler technology
-	\item Multilingual word breaking technology: word breaking is relatively simple for western words. For the word breaking of Chinese words, these algorithms are available: positive maximum matching, negative maximum matching, shortest path word breaking and statistical word breaking.
-	\item Search term correction and semantic comprehension
-	\item Inverted index and distributed searching architecture
-	\item Ranking algorithm to sort the search results
+	\item Rastreador distribuido orientado a tópicos
+	\item Segmentación de palabras multilingüe: la segmentación de palabras es una tarea relativamente simple para los lenguajes occidentales; para las palabras chinas, en cambio, se han puesto a disposición los siguientes algoritmos: coincidencia máxima positiva, coincidencia mínima positiva, segmentación por ruta más corta y segmentación estadística.
+	\item Corrección de términos de búsqueda y comprensión semántica
+	\item Índice inverso y arquitectura de búsqueda distribuida
+	\item Algoritmo de valuación para ordenar los resultados de la búsqueda
 
 \end{enumerate}
 
-Among these technologies, the ranking algorithm will be designed in combination with Nebulas Rank. Specifically, we use intra-user transfers in the blockchain world as an analogy to webpage reference relations in the Internet world to create the blockchain transaction graph. Then, calculate the NR rank of non-contract accounts by using the NR ranking algorithm described in Section 2.3, calculate the ranks of those contracts by using the contract ranking algorithm described in Section 4.2, and lastly use the calculation result for search result sorting.
+Entre esas tecnologías, el algoritmo de valuación trabajará en forma combinada con Nebulas Rank. Específicamente, para crear el grafo de transacciones del blockchain utilizamos las transferencias entre usuarios en el mundo blockchain en forma similar a las relaciones de referencias entre los sitios web de internet. Luego, calculamos la valuación NR de las cuentas que no son de contratos inteligentes por medio del uso de la tecnología NR descripta en la sección \refsec{subsec:leaderrank}, calculamos las valuaciones de los contratos por medio del algoritmo descripto en la sección \refsec{dip:arith}, y finalmente utilizamos los resultados para ordenar los resultados de la búsqueda.
 
+\subsection{Búsqueda de resultados similares para contratos inteligentes}
 
-\subsection{Searching for Similar Smart Contracts}
+Es de utilidad para los desarrolladores y algunos usuarios la función de búsqueda de contratos inteligentes con funciones similares de acuerdo al fragmento de un código de contrato dado. Al ser diferente de la búsqueda regular de palabras clave, la búsqueda de código similar tiene sus particularidades. Para implementar una función de búsqueda tal, necesitamos hacer uso de un determinado algoritmo capaz de mensurar la similitud del código en porcentajes.
 
-For developers and certain users, they may want to search for smart contracts with similar functions according to the code fragment of a contract. Being different from regular keyword searching, code similarity has its particularity. To implement the searching function for similar smart contracts, we need to use a certain algorithm to measure the code similarity in a number or percentage.
+En el mundo académico actual, los algoritmos de similitud de código se clasifican principalmente en distancia de edición de cadenas, similitud de secuencia de tokens, similitud de árboles de sintaxis abstracta y similitud de grafos de dependencias de programas. Estos algoritmos describen la similitud en términos del texto del código, la estructura y la sintaxis, desde diferentes dimensiones. Al combinar esos cuatro algoritmos, planteamos doce características de similitud en el código de los contratos de Nebulas, entre ellas \textit{Skeleton Tree}, signatura y llamadas a librerías. Para más detalles, consúltese el apéndice \ref{appendix:sim_code}.
 
-In today's academia, code similarity algorithms are mainly categorized into the string edit distance, token sequence similarity, abstract syntax tree similarity and program dependency graph similarity. These algorithms describe the similarity in terms of code text, structure and syntax from different dimensions. By combining these 4 major algorithms, we put forward 12 features of the code similarity of Nebulas contracts, such as Skeleton Tree, Type Signature and Library Calls. For details, see Appendix \ref{appendix:sim_code}.
-
-Similar to search results of keywords, search results of smart contracts also use the same contract ranking algorithm to sort final results.
+De forma similar a las búsquedas basadas en palabras clave, los resultados de búsqueda de contratos inteligentes utilizan el mismo algoritmo de valuación de contratos para ordenar los resultados finales.
