@@ -1,75 +1,78 @@
-\section{Algoritmo de consenso Prueba de Devoción (\textit{Proof of Devotion}, PoD)}
+\section{El algoritmo de consenso Prueba de Devoción (\textit{Proof of Devotion}, PoD)}
 \label{sec:pod}
 
 \subsection{Metas de diseño}
 \label{pod:goals}
 
-The consensus algorithm is one of the cornerstones of blockchains, and its rapidity and irreversibility are our focus. In addition, in order to build a good ecology of Nebulas, we believe that fairness is equally important. If the big capital can easily gain power to control the block consensus in Nebulas, the interests of many developers and users will be damaged. It is difficult for an ecology which cannot guarantee the interests of contributors to create in-depth value, as it goes against the design principles of Nebulas. Thus, the consensus algorithm should be designed to ensure the rapidity and irreversibility first, on which basis we will pursue fairness as much as possible, so as to guarantee the interests of contributors in Nebulas.
+La consolidación de los algoritmos de consenso es uno de los hitos más importantes de los blockchains, y su celeridad e irreversibilidad son nuestro norte. Además, con el fin de construir un buen ecosistema en Nebulas, creemos que la equidad es tan importante como los factores ya mencionados. Si cualquier actor con un gran capital puede ganar fácilmente una posición dominante con el fin de controlar el consenso de los bloques en Nebulas, los intereses de los desarrolladores y los usuarios se verán gravemente afectados. Es difícil crear valor añadido en un ecosistema que no puede garantizar los intereses de sus contribuyentes, y esto es algo que va contra los principios de diseño de nuestra plataforma. Por esto, el algoritmo de consenso debe estar diseñado de tal manera que garantice en primer lugar la celeridad y la irreversibilidad del blockchain, para luego buscar la equidad tanto como sea posible, de modo de garantizar los intereses de nuestros contribuyentes.
 
-\subsection{Defects of Commonly Used Consensus Algorithms}
+\subsection{Defectos de los algoritmos de consenso comúnmente utilizados}
 \label{pod:weakness}
 
-We have tried to find suitable commonly used consensus algorithms that match with our design goals, but these algorithms cannot completely meet our requirements.
+Hemos intentado encontrar algoritmos de consenso conocidos y apropiados que coincidieran con nuestras metas de diseño, pero ninguno de ellos cubría todas nuestras necesidades.
 
-The PoW (Proof of Work) consensus algorithm is a zero-sum game, which uses the competitive hash calculation to determine the bookkeeper, rendering a great amount of electric power in the whole ecology wasted in the competition when any blocks are fed out, and thus the mining cost is high and the speed is restricted. With the increase of nodes involved in mining, the probability of each node to obtain the bookkeeping right will be reduced, leading to a continuous rise in the cost of stable feed-out of blocks under the PoW protocol. The Bitcoin, which continues to increase the difficulty of mining, has to face the situation sooner or later where the mining machine cannot make ends meet, while Ethereum has long been considering the use of the new PoS consensus algorithm Casper \cite{casper} to gradually replace the current PoW consensus \cite{buterin2013ethereum}. It can be seen that in view of the mining speed and the economic cost, the PoW is not beneficial to the long-term rapid development of the ecology of Nebulas, which is against our ``rapid" goals.
+El algoritmo PoW (Prueba de Trabajo, o \textit{Proof of Work} en inglés) es un juego de suma cero que hace uso de una competencia en el cálculo de hashes para determinar quién tendrá el rol de \textit{contador} que generará nuevos bloques, desperdiciando una gran cantidad de energía eléctrica en ello, y haciendo así que el costo del \textit{minado} sea alto y que la velocidad de generación se vea restringida. Con el aumento de la cantidad de nodos involucrados en minería, las chances que cada nodo tiene de obtener \textit{derechos de contaduría} se ven reducidos, llevando a un incremento sostenido en los costos de generación de bloques bajo este protocolo. Bitcoin, que continúa incrementando la \textit{dificultad de minado}, tendrá que enfrentarse tarde o temprano a la situación inevitable en la que los mineros no podrán hacer frente a los costos; por otro lado, Ethereum ha considerado durante mucho tiempo el uso del sistema de consenso PoS que provee el algoritmo Casper \cite{casper} para reemplazar gradualmente el consenso PoW que usa actualmente \cite{buterin2013ethereum}. Se puede ver que, dado el costo del minado y su velocidad, el algoritmo PoW no es benéfico en el largo plazo para el desarrollo del ecosistema de Nebulas, algo que va contra nuestra meta de celeridad.
 
-The PoS (Proof of Stake) consensus algorithm attempts to use the asset amount to replace the hash rate and distribute the probability of obtaining the bookkeeping right according to the coin age or deposit amount. Currently, both Peercoin \cite{king2012peercoin} and the Casper Protocol of Ethereum adopt the PoS consensus algorithm. This algorithm overcomes the shortcoming of the high power consumption of PoW but visually enlarges the impact of the capital on the probability distribution of the bookkeeping right. Compared with PoW, the big capital under PoS is more likely to gain power to control the ecology and form large group monopoly, possibly damaging the interests of the ecology contributors and impacting adversely on the value generation of Nebulas, all of which are against our ``fairness" goal.
+El algoritmo de consenso PoS (Prueba de Participación, o \textit{Proof of Stake} en inglés) busca utilizar el depósito de activos en garantía como reemplazo del poder de cálculo de hashes, y distribuye la probabilidada de obtener derechos de contaduría de acuerdo al monto depositado por cada candidato, o la antigüedad de esos depósitos. En la actualidad, tanto Peercoin \cite{king2012peercoin} como el protocolo Casper (en proceso de adopción por Ethereum) implementan el consenso PoS. Este algoritmo supera la deficiencia del alto consumo de energía de PoW pero aumenta visiblemente el impacto del capital en la distribución de la probabilidad de lograr derechos de contaduría. Comparado con PoW, cualquier capital de consideración, bajo PoS, tiene más chances de obtener el poder de controlar el ecosistema, y de formar un monopolio (u oligopolios), dañando así los intereses de los contribuyentes, e impactando de forma negativa en la generación de valor de Nebulas. Todo ello va en oposición a nuestra meta de equidad.
 
-The PoI (Proof of Importance) consensus algorithm was first proposed by Nem \cite{nem}. Different from PoS, the concept of account importance is introduced to PoI, and the account importance score is used to distribute the probability of the bookkeeping right. This algorithm overcomes the shortcoming of the high power consumption of PoW and relieves the PoS capital monopoly crisis, but exposes the ``nothing-at-stake" problem. The cost for a cheater to reverse a block is significantly reduced, which goes against our ``irreversibility" goal.
+El consenso llamado PoI (Prueba de Importancia, o \textit{Proof of Importance} en inglés) fue propuesto originalmente por Nem \cite{nem}. A diferencia de PoS, este algoritmo introduce el concepto de importancia de las cuentas, cuya valuación se utiliza para la distribución de las probabilidades de obtener derechos de contaduría. Este algoritmo supera la deficiencia del alto consumo de energía de PoW y alivia la vulnerabilidad de PoS con respecto a los monopolios, pero expone un nuevo problema, llamado \textit{nada en juego}\footnote{\textit{Nothing at stake} en inglés, es decir, que nada se ha puesto en garantía (N. del T.)}. Para un estafador, el costo de revertir un bloque se reduce significativamente, lo que va contra nuestra meta de irreversibilidad.
 
-In short, in view of the discrepancy between commonly used consensus algorithms and our goals, we have proposed the PoD (Proof of Devotion) algorithm to integrate PoI, which evaluates the comprehensive account influence, with PoS, which involves strict economic penalties. PoS enhances the irreversibility of PoI, while PoI reversely contains the monopoly of PoS, which facilitates the free and rapid development of the ecology.
+En resumen: en vista de la discrepancia entre nuestras metas y los algoritmos de consenso utilizados comúnmente, hemos propuesto un nuevo sistema llamado PoD (Prueba de Devoción, o \textit{Proof of Devotion} en inglés) que integra las características de PoI —que evalúa la influencia integral de la cuenta— y las de PoS —que lleva aparejadas estrictas sanciones económicas—. PoS mejora la irreversibilidad ofrecida por PoI, mientras que PoI elimina la posibilidad de la existencia de monopolios (posibles en PoS), todo lo cual facilita el desarrollo rápido y libre del ecosistema.
 
-\subsection{Design of the PoD Algorithm}
+\subsection{Diseño del algoritmo PoD}
 \label{pod:design}
 
-\subsubsection{Generation of New Blocks}
+\subsubsection{Generación de nuevos bloques}
 \label{pod:design:block}
 
-Similar to the PoI consensus algorithm that selects highly important accounts, the PoD selects the accounts with high influence in the ecology. The difference lies in that the PoD empowers the selected accounts to have the bookkeeping right with equal probability to participate in new block generation in order to prevent tilted probability that may bring about monopoly.
+De forma similar a como el algoritmo de consenso PoI selecciona cuentas de alta importancia, PoD selecciona las que poseen una alta influencia en el ecosistema; la diferencia entre ellas radica en que PoD selecciona de forma equiprobable las cuentas que participarán del sorteo a los derechos a la contaduría (generación de nuevos bloques), lo cual impide la posibilidad de la formación de monopolios.
 
-When selecting accounts with high influence, we use NR, the universal measure of value generated from Nebulas. In the algorithm design of NR, we highlighted the liquidity and propagation of accounts (see \refsec{subsec:value}). We believe that the accounts featured with these properties have a high influence with regard to the ecology construction. Thus, in the PoD, the accounts ranked Top N in the NR will be selected, and after these accounts voluntarily pay a certain number of NASs as the deposit, they will be qualified as the validator of new blocks to participate in bookkeeping.
+Utilizamos NR —el sistema de valuación de Nebulas— para la selección de cuentas de gran influencia. En el diseño de ese algoritmo destacamos la liquidez y la propagación de las cuentas (consúltese \refsec{subsec:value} para más detalles). Creemos que las cuentas caracterizadas por esas propiedades tienen una gran influencia con respecto a la construcción del ecosistema. Así, en el sistema PoD, serán seleccionadas las cuentas que ingresan en las \textit{N mejores valuaciones NR}, y luego del pago voluntario de una suma determinada de NAS por parte de los dueños de esas cuentas, calificarán como validadores de nuevos bloques, participando así de la \textit{contaduría}.
 
-After the validator set is provided, the PoD algorithm uses the pseudo-random number to determine which one in the set is the new block proposer, which need to pack recent transactions to generate the new block. The validator set is changeable. The eligible account can choose to join or quit the set. Besides, the eligible accounts may vary with the periodical change of NR. Therefore, we designed the dynamic validator set change mechanism in the PoD to implement the change of the validator set.
+Luego de crear el conjunto de cuentas validadoras, el algoritmo PoD utiliza su generador de números pseudoaleatorios para determinar cuál de las cuentas en el conjunto será la encargada de empaquetar las transacciones recientes para almacenarlas en un nuevo bloque. El conjunto de validadores es mutable, y las cuentas seleccionadas puede elegir permanecer en él o no. Al margen de ello, las cuentas seleccionadas podrán variar de acuerdo al cambio periódico de la lista NR.
 
-\subsubsection{Dynamic Validators Set}
+% I removed this sentence as it's a tautology, a redundant statement.
+%Therefore, we designed the dynamic validator set change mechanism in the PoD to implement the change of the validator set.
+
+\subsubsection{Conjunto dinámico de validadores}
 \label{pod:design:validators}
 
-The validator set changes the same way as a dynasty, so the set is divided into different dynasties, and the validator set within a dynasty will not change. A dynasty cannot experience too rapid change, and no change should be made within a period of time. Thus, we define every X blocks as an Epoch, and in the same Epoch, no change takes place in the dynasty. Therefore, the change of dynasties will only occur when one Epoch is handed over to another. At that time, the first block of the previous Epoch will be investigated. If this block reaches the finality state, then the current Epoch will enter into the next dynasty of D1; otherwise, the previous dynasty of D0 will remain; the process of which is shown in \reffig{fig:epoch}.
+El conjunto de validadores se modifica al mismo tiempo que lo hacen las dinastías, por lo que cada conjunto de validadores se divide en diferentes dinastías, y cada conjunto dentro de una dinastía permanece inmutable. Las dinastías sólo admiten cambios tras un periodo de tiempo mínimo determinado. Así, se define una Época como el tiempo de duración de X bloques, y dentro de una misma Época, no deben ocurrir cambios de dinastías. Para decirlo de otro modo, los cambios de dinastías sólo podrán ocurrir cuando ocurra un \textit{cambio de Época}. En ese instante se analizará el primer bloque de la Época anterior; si ese bloque alcanza el estado de \textit{finalidad}, la Época actual entrará en la siguiente dinastía de D1; si no, se mantendrá la dinastía previa (D0); el proceso se muestra en la \reffig{fig:epoch}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{./figs/epoch}
-\caption{Change of validator dynasties (assuming X = 100)}
+\includegraphics[width=10cm]{./figs/epoch}
+\caption{Cambio de dinastías de validadores (asumiendo X = 100)}
 \label{fig:epoch}
 \end{figure}
 
-Because of the network delay, the finality state of Block G at each node may not be the same when any change of dynasties takes place. Therefore, by reference to dynamic Casper validator set strategies, it is required that the consensus process of each dynasty will be completed jointly by the validator sets of the current and previous dynasties. Therefore, in any dynasty, an eligible account can only apply for joining or quiting the validator set of Dynasty D+2, and when the dynasty evolves into Dynasty D+2, it can participate in the consensus process of the new block.
+A causa de las demoras en la red, el estado de finalidad del bloque G en cada uno de los nodos podría no ser el mismo cuando ocurre el cambio de dinastía. Por ello, haciendo referencia al conjunto de estrategias del validador dinámico Casper, será necesario el proceso de consenso de cada dinastía se complete en forma conjunta al conjunto de validadores de las dinastías previa y actual. Así, en cualquier dinastía, una cuenta elegible sólo podrá aplicar para el enlistamiento (o renuncia) en el conjunto de validadores de la dinastía D+2; así, cuando la dinastía D+2 esté vigente, podrá participar en el proceso de consenso del nuevo bloque.
 
-\subsubsection{Consensus Process}
+\subsubsection{Proceso de consenso}
 \label{pod:design:consensus}
 
-After a new block is proposed, all the people in the validator set of the current dynasty will participate in a round of BFT-Style (Byzantine-Fault-Tolerant Style) voting to determine the legitimacy of this block. In the beginning of voting, each validator who participates in this block consensus will be charged 2x (x is the incentive bonus proportion) as the deposit and then the two-stage voting process will be kicked off.
+Luego de que un nuevo bloque es propuesto, todos los participantes del conjunto de validadores de la dinastía actual podrán participar en una ronda de votos tolerante a faltas bizantinas, con el fin de determinar la legitimidad del bloque. Al comienzo de la votación, a cada validador que participe del consenso del bloque se le cobrará 2x (x es la proporción del bono incentivo) como depósito; a partir de ese momento se iniciará el proceso de votación en dos etapas que se describe a continuación:
 
 \begin{itemize}
 
-\item \textbf{In the first stage}, it is required that all validators vote $Prepare$ tickets for the new block. After voting the $Prepare$ ticket, the validator will be rewarded $1.5x$ bonus. If the validators holding over two-thirds of the total deposits in both current and previous dynasties vote $Prepare$ tickets for the new block, this block will enter into the second stage of voting. It should be noted that the proposer of the new block votes the $Prepare$ ticket for the new block by default.
+\item \textbf{En la primera etapa} será necesario que todos los validadores emitan el ticket de voto $Prepare$ por el nuevo bloque. Luego de emitir el ticket de voto $Prepare$, el validador recibirá un bono de $1.5x$. Si los validadores que poseen más de dos tercios del total de los depósitos tanto en la dinastía previa como la actual emiten los tickets de voto $Prepare$ por el nuevo bloque, ese bloque entrará en la segunda etapa de votación. Nótese que el propositor del nuevo bloque emite por defecto un ticket de voto $Prepare$ por el nuevo bloque.
 
-\item \textbf{In the second stage}, it is required that all validators vote $Commit$ tickets for the new block. After voting the $Commit$ ticket, the validator will be rewarded $1.5x$ bonus again. If the validators holding over two-thirds of the total deposits in both current and previous dynasties vote $Commit$ tickets for the new block, this block will reach the finality state.
+\item \textbf{En la segunda etapa} se requiere que todos los validadores emitan tickets de voto $Commit$ para el nuevo bloque. Luego de la emisión de $Commit$, los validadores recibirán otro bono de $1.5x$. Si los validadores que poseen más de dos tercios del total de los depósitos tanto en la dinastía previa como la actual emiten los tickets de voto $Commit$ por el nuevo bloque, el mismo alcanzará el estado de finalidad.
 \end{itemize}
 
-In order to speed up the development of the entire ecology, if the difference between the timestamp of $Prepare$ ticket and $Commit$ ticket in Block b and the timestamp of Block b exceeds $T$, then these tickets will be considered expired and will be ignored directly.
+Para acelerar el desarrollo del ecosistema, si la diferencia entre el timestamp de $Prepare$ y $Commit$ en el bloque $b$ y el timestamp del bloque $b$ excede $T$, esos tickets se considerarán expirados y se ignorarán.
 
-\subsubsection{Fork Choice}
+\subsubsection{Elección de \textit{forks}}
 \label{pod:design:fork}
 
-The PoD algorithm selects the canonical chain according to the block score at each height. It always selects the block with the highest score to join the canonical chain, and the score of Block b at Height h is as follows:
+El algoritmo PoD selecciona la cadena canónica de acuerdo al puntaje del bloque en cada \textit{altura}\footnote{\textit{Height} en inglés (N. del T.)}. Se seleccionará siempre el bloque que posea el mayor puntaje para unirse a la cadena canónica. El puntaje del bloque $b$ en la altura $h$ se calcula de este modo:
 
 \begin{align}
 Score(b, h) = \sum_{(b',h') \in children(b)}Score(b', h') + \sum committed~deposits~in~b
 \end{align}
 \noindent
 
-Namely the sum of deposits corresponding to $Commit$ tickets received by this block and all of its descendant blocks, as shown in \reffig{fig:fork_choice}.
+Es decir, es la suma de los depósitos recibidos por este bloque y todos sus descendientes, correspondientes al ticket $Commit$, tal como se muestra en la \reffig{fig:fork_choice}.
 
 \begin{figure}[h]
 \centering
@@ -78,108 +81,107 @@ Namely the sum of deposits corresponding to $Commit$ tickets received by this bl
 \label{fig:fork_choice}
 \end{figure}
 
-\subsubsection{Slashing Conditions}
+\subsubsection{Condiciones de confiscación}
 \label{pod:design:vote}
 
-To avoid any malicious damage to the consensus process, which may result in failure in the completion of consensus process and obstruction of eco-development, PoD constrains consensus activities of validators based on reference to Casper’s minimum slashing conditions \cite{minimal_slash_rules}.
+Para evitar cualquier daño malicioso al proceso de consenso —que puede dar lugar a un fracaso en la finalización del proceso de consenso y a una obstrucción del desarrollo del ecosistema— PoD restringe las actividades de consenso de los validadores basándose en las condiciones mínimas de confiscación de Casper \cite{minimal_slash_rules}.
 
-Assume that $Prepare$ vote and $Commit$ vote in the consensus process have the following structures:
-
-\begin{itemize}
-\item $Prepare(H, v, vs)$, where $H$ is the hash value of the current block; $v$ represents the height of the current block; $vs$ represents the height of a certain ancestral block of $v$.
-
-\item $Commit(H, v)$, where $H$ is the hash value of the current block; $v$ represents the height of the current block.
-%\item $Commit(H, v)$，其中H为当前区块hash，$v$表示当前区块高度
-\end{itemize}
-
-PoD algorithm defines the following 4 basic rules for the entire voting process:
+Asúmase que los tickets de voto $Prepare$ y $Commit$ en el proceso de consenso tienen la estructura siguiente:
 
 \begin{itemize}
-\item There is a strict order in the two-stage consensus process of a single block: Only when the total deposits of $Prepare(H, v, vs)$ votes for the first stage reaches $2/3$, can validators deliver $Commit(H, v)$ votes for the second stage.
+\item $Prepare(H, v, vs)$, donde $H$ es el valor hash del bloque actual; $v$ representa la altura del bloque actual; $vs$ representa la altura de un determinado bloque ancestral de $v$.
 
-\item For multiple blocks, there is no mandatory rule that only when the consensus process of one block is finished, may consensus process of the next block begin. Interwoven consensus is permitted providing that it is conducted based on a certain order. Only after the first stage of process for height vs is finished and the proportion of $Prepare(H, vs, vs’)$ votes reaches $2/3$, can $Prepare(H, v, vs)$ votes for its descendant blocks be delivered based on vs in order to ensure stable proceeding of the interwoven consensus.
-
-\item To avoid the conduct of malicious cross-block voting of any node by taking advantage of the interwoven consensus, it is required that after the delivery of Prepare (H, w, u) votes based on the height of u, no Commit(H, v) vote can be delivered in all blocks with a height within the range from u to w, thus guaranteeing high efficiency and orderliness of the consensus process.
-
-\item For the purpose of preventing nodes from staking with one deposit on multiple branches simultaneously, which may lead to the problem of “nothing-at-stake”, it is required that after $Prepare(H1, v, vs1)$ votes are delivered at a certain height, no different $Prepare(H2, v, vs2)$ vote can be delivered again.
+\item $Commit(H, v)$, donde $H$ es el valor hash del bloque actual; $v$ representa la altura del bloque actual.
 \end{itemize}
 
-Once being reported and verified, any validators breaking the above rules will be punished and all his/her deposit will be confiscated, in which 4\% will be shared by whistleblowers as a reward and the remaining part will be destroyed.
+El algoritmo PoD define las siguientes cuatro reglas básicas para el proceso completo de votación:
 
-\subsection{PoD Economic Analysis}
+\begin{itemize}
+\item Existe un orden estricto en el proceso de consenso de dos etapas de un bloque: sólo será posible para los validadores emitir los tickets de voto $Commit(H, v)$ de la segunda etapa cuando los depósitos totales de los tickets de voto $Prepare(H, v, vs)$ de la primera etapa alcanzan $2/3$.
+
+\item Para bloques múltiples, no existen reglas que obliguen a esperar a que finalice un proceso de consenso antes de iniciar el siguiente. El consenso entrelazado está permitido siempre y cuando se lleve a cabo en cierto orden; sólo después de que la primera etapa de votación esté completa y la proporción de tickets de voto $Prepare(H, vs, vs’)$ alcance $2/3$ se podrán enviar los tickets $Prepare(H, v, vs)$ para los bloques descendientes, para asegurar la estabilidad de esta modalidad de consenso.
+
+\item Para evitar que un nodo cualquiera pueda realizar votaciones interbloque maliciosas tomando ventaja del \textit{consenso entrelazado}, se requiere que luego de enviados los votos (H, w, u) basados en la altura de u, ningún voto Commit(H, v) se pueda enviar a aquellos bloques con una altura dentro del rango que va de $u$ a $w$, garantizando así la eficiencia y el orden en el proceso de consenso.
+
+\item Con el fin de prevenir que los nodos puedan realizar el depósito de caución\footnote{\textit{Staking} en inglés (N. del T.)} en distintas ramas al mismo tiempo —lo que podría generar el problema de \textit{nada en juego}— se requiere que luego de emitir los votos $Prepare(H1, v, vs1)$ en una altura determinada, no sea posible emitir otro voto $Prepare(H2, v, vs2)$.
+\end{itemize}
+
+Una vez reportado y verificado, todo validador que viole las reglas citadas previamente recibirá una sanción y sus depósitos serán confiscados; de la confiscación, 4\% se repartirán entre quienes hayan reportado el incidente, y el resto será destruido.
+
+\subsection{Análisis económico de la PoD}
 \label{pod:economic}
 
-\subsubsection{Incentive Analysis}
+\subsubsection{Análisis de incentivos}
 \label{pod:economic:incentive}
 
-A validator participating in the PoD algorithm will be rewarded with $1x$ NAS on each legal block. In case of failure in finishing the $Prepare$ stage and entering into the $Commit$ stage due to poor network traffic or any cheating behavior, the validator will lose $0.5x$ NAS. Therefore, any validator becoming value nodes will secure a large amount of earnings from accounting under good network traffic when not engaging in any cheating behavior.
+Todo validador que participe del algoritmo PoD será recompensado con $1x$ NAS por cada bloque legítimo creado. En caso de no finalizar la etapa $Prepare$ e ingresar en la etapa $Commit$ debido a problemas de tráfico en la red o por comportamientos fraudulentos, el validador perderá $0.5x$ NAS. De ese modo, todo validador obtendrá una suma importante en concepto de ganancias de contaduría siempre y cuando mantenga una buena conexión de red y no se vea envuelto en actividades fraudulentas.
 
-\subsubsection{Cheating Analysis}
+\subsubsection{Análisis de fraudes}
 \label{pod:economic:fraud}
 
-\subsubsection*{Double-spend Attack}
+\subsubsection*{Ataque de doble gasto}
 \label{pod:economic:fraud:double_spend}
 
-If it is assumed that a merchant confirms transaction and makes delivery when the new block reaches the status of finality, then the minimum cost to be paid by a fraud for realizing zero-cost shopping through completion of double-spend attack under the PoD consensus algorithm is described as follows:
+Si se asume que un comerciante confirma una transacción y la envía cuando el nuevo bloque alcanza el estado de finalidad, entonces el costo mínimo a pagar por un fraude de compra sin costo por medio de un ataque de doble gasto bajo el consenso PoD se describe de este modo:
 
-Firstly, the fraud needs to increase his/her Nebulas Rank to Top N, become a validator by paying a certain amount of NAS as deposit and apply for participation in validation of blocks in the D+2 dynasty.
+Primero, el estafador necesita incrementar su valuación Nebulas Rank para ingresar a los N principales\footnote{\textit{Top N} en inglés (N. del T.}, convertirse en validador mediante el pago de una suma $N$ de NAS como depósito de caución, y aplicar para la participación en la validación de bloques en la dinastía D+2.
 
-Then, the fraud needs to be selected as the proposer of a new block by the pseudo-random algorithm. At this moment, the fraud proposes two new blocks at the same height, of which one block has a hash value of hash1 and contains a transferring transaction from the fraud to the merchant, while the other block has a hash value of hash2 and contains a transferring transaction from the fraud to himself/herself.
+Luego, el estafador necesita resultar seleccionado como propositor de un nuevo bloque a través del algoritmo pseudoaleatorio. En ese momento, el estafador propone dos nuevos bloques a la misma altura, de los cuales uno de los bloques tiene un valor hash $hash1$ y contiene una transferencia desde el estafador hacia el comerciante, mientras el otro bloque tiene un valor hash $hash2$ y contiene una transferencia desde el estafador hacia sí mismo.
 
-Finally, in order to make both of hash1 and hash2 blocks reach finality, as shown in \reffig{fig:double_spend}, the fraud has to spend $1/3$ of the total deposits in this dynasty to bribe $1/3$ of the validators and make them to deliver $Commit$ votes to both blocks.
+Finalmente, para lograr que ambos bloques alcancen el estado de finalidad —como se muestra en la  \reffig{fig:double_spend}— el estafador necesita gastar $1/3$ del total de los depósitos en esa dinastía para sobornar a $1/3$ de los validadores y hacer que emitan tickets de voto $Commit$ para ambos bloques.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=7cm]{./figs/overlap}
-\caption{Financial Punishment on Double Spend}
+\caption{Sanción financiera en casos de doble gasto}
 \label{fig:double_spend}
 \end{figure}
 
-Therefore, in order to complete a successful double-spend attack, the fraud needs to spend a certain amount of energy and financial resource to increase his/her Nebulas Rank (see \refsec{subsec:robust} Resistance to Manipulation) and then spend at least $1/3$ of the total deposits in current dynasty to make both of the blocks reach the finality status after he/she is luckily selected as a proposer.
+Por lo tanto, para completar un ataque exitoso de doble gasto, el estafador necesita gastar una determinada cantidad de energía y recursos financieros para incrementar su valuación Nebulas Rank (véase \refsec{subsec:robust}, “resistencia a la manipulación”) y entonces gastar al menos $1/3$ del valor total de los depósitos en esa dinastía para lograr que ambos bloques alcancen el estado de finalidad si es los suficientemente afortunado como para resultar selecto como propositor.
 
-\subsubsection*{51\% attack}
+\subsubsection*{Ataque del 51\%}
 \label{pod:economic:fraud:51attack}
 
-In PoW, launch of a 51\% attack requires 51\% of hashrate. In PoS, launch of a 51\% attack requires 51\% of deposit. However, in PoD, launch of a 51\% attack requires 51\% of accounts in the validators set, which means that a sufficient number of highly-reputed users need to rank at Top N in the Nebulas Rank and payment of a corresponding amount of deposit is required, so it will be more difficult to launch a 51\% attack in PoD.
+En el consenso PoW, lanzar un ataque del 51\% implica poseer al menos el 51\% del poder de cómputo de la red entera. En el consenso PoS, es necesario contar con el 51\% del total de depósitos en caución. No obstante, en nuestro consenso PoD, un ataque del 51\% requiere poseer el 51\% de las cuentas del conjunto de validadores, lo que significa que un número significativo de cuentas de reputación necesitan ingresar a los \textit{N principales} de Nebulas Rank y realizar el pago de los depósitos de caución para cada una de las cuentas, por lo que un ataque de estas características es mucho más difícil en el algoritmo de consenso PoD.
 
-\subsubsection*{Short-range Attack}
+\subsubsection*{Ataque de corto alcance}
 \label{pod:economic:fraud:short_range_attack}
 
-In PoD, blocks at each height have term of expiration time of consensus. Therefore, it is almost impossible to complete a long-range attack in PoD, but it is still possible to launch short-range attacks within term of expiration time.
+En PoD, los bloques de cada altura tienen plazo de caducidad para el consenso. Por lo tanto, es casi imposible completar un ataque de largo alcance en PoD, pero aún es posible lanzar ataques de corto alcance dentro del plazo de caducidad.
 
-When a short-range attacker (Attacker) attempts to forge A-chain to replace B-chain to become the canonical fork when blocks at the height of H+1 are still within term of expiration time, Attacker needs to ensure that score of block A1 is higher than that of block B1. Multiple voting will be severely punished, so it will be unavoidable for Attacker to bribe validators; otherwise, it is impossible to complete a short-range attack. For the purpose of presenting the safety of the PoD consensus algorithm, the costs to be paid by Attacker in reverting different numbers of blocks are analyzed as follows.
+Si un atacante de corto plazo intenta fraguar la cadena $A$ para reemplazarla por la cadena $B$ con el fin de convertirla en el \textit{fork canónico} cuando los bloques a la altura de $H+1$ todavía se encuentran fuera del tiempo de expiración, necesitará asegurarse de que el puntaje del bloque $A1$ es mayor que el del bloque $B1$. El voto múltiple recibe sanciones muy fuertes, por lo que le resultará inevitable al atacante sobornar a los validadores; de otro modo, es imposible concretar un ataque de este tipo. Con el fin de demostrar la seguridad del algoritmo PoD, se muestran a continuación los costos que debe pagar el atacante para revertir un número dado de bloques.
 
-If Attacker plans to revert B1, the minimum cost to be paid by Attacker is as described in \reffig{fig:revert1}, which is equivalent to a double-spend attack. If Attacker becomes the proposer of blocks at the height of H+1, then he/she has to bribe $1/3$ of the validators in Dynasty D0 and make them conduct multiple voting in order to make A1 reach finality, for which the minimum cost is $1/3$ of the total deposits.
+Si el atacante planea revertir $B1$, el costo mínimo que debe pagar se describe en la  \reffig{fig:revert1}, que equivale al costo de un ataque de doble gasto. Si el atacante se convierte en un propositor de bloques a la altura de $H+1$, deberá sobornar a $1/3$ de los validadores en la dinastía $D0$ y convencerlos de realizar votaciones múltiples para lograr que $A1$ alcance el estado de finalidad, para lo cual el costo mínimo es de $1/3$ del total de los depósitos.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=11cm]{./figs/revert1}
-\caption{Revert One Block by Short-range Attack}
+\caption{Reversión de un bloque por parte de un atacante de corto plazo}
 \label{fig:revert1}
 \end{figure}
 
-Assume that B1 and B2 have reached the status of finality and transactions in the blocks have come into effect. If Attacker wants to revert B1-B2, the following two circumstances are taken into consideration.
+Asumiendo que $B1$ y $B2$ alcanzaron el estado de finalidad y las transacciones en los bloques han surtido efecto, si el atacante desea revertir $B1-B2$, se toman las dos circunstancias siguientes en consideración:
 
 \begin{itemize}
-\item The first circumstance is shown in Figure \ref{fig:revert2} (a): When Heights H+1 and H+2 are in the same Epoch and dynasty, Attacker needs to bribe $1/3$ of the validators in D0 in order to make A1 reach finality. Meanwhile, these $1/3$ of the validators will be punished and their deposits will be totally confiscated. During validation of A2, sum of deposits equals to $2/3$ of deposits in A1. At this moment, if Attacker wants to secure the same amount of commit votes as B2, he/she has to bribe all the remaining validators without cheating and lose at least $3/3$ of the total deposits. Even if Attacker succeeds in doing this, it is impossible to guarantee that score of A1 is higher than that of B1 and Attacker will face a high risk of failure of attack.
+\item La primera circunstancia se muestra en la \ref{fig:revert2} (a): cuando las alturas $H+1$ y $H+2$ se encuentran en la misma época y dinastía, el atacante necesita sobornar a $1/3$ de los validadores en D0 para lograr que $A1$ alcance el estado de finalidad. Mientras tanto, ese $1/3$ de los validadores recibirán sanciones y sus depósitos serán totalmente confiscados. Durante la validación de $A2$, la suma de los depósitos equivale a $2/3$ de los depósitos en $A1$. En ese momento, si el atacante desea asegurar la misma cantidad de votos que en $B2$, debe sobornar al resto de los validadores sin cometer fraude, y perder al menos $3/3$ de los depósitos totales. Incluso en el caso de que el atacante tenga éxito en hacer esto, es imposible garantizar que el puntaje de $A1$ sea mayor que el de $B1$, con lo que el atacante enfrentará una alta probabilidad de fallar en el ataque.
 
-\item The second circumstance is shown in Figure \ref{fig:revert2} (b): When Heights H+1 and H+2 are in different Epochs and different dynasties, Attacker needs to bribe $1/3$ of the validators in D0 to make A1 reach finality and then bribe $1/3$ of the validators in D1 to make A2 reach finality, so Attacker will lose at least $2/3$ of the total deposits in order to complete such an attack. To sum up, to launch a short-range attack to cause invalidation of two blocks that have reached finality, Attacker needs to pay at least $2/3$ of the total deposits.
+\item La segunda circunstancia se muestra en la \ref{fig:revert2} (b): cuando las alturas $H+1$ y $H+2$ están en distintas épocas y dinastías, el atacante necesita sobornar a $1/3$ de los validadores en $D0$ para lograr que $A1$ alcance estado de finalidad, y luego sobornar a $1/3$ de los validadores en $D1$ para lograr que $A2$ alcance también estado de finalidad, por lo que el atacante deberá perder al menos $2/3$ de los depósitos totales con el fin de completar tal ataque. En suma, para lanzar un ataque de corto plazo para causar la invalidación de dos bloques que han alcanzado el estado de finalidad, el atacante necesita pagar al menos $2/3$ de los depósitos totales.
 \end{itemize}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=11cm]{./figs/revert2}
-\caption{Revert Two Blocks by Short-range Attack}
+\caption{Reversión de dos bloques mediante un ataque de corto plazo}
 \label{fig:revert2}
 \end{figure}
 
-If Attacker wants to revert B1-B3, as shown in Figure 18, Attacker needs to firstly bribe $1/3$ of the validators in D0 in order to realize finality of A1 and then bribe $1/3$ of the validators in D1 in order to realize finality of A2. Finally, Attacker needs to bribe all of the remaining $2/3$ of the validators in D1 in order to realize finality of A3. To sum up, $4/3$ of the total amount of deposits will be lost. It will be very difficult to prepare for these attacks. Even if an attacker manages to succeed in making necessary preparations, he/she can’t guarantee that score of A1 is higher than that of B1. Therefore, it is possible that such attack may fail.
+Si el atacante desea revertir $B1-B3$, como se muestra en la \ref{fig:revert3}, necesitará primero sobornar a $1/3$ de los validadores en D0 para alcanzar la finalidad de $A1$ y luego sobornar a $1/3$ de los validadores de la dinastía $D1$ para alcanzar la finalidad de $A2$. Finalmente, el atacante necesita sobornar a los $2/3$ de los validadores en $D1$ para lograr la finalidad de $A3$. Resumiendo, perderá $4/3$ de los depósitos totales. Le resultará muy difícil preparar un ataque de estas características. Incluso si logra éxito en sus preparaciones, no puede garantizar que el puntaje de $A1$ sea mayor que el de $B1$. Por lo tanto, es muy probable que un ataque tal falle.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=7.5cm]{./figs/revert3}
-\caption{Revert Three Blocks by Short-range Attack}
+\caption{Reversión de tres bloques mediante un ataque de corto plazo}
 \label{fig:revert3}
 \end{figure}
 
-If Attacker wants to revert B1-BN, in which N is limited by term of expiration time of consensus of the block and thus can't be a very large number. When $N = 3$, the total deposits of all validators in the current dynasty will be totally confiscated. Therefore, when $N >= 4$, it is impossible to complete an attack in order to make score of B1 higher than that of A1 and revert B1-BN. It is pointless to launch such an attack.
+En general: si un atacante desea revertir $B1-BN$ —en donde $N$ está limitado por el plazo de vencimiento del consenso del bloque y por ende no puede ser un número muy grande— cuando $N = 3$, el total de los depósitos de todos los validadores de la dinastía actual serán completamente confiscados. Así, cuando $N >= 4$, será imposible completar el ataque para lograr que el puntaje de $B1$ sea mayor que $A1$ y así revertir $B1-BN$. No tendría sentido alguno un ataque de estas características.

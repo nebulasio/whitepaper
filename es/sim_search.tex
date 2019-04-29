@@ -1,10 +1,10 @@
-\section{Search for Similar Smart Contracts}
+\section{Búsqueda de contratos inteligentes similares}
 \label{appendix:sim_code}
 
-The difficulty in code similarity lies in structural features of high-level language and diversity in the forms of logical expression of smart contracts. At present, there are various schools of code similarity algorithm in the academic circles, which are generally described as follows:
+La dificultad en la búsqueda de similaridad de código radica en las características estructurales de los lenguajes de alto nivel, y en la diversidad de las expresiones lógicas de los contratos inteligentes. En la actualidad existen varias escuelas de algoritmos de búsqueda de similaridad de código en los círculos académicos, las que se describen de este modo:
 
 \begin{itemize}
-	\item \textbf{Edit Distance between Character Strings} \\
+	\item \textbf{Distancia de edición entre cadenas de caracteres} \\
 	Both of the entered query code and candidate source code are deemed as texts. Edit distance between two character strings is used for measuring similarity between them. Edit Distance refers to the minimum number of editing operations required for converting one character string into the other character string. Permitted editing operations include replacement of one character with another character, i.e. insertion of a character and deletion of a character. Generally speaking, the shorter the edit distance, the higher the similarity between two character strings. This algorithm based on edit distance between character strings can be used not only for source code comparison but also in intermediate representation or even machine language.
 	For the purpose of improving the robustness of the algorithm based on edit distance between character strings, a certain degree of conversion of the source code without any semantic change will be conducted, such as removal of blank character, removal of annotation, replacement of names of all local variables with ‘\$’, normalized expression of algebraic expression, etc. This algorithm is characterized by fast speed, conciseness and high efficiency. However, its adaptability to complex programs is relatively poor and doesn't take syntax and organizational structure of code into consideration.
 
