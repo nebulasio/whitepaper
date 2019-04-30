@@ -48,30 +48,30 @@ La \reffig{fig:search-arch} muestra la arquitectura del servicio de búsqueda.
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Crawler} los orígenes de los datos del \textit{crawler} del motor de búsqueda blockchain se clasifican en dos tipos: a) búsqueda de información sobre los bloques y el código de los contratos inteligentes en los blockchains; b) búsqueda de información sobre contratos inteligentes desde URL públicas incluyendo introducciones, comentarios de los usuarios acerca de las Dapps, y noticias relacionadas.
+	\item \textbf{Crawler:} los orígenes de los datos del \textit{crawler} del motor de búsqueda blockchain se clasifican en dos tipos: a) búsqueda de información sobre los bloques y el código de los contratos inteligentes en los blockchains; b) búsqueda de información sobre contratos inteligentes desde URL públicas incluyendo introducciones, comentarios de los usuarios acerca de las Dapps, y noticias relacionadas.
 
-	\item \textbf{Extractor} consiste del Extractor de Texto, del Extractor de Bloques y del Extractor de Código, los cuales proveen servicios de extracción de textos, bloques y código de contratos inteligentes, respectivamente.
+	\item \textbf{Extractor:} consiste del Extractor de Texto, del Extractor de Bloques y del Extractor de Código, los cuales proveen servicios de extracción de textos, bloques y código de contratos inteligentes, respectivamente.
 
-	\item \textbf{Analyzer} consiste del Analizador de Textos, del Analizador de Transacciones y del Analizador de Contratos, que brindan información sobre textos, información de transacciones en bloques, y análisis de contratos inteligentes, respectivamente. Este último permite descompilar contratos, extraer sus códigos fuente, realizar análisis semánticos, y más.
+	\item \textbf{Analyzer:} consiste del Analizador de Textos, del Analizador de Transacciones y del Analizador de Contratos, que brindan información sobre textos, información de transacciones en bloques, y análisis de contratos inteligentes, respectivamente. Este último permite descompilar contratos, extraer sus códigos fuente, realizar análisis semánticos, y más.
 
-	\item \textbf{Nebulas Rank Calculator} se refiere al servicio de cálculo de Nebulas Rank, que se utiliza para computar la valuación NR de cada cuenta, sea de usuarios o contratos.
+	\item \textbf{Nebulas Rank Calculator:} se refiere al servicio de cálculo de Nebulas Rank, que se utiliza para computar la valuación NR de cada cuenta, sea de usuarios o contratos.
 
-	\item \textbf{Ranking Model Trainer} hace referencia al servicio de entrenamiento del modelo de valuación. Las reglas de valuación toman en cuenta múltiples factores: coincidencia de campos, relevancia de textos, valuación NR del contrato, cantidad de transacciones efectuadas por el mismo, frecuencia y profundidad, valuación NR del usuario que efectúa una transacción con el contrato, y la seguridad de éste. Basándose en las condiciones de uso reales del usuario, el algoritmo de aprendizaje (el GBDT y las redes neuronales artificiales, o ANN, son opcionales) se utiliza para entrenar el modelo de valuación y puntuación, que además están en constante mejora de acuerdo al \textit{feedback} del usuario. El modelo entrenado se utiliza luego para el \textit{Scorer} del servicio de búsquedas.
+	\item \textbf{Ranking Model Trainer:} hace referencia al servicio de entrenamiento del modelo de valuación. Las reglas de valuación toman en cuenta múltiples factores: coincidencia de campos, relevancia de textos, valuación NR del contrato, cantidad de transacciones efectuadas por el mismo, frecuencia y profundidad, valuación NR del usuario que efectúa una transacción con el contrato, y la seguridad de éste. Basándose en las condiciones de uso reales del usuario, el algoritmo de aprendizaje (el GBDT y las redes neuronales artificiales, o ANN, son opcionales) se utiliza para entrenar el modelo de valuación y puntuación, que además están en constante mejora de acuerdo al \textit{feedback} del usuario. El modelo entrenado se utiliza luego para el \textit{Scorer} del servicio de búsquedas.
 
-	\item \textbf{Query Analyzer} se refiere al servicio de análisis de palabras clave, que incluye el sistema multilingüe \textit{Word Breaker} y el corrector ortográfico (\textit{Spell Checker}).
+	\item \textbf{Query Analyzer:} se refiere al servicio de análisis de palabras clave, que incluye el sistema multilingüe \textit{Word Breaker} y el corrector ortográfico (\textit{Spell Checker}).
 
-	\item \textbf{Indexer} se encarga de crear índices apropiados para el Analyzer y da soporte a índices completos e incrementales.
+	\item \textbf{Indexer:} se encarga de crear índices apropiados para el Analyzer y da soporte a índices completos e incrementales.
 
-	\item \textbf{Scorer} se clasifica en dos niveles:
+	\item \textbf{Scorer:} se clasifica en dos niveles:
 	\begin{itemize}
-		\item \textbf{Nivel 1} \textbf{Standard Scorer} recupera los conjuntos de resultados del candidato de ElasticSearch, lo cual se hace para recuperar tantos resultados de candidatos como sea posible a través de la clasificación eficiente y efectiva en el cluster de ElasticSearch. Este nivel puede recuperar varios miles de resultados.
-		\item \textbf{Nivel 2} \textbf{Ranking Model Scorer} utiliza el modelo de valuación \textit{offline} para calcular y reorganizar la valuación de cada candidato del conjunto de resultados del \textit{nivel 1}. En este nivel, los resultados calculados tienen una precisión abrumadora y pueden ser utilizados directamente por los usuarios.
+		\item \textbf{Nivel 1:} \textbf{Standard Scorer} recupera los conjuntos de resultados del candidato de ElasticSearch, lo cual se hace para recuperar tantos resultados de candidatos como sea posible a través de la clasificación eficiente y efectiva en el cluster de ElasticSearch. Este nivel puede recuperar varios miles de resultados.
+		\item \textbf{Nivel 2:} \textbf{Ranking Model Scorer} utiliza el modelo de valuación \textit{offline} para calcular y reorganizar la valuación de cada candidato del conjunto de resultados del \textit{nivel 1}. En este nivel, los resultados calculados tienen una precisión abrumadora y pueden ser utilizados directamente por los usuarios.
 	\end{itemize}
-	\item \textbf{Searcher} es el responsable de comunicarse con el cluster ElasticSearch y empacar y devolver el resultado de la búsqueda al \textit{frontend}.
+	\item \textbf{Searcher:} es el responsable de comunicarse con el cluster ElasticSearch y empacar y devolver el resultado de la búsqueda al \textit{frontend}.
 
-	\item \textbf{API} le proporciona a las aplicaciones externas servicios de búsqueda completos de API.
+	\item \textbf{API:} le proporciona a las aplicaciones externas servicios de búsqueda completos de API.
 
-	\item \textbf{ElasticSearch Cluster} Se refiere al cluster de servidores. El equipo de desarrollo de Nebulas planea utilizar el motor de búsqueda de código abierto ElasticSearch para dar soporte a la indización de texto completo.
+	\item \textbf{ElasticSearch Cluster:} Se refiere al cluster de servidores. El equipo de desarrollo de Nebulas planea utilizar el motor de búsqueda de código abierto ElasticSearch para dar soporte a la indización de texto completo.
 
 \end{itemize}
 
@@ -80,11 +80,11 @@ La \reffig{fig:search-arch} muestra la arquitectura del servicio de búsqueda.
 Este sistema genera, en combinación con Nebulas Rank, la lista de tendencias para brindar valores visuales multidimensionales de usuario en los blockchains.
 
 \begin{itemize}
-\item \textbf{Lista Nebulas Rank para direcciones de usuarios.} Muestra la lista NR diaria y las listas NR de cambios rápidos en valuaciones ascendentes y descendentes. Además, con esta lista es posible visualizar la tendencia en la variación de la valuación de cada cuenta y la tendencia en los cambios de salud de la red completa.
+\item \textbf{Lista Nebulas Rank para direcciones de usuarios:} muestra la lista NR diaria y las listas NR de cambios rápidos en valuaciones ascendentes y descendentes. Además, con esta lista es posible visualizar la tendencia en la variación de la valuación de cada cuenta y la tendencia en los cambios de salud de la red completa.
 
-\item \textbf{Lista Nebulas Rank para cuentas de contratos inteligentes.} Basándose en los valores NR de las cuentas de usuarios, se calcula la lista NR de las cuentas de los contratos inteligentes, la lista de cambios rápidos en valuaciones ascendentes y descendentes, la tendencia en la variación de cada contrato y el gráfico de tendencias para la cantidad y la frecuencia de uso de los contratos inteligentes en toda la red. Además, se añadirán las listas de contratos de tokens y la lista de estimación de contratos de mercado para mostrar una dimensión más amplia de la información.
+\item \textbf{Lista Nebulas Rank para cuentas de contratos inteligentes:} basándose en los valores NR de las cuentas de usuarios, se calcula la lista NR de las cuentas de los contratos inteligentes, la lista de cambios rápidos en valuaciones ascendentes y descendentes, la tendencia en la variación de cada contrato y el gráfico de tendencias para la cantidad y la frecuencia de uso de los contratos inteligentes en toda la red. Además, se añadirán las listas de contratos de tokens y la lista de estimación de contratos de mercado para mostrar una dimensión más amplia de la información.
 
-\item \textbf{Lista de desarrolladores de contratos inteligentes.} De acuerdo a lo descripta en el punto anterior, la lista de desarrolladores de contratos inteligentes enumera las contribuciones de éstos y los casos de rápido ascenso en el \textit{ranking} con el fin de mostrar tanto las {\dapp}s sobresalientes como sus desarrolladores.
+\item \textbf{Lista de desarrolladores de contratos inteligentes:} de acuerdo a lo descripta en el punto anterior, la lista de desarrolladores de contratos inteligentes enumera las contribuciones de éstos y los casos de rápido ascenso en el \textit{ranking} con el fin de mostrar tanto las {\dapp}s sobresalientes como sus desarrolladores.
 
 \end{itemize}
 
@@ -93,11 +93,11 @@ Este sistema genera, en combinación con Nebulas Rank, la lista de tendencias pa
 Mediante una palabra clave o una descripción textual —tal como su título, su función o su autor— los usuarios podrán encontrar, entre cualquier cantidad de contratos inteligentes, aquellos que coinciden con esos criterios. En este momento se encuentran disponibles varios algoritmos sofisticados y maduros para su búsqueda mediante texto. Al utilizar procesamiento de lenguaje natural y tecnologías de índice inverso, es posible ordenar y recuperar de forma eficiente la información almacenada en bases de datos cargadas masivamente de contratos inteligentes. Para ello, se hace uso de la siguiente tecnología:
 
 \begin{enumerate}
-	\item Rastreador distribuido orientado a tópicos
+	\item Rastreador distribuido orientado a tópicos.
 	\item Segmentación de palabras multilingüe: la segmentación de palabras es una tarea relativamente simple para los lenguajes occidentales; para las palabras chinas, en cambio, se han puesto a disposición los siguientes algoritmos: coincidencia máxima positiva, coincidencia mínima positiva, segmentación por ruta más corta y segmentación estadística.
-	\item Corrección de términos de búsqueda y comprensión semántica
-	\item Índice inverso y arquitectura de búsqueda distribuida
-	\item Algoritmo de valuación para ordenar los resultados de la búsqueda
+	\item Corrección de términos de búsqueda y comprensión semántica.
+	\item Índice inverso y arquitectura de búsqueda distribuida.
+	\item Algoritmo de valuación para ordenar los resultados de la búsqueda.
 
 \end{enumerate}
 
