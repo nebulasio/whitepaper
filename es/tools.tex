@@ -1,0 +1,30 @@
+\section{Servicios fundamentales y herramientas de desarrollo}
+\label{sec:tools}
+
+\subsection{Servicio de Nombres de Dominio (DNS)}
+
+Debido a la naturaleza anónima de los blockchains, las direcciones de las cuentas son cadenas largas y que no expresan ningún sentido para los humanos, lo que las hace poco amigables con los usuarios, que por este motivo quedan expuestos a perder dinero debido a errores causados por transferencias erróneas, o por interactuar con los objetos equivocados. En otras palabras: al usar nombres de dominio fáciles de recordar, los usuarios se benefician de una mejor experiencia. Por medio del uso de contratos inteligentes, el equipo de desarrollo de Nebulas implementará en el blockchain un sistema similar a DNS, llamado \textit{Nebulas Name Service} (NNS), asegurando que el acceso será irrestricto, gratuito y abierto. Cualquier desarrollador podrá implementar sus propios servicios de resolución de dominio, ya sean independientes o que utilicen NNS.
+
+Para ilustrar la idea: Alicia adquiere el nombre de dominio \textbf{alice.nns} para su dirección\\0xdf4d22611412132d3e9bd322f82e2940674ec1bc03b20e40. Para transferirle dinero a Alicia, Juan sólo necesita memorizar y escribir \textit{alice.nns} en el campo de la dirección de la aplicación NNS para que el dinero le llegue a la persona correcta.
+
+Las reglas para el uso de NNS serán las siguientes:
+
+\begin{itemize}
+
+	\item Los nombres de subdominios de nivel superior quedarán reservados y no estarán disponibles para su contratación; estos nombres incluyen: *.nns, *.com, *.org and *.edu. Los usuarios sólo podrán aplicar a nombres de subdominio de segundo nivel.
+	\item Una vez que el servicio NNS esté activo, los usuarios serán capaces de consultar la disponibilidad de los nombres de dominio; de encontrar uno vacante, dichos usuarios podrán ofertar por él a través de un contrato inteligente. El proceso de subasta será abierto, por lo que cualquier usuario podrá consultar la oferta vigente y mejorarla.
+	\item Una vez que la subasta termine, el mejor postor ganará el nombre de dominio y el contrato inteligente bloqueará los fondos del oferente. El periodo de validez del nombre de dominio es de un año. Pasado ese plazo, el usuario será libre de renovarlo. De hacerlo, el periodo de validez se extenderá por otro año. Si decide no renovarlo, los fondos de la subasta le serán devueltos al postor y el nombre de dominio quedará disponible nuevamente.
+	\item Los usuarios podrán ceder los derechos de un nombre de dominio en cualquier momento. En ese caso, los fondos de la oferta serán devueltos de forma automática a la cuenta del usuario depositante, y el nombre de dominio quedará disponible nuevamente.
+	\item Los usuarios podrán transferir la propiedad del nombre de dominio, con o sin compensación. Nebulas no intervendrá en ninguna transacción de nombres de dominio.
+
+\end{itemize}
+
+\subsection{La red Lightning}
+
+En la actualidad todas las redes públicas de blockchain enfrentan desafíos relacionados a la escalabilidad de sus sistemas. Por ejemplo, la red Bitcoin sólo es capaz de procesar siete transacciones por segundo, mientras que Ethereum apenas duplica ese valor, con 15 TPS. Con la introducción de algoritmos de consenso basados en PoS (\textit{Proof of Stake}, o Prueba de Participación), es posible evitar por completo los complejos cálculos del consenso PoW, con lo cual la velocidad de las transacciones se incrementa notablemente. No obstante, los blockchains públicos siguen presentando problemas serios antes escenarios de micropagos en el mundo real. En febrero de 2015 se diseñó la red Lightning \cite{poon2015bitcoin} con el fin de crear un canal dedicado a los micropagos entre distintos actores, de modo de lograr que una gran cantidad de pagos pudieran ser confirmados fuera del blockchain de forma directa, repetida y bidireccionalmente, en un método llamado “de compensación”: cuando es necesario liquidar una serie de transacciones, el resultado final se envía a los blockchains para su confirmación. Teóricamente, esto permite alcanzar millones de transferencias por segundo. Si no existe un canal de pago punto a punto entre las partes, también puede utilizarse una vía de pago que conecte a ambas y que consista en múltiples canales de pago para lograr una transferencia fiable de fondos entre ellas. La red Lightning ya ha demostrado ser útil, y superó la etapa de prueba de concepto tanto para Bitcoin como para Ethereum.
+
+Nebulas implementa la red Lightning como infraestructura de blockchains, ofreciendo así un diseño flexible. Cualquier desarrollador externo puede usar el servicio básico de esta red para desarrollar aplicaciones para escenarios de transacciones frecuentes en Nebulas. En paralelo a esto, Nebulas lanzará la primera cartera del mundo con soporte a esta red.
+
+\subsection{Herramientas de desarrollo}
+
+Es crítico contar con un conjunto de herramientas de desarrollo para la creación de aplicaciones en el blockchain. Hasta el momento, este tipo de herramientas son incompletas, imponiendo grandes retos a la mayoría de los desarrolladores. El equipo de desarrollo de Nebulas proveerá un amplio conjunto de herramientas de desarrollo que incluirá un entorno IDE para contratos inteligentes, un explorador de bloques, \textit{plugins} para los IDE más populares (como Eclipse, JetBrains, Visual Studio, Sublime Text, VIM, y Atom), depuradores, simuladores, herramientas de verificación formal para contratos inteligentes, SDKs para distintos lenguajes y para entornos móviles.

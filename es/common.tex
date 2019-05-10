@@ -1,0 +1,82 @@
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+\usepackage{nomencl}
+\usepackage{amsfonts, booktabs,siunitx}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\makenomenclature
+
+\usepgflibrary{arrows}
+\usetikzlibrary{snakes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes,arrows,chains}
+\usepgfplotslibrary{patchplots,colormaps}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning, fit}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{intersections}
+\usepackage[]{algorithm2e}
+
+\usepackage{flafter}
+
+
+\newcommand{\todo}[1]{{\color{blue}#1}}
+\newcommand{\cmnt}[1]{{\color{red}#1}}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+% math and cite
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+\usepackage{rotating}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newcommand{\refsec}[1]{\S\ref{#1}}
+\newcommand{\reffig}[1]{Fig.\ref{#1}}
+\usepackage{soul}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{soul}
+\usepackage{fullpage}
+\usepackage[noend]{algorithmic}
+%\usepackage{subfigure}
+\usepackage[american]{babel}
+%\usepackage{csquotes}
+%\usepackage{biblatex}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+\lstset{emph={long, contract, return, uint256, bool, function, if, true,
+    else, using, returns, constant, string, public, namespace, struct, for,
+    int,char, typedef, void, double, float, static_cast,
+    new},emphstyle=\bfseries\ttfamily, 					basicstyle=\ttfamily,
+  moredelim=[is][\color{red}]{^}{^}}
+
+%\lstset{language=C++,
+                %basicstyle=\ttfamily\footnotesize,
+                %keywordstyle=\color{blue}\ttfamily\footnotesize,
+                %stringstyle=\color{red}\ttfamily\footnotesize,
+                %commentstyle=\color{green}\ttfamily\footnotesize,
+                %morecomment=[l][\color{magenta}]{\#}
+%}
+%\lstset{%
+  %escapeinside={(*}{*)},%
+%}
+
+\SetKwProg{Contract}{contract}{ \{}{\}}
+\SetKwProg{Function}{function}{ \{}{\}}
+\SetKwProg{If}{if}{ \{}{\}}
+\SetKwProg{Else}{else}{ \{}{\}}
+\newcommand{\String}{\KwSty{string}}
+\newcommand{\Public}{\KwSty{public}}
+\newcommand{\Returns}{\KwSty{returns}}
+\newcommand{\Shared}{\KwSty{shared}}
+\newcommand{\Constant}{\KwSty{contant}}

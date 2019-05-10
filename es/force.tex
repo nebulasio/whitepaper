@@ -1,0 +1,14 @@
+\section{Nebulas Force}
+\label{sec:nebulasforce}
+
+Nebulas Force (NF) se utiliza para describir la capacidad evolutiva tanto del sistema blockchain como de sus aplicaciones. Como primera fuerza motriz del sistema blockchain y del desarrollo de sus aplicaciones, Nebulas Force incluye tres aspectos que son: la Máquina Virtual Nebulas (\textit{Nebulas Virtual Machine}, NVM), la actualización del código del protocolo en el sistema blockchain, y la actualización de los contratos inteligentes que corren en dicho sistema.
+
+En Nebulas, introduciremos LLVM para implementar la Máquina Virtual de Nebulas (NVM). El código de protocolo y el código de los contratos inteligentes se compilarán en \textit{NVM bytecode}, que se compila y optimiza dinámicamente con la función de compilación JIT (just-in-time) de LLVM y que, finalmente, se ejecutarán en un entorno \textit{sandbox}. Mientras tanto, con la arquitectura modular de LLVM, los desarrolladores pueden utilizar sus lenguajes de programación favoritos para implementar contratos inteligentes más seguros y de mayor rendimiento, proporcionando a los usuarios, así, diversas aplicaciones descentralizadas.
+
+Para el proceso de actualización del código de protocolo, Nebulas colocará éste dentro de la estructura de los bloques, añadiendo a ellos los datos adicionales necesarios, de modo de evitar cualquier \textit{fork}.
+
+La capacidad de actualización de NF y los protocolos básicos quedará gradualmente abierta a la comunidad de Nebulas a medida que esta crezca y pueda definir por sí misma el camino evolutivo de Nebulas y los objetivos de las actualizaciones.
+
+Con la ayuda de su tecnología central, y con la apertura de NF a la comunidad, Nebulas será un espacio en permanente evolución, y con un potencial de desarrollo prácticamente infinito. Por ejemplo, será posible actualizar una serie de parámetros incluyendo los del algoritmo NR, el total de incentivos PoD, el algoritmo de consenso y la tasa de producción de nuevos \textit{tokens} sin necesidad de actualizar el código de los clientes.
+
+Los contratos inteligentes se consideran usualmente como fijos, sin soporte a actualizaciones. Con la ayuda del diseño de almacenamiento subyacente de los contratos inteligentes en Nebulas, que permiten la consulta de variables de estado entre contratos, es posible crear actualizaciones para ellos. Esta solución es además muy amigable con los desarrolladores, permitiéndoles así brindar una respuesta rápida a cualquier vulnerabilidad o error, lo que en definitiva ayuda a prevenir pérdidas cuantiosas de dinero causadas por errores o \textit{hackers}.

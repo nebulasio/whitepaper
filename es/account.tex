@@ -1,0 +1,33 @@
+\section{Diseño de las direcciones de cuentas Nebulas}
+
+El diseño de las direcciones de cuentas Nebulas tuvo especial cuidado en colocar la letra \textbf{\textit{n}} como carácter inicial —a modo de inicial para el nombre del proyecto, \textit{Nebulas}.
+
+\subsection{Direcciones de cuentas}
+
+En forma similar a Bitcoin and Ethereum, Nebulas también adopta un algoritmo criptográfico de curva elíptica para sus cuentas. La dirección se deriva de la clave pública, que a su vez se deriva de la clave privada, encriptada con la contraseña del usuario.
+
+El diseño del \textit{checksum} también apunta a evitar que los usuarios envíen NAS de forma accidental a una cuenta equivocada debido a uno o más caracteres escritos incorrectamente.
+
+El método específico de cálculo es el que se provee aquí debajo:
+
+\begin{verbatim}
+content = ripemd160(sha3_256(public key))
+checksum = sha3_256(0x19<<(21*8) + 0x57<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x57<<(24*8) + content<<(4*8) + checksum)
+\end{verbatim}
+
+\noindent en donde 0x19 se utiliza como relleno, y 0x57 especifica el tipo de dirección. Nótese que la longitud de \texttt{content} es de 20 bytes, la longitud de \texttt{checksum} es de 4 bytes, y la longitud de \texttt{address} es de 26 bytes.
+
+Una dirección Nebulas contiene un total de 35 caracteres incluyendo el prefijo \textit{n}, y se codifica utilizando el algoritmo base58. Una dirección típica se verá así: \texttt{n1TV3sU6jyzR4rJ1D7jCAmtVGSntJagXZHC}.
+
+\subsection{Direcciones de contratos inteligentes}
+El cálculo de las direcciones de los contratos inteligentes difiere ligeramente del utilizado en el párrafo anterior, ya que no se requiere la contraseña, pero sí el \textit{nonce} y la dirección de quien lo implementa. La fórmula es la siguiente:
+
+\begin{verbatim}
+content = ripemd160(sha3_256(tx.from, tx.nonce))
+checksum = sha3_256(0x19<<(21*8) + 0x58<<(20*8) + content)[0:4]
+address = base58(0x19<<(25*8) + 0x58<<(24*8) + content<<(4*8) + checksum)
+\end{verbatim}
+
+\noindent
+en donde 0x58 indica que la dirección es de un contrato inteligente. Una dirección de este tipo se verá así: \texttt{n1sLnoc7j57YfzAVP8tJ3yK5a2i56QrTDdK}.

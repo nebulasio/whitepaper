@@ -1,0 +1,46 @@
+\begin{tikzpicture}
+
+\pgfmathsetmacro{\XMD}{1.5}
+\pgfmathsetmacro{\YMD}{1.5}
+\pgfmathsetmacro{\DX}{0.1}
+
+\tikzset{
+  pnode/.style={draw, circle, on grid, align=center, minimum height=4ex},
+  coord/.style={coordinate, on grid, node distance=6mm and 25mm},
+}
+\node [pnode] (G) at (0, 0) {G} node [below=\DX of G] {D0};
+
+\node [pnode] (B1) at($(G.north east) + (\XMD, \YMD)$) {B1}node [below=\DX of B1] {D0};
+
+\node [pnode] (B2) at($(B1.east) + (\XMD, 0)$) {B2} node [below=\DX of B2] {D0};
+\node [pnode] (B3) at($(B2.east) + (\XMD, 0)$) {B3} node [below=\DX of B3] {D0};
+\node [pnode] (B4) at($(B3.east) + (\XMD, 0)$) {B4} node [below=\DX of B4] {D0};
+
+\node [pnode] (A1) at($(G.south east) + (\XMD, -\YMD)$) {A1} node [below=\DX of A1] {D0};
+\node [pnode] (A2) at($(A1.east) + (\XMD, 0)$) {A2} node [below=\DX of A2] {D0};
+\node [pnode] (A3) at($(A2.east) + (\XMD, 0)$) {A3} node [below=\DX of A3] {D0};
+\node [pnode] (A4) at($(A3.east) + (\XMD, 0)$) {A4} node [below=\DX of A4] {D0};
+
+\draw [thick, ->] (G.north east) -- (B1.south west);
+\draw [thick, ->] (G.south east) -- (A1.north west);
+
+\draw [thick, ->] (B1.east) -- (B2.west);
+\draw [thick, ->] (B2.east) -- (B3.west);
+\draw [thick, ->] (B3.east) -- (B4.west);
+
+\draw [thick, ->] (A1.east) -- (A2.west);
+\draw [thick, ->] (A2.east) -- (A3.west);
+\draw [thick, ->] (A3.east) -- (A4.west);
+
+\node at ($(G) + (0, 1.8*\YMD)$) {H};
+\node [coord] (c1) at (G.west -| B1.south){};
+\node at ($(c1) + (0, 1.8*\YMD)$) {H+1};
+\node [coord] (c2) at (G.west -| B2.south){};
+\node at ($(c2) + (0, 1.8*\YMD)$) {H+2};
+\node [coord] (c3) at (G.west -| B3.south){};
+\node at ($(c3) + (0, 1.8*\YMD)$) {H+3};
+\node [coord] (c4) at (G.west -| B4.south){};
+\node at ($(c4) + (0, 1.8*\YMD)$) {H+4};
+
+
+\end{tikzpicture}

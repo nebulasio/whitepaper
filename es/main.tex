@@ -1,0 +1,75 @@
+\documentclass[11.5pt]{article}
+\usepackage{charter}
+\usepackage{fullpage}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage[title,titletoc]{appendix}
+
+\bibliographystyle{unsrt}
+\input{common.tex}
+%\addbibresource{reference.bib}
+
+\begin{document}
+
+% ---------------------------------
+% Los siguientes comandos son un quickfix para la imposibilidad de compilar este documento usando Babel.
+\renewcommand\contentsname{Tabla de contenidos}
+\renewcommand\refname{Referencias}
+\renewcommand\appendixname{Anexo}
+\renewcommand\appendixpagename{Anexos}
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\nomname}{Glosario}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\dapp}{DApp\xspace}
+\newcommand{\pidc}{Protocolo de Incentivos para Desarrolladores\xspace}
+% ---------------------------------
+
+\title{
+	Libro blanco de Nebulas \\
+	\large El sistema operativo con motor de búsqueda en blockchain basado en \textit{rankings}\\
+	\small Título original: Nebulas Technical Whitepaper: The value-based blockchain operating system and search engine\\
+	\small Traducción: Abril de 2019\\v1.0.0}
+\author{Equipo Nebulas}
+\date{Abril de 2018\\v1.0.2}
+
+\maketitle
+
+\newpage
+\input{abstract.tex} %TRADUCIDO
+\tableofcontents
+
+\printnomenclature
+
+\input{nomencl.tex} %TRADUCIDO
+\newpage
+\input{introduction.tex} %TRADUCIDO
+\newpage
+\input{rank.tex} %TRADUCIDO
+\newpage
+\input{force.tex} %TRADUCIDO
+\input{nvm.tex} %TRADUCIDO
+\input{block.tex} %TRADUCIDO
+\input{smartcontract.tex} %TRADUCIDO
+\newpage
+\input{dip.tex} %TRADUCIDO
+\newpage
+\input{pod.tex} %TRADUCIDO
+\newpage
+\input{search.tex} %TRADUCIDO
+\newpage
+\input{tools.tex} %TRADUCIDO
+\newpage
+\input{nascoin.tex} %TRADUCIDO
+\newpage
+\input{conclusion.tex} %TRADUCIDO
+\bibliography{reference} %SIN MODIFICAR
+
+\begin{appendices}
+\input{account.tex} %TRADUCIDO
+\input{sim_search.tex} %TRADUCIDO
+\end{appendices}
+
+\end{document}

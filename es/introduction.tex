@@ -1,0 +1,52 @@
+\section{Introducción}
+
+\subsection{Introducción a la tecnología Blockchain}
+
+La tecnología del blockchain se derivó de la primera moneda digital descentralizada, Bitcoin, que fue conceptualizada por Satoshi Nakamoto en 2008 \cite{Nakamoto2008}. En lugar de ser \textit{acuñado} por una institución bancaria, cada bitcoin se genera a través de algoritmos específicos y computación masiva para asegurar la consistencia de su \textit{sistema de contabilidad}.
+
+Ethereum \cite{buterin2014ethereum} va más allá y proporciona una plataforma informática pública basada en blockchains que incluye un lenguaje Turing-completo. El núcleo de estos sistemas de criptodivisa —representados por Bitcoin y Ethereum— es la tecnología subyacente del blockchain. Con los componentes de cifrado de datos, \textit{timestamping}, consenso distribuido e incentivos económicos, la tecnología de blockchains hace realidad las transacciones entre pares, la coordinación y la colaboración en un sistema distribuido en el que los nodos no necesitan confiar los unos en los otros, resolviendo los problemas comunes a los que se enfrentan las instituciones centralizadas, incluyendo el almacenamiento de datos de alto costo, ineficiente e inseguro.
+
+Cabe señalar que la tecnología de los blockchains no es en sí misma una novedad tecnológica, sino más bien una innovación que combina una serie de tecnologías que incluyen la comunicación entre pares, la criptografía, las estructuras de datos de los blockchains, etc.
+
+\subsection{Desafíos tecnológicos y de negocios}
+
+A medida que más personas se unen en pos del desarrollo de sistemas de autogobierno descentralizados, el mundo observa un aumento dramático del número de proyectos basados en blockchain: más de 2000 proyectos, con activos digitales de carácter global cuyo valor asciende a 90 mil millones de dólares. El número de usuarios de blockchains —propietarios al mismo tiempo de activos digitales— también está aumentando rápidamente: de 2 millones a principios de 2013 a 20 millones a principios de 2017. Para 2020, se espera que el número de usuarios de blockchains y el de propietarios de activos digitales alcance o supere los 200 millones, y para 2025, los 1000 millones.
+
+Con la popularidad de la tecnología blockchain están surgiendo más aplicaciones y casos de uso basados en ellos.  Tales casos se han extendido gradualmente desde las criptodivisas a los contratos inteligentes desarrollados por Ethereum, a la capa de acuerdos globales desarrollada por Ripple, etc. Estos casos también han venido acompañados de crecientes demandas y desafíos sobre los blockchains subyacentes.
+
+\paragraph{Valuación.} Uno de los principales desafíos de los blockchains existentes es la falta de un estándar de valuación. Creemos que ese ecosistema necesita una metodología para valuar tanto a los usuarios como los contratos inteligentes. Las aplicaciones de capas superiores pueden construirse a partir de esta valuación, que les brinda métricas de cada caso particular de uso. En este sentido, en el futuro abundarán las innovaciones en los modelos de negocio que recuerdan el auge de Google en el mundo de Internet.
+
+\paragraph{Actualizaciones en el sistema blockchain.} A diferencia del software tradicional, los sistemas blockchain descentralizados no pueden forzar a sus usuarios a actualizar los clientes o los protocolos. Debido a ello, la actualización de protocolos en los sistemas blockchain a menudo lleva a crear \textit{hard forks} o \textit{soft forks} que resultan en enormes pérdidas para la comunidad, lo que limita más aún los casos de aplicaciones posibles para estos sistemas.
+
+En el caso de Bitcoin, la controversia sobre el problema de escalado de bloques sigue siendo muy grande dentro de la comunidad, lo que dificulta la evolución de su protocolo. La severa insuficiencia de su blockchain ha llevado a una situación única en la que habían casi un millón de transacciones esperando a ser inscritas en los bloques. Los usuarios a menudo tienen que pagar una \textit{tarifa de aceleración de transacciones} exageradamente alta, lo que afecta seriamente su experiencia con el sistema. Por otro lado, aunque el \textit{hard fork} de Ethereum ofrece una solución temporal al problema causado por el DAO, también da lugar a \textit{efectos secundarios} no deseados como los activos duplicados en los blockchain ETH y ETC, y la consecuente división de su comunidad.
+
+\paragraph{La construcción de un ecosistema de aplicaciones en el blockchain.} Con el rápido crecimiento de las aplicaciones distribuidas ({\dapp}s) en el blockchain, la clave para lograr una mejor experiencia de usuario es tener un ecosistema sólido. Es necesario pensar en cómo ayudar a los usuarios a buscar y encontrar la {\dapp} que necesitan a partir de una colección masiva de aplicaciones blockchain, cómo animar a los programadores a desarrollar más {\dapp}s para los usuarios, y cómo ayudarlos en esa tarea. Tomemos como ejemplo Ethereum: cientos de miles de aplicaciones ya han sido construidas sobre Ethereum; sin embargo, una vez que esto aumente el tamaño de las aplicaciones en el App Store, encontrar la {\dapp} apropiada para una tarea dada será un gran desafío.
+
+\subsection{Principios de diseño de Nebulas}
+
+Nos propusimos diseñar un sistema blockchain auto-evolutivo y basado en incentivos para hacer frente a estos retos y oportunidades. Los principios de diseño son los siguientes:
+
+\begin{itemize}
+	\item \textbf{Un algoritmo equitativo para definir la medición de la valuación}
+
+Creemos que es necesaria un estándar para la valuación de los datos en la capa inferior de la pila del blockchain, con el fin de ayudar a identificar otras dimensiones de la información, descubriendo así un mayor valor en el mundo blockchain. Presentamos el algoritmo NR (Nebulas Rank) (ver \refsec{sec:rank}) similar al PageRank \cite{Brin2010}\cite{page1999pagerank} de Google), que combina la liquidez, la velocidad, el ancho y la profundidad del capital en los blockchains para proporcionar una valuación equitativa para sus usuarios. NR es la medida de valor en el ecosistema blockchain, en el que los desarrolladores pueden medir la importancia de cada usuario, de cada contrato inteligente y de cada {\dapp} en diferentes escenarios. NR tiene un enorme potencial comercial y puede ser utilizado en búsquedas, recomendaciones, publicidad, y otros campos.
+
+\item \textbf{La auto-evolución del sistema blockchain system y sus aplicaciones}
+
+Creemos que un sistema bien acondicionado, junto a sus aplicaciones, deben ser capaces de auto-evolucionar para poder realizar cómputos más rápidos, tener una mayor resiliencia y una experiencia de usuario mejorada, todo ello con poca intervención humana. Llamamos a esta habilidad auto-evolutiva \textit{Nebulas Force} (ver \refsec{sec:nebulasforce}). En la arquitectura del Sistema de Nebulas, debido a nuestra bien diseñada estructura de bloques, los protocolos centrales pasarán a formar parte de los datos en el blockchain y se actualizarán mediante la adición de datos.
+
+En cuanto a las aplicaciones (contratos inteligentes) en Nebulas, su actualización es posible mediante el acceso de contratos cruzados a las variables de estado almacenadas en la capa inferior de los contratos inteligentes. El blockchain auto-evolutivo de Nebulas proveerá ventajas sobre otros blockchains públicos en términos de potencial de supervivencia y desarrollo; también les permitirá a los programadores brindar respuestas rápidas a cualquier vulnerabilidad mediante estas actualizaciones, lo que ayudará a prevenir las enormes pérdidas económicas vinculadas al \textit{black-hat hacking}.
+
+\item \textbf{La construcción de un ecosistema de aplicaciones blockchain}
+
+Desarrollamos el algoritmo PoD \refsec{sec:pod} basándonos en el concepto de la \textit{devoción de cuentas} en Nebulas. Este algoritmo utiliza NR como medida de valor para identificar aquellas cuentas con gran \textit{devoción} al ecosistema, y les otorga una determinada probabilidad de resultar elegidos como \textit{contables}, en igualdad de condiciones frente a otras cuentas, con el fin de frenar el monopolio en el ejercicio de esa función. También integra en su algoritmo las penalizaciones económicas naturales del consenso PoS para evitar daños maliciosos a llos blockchains públicos, facilitando así, mediante esas dos medidas, la libertad del ecosistema. Las principales características son: mayor velocidad en el consenso y mayor resistencia al fraude que los algoritmos de consenso PoI y PoS.
+
+También estamos desarrollando el algoritmo DIP (\textit{Developer Incentive Protocol}, o Protocolo de Incentivo a Desarrolladores) (véase \refsec{sec:dip}) que aplica a contratos inteligentes y desarrolladores de aplicaciones descentralizadas, y cuyo objetivo es el de premiar a los programadores de contratos inteligentes y {\dapp}s por su gran devoción a la comunidad. Para garantizar la transparencia, un \textit{contador} se encarga de registrar el incentivo en el blockchain.
+
+Basado en Nebulas Rank, se incluye además un motor de búsqueda (véase \refsec{sec:search}) para ayudar a los usuarios a encontrar aplicaciones de calidad en el blockchain.
+
+\end{itemize}
+
+Dado que Ethereum es una exitosa plataforma pública de blockchain, con un ecosistema masivo, Nebulas busca aprender de su excelente diseño, y busca también que sus contratos inteligentes sean totalmente compatibles con el de esa plataforma, para que las aplicaciones nativas allí puedan ejecutarse en Nebulas con un costo de migración cero.
+
+Basándonos en los principios de diseño mencionados, nos esforzamos por construir un sistema operativo de blockchain, y un motor de búsqueda basado en nuestra medición de valor. Este libro blanco describe en detalle las tecnologías embebidas en Nebulas. \refsec{sec:rank} describe Nebulas Rank, un modelo de valuación, y su algoritmo; \refsec{sec:nebulasforce} describe Nebulas Force, un sistema que le brinda la capacidad de auto-evolución de Nebulas; \refsec{sec:dip}, \refsec{sec:pod}, \refsec{sec:search} y \refsec{sec:tools} versan sobre la concepción de Nebulas y el diseño de su ecosistema para aplicaciones blockchain; por último, \refsec{sec:nascoin} plantea una discusión acerca de NAS, la criptodivisa de Nebulas.
